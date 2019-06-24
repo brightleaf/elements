@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card and components should render 1`] = `
+<div
+  class="card"
+>
+  <div
+    class="card-content"
+  >
+    <div
+      class="content"
+    >
+      Hi
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card and components should render with footer header and body 1`] = `
+<div
+  class="card"
+>
+  <header
+    class="card-header"
+  >
+    <p
+      class="card-header-title"
+    >
+      HEADER
+    </p>
+    <a
+      aria-label="more options"
+      class="card-header-icon"
+      href="#"
+    >
+      <span
+        class="icon"
+      >
+        <i
+          aria-hidden="true"
+          class="fas fa-angle-down"
+        />
+      </span>
+    </a>
+  </header>
+  <div
+    class="card-content"
+  >
+    <div
+      class="content"
+    >
+      Hi
+    </div>
+  </div>
+  <footer
+    class="card-footer"
+  >
+    <a
+      class="card-footer-item"
+      href="#"
+    >
+      Save
+    </a>
+    <a
+      class="card-footer-item"
+      href="#"
+    >
+      Edit
+    </a>
+    <a
+      class="card-footer-item"
+      href="#"
+    >
+      Delete
+    </a>
+  </footer>
+</div>
+`;
+
+exports[`Card and components should render with header and footer and body 1`] = `
+<div
+  class="card"
+>
+  <header
+    class="card-header"
+  >
+    <p
+      class="card-header-title"
+    >
+      HEADER
+    </p>
+    <a
+      aria-label="more options"
+      class="card-header-icon"
+      href="#"
+    >
+      <span
+        class="icon"
+      >
+        <i
+          aria-hidden="true"
+          class="fas fa-angle-down"
+        />
+      </span>
+    </a>
+  </header>
+  <div
+    class="card-content"
+  >
+    <div
+      class="content"
+    >
+      Hi
+    </div>
+  </div>
+  <footer
+    class="card-footer"
+  >
+    <a
+      class="card-footer-item"
+      href="#"
+    >
+      Save
+    </a>
+    <a
+      class="card-footer-item"
+      href="#"
+    >
+      Edit
+    </a>
+    <a
+      class="card-footer-item"
+      href="#"
+    >
+      Delete
+    </a>
+  </footer>
+</div>
+`;
