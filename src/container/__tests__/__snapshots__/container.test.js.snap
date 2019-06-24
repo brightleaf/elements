@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Column and Columns should render 1`] = `
+<div
+  class="container"
+>
+  <div>
+    Hi
+  </div>
+</div>
+`;
+
+exports[`Column and Columns should render isFluid with class is-fluid 1`] = `
+<div
+  class="container is-fluid"
+>
+  <div>
+    Hi
+  </div>
+</div>
+`;
+
+exports[`Column and Columns should render isMobile with class is-mobile 1`] = `
+<div
+  class="container is-mobile"
+>
+  <div>
+    Hi
+  </div>
+</div>
+`;
+
+exports[`Column and Columns should render isWideScreen with class is-fullhd 1`] = `
+<div
+  class="container is-fullhd"
+>
+  <div>
+    Hi
+  </div>
+</div>
+`;
+
+exports[`Column and Columns should render isWideScreen with class is-widescreen 1`] = `
+<div
+  class="container is-widescreen"
+>
+  <div>
+    Hi
+  </div>
+</div>
+`;
