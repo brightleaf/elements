@@ -1,0 +1,32 @@
+export const Colors = ({
+  isPrimary,
+  isSuccess,
+  isInfo,
+  isWarning,
+  isDanger,
+  isLink,
+}) => ({
+  'is-primary': isPrimary,
+  'is-success': isSuccess,
+  'is-info': isInfo,
+  'is-warning': isWarning,
+  'is-danger': isDanger,
+  'is-link': isLink,
+})
+export const Sizes = ({ isSmall, isMedium, isLarge }) => ({
+  'is-small': isSmall,
+  'is-medium': isMedium,
+  'is-large': isLarge,
+})
+
+export const Screens = ({ isMobile, isFluid, isWideScreen, isFullHD }) => ({
+  'is-mobile': isMobile,
+  'is-fluid': isFluid,
+  'is-widescreen': isWideScreen,
+  'is-fullhd': isFullHD,
+})
+
+export const StyleOrState = ({ isOutlined, isLoading }) => ({
+  'is-loading': isLoading,
+  'is-outlined': isOutlined,
+})
