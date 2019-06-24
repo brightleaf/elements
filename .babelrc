@@ -1,0 +1,21 @@
+{
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-syntax-dynamic-import"
+  ],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "chrome": 70,
+          "browsers": [
+            "last 2 versions",
+            "safari >= 12"
+          ]
+        }
+      }
+    ],
+    "@babel/preset-react"
+  ]
+}
