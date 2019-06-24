@@ -37,7 +37,7 @@ export const Notification = ({
       >
         <button
           title="dismiss notification"
-          className="notification-dismiss"
+          className="delete notification-dismiss"
           onClick={e => {
             e.preventDefault()
             onDismiss()
