@@ -3,9 +3,9 @@ import { Router, Link, LocationProvider, Location } from '@reach/router'
 
 import Container from '../pages/container'
 import Columns from '../pages/columns'
+import Notifications from '../pages/notifications'
 import Intro from './intro'
 import Home from './home'
-
 const TabLink = props => {
   console.log('TabLink', props)
   return (
@@ -42,6 +42,7 @@ export default class App extends Component {
                 <Home to="/">Home</Home>
                 <TabLink to="/containers">Container</TabLink>
                 <TabLink to="/columns">Columns</TabLink>
+                <TabLink to="/notifications">Notifications</TabLink>
               </ul>
             </div>
             <Intro />
@@ -49,6 +50,7 @@ export default class App extends Component {
               <Home path="/" />
               <Container path="/containers" />
               <Columns path="/columns" />
+              <Notifications path="/notifications" />
             </Router>
           </React.Suspense>
         </Fragment>
