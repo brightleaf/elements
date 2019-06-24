@@ -6,7 +6,7 @@ exports[`Column and Columns should not render with when isShow is false 1`] = `
   title="notification element"
 >
   <button
-    class="notification-dismiss"
+    class="delete notification-dismiss"
     title="dismiss notification"
   />
   <div>
@@ -21,7 +21,7 @@ exports[`Column and Columns should not render with when isShow is false 2`] = `
   title="notification element"
 >
   <button
-    class="notification-dismiss"
+    class="delete notification-dismiss"
     title="dismiss notification"
   />
   <div>
@@ -36,7 +36,7 @@ exports[`Column and Columns should render 1`] = `
   title="notification element"
 >
   <button
-    class="notification-dismiss"
+    class="delete notification-dismiss"
     title="dismiss notification"
   />
   <div>
@@ -51,7 +51,7 @@ exports[`Column and Columns should render isDanger with class is-danger 1`] = `
   title="notification element"
 >
   <button
-    class="notification-dismiss"
+    class="delete notification-dismiss"
     title="dismiss notification"
   />
   <div>
@@ -66,7 +66,7 @@ exports[`Column and Columns should render isInfo with class is-info 1`] = `
   title="notification element"
 >
   <button
-    class="notification-dismiss"
+    class="delete notification-dismiss"
     title="dismiss notification"
   />
   <div>
@@ -81,7 +81,7 @@ exports[`Column and Columns should render isLink with class is-link 1`] = `
   title="notification element"
 >
   <button
-    class="notification-dismiss"
+    class="delete notification-dismiss"
     title="dismiss notification"
   />
   <div>
@@ -96,7 +96,7 @@ exports[`Column and Columns should render isPrimary with class is-primary 1`] = 
   title="notification element"
 >
   <button
-    class="notification-dismiss"
+    class="delete notification-dismiss"
     title="dismiss notification"
   />
   <div>
@@ -111,7 +111,7 @@ exports[`Column and Columns should render isSuccess with class is-success 1`] = 
   title="notification element"
 >
   <button
-    class="notification-dismiss"
+    class="delete notification-dismiss"
     title="dismiss notification"
   />
   <div>
@@ -126,7 +126,7 @@ exports[`Column and Columns should render isWarning with class is-warning 1`] = 
   title="notification element"
 >
   <button
-    class="notification-dismiss"
+    class="delete notification-dismiss"
     title="dismiss notification"
   />
   <div>
