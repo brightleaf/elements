@@ -6,7 +6,7 @@ import {
   waitForElement,
 } from '@testing-library/react'
 import { toBeInTheDocument, toHaveClass } from 'jest-dom'
-import { Notification } from '../notification'
+import { Notification } from '../index'
 
 expect.extend({ toBeInTheDocument, toHaveClass })
 describe('Column and Columns', () => {
