@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Column and Columns should not render with when isShow is false 1`] = `
+<div
+  class="notification is-primary"
+  title="notification element"
+>
+  <button
+    class="notification-dismiss"
+    title="dismiss notification"
+  />
+  <div>
+    Hi
+  </div>
+</div>
+`;
+
+exports[`Column and Columns should not render with when isShow is false 2`] = `
+<div
+  class="notification is-primary"
+  title="notification element"
+>
+  <button
+    class="notification-dismiss"
+    title="dismiss notification"
+  />
+  <div>
+    Hi
+  </div>
+</div>
+`;
+
+exports[`Column and Columns should render 1`] = `
+<div
+  class="notification"
+  title="notification element"
+>
+  <button
+    class="notification-dismiss"
+    title="dismiss notification"
+  />
+  <div>
+    Hi
+  </div>
+</div>
+`;
+
+exports[`Column and Columns should render isDanger with class is-danger 1`] = `
+<div
+  class="notification is-danger"
+  title="notification element"
+>
+  <button
+    class="notification-dismiss"
+    title="dismiss notification"
+  />
+  <div>
+    Hi
+  </div>
+</div>
+`;
+
+exports[`Column and Columns should render isInfo with class is-info 1`] = `
+<div
+  class="notification is-info"
+  title="notification element"
+>
+  <button
+    class="notification-dismiss"
+    title="dismiss notification"
+  />
+  <div>
+    Hi
+  </div>
+</div>
+`;
+
+exports[`Column and Columns should render isLink with class is-link 1`] = `
+<div
+  class="notification is-link"
+  title="notification element"
+>
+  <button
+    class="notification-dismiss"
+    title="dismiss notification"
+  />
+  <div>
+    Hi
+  </div>
+</div>
+`;
+
+exports[`Column and Columns should render isPrimary with class is-primary 1`] = `
+<div
+  class="notification is-primary"
+  title="notification element"
+>
+  <button
+    class="notification-dismiss"
+    title="dismiss notification"
+  />
+  <div>
+    Hi
+  </div>
+</div>
+`;
+
+exports[`Column and Columns should render isSuccess with class is-success 1`] = `
+<div
+  class="notification is-success"
+  title="notification element"
+>
+  <button
+    class="notification-dismiss"
+    title="dismiss notification"
+  />
+  <div>
+    Hi
+  </div>
+</div>
+`;
+
+exports[`Column and Columns should render isWarning with class is-warning 1`] = `
+<div
+  class="notification is-warning"
+  title="notification element"
+>
+  <button
+    class="notification-dismiss"
+    title="dismiss notification"
+  />
+  <div>
+    Hi
+  </div>
+</div>
+`;
