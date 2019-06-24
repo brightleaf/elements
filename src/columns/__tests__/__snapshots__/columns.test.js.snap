@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Column and Columns should render 1`] = `
+<div
+  class="columns"
+>
+  <div
+    class="column"
+  >
+    Hi
+  </div>
+</div>
+`;
+
+exports[`Column and Columns should render Full Column 1`] = `
+<div
+  class="columns"
+>
+  <div
+    class="columns"
+  >
+    <div
+      class="column is-full"
+    >
+      Hi
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Column and Columns should render One Third Column when isOneThird is true 1`] = `
+<div
+  class="columns"
+>
+  <div
+    class="column is-one-third"
+  >
+    Hi
+  </div>
+</div>
+`;
+
+exports[`Column and Columns should render Two Thirds Column when isTwoThirds is true 1`] = `
+<div
+  class="columns"
+>
+  <div
+    class="column is-two-thirds"
+  >
+    Hi
+  </div>
+</div>
+`;
+
+exports[`Column and Columns should render nested columns 1`] = `
+<div
+  class="columns"
+>
+  <div
+    class="column"
+  >
+    <p
+      class="bd-notification is-info"
+    >
+      First column
+    </p>
+    <div
+      class="columns is-mobile"
+    >
+      <div
+        class="column"
+      >
+        <p
+          class="bd-notification is-info"
+        >
+          First nested column
+        </p>
+      </div>
+      <div
+        class="column"
+      >
+        <p
+          class="bd-notification is-info"
+        >
+          Second nested column
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="column"
+  >
+    <p
+      class="bd-notification is-danger"
+    >
+      Second column
+    </p>
+    <div
+      class="columns is-mobile"
+    >
+      <div
+        class="column is-half"
+      >
+        <p
+          class="bd-notification is-danger"
+        >
+          50%
+        </p>
+      </div>
+      <div
+        class="column"
+      >
+        <p
+          class="bd-notification is-danger"
+        >
+          Auto
+        </p>
+      </div>
+      <div
+        class="column"
+      >
+        <p
+          class="bd-notification is-danger"
+        >
+          Auto
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Column and Columns should render one half Column when isHalf is true 1`] = `
+<div
+  class="columns"
+>
+  <div
+    class="column is-half"
+  >
+    Hi
+  </div>
+</div>
+`;
+
+exports[`Column and Columns should render one quarter Column when isOneQuarter is true 1`] = `
+<div
+  class="columns"
+>
+  <div
+    class="column is-one-quarter"
+  >
+    Hi
+  </div>
+</div>
+`;
+
+exports[`Column and Columns should render three quarters Column when isThreeQuarters is true 1`] = `
+<div
+  class="columns"
+>
+  <div
+    class="column is-three-quarters"
+  >
+    Hi
+  </div>
+</div>
+`;
