@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/brightleaf/elements#readme",
   "dependencies": {
+    "@brightleaf/react-hooks": "^0.13.0",
     "classnames": "^2.2.6",
     "react-transition-group": "^4.1.1"
   },
