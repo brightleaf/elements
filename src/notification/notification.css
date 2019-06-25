@@ -1,0 +1,32 @@
+
+.notification-enter {
+  top: 0;
+  opacity: 0;
+  transform: scale(0.25);
+  display: block;
+}
+.notification-enter-active {
+  display: block;
+  top: 0;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 400ms, transform 400ms;
+}
+
+.notification-exit {
+  top: 0;
+  opacity: 1;
+}
+.notification-exit-active {
+  top: 0;
+  opacity: 0;
+  transform: scale(0.25);
+  transition: opacity 400ms, transform 400ms;
+}
+/*
+.notification-exit-done {
+  opacity: 0;
+  scale: 0.25;
+  display: none;
+}
+*/
