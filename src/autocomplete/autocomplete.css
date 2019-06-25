@@ -1,0 +1,55 @@
+.autocomplete {
+  position: relative;
+  width: 50%;
+}
+
+.autocomplete .dropdown-menu {
+  display: block;
+  min-width: 100%;
+  max-width: 100%;
+}
+
+.autocomplete .dropdown-menu.is-opened-top {
+  top: auto;
+  bottom: 100%;
+}
+
+.autocomplete .dropdown-content {
+  overflow: auto;
+  max-height: 200px;
+}
+
+.autocomplete .dropdown-item,
+.autocomplete .dropdown .dropdown-menu .has-link a,
+.dropdown .dropdown-menu .has-link .autocomplete a {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.autocomplete .dropdown-item.is-hovered,
+.autocomplete .dropdown .dropdown-menu .has-link a.is-hovered,
+.dropdown .dropdown-menu .has-link .autocomplete a.is-hovered {
+  background: whitesmoke;
+  color: #0a0a0a;
+}
+
+.autocomplete .dropdown-item.is-disabled,
+.autocomplete .dropdown .dropdown-menu .has-link a.is-disabled,
+.dropdown .dropdown-menu .has-link .autocomplete a.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.autocomplete.is-small {
+  border-radius: 2px;
+  font-size: 0.75rem;
+}
+
+.autocomplete.is-medium {
+  font-size: 1.25rem;
+}
+
+.autocomplete.is-large {
+  font-size: 1.5rem;
+}
