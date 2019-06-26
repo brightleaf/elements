@@ -2,7 +2,7 @@
 
 exports[`Column and Columns should not render with when isShow is false 1`] = `
 <div
-  class="notification is-primary"
+  class="notification animated animation fadeIn is-primary"
   title="notification element"
 >
   <button
@@ -17,7 +17,7 @@ exports[`Column and Columns should not render with when isShow is false 1`] = `
 
 exports[`Column and Columns should not render with when isShow is false 2`] = `
 <div
-  class="notification is-primary"
+  class="notification animated animation fadeOutLeft is-primary"
   title="notification element"
 >
   <button
@@ -32,7 +32,7 @@ exports[`Column and Columns should not render with when isShow is false 2`] = `
 
 exports[`Column and Columns should render 1`] = `
 <div
-  class="notification"
+  class="notification animated animation fadeIn"
   title="notification element"
 >
   <button
@@ -47,7 +47,7 @@ exports[`Column and Columns should render 1`] = `
 
 exports[`Column and Columns should render isDanger with class is-danger 1`] = `
 <div
-  class="notification is-danger"
+  class="notification animated animation fadeIn is-danger"
   title="notification element"
 >
   <button
@@ -62,7 +62,7 @@ exports[`Column and Columns should render isDanger with class is-danger 1`] = `
 
 exports[`Column and Columns should render isInfo with class is-info 1`] = `
 <div
-  class="notification is-info"
+  class="notification animated animation fadeIn is-info"
   title="notification element"
 >
   <button
@@ -77,7 +77,7 @@ exports[`Column and Columns should render isInfo with class is-info 1`] = `
 
 exports[`Column and Columns should render isLink with class is-link 1`] = `
 <div
-  class="notification is-link"
+  class="notification animated animation fadeIn is-link"
   title="notification element"
 >
   <button
@@ -92,7 +92,7 @@ exports[`Column and Columns should render isLink with class is-link 1`] = `
 
 exports[`Column and Columns should render isPrimary with class is-primary 1`] = `
 <div
-  class="notification is-primary"
+  class="notification animated animation fadeIn is-primary"
   title="notification element"
 >
   <button
@@ -107,7 +107,7 @@ exports[`Column and Columns should render isPrimary with class is-primary 1`] = 
 
 exports[`Column and Columns should render isSuccess with class is-success 1`] = `
 <div
-  class="notification is-success"
+  class="notification animated animation fadeIn is-success"
   title="notification element"
 >
   <button
@@ -122,7 +122,7 @@ exports[`Column and Columns should render isSuccess with class is-success 1`] = 
 
 exports[`Column and Columns should render isWarning with class is-warning 1`] = `
 <div
-  class="notification is-warning"
+  class="notification animated animation fadeIn is-warning"
   title="notification element"
 >
   <button
