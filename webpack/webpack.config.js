@@ -46,7 +46,7 @@ module.exports = {
   ],
   devServer: {
     historyApiFallback: true,
-    contentBase: './src/public',
+    contentBase: path.resolve(__dirname, '../working/public'),
     hot: true,
   },
   resolve: {
