@@ -1,0 +1,4 @@
+{
+  "test": "jest",
+  "dev": "webpack-dev-server --config ./webpack/webpack.config.js --mode development"
+}
