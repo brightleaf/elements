@@ -54,26 +54,7 @@ exports[`Card and components should render with footer header and body 1`] = `
   </div>
   <footer
     class="card-footer"
-  >
-    <a
-      class="card-footer-item"
-      href="#"
-    >
-      Save
-    </a>
-    <a
-      class="card-footer-item"
-      href="#"
-    >
-      Edit
-    </a>
-    <a
-      class="card-footer-item"
-      href="#"
-    >
-      Delete
-    </a>
-  </footer>
+  />
 </div>
 `;
 
@@ -115,25 +96,6 @@ exports[`Card and components should render with header and footer and body 1`] =
   </div>
   <footer
     class="card-footer"
-  >
-    <a
-      class="card-footer-item"
-      href="#"
-    >
-      Save
-    </a>
-    <a
-      class="card-footer-item"
-      href="#"
-    >
-      Edit
-    </a>
-    <a
-      class="card-footer-item"
-      href="#"
-    >
-      Delete
-    </a>
-  </footer>
+  />
 </div>
 `;

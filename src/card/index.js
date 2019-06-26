@@ -1,5 +1,19 @@
-import { Card, CardBody, CardHeader, CardFooter, CardImage } from './card'
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  CardFooter,
+  CardImage,
+  CardFooterItem,
+} from './card'
 
-export { Card, CardBody, CardHeader, CardFooter, CardImage }
+export { Card, CardBody, CardHeader, CardFooter, CardImage, CardFooterItem }
 
-export default { Card, CardBody, CardHeader, CardFooter, CardImage }
+export default {
+  Card,
+  CardBody,
+  CardHeader,
+  CardFooter,
+  CardImage,
+  CardFooterItem,
+}

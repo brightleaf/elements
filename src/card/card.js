@@ -16,22 +16,17 @@ export const CardHeader = ({ title }) => {
 }
 CardHeader.sortOrder = 0
 
+export const CardFooterItem = ({ className, children }) => {
+  const kid = React.cloneElement(children, {
+    className: classnames('card-footer-item', className),
+  })
+  return <>{kid}</>
+}
 export const CardFooter = ({ children }) => {
-  return (
-    <footer className="card-footer">
-      <a href="#" className="card-footer-item">
-        Save
-      </a>
-      <a href="#" className="card-footer-item">
-        Edit
-      </a>
-      <a href="#" className="card-footer-item">
-        Delete
-      </a>
-    </footer>
-  )
+  return <footer className="card-footer">{children}</footer>
 }
 CardFooter.sortOrder = 5
+
 export const CardImage = ({ src, alt }) => {
   return (
     <div className="card-image">
@@ -45,7 +40,7 @@ CardImage.sortOrder = 1
 export const CardBody = ({ children }) => {
   return (
     <div className="card-content">
-      <div className="content">{children}</div>
+      {children}
     </div>
   )
 }
@@ -134,8 +129,12 @@ Card.propTypes = {
     const types = [CardHeader, CardBody, CardBody, CardImage, Card]
     // Only accept a single child, of the appropriate type
     if (propName === 'children') {
-      if (types.indexOf(prop.type) === -1)
-        return new Error(`'${componentName}' not allowed`)
+      prop.forEach(p => {
+        if (types.indexOf(p.type) === -1) {
+          console.log(p)
+          return new Error(`'${prop.type}' not allowed`)
+        }
+      })
     }
   },
 }
