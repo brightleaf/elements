@@ -4,6 +4,8 @@ import { Router, Link, LocationProvider, Location } from '@reach/router'
 import Container from '../pages/container'
 import Columns from '../pages/columns'
 import Notifications from '../pages/notifications'
+import AutoComplete from '../pages/autocomplete'
+import Card from '../pages/card'
 import Intro from './intro'
 import Home from './home'
 const TabLink = props => {
@@ -41,6 +43,8 @@ export default class App extends Component {
                 <TabLink to="/containers">Container</TabLink>
                 <TabLink to="/columns">Columns</TabLink>
                 <TabLink to="/notifications">Notifications</TabLink>
+                <TabLink to="/autocomplete">AutoComplete</TabLink>
+                <TabLink to="/card">Card</TabLink>
               </ul>
             </div>
             <Intro />
@@ -49,6 +53,8 @@ export default class App extends Component {
               <Container path="/containers" />
               <Columns path="/columns" />
               <Notifications path="/notifications" />
+              <AutoComplete path="/autocomplete" />
+              <Card path="/card" />
             </Router>
           </React.Suspense>
         </Fragment>
