@@ -7,7 +7,6 @@ import Notifications from '../pages/notifications'
 import Intro from './intro'
 import Home from './home'
 const TabLink = props => {
-  console.log('TabLink', props)
   return (
     <Location>
       {({ location }) => {
@@ -17,7 +16,6 @@ const TabLink = props => {
             <Link
               {...props}
               getProps={prop => {
-                console.info('link prop', prop)
                 const { isCurrent } = prop
                 return {
                   className: isCurrent ? 'is-active' : '',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 import {
   Container,
@@ -9,15 +9,18 @@ import {
 } from '@brightleaf/elements'
 export default () => {
   const [showNotification, setShowNotification] = useState(false)
-  console.log('show the Notification?', showNotification)
+  const notifRef = useRef()
+
   return (
     <Container className="App content">
       <FullColumn>
         <Notification
+          ref={notifRef}
           isPrimary
           isShown={showNotification}
-          onDismiss={e => {
+          onDismissed={e => {
             console.log('onDismiss hit')
+            setShowNotification(!showNotification)
           }}
         >
           Primar lorem ipsum dolor sit amet, consectetur adipiscing elit lorem
@@ -31,9 +34,21 @@ export default () => {
             className="button"
             onClick={e => {
               setShowNotification(!showNotification)
+              notifRef.current.show()
             }}
           >
             Show
+          </button>
+        )}
+        {showNotification && (
+          <button
+            className="button"
+            onClick={e => {
+              setShowNotification(!showNotification)
+              notifRef.current.hide()
+            }}
+          >
+            Hide
           </button>
         )}
       </FullColumn>
