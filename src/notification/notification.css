@@ -23,6 +23,11 @@
   transform: scale(0.25);
   transition: opacity 400ms, transform 400ms;
 }
+.animated {
+  animation-duration: 0.25s;
+  animation-fill-mode: both;
+}
+
 /*
 .notification-exit-done {
   opacity: 0;
