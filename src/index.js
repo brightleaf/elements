@@ -10,6 +10,7 @@ export {
 export { Column, Columns, FullColumn } from './columns'
 export { Container } from './container'
 export { Content } from './content'
+export { DropDown } from './dropdown'
 export {
   MediaContent,
   MediaLeft,
