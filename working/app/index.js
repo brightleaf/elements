@@ -6,6 +6,7 @@ import Columns from '../pages/columns'
 import Notifications from '../pages/notifications'
 import AutoComplete from '../pages/autocomplete'
 import Card from '../pages/card'
+import Media from '../pages/media'
 import Intro from './intro'
 import Home from './home'
 const TabLink = props => {
@@ -45,6 +46,7 @@ export default class App extends Component {
                 <TabLink to="/notifications">Notifications</TabLink>
                 <TabLink to="/autocomplete">AutoComplete</TabLink>
                 <TabLink to="/card">Card</TabLink>
+                <TabLink to="/media">Media</TabLink>
               </ul>
             </div>
             <Intro />
@@ -55,6 +57,7 @@ export default class App extends Component {
               <Notifications path="/notifications" />
               <AutoComplete path="/autocomplete" />
               <Card path="/card" />
+              <Media path="/media" />
             </Router>
           </React.Suspense>
         </Fragment>
