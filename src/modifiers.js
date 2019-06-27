@@ -5,6 +5,7 @@ export const Colors = ({
   isWarning,
   isDanger,
   isLink,
+  isLight,
 }) => ({
   'is-primary': isPrimary,
   'is-success': isSuccess,
@@ -12,6 +13,7 @@ export const Colors = ({
   'is-warning': isWarning,
   'is-danger': isDanger,
   'is-link': isLink,
+  'is-light': isLight,
 })
 export const Sizes = ({ isSmall, isMedium, isLarge }) => ({
   'is-small': isSmall,
