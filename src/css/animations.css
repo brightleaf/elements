@@ -1,3 +1,9 @@
+.animated {
+  animation-duration: 0.25s;
+  animation-fill-mode: both;
+}
+
+
 @keyframes fadeOut {
   from {
     opacity: 1; }
