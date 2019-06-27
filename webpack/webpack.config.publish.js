@@ -1,10 +1,21 @@
 const path = require('path')
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
-  entry: './working/index.js',
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true,
+        },
+      },
+    },
+  },
+  entry: './src/index.js',
   module: {
     rules: [
       {
@@ -23,28 +34,20 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Custom template',
-      template: './working/index.html',
-      historyApiFallback: true,
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: '[name].css',
+      chunkFilename: '[id].css',
     }),
-    new CopyPlugin([
-      {
-        from: path.join(process.cwd(), '/public'),
-        to: path.join(process.cwd(), '/dist'),
-      },
-    ]),
   ],
   resolve: {
     extensions: ['*', '.mjs', '.js', '.jsx'],
     modules: ['node_modules', 'src'],
-    alias: {
-      '@brightleaf/react-hooks': path.resolve(__dirname, '../src'),
-    },
   },
   output: {
-    path: path.join(process.cwd(), '/dist'),
+    path: path.join(process.cwd(), '/lib'),
     publicPath: '/',
-    filename: 'bundle.js',
+    filename: 'index.js',
   },
 }
