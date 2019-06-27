@@ -1,28 +1,43 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react'
-import { Column, Columns, FullColumn } from '@brightleaf/elements/columns'
+import { Column, Columns, FullColumn, Notification } from '../../src'
 
-const Auto = () => <p className="notification is-light">Auto</p>
+const Auto = () => (
+  <Notification isLight isDismissible={false}>
+    Auto
+  </Notification>
+)
 export default () => {
   return (
     <>
       <Columns>
         <Column>
-          <p className="notification is-primary">First column</p>
+          <Notification isPrimary isDismissible={false}>
+            First column
+          </Notification>
         </Column>
         <Column>
-          <p className="notification is-primary">Second column</p>
+          <Notification isPrimary isDismissible={false}>
+            Second column
+          </Notification>
         </Column>
         <Column>
-          <p className="notification is-primary">Third column</p>
+          <Notification isPrimary isDismissible={false}>
+            Third column
+          </Notification>
         </Column>
         <Column>
-          <p className="notification is-primary">Fourth column</p>
+          <Notification isPrimary isDismissible={false}>
+            Fourth column
+          </Notification>
         </Column>
       </Columns>
 
       <Columns>
-        <Column isFourFirths>
-          <p className="notification is-primary">is-four-fifths</p>
+        <Column isFourFifths>
+          <Notification isPrimary isDismissible={false}>
+            is-four-fifths
+          </Notification>
         </Column>
         <Column>
           <Auto />
@@ -34,7 +49,9 @@ export default () => {
 
       <Columns>
         <Column isThreeQuarters>
-          <p className="notification is-primary">is-three-quarters</p>
+          <Notification isPrimary isDismissible={false}>
+            is-three-quarters
+          </Notification>
         </Column>
         <Column>
           <Auto />
@@ -46,7 +63,9 @@ export default () => {
 
       <Columns>
         <Column isTwoThirds>
-          <p className="notification is-primary">is-two-thirds</p>
+          <Notification isPrimary isDismissible={false}>
+            is-two-thirds
+          </Notification>
         </Column>
         <Column>
           <Auto />
@@ -58,7 +77,9 @@ export default () => {
 
       <Columns>
         <Column isThreeFifths>
-          <p className="notification is-primary">is-three-fifths</p>
+          <Notification isPrimary isDismissible={false}>
+            is-three-fifths
+          </Notification>
         </Column>
         <Column>
           <Auto />
@@ -82,7 +103,9 @@ export default () => {
 
       <Columns>
         <Column isTwoFifths>
-          <p className="notification is-primary">is-two-fifths</p>
+          <Notification isPrimary isDismissible={false}>
+            is-two-fifths
+          </Notification>
         </Column>
         <Column>
           <Auto />
@@ -94,7 +117,9 @@ export default () => {
 
       <Columns>
         <Column isOneThird>
-          <p className="notification is-primary">is-one-third</p>
+          <Notification isPrimary isDismissible={false}>
+            is-one-third
+          </Notification>
         </Column>
         <Column>
           <Auto />
@@ -106,7 +131,9 @@ export default () => {
 
       <Columns>
         <Column isOneQuarter>
-          <p className="notification is-primary">is-one-quarter</p>
+          <Notification isPrimary isDismissible={false}>
+            is-one-quarter
+          </Notification>
         </Column>
         <Column>
           <Auto />
@@ -118,7 +145,9 @@ export default () => {
 
       <Columns>
         <Column isOneFifth>
-          <p className="notification is-primary">is-one-fifth</p>
+          <Notification isPrimary isDismissible={false}>
+            is-one-fifth
+          </Notification>
         </Column>
         <Column>
           <Auto />
@@ -127,33 +156,40 @@ export default () => {
           <Auto />
         </Column>
       </Columns>
-      <div className="columns is-multiline is-mobile">
-        <div className="column is-one-quarter">
+      <FullColumn>
+        <Notification isInfo isDismissible={false}>
+          FullColumn
+        </Notification>
+      </FullColumn>
+      <Columns isMobile isMultiline>
+        <Column isOneQuarter>
           <code>is-one-quarter</code>
-        </div>
-        <div className="column is-one-quarter">
+        </Column>
+        <Column isOneQuarter>
           <code>is-one-quarter</code>
-        </div>
-        <div className="column is-one-quarter">
+        </Column>
+        <Column isOneQuarter>
           <code>is-one-quarter</code>
-        </div>
-        <div className="column is-one-quarter">
+        </Column>
+        <Column isOneQuarter>
           <code>is-one-quarter</code>
-        </div>
-        <div className="column is-half">
+        </Column>
+        <Column isHalf>
           <code>is-half</code>
-        </div>
-        <div className="column is-one-quarter">
+        </Column>
+        <Column isOneQuarter>
           <code>is-one-quarter</code>
-        </div>
-        <div className="column is-one-quarter">
+        </Column>
+        <Column isOneQuarter>
           <code>is-one-quarter</code>
-        </div>
-        <div className="column is-one-quarter">
+        </Column>
+        <Column isOneQuarter>
           <code>is-one-quarter</code>
-        </div>
-        <div className="column">Auto</div>
-      </div>
+        </Column>
+        <Column>
+          <Notification isDismissible={false}>Auto</Notification>
+        </Column>
+      </Columns>
     </>
   )
 }
