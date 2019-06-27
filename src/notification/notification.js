@@ -39,7 +39,7 @@ export const Notification = forwardRef(
     })
 
     const [show, setShow] = useState(!!isShown)
-    console.log('isDismissible', isDismissible)
+
     const animation = {
       animated: isDismissible,
       animation: true,
@@ -82,12 +82,6 @@ export const Notification = forwardRef(
     return (
       <div
         ref={container}
-        onAnimationEnd={({ target, animationName }) => {
-          console.info('End Animation', { target, animationName })
-        }}
-        onAnimationStart={({ target, animationName }) => {
-          console.info('Start Animation', { target, animationName })
-        }}
         className={classnames('notification', animation, classes)}
         title="notification element"
       >
@@ -97,9 +91,7 @@ export const Notification = forwardRef(
             className="delete notification-dismiss"
             onClick={e => {
               e.preventDefault()
-              console.info('dismiss click', show)
               setShow(false)
-              console.info('dismiss click after', show)
               onDismiss()
             }}
           ></button>
