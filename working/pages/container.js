@@ -1,5 +1,7 @@
+/* eslint-disable spellcheck/spell-checker */
+/* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react'
-import { Container } from '@brightleaf/elements/container'
+import { Container } from '../../src'
 
 export default () => {
   return (
