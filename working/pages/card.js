@@ -1,3 +1,4 @@
+/* eslint-disable spellcheck/spell-checker */
 import React from 'react'
 import {
   Card,
@@ -9,27 +10,40 @@ import {
   Container,
   Column,
   Columns,
-} from '@brightleaf/elements'
+} from '../../src'
 
 export default () => {
   return (
     <Container>
-      <Card>
-        <CardHeader>Head</CardHeader>
-        <CardBody>Body</CardBody>
-        <CardFooter>
-          {' '}
-          <CardFooterItem>
-            <a href="#">Save</a>
-          </CardFooterItem>
-          <a href="#" className="card-footer-item">
-            Edit
-          </a>
-          <a href="#" className="card-footer-item">
-            Delete
-          </a>
-        </CardFooter>
-      </Card>
+      <Columns>
+        <Column isOneQuarter>
+          <Card>
+            <CardHeader title="Component" hasIcon></CardHeader>
+            <CardBody>
+              <div className="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Phasellus nec iaculis mauris.
+                <a href="#">@bulmaio</a>. <a href="#">#css</a>{' '}
+                <a href="#">#responsive</a>
+                <br />
+                <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+              </div>
+            </CardBody>
+            <CardFooter>
+              {' '}
+              <CardFooterItem>
+                <a href="#">Save</a>
+              </CardFooterItem>
+              <a href="#" className="card-footer-item">
+                Edit
+              </a>
+              <a href="#" className="card-footer-item">
+                Delete
+              </a>
+            </CardFooter>
+          </Card>
+        </Column>
+      </Columns>
       <hr />
       <Columns>
         <Column isOneQuarter>
@@ -48,18 +62,22 @@ export default () => {
             </CardBody>
             <CardFooter>
               <CardFooterItem>
-            <p  >
-      <span>
-        View on <a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
-      </span>
-    </p>
-    </CardFooterItem>
-    <CardFooterItem>
-    <p  >
-      <span>
-        Share on <a href="#">Facebook</a>
-      </span>
-    </p></CardFooterItem>
+                <p>
+                  <span>
+                    View on
+                    <a href="https://twitter.com/codinghorror/status/506010907021828096">
+                      Twitter
+                    </a>
+                  </span>
+                </p>
+              </CardFooterItem>
+              <CardFooterItem>
+                <p>
+                  <span>
+                    Share on <a href="#">Facebook</a>
+                  </span>
+                </p>
+              </CardFooterItem>
             </CardFooter>
           </Card>
         </Column>
