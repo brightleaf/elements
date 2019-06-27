@@ -1,12 +1,6 @@
-import React, { useRef, useState } from 'react'
+import React, {  useState } from 'react'
 
-import {
-  Container,
-  Columns,
-  Column,
-  FullColumn,
-  AutoComplete,
-} from '@brightleaf/elements'
+import { Container, FullColumn, AutoComplete } from '../../src'
 export default () => {
   const items = [
     { name: 'First', id: 1 },
