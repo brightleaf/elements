@@ -7,6 +7,7 @@ import Notifications from '../pages/notifications'
 import AutoComplete from '../pages/autocomplete'
 import DropDown from '../pages/dropdown'
 import Card from '../pages/card'
+import Hero from '../pages/hero'
 import Media from '../pages/media'
 import Intro from './intro'
 import Home from './home'
@@ -49,6 +50,7 @@ export default class App extends Component {
                 <TabLink to="/card">Card</TabLink>
                 <TabLink to="/media">Media</TabLink>
                 <TabLink to="/dropdown">DropDown</TabLink>
+                <TabLink to="/hero">Hero</TabLink>
               </ul>
             </div>
             <Intro />
@@ -61,6 +63,7 @@ export default class App extends Component {
               <Card path="/card" />
               <Media path="/media" />
               <DropDown path="/dropdown" />
+              <Hero path="/hero" />
             </Router>
           </React.Suspense>
         </Fragment>

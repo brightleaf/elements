@@ -21,11 +21,20 @@ export const Sizes = ({ isSmall, isMedium, isLarge }) => ({
   'is-large': isLarge,
 })
 
-export const Screens = ({ isMobile, isFluid, isWideScreen, isFullHD }) => ({
+export const Screens = ({
+  isMobile,
+  isFluid,
+  isWideScreen,
+  isFullHD,
+  isFullHeight,
+  isFullHeightWithNavBar,
+}) => ({
   'is-mobile': isMobile,
   'is-fluid': isFluid,
   'is-widescreen': isWideScreen,
   'is-fullhd': isFullHD,
+  'is-fullheight': isFullHeight,
+  'is-fullheight-with-navbar': isFullHeightWithNavBar,
 })
 
 export const StyleOrState = ({ isOutlined, isLoading }) => ({
