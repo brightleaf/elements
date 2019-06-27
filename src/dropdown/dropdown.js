@@ -3,46 +3,42 @@ import { useClickOutside } from '@brightleaf/react-hooks'
 import classnames from 'classnames'
 import '../css/animations.css'
 
-export const DropDown = ({ list, onSelect, initialValue }) => {
-  const [selectedValue, setSelectedValue] = useState('')
-  const [menuIsShown, setMenuIsShown] = useState(false)
-  const mappedItems = list.map((item, index) => (
-    <a
-      key={`dd-${item.id}`}
-      className="dropdown-item"
-      onClick={e => {
-        e.preventDefault()
-        onSelect(item)
-        setMenuIsShown(false)
-        setSelectedValue(item.name)
-      }}
-    >
-      <span>{item.name}</span>
-    </a>
-  ))
+export const DropDown = ({ list, onSelect }) => {
+  const [dropDownIsShown, setDropDownIsShown] = useState(false)
+  const mappedItems = list.map((item, index) => {
+    if (!item) {
+      return <hr className="dropdown-divider" key={`dd-divider-${index}`} />
+    }
+
+    return (
+      <a
+        key={`dd-${item.id}-${index}`}
+        className="dropdown-item"
+        onClick={e => {
+          e.preventDefault()
+          onSelect(item)
+          setDropDownIsShown(false)
+        }}
+      >
+        <span>{item.name}</span>
+      </a>
+    )
+  })
 
   const dropDown = useRef()
   const hideDropDown = () => {
-    setMenuIsShown(false)
+    setDropDownIsShown(false)
   }
-  useClickOutside(dropDown, hideDropDown, menuIsShown)
+  useClickOutside(dropDown, hideDropDown, dropDownIsShown)
 
-  if (initialValue && selectedValue === '') {
-    const val = list.filter(item => item.id == initialValue)
-
-    if (val.length > 0) {
-      onSelect(val[0])
-      setSelectedValue(val[0].name)
-    }
-  }
   return (
     <div
       ref={dropDown}
       className={classnames('dropdown', {
-        'is-active': menuIsShown,
+        'is-active': dropDownIsShown,
       })}
       onFocus={e => {
-        setMenuIsShown(true)
+        setDropDownIsShown(true)
       }}
     >
       <div className="dropdown-trigger">
@@ -52,7 +48,7 @@ export const DropDown = ({ list, onSelect, initialValue }) => {
           aria-controls="dropdown-menu"
           onClick={e => {
             e.preventDefault()
-            setMenuIsShown(!menuIsShown)
+            setDropDownIsShown(!dropDownIsShown)
           }}
         >
           <span>Dropdown button</span>
@@ -63,8 +59,8 @@ export const DropDown = ({ list, onSelect, initialValue }) => {
       </div>
       <div
         className={classnames('dropdown-menu', 'animated', {
-          'is-hidden': !menuIsShown,
-          fadeIn: menuIsShown,
+          'is-hidden': !dropDownIsShown,
+          fadeIn: dropDownIsShown,
         })}
       >
         <div className="dropdown-content">{mappedItems}</div>
