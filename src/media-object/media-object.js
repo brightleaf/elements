@@ -1,4 +1,5 @@
 import React from 'react'
+
 export const MediaLeft = ({ children }) => {
   return (
     <figure className="media-left">
@@ -8,44 +9,20 @@ export const MediaLeft = ({ children }) => {
     </figure>
   )
 }
-export const MediaObject = ({ src }) => {
-  return (
-    <article className="media">
-      <MediaLeft />
-      <div className="media-content">
-        <div className="content">
-          <p>
-            <strong>John Smith</strong> <small>@johnsmith</small>{' '}
-            <small>31m</small>
-            <br />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-            ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas
-            non massa sem. Etiam finibus odio quis feugiat facilisis.
-          </p>
-        </div>
-        <nav className="level is-mobile">
-          <div className="level-left">
-            <a className="level-item">
-              <span className="icon is-small">
-                <i className="fas fa-reply"></i>
-              </span>
-            </a>
-            <a className="level-item">
-              <span className="icon is-small">
-                <i className="fas fa-retweet"></i>
-              </span>
-            </a>
-            <a className="level-item">
-              <span className="icon is-small">
-                <i className="fas fa-heart"></i>
-              </span>
-            </a>
-          </div>
-        </nav>
-      </div>
-      <div className="media-right">
-        <button className="delete"></button>
-      </div>
-    </article>
-  )
+MediaLeft.sortOrder = 0
+
+export const MediaContent = ({ children }) => {
+  return <div className="media-content">{children}</div>
+}
+
+MediaContent.sortOrder = 1
+
+export const MediaRight = ({ children }) => {
+  return <div className="media-right">{children}</div>
+}
+
+MediaRight.sortOrder = 2
+
+export const MediaObject = ({ children }) => {
+  return <article className="media">{children}</article>
 }

@@ -1,1 +1,6 @@
-export { MediaObject, MediaLeft } from './media-object'
+export {
+  MediaObject,
+  MediaLeft,
+  MediaRight,
+  MediaContent,
+} from './media-object'
