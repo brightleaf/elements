@@ -23,6 +23,8 @@ export const Notification = forwardRef(
       isWarning,
       isDanger,
       isLink,
+      isLight,
+      isDismissible,
     },
     ref
   ) => {
@@ -33,11 +35,13 @@ export const Notification = forwardRef(
       isWarning,
       isDanger,
       isLink,
+      isLight,
     })
 
     const [show, setShow] = useState(!!isShown)
-
+    console.log('isDismissible', isDismissible)
     const animation = {
+      animated: isDismissible,
       animation: true,
       fadeIn: show,
       fadeOutLeft: !show,
@@ -84,20 +88,22 @@ export const Notification = forwardRef(
         onAnimationStart={({ target, animationName }) => {
           console.info('Start Animation', { target, animationName })
         }}
-        className={classnames('notification', 'animated', animation, classes)}
+        className={classnames('notification', animation, classes)}
         title="notification element"
       >
-        <button
-          title="dismiss notification"
-          className="delete notification-dismiss"
-          onClick={e => {
-            e.preventDefault()
-            console.info('dismiss click', show)
-            setShow(false)
-            console.info('dismiss click after', show)
-            onDismiss()
-          }}
-        ></button>
+        {isDismissible && (
+          <button
+            title="dismiss notification"
+            className="delete notification-dismiss"
+            onClick={e => {
+              e.preventDefault()
+              console.info('dismiss click', show)
+              setShow(false)
+              console.info('dismiss click after', show)
+              onDismiss()
+            }}
+          ></button>
+        )}
         {children}
       </div>
     )
@@ -118,4 +124,5 @@ Notification.defaultProps = {
   onExit: () => {},
   onDismiss: () => {},
   onDismissed: () => {},
+  isDismissible: true,
 }
