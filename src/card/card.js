@@ -2,15 +2,17 @@ import React from 'react'
 import classnames from 'classnames'
 import { Colors, Screens } from '../modifiers'
 
-export const CardHeader = ({ title }) => {
+export const CardHeader = ({ title, hasIcon }) => {
   return (
     <header className="card-header">
       <p className="card-header-title">{title}</p>
-      <a href="#" className="card-header-icon" aria-label="more options">
-        <span className="icon">
-          <i className="fas fa-angle-down" aria-hidden="true"></i>
-        </span>
-      </a>
+      {hasIcon && (
+        <a href="#" className="card-header-icon" aria-label="more options">
+          <span className="icon">
+            <i className="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+        </a>
+      )}
     </header>
   )
 }
