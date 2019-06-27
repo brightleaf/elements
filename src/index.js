@@ -1,12 +1,19 @@
-export { Columns, Column, FullColumn } from './columns'
-export { Container } from './container'
-export { Notification } from './notification'
+export { AutoComplete } from './autocomplete'
 export {
   Card,
   CardBody,
   CardFooter,
+  CardFooterItem,
   CardHeader,
   CardImage,
-  CardFooterItem,
 } from './card'
-export { AutoComplete } from './autocomplete'
+export { Column, Columns, FullColumn } from './columns'
+export { Container } from './container'
+export { Content } from './content'
+export {
+  MediaContent,
+  MediaLeft,
+  MediaObject,
+  MediaRight,
+} from './media-object'
+export { Notification } from './notification'
