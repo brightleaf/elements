@@ -30,9 +30,16 @@ export default () => {
               </div>
             </CardBody>
             <CardFooter>
-              {' '}
               <CardFooterItem>
-                <a href="#">Save</a>
+                <a
+                  href="#"
+                  onClick={e => {
+                    console.info('clicked')
+                    e.preventDefault()
+                  }}
+                >
+                  Save
+                </a>
               </CardFooterItem>
               <a href="#" className="card-footer-item">
                 Edit
@@ -64,7 +71,7 @@ export default () => {
               <CardFooterItem>
                 <p>
                   <span>
-                    View on
+                    View on{' '}
                     <a href="https://twitter.com/codinghorror/status/506010907021828096">
                       Twitter
                     </a>
