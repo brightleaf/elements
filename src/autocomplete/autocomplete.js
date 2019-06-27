@@ -16,7 +16,10 @@ export const AutoComplete = ({
   const mappedItems = !isFocused
     ? []
     : list
-        .filter(item => item.name.indexOf(selectedValue) > -1)
+        .filter(
+          item =>
+            item.name.toLowerCase().indexOf(selectedValue.toLowerCase()) > -1
+        )
         .map((item, index) => (
           <a
             key={`dd-${item.id}`}
