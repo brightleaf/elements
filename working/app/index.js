@@ -5,6 +5,7 @@ import Container from '../pages/container'
 import Columns from '../pages/columns'
 import Notifications from '../pages/notifications'
 import AutoComplete from '../pages/autocomplete'
+import DropDown from '../pages/dropdown'
 import Card from '../pages/card'
 import Media from '../pages/media'
 import Intro from './intro'
@@ -47,6 +48,7 @@ export default class App extends Component {
                 <TabLink to="/autocomplete">AutoComplete</TabLink>
                 <TabLink to="/card">Card</TabLink>
                 <TabLink to="/media">Media</TabLink>
+                <TabLink to="/dropdown">DropDown</TabLink>
               </ul>
             </div>
             <Intro />
@@ -58,6 +60,7 @@ export default class App extends Component {
               <AutoComplete path="/autocomplete" />
               <Card path="/card" />
               <Media path="/media" />
+              <DropDown path="/dropdown" />
             </Router>
           </React.Suspense>
         </Fragment>
