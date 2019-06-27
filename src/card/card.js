@@ -133,7 +133,6 @@ Card.propTypes = {
     if (propName === 'children') {
       prop.forEach(p => {
         if (types.indexOf(p.type) === -1) {
-          console.log(p)
           return new Error(`'${prop.type}' not allowed`)
         }
       })
