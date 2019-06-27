@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react'
 import { useKeypress, useTitle } from '@brightleaf/react-hooks'
 export default () => {
