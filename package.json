@@ -3,9 +3,15 @@
   "version": "1.0.0",
   "description": "UI elements",
   "main": "lib/index.js",
+  "files": [
+    "/lib"
+  ],
   "scripts": {
     "test": "jest",
-    "dev": "webpack-dev-server --config ./webpack/webpack.config.js --mode development"
+    "dev": "webpack-dev-server --config ./webpack/webpack.config.js --mode development",
+    "build": "webpack --config ./webpack/webpack.config.publish.js --mode production",
+    "build:dev": "webpack --config ./webpack/webpack.config.publish.js --mode development",
+    "transpile": "babel src -d lib --copy-files"
   },
   "repository": {
     "type": "git",
@@ -17,12 +23,15 @@
     "url": "https://github.com/brightleaf/elements/issues"
   },
   "homepage": "https://github.com/brightleaf/elements#readme",
+  "peerDependencies": {
+    "react": "^16.8.1"
+  },
   "dependencies": {
     "@brightleaf/react-hooks": "^0.13.0",
-    "classnames": "^2.2.6",
-    "react-transition-group": "^4.1.1"
+    "classnames": "^2.2.6"
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
@@ -40,6 +49,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
     "jest-dom": "^3.5.0",
+    "mini-css-extract-plugin": "^0.7.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "regenerator-runtime": "^0.13.2",
