@@ -3,6 +3,7 @@
 import React from 'react'
 import {
   Box,
+  Content,
   MediaContent,
   MediaLeft,
   MediaObject,
@@ -14,9 +15,13 @@ export default () => {
     <>
       <Box>
         <MediaObject>
-          <MediaLeft title="Component" hasIcon></MediaLeft>
+          <MediaLeft>
+            <p className="image is-64x64">
+              <img src="https://bulma.io/images/placeholders/128x128.png" />
+            </p>
+          </MediaLeft>
           <MediaContent>
-            <div className="content">
+            <Content>
               <p>
                 <strong>John Smith</strong> <small>@johnsmith</small>{' '}
                 <small>31m</small>
@@ -26,7 +31,7 @@ export default () => {
                 Maecenas non massa sem. Etiam finibus odio quis feugiat
                 facilisis.
               </p>
-            </div>
+            </Content>
             <nav className="level is-mobile">
               <div className="level-left">
                 <a className="level-item">
