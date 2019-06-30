@@ -1,4 +1,5 @@
 export { AutoComplete } from './autocomplete'
+export { Box } from './box'
 export {
   Card,
   CardBody,
