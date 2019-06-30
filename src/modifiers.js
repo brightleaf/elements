@@ -6,6 +6,10 @@ export const Colors = ({
   isDanger,
   isLink,
   isLight,
+  isWhite,
+  isDark,
+  isBlack,
+  isText,
 }) => ({
   'is-primary': isPrimary,
   'is-success': isSuccess,
@@ -14,11 +18,24 @@ export const Colors = ({
   'is-danger': isDanger,
   'is-link': isLink,
   'is-light': isLight,
+  'is-white': isWhite,
+  'is-dark': isDark,
+  'is-black': isBlack,
+  'is-text': isText,
 })
-export const Sizes = ({ isSmall, isMedium, isLarge }) => ({
+
+export const Sizes = ({
+  isSmall,
+  isNormal,
+  isMedium,
+  isLarge,
+  isFullWidth,
+}) => ({
   'is-small': isSmall,
+  'is-normal': isNormal,
   'is-medium': isMedium,
   'is-large': isLarge,
+  'is-fullwidth': isFullWidth,
 })
 
 export const Screens = ({
@@ -37,7 +54,20 @@ export const Screens = ({
   'is-fullheight-with-navbar': isFullHeightWithNavBar,
 })
 
-export const StyleOrState = ({ isOutlined, isLoading }) => ({
+export const StyleOrState = ({
+  isOutlined,
+  isInverted,
+  isLoading,
+  isActive,
+  isFocused,
+  isHovered,
+  isRounded,
+}) => ({
   'is-loading': isLoading,
   'is-outlined': isOutlined,
+  'is-active': isActive,
+  'is-focused': isFocused,
+  'is-inverted': isInverted,
+  'is-hovered': isHovered,
+  'is-rounded': isRounded,
 })
