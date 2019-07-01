@@ -2,6 +2,7 @@
   "test": "jest",
   "dev": "webpack-dev-server --config ./webpack/webpack.config.js --mode development",
   "build:working": "webpack --config ./webpack/webpack.config.js --mode production",
+  "build:examples": "webpack --config ./webpack/webpack.config.js --mode production",
   "build": "webpack --config ./webpack/webpack.config.publish.js --mode production",
   "build:dev": "webpack --config ./webpack/webpack.config.publish.js --mode development",
   "transpile": "babel src -d lib --copy-files"
