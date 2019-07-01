@@ -187,6 +187,50 @@ export default () => {
           </Button>
         </Buttons>
       </Box>
+      <FullColumn>
+        <Buttons hasAddons>
+          <Button isStatic>Yes</Button>
+          <Button isStatic>Maybe</Button>
+          <Button isStatic>No</Button>
+        </Buttons>
+      </FullColumn>
+      <FullColumn>
+        <Buttons hasAddons isCentered>
+          <Button isStatic>Yes</Button>
+          <Button isStatic>Maybe</Button>
+          <Button isStatic>No</Button>
+        </Buttons>
+      </FullColumn>
+      <FullColumn>
+        <Buttons hasAddons isRight>
+          <Button isStatic>Yes</Button>
+          <Button isStatic>Maybe</Button>
+          <Button isStatic>No</Button>
+        </Buttons>
+      </FullColumn>
+      <FullColumn>
+        <Buttons hasAddons>
+          <Button isStatic isSelected isSuccess>
+            Yes
+          </Button>
+          <Button isStatic>Maybe</Button>
+          <Button isStatic>No</Button>
+        </Buttons>
+        <Buttons hasAddons>
+          <Button isStatic>Yes</Button>
+          <Button isStatic isSelected isInfo>
+            Maybe
+          </Button>
+          <Button isStatic>No</Button>
+        </Buttons>
+        <Buttons hasAddons>
+          <Button isStatic>Yes</Button>
+          <Button isStatic>Maybe</Button>
+          <Button isStatic isSelected isDanger>
+            No
+          </Button>
+        </Buttons>
+      </FullColumn>
     </>
   )
 }
