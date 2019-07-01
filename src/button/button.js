@@ -30,6 +30,8 @@ export const Button = ({
   isActive,
   isHovered,
   isFocused,
+  isStatic,
+  isSelected,
   children,
   ...props
 }) => {
@@ -48,6 +50,7 @@ export const Button = ({
       isWhite,
       isInverted,
       isOutlined,
+      isSelected,
     }),
     ...Sizes({ isSmall, isMedium, isNormal, isLarge, isFullWidth }),
     ...StyleOrState({
@@ -57,9 +60,17 @@ export const Button = ({
       isActive,
       isHovered,
       isFocused,
+      isSelected,
     }),
   }
 
+  if (isStatic) {
+    return (
+      <span className={classnames('button', classes)} {...props}>
+        {children}
+      </span>
+    )
+  }
   if (isAnchor) {
     return (
       <a className={classnames('button', classes)} {...props}>
@@ -99,11 +110,22 @@ Button.propTypes = {}
 
 export default Button
 
-export const Buttons = ({ children, areSmall, areMedium, areLarge }) => {
+export const Buttons = ({
+  children,
+  areSmall,
+  areMedium,
+  areLarge,
+  hasAddons,
+  isCentered,
+  isRight,
+}) => {
   const sized = {
     'are-small': areSmall,
     'are-medium': areMedium,
     'are-large': areLarge,
+    'has-addons': hasAddons,
+    'is-centered': isCentered,
+    'is-right': isRight,
   }
   return <div className={classnames('buttons', sized)}>{children}</div>
 }
