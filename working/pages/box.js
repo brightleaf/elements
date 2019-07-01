@@ -4,6 +4,7 @@ import React from 'react'
 import {
   Box,
   Content,
+  Delete,
   MediaContent,
   MediaLeft,
   MediaObject,
@@ -53,7 +54,7 @@ export default () => {
             </nav>
           </MediaContent>
           <MediaRight>
-            <button className="delete"></button>
+            <Delete></Delete>
           </MediaRight>
         </MediaObject>
       </Box>
