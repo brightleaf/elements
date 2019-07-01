@@ -8,9 +8,9 @@
   ],
   "scripts": {
     "test": "isom test",
-    "preversion": "npx isom transpile && npx isom build:examples",
+    "preversion": "npx isom transpile",
     "postversion": "npm publish --access=public",
-    "postpublish": "git push origin --all --follow-tags && node ./scripts/publish.js"
+    "postpublish": "git push origin --all --follow-tags && npx isom build:examples && node ./scripts/publish.js"
   },
   "repository": {
     "type": "git",
