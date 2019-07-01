@@ -10,6 +10,7 @@ import Buttons from '../pages/buttons'
 import DropDown from '../pages/dropdown'
 import Card from '../pages/card'
 import Hero from '../pages/hero'
+import Icons from '../pages/icon'
 import Level from '../pages/level'
 import Media from '../pages/media'
 import Intro from './intro'
@@ -57,6 +58,8 @@ export default class App extends Component {
                 <TabLink to="/box">Box</TabLink>
                 <TabLink to="/level">Level</TabLink>
                 <TabLink to="/buttons">Buttons</TabLink>
+                <TabLink to="/icons">Icons</TabLink>
+
               </ul>
             </div>
             <Intro />
@@ -73,6 +76,7 @@ export default class App extends Component {
               <Box path="/box" />
               <Level path="/level" />
               <Buttons path="/buttons" />
+              <Icons path="/icons" />
             </Router>
           </React.Suspense>
         </Fragment>
