@@ -8,8 +8,9 @@ export default () => {
   return (
     <Content>
       <Box>
-        <Icon hasTextLink icon="rocket" fas />
-        <Icon hasTextDanger icon="rebel" fab isLarge />
+        <Icon hasTextLink icon="rocket" fas />{' '}
+        <Icon hasTextDanger icon="rebel" fab isLarge />{' '}
+        <Icon hasTextLink icon="react" fab isLarge />
       </Box>
     </Content>
   )
