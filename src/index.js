@@ -24,5 +24,15 @@ export {
   MediaObject,
   MediaRight,
 } from './media-object'
+export {
+  NavBar,
+  NavBarBrand,
+  NavBarDivider,
+  NavBarDropDown,
+  NavBarEnd,
+  NavBarItem,
+  NavBarStart,
+  NavBarMenu,
+} from './navbar'
 export { Notification } from './notification'
 export { Section } from './section'
