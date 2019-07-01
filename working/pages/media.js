@@ -1,6 +1,7 @@
 /* eslint-disable spellcheck/spell-checker */
 import React from 'react'
 import {
+  Delete,
   MediaObject,
   MediaLeft,
   MediaContent,
@@ -9,6 +10,7 @@ import {
   Column,
   Columns,
   FullColumn,
+  Icon,
 } from '../../src'
 
 export default () => {
@@ -38,25 +40,19 @@ export default () => {
               <nav className="level is-mobile">
                 <div className="level-left">
                   <a className="level-item">
-                    <span className="icon is-small">
-                      <i className="fas fa-reply"></i>
-                    </span>
+                    <Icon isSmall fas icon="reply" />
                   </a>
                   <a className="level-item">
-                    <span className="icon is-small">
-                      <i className="fas fa-retweet"></i>
-                    </span>
+                    <Icon isSmall fas icon="retweet" />
                   </a>
                   <a className="level-item">
-                    <span className="icon is-small">
-                      <i className="fas fa-heart"></i>
-                    </span>
+                    <Icon isSmall fas icon="heart" />
                   </a>
                 </div>
               </nav>
             </MediaContent>
             <MediaRight>
-              <button className="delete"></button>
+              <Delete></Delete>
             </MediaRight>
           </MediaObject>
         </Column>

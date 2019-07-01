@@ -5,6 +5,8 @@ import { useTitle } from '@brightleaf/react-hooks'
 import {
   Box,
   Content,
+  Delete,
+  Icon,
   Level,
   LevelItem,
   LevelLeft,
@@ -42,30 +44,24 @@ export default () => {
               <LevelLeft>
                 <LevelItem>
                   <a>
-                    <span className="icon is-small">
-                      <i className="fas fa-reply"></i>
-                    </span>
+                    <Icon isSmall fas icon="reply" />
                   </a>
                 </LevelItem>
                 <LevelItem>
                   <a>
-                    <span className="icon is-small">
-                      <i className="fas fa-retweet"></i>
-                    </span>
+                    <Icon isSmall fas icon="retweet" />
                   </a>
                 </LevelItem>
                 <LevelItem>
-                  <a className="level-item">
-                    <span className="icon is-small">
-                      <i className="fas fa-heart"></i>
-                    </span>
+                  <a>
+                    <Icon isSmall fas icon="heart" />
                   </a>
                 </LevelItem>
               </LevelLeft>
             </Level>
           </MediaContent>
           <MediaRight>
-            <button className="delete"></button>
+            <Delete></Delete>
           </MediaRight>
         </MediaObject>
       </Box>
@@ -109,9 +105,11 @@ export default () => {
         <Level>
           <LevelLeft>
             <LevelItem>
-              <p className="subtitle is-5">
-                <strong>123</strong> posts
-              </p>
+              <div>
+                <p className="subtitle is-5">
+                  <strong>123</strong> posts
+                </p>
+              </div>
             </LevelItem>
             <LevelItem>
               <div>
