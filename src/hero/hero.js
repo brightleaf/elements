@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createContext } from 'react'
 import classnames from 'classnames'
 import { Colors, Sizes, Screens } from '../modifiers'
 
@@ -11,6 +11,7 @@ export const HeroBody = ({ children }) => {
 export const HeroFooter = ({ children }) => {
   return <div className="hero-foot">{children}</div>
 }
+export const HeroContext = createContext()
 export const Hero = ({
   children,
   isPrimary,
@@ -44,20 +45,25 @@ export const Hero = ({
     isFullHeight,
     isFullHeightWithNavBar,
   })
+
   if (!Array.isArray(children)) {
     return (
-      <section
-        className={classnames('hero', classes, sizeClasses, screenSizes, {
-          'is-bold': isBold,
-        })}
-      >
-        <div className="hero-body">{children}</div>
-      </section>
+      <HeroContext.Provider value={{ isInHero: true }}>
+        <section
+          className={classnames('hero', classes, sizeClasses, screenSizes, {
+            'is-bold': isBold,
+          })}
+        >
+          <div className="hero-body">{children}</div>
+        </section>
+      </HeroContext.Provider>
     )
   }
   return (
-    <section className={classnames('hero', classes, sizeClasses)}>
-      {children}
-    </section>
+    <HeroContext.Provider value={{ isInHero: true }}>
+      <section className={classnames('hero', classes, sizeClasses)}>
+        {children}
+      </section>
+    </HeroContext.Provider>
   )
 }
