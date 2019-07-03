@@ -26,6 +26,7 @@ import Icons from '../pages/icon'
 import Level from '../pages/level'
 import Media from '../pages/media'
 import NavBars from '../pages/navbars'
+import Tags from '../pages/tags'
 import Intro from './intro'
 import Home from './home'
 const TabLink = props => {
@@ -151,6 +152,7 @@ export default class App extends Component {
                   <TabLink to="/buttons">Buttons</TabLink>
                   <TabLink to="/icons">Icons</TabLink>
                   <TabLink to="/navbars">NavBar</TabLink>
+                  <TabLink to="/tags">Tags</TabLink>
                 </ul>
               </div>
               <Intro />
@@ -169,6 +171,7 @@ export default class App extends Component {
                 <ButtonsPage path="/buttons" />
                 <Icons path="/icons" />
                 <NavBars path="/navbars" />
+                <Tags path="/tags" />
               </Router>
             </Section>
           </React.Suspense>
