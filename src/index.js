@@ -26,6 +26,7 @@ export {
   MediaObject,
   MediaRight,
 } from './media-object'
+export { MessageHeader, MessageBody, Message } from './message'
 export {
   NavBar,
   NavBarBrand,

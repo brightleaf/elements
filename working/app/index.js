@@ -26,6 +26,7 @@ import Icons from '../pages/icon'
 import Level from '../pages/level'
 import Media from '../pages/media'
 import NavBars from '../pages/navbars'
+import Messages from '../pages/messages'
 import Tags from '../pages/tags'
 import Intro from './intro'
 import Home from './home'
@@ -112,6 +113,9 @@ export default class App extends Component {
                     <NavBarItem>
                       <UpLink to="/autocomplete">AutoComplete</UpLink>
                     </NavBarItem>
+                    <NavBarItem>
+                      <UpLink to="/messages">Messages</UpLink>
+                    </NavBarItem>
                     <NavBarDivider />
                     <NavBarItem>
                       <a>Report an issue</a>
@@ -172,6 +176,7 @@ export default class App extends Component {
                 <Icons path="/icons" />
                 <NavBars path="/navbars" />
                 <Tags path="/tags" />
+                <Messages path="/messages" />
               </Router>
             </Section>
           </React.Suspense>
