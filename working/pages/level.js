@@ -15,6 +15,7 @@ import {
   MediaLeft,
   MediaObject,
   MediaRight,
+  Title,
 } from '../../src'
 
 export default () => {
@@ -71,7 +72,7 @@ export default () => {
             <div>
               <div>
                 <p className="heading">Tweets</p>
-                <p className="title">3,456</p>
+                <Title as="p">3,456</Title>
               </div>
             </div>
           </LevelItem>
@@ -79,7 +80,7 @@ export default () => {
             <div>
               <div>
                 <p className="heading">Following</p>
-                <p className="title">123</p>
+                <Title as="p">123</Title>
               </div>
             </div>
           </LevelItem>
@@ -87,7 +88,7 @@ export default () => {
             <div>
               <div>
                 <p className="heading">Followers</p>
-                <p className="title">456K</p>
+                <Title as="p">456K</Title>
               </div>
             </div>
           </LevelItem>
@@ -95,7 +96,7 @@ export default () => {
             <div>
               <div>
                 <p className="heading">Likes</p>
-                <p className="title">789</p>
+                <Title as="p">789</Title>
               </div>
             </div>
           </LevelItem>

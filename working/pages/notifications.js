@@ -1,7 +1,14 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable spellcheck/spell-checker */
 import React, { useRef, useState } from 'react'
-import { Container, Columns, Column, FullColumn, Notification } from '../../src'
+import {
+  Container,
+  Columns,
+  Column,
+  FullColumn,
+  Notification,
+  Title,
+} from '../../src'
 export default () => {
   const [showNotification, setShowNotification] = useState(false)
   const notifRef = useRef()
@@ -115,7 +122,7 @@ export default () => {
       </FullColumn>
       <FullColumn>
         <Notification isLight isShown isDismissible={false}>
-          <p className="title">{`isDismissible={false}`}</p>
+          <Title as="p">{`isDismissible={false}`}</Title>
           ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis
           placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
           fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a>{' '}

@@ -8,8 +8,11 @@ import {
   CardFooterItem,
   CardImage,
   Container,
+  Content,
   Column,
   Columns,
+  Title,
+  SubTitle,
 } from '../../src'
 
 export default () => {
@@ -20,14 +23,14 @@ export default () => {
           <Card>
             <CardHeader title="Component" hasIcon></CardHeader>
             <CardBody>
-              <div className="content">
+              <Content>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Phasellus nec iaculis mauris.
                 <a href="#">@bulmaio</a>. <a href="#">#css</a>{' '}
                 <a href="#">#responsive</a>
                 <br />
                 <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-              </div>
+              </Content>
             </CardBody>
             <CardFooter>
               <CardFooterItem>
@@ -41,12 +44,12 @@ export default () => {
                   Save
                 </a>
               </CardFooterItem>
-              <a href="#" className="card-footer-item">
-                Edit
-              </a>
-              <a href="#" className="card-footer-item">
-                Delete
-              </a>
+              <CardFooterItem>
+                <a href="#">Edit</a>
+              </CardFooterItem>
+              <CardFooterItem>
+                <a href="#">Delete</a>
+              </CardFooterItem>
             </CardFooter>
           </Card>
         </Column>
@@ -60,12 +63,14 @@ export default () => {
               alt="Placeholder image"
             />
             <CardBody>
-              <p className="title">
+              <Title as={'p'} is="5">
                 {
                   '"There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors."'
                 }
-              </p>
-              <p className="subtitle">Jeff Atwood</p>
+              </Title>
+              <SubTitle as="p" is="6">
+                Jeff Atwood
+              </SubTitle>
             </CardBody>
             <CardFooter>
               <CardFooterItem>
