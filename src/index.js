@@ -1,5 +1,6 @@
 export { AutoComplete } from './autocomplete'
 export { Box } from './box'
+export { Breadcrumb, BreadcrumbItem } from './breadcrumb'
 export { Button, Buttons } from './button'
 export {
   Card,
@@ -8,6 +9,7 @@ export {
   CardFooterItem,
   CardHeader,
   CardImage,
+  CardImageContainer,
 } from './card'
 export { Column, Columns, FullColumn } from './columns'
 export { Container } from './container'
@@ -18,7 +20,8 @@ export { DropDown } from './dropdown'
 export { Field } from './field'
 export { Footer } from './footer'
 export { Hero, HeroBody, HeroFooter, HeroHead } from './hero'
-export { Icon } from './icon'
+export { Icon, BaseIcon } from './icon'
+export { Image } from './image'
 export { Level, LevelItem, LevelLeft, LevelRight } from './level'
 export {
   MediaContent,
@@ -40,5 +43,7 @@ export {
 export { Notification } from './notification'
 export { Section } from './section'
 export { SubTitle } from './subtitle'
+export { Tabs, TabItem } from './tabs'
 export { Tag, Tags } from './tag'
+export { Tile } from './tile'
 export { Title } from './title'
