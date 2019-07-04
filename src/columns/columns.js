@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-
+import PropTypes from 'prop-types'
 /*
 const o = {
   'is-0': is0,
@@ -57,6 +57,7 @@ export const Column = ({
   isTwoFifths,
   isOneFifth,
   isNarrow,
+  size,
 }) => {
   const classes = {
     'is-four-fifths': isFourFifths,
@@ -71,12 +72,29 @@ export const Column = ({
     'is-full': isFull,
     'is-narrow': isNarrow,
   }
-
+  if (size) {
+    classes[`is-${size}`] = true
+  }
   return (
     <div className={classnames('column', className, classes)}>{children}</div>
   )
 }
-
+Columns.propTypes = {
+  size: PropTypes.oneOf([
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
+  ]),
+}
 Column.defaultProps = {
   isFourFifths: false,
   isThreeFifths: false,
