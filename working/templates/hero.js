@@ -1,4 +1,5 @@
 import React from 'react'
+import { useStyleSheet } from '@brightleaf/react-hooks'
 import {
   BaseIcon,
   Box,
@@ -28,7 +29,6 @@ import {
   SubTitle,
   Tag,
 } from '../../src/'
-import { useStyleSheet } from './hook'
 export const HeroTemplate = () => {
   useStyleSheet('hero.css')
   return (
@@ -51,10 +51,10 @@ export const HeroTemplate = () => {
                       <a href="#COVER">Cover</a>
                     </TabItem>
                     <TabItem>
-                      <a href="">Features</a>
+                      <a href="#BLOG">Blog</a>
                     </TabItem>
                     <TabItem>
-                      <a href="">Team</a>
+                      <a href="#LANDING">Landing</a>
                     </TabItem>
                     <TabItem>
                       <a href="">Help</a>
