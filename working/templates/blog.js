@@ -1,4 +1,5 @@
 import React from 'react'
+import { useStyleSheet, useStyles } from '@brightleaf/react-hooks'
 import {
   BaseIcon,
   Box,
@@ -16,6 +17,10 @@ import {
   HeroBody,
   HeroFooter,
   Image,
+  MediaObject,
+  MediaLeft,
+  MediaRight,
+  MediaContent,
   NavBar,
   NavBarEnd,
   NavBarMenu,
@@ -28,10 +33,10 @@ import {
   Title,
   SubTitle,
   Tag,
+  Tags,
   Tabs,
   TabItem,
 } from '../../src/'
-import { useStyleSheet, useStyles } from './hook'
 
 export const BlogTemplate = () => {
   useStyleSheet(
@@ -39,17 +44,7 @@ export const BlogTemplate = () => {
   )
   useStyleSheet('https://fonts.googleapis.com/css?family=Open+Sans')
   useStyleSheet('blog.css')
-  useStyles(`
-  html,
-  body {
-      font-family: 'Open Sans';
-  }
 
-  img {
-      padding: 5px;
-      border: 1px solid #ccc;
-  }
-  `)
   return (
     <>
       <NavBar className="navbar">
@@ -65,12 +60,12 @@ export const BlogTemplate = () => {
             <NavBarEnd className="navbar-end">
               <NavBarItem>
                 <a className="navbar-item is-active" href="#HERO">
-                  Home
+                  Hero
                 </a>
               </NavBarItem>
               <NavBarItem>
                 <a className="navbar-item" href="#COVER">
-                  Examples
+                  Cover
                 </a>
               </NavBarItem>
               <NavBarItem>
@@ -116,23 +111,23 @@ export const BlogTemplate = () => {
 
       <Container className="container">
         <section className="articles">
-          <div className="column is-8 is-offset-2">
-            <div className="card article">
-              <div className="card-content">
-                <div className="media">
-                  <div className="media-content has-text-centered">
-                    <p className="title article-title">
+          <Column size="8" className="is-offset-2">
+            <Card className="article">
+              <CardBody className="card-content">
+                <MediaObject className="media">
+                  <MediaContent className="has-text-centered">
+                    <Title as="p" className="title article-title">
                       Introducing a new feature for paid subscribers
-                    </p>
-                    <div className="tags has-addons level-item">
-                      <span className="tag is-rounded is-info">
+                    </Title>
+                    <Tags hasAddOns className="level-item">
+                      <Tag isRounded isInfo>
                         @skeetskeet
-                      </span>
-                      <span className="tag is-rounded">May 10, 2018</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="content article-body">
+                      </Tag>
+                      <Tag isRounded>May 10, 2018</Tag>
+                    </Tags>
+                  </MediaContent>
+                </MediaObject>
+                <Content className="article-body">
                   <p>
                     Non arcu risus quis varius quam quisque. Dictum varius duis
                     at consectetur lorem. Posuere sollicitudin aliquam ultrices
@@ -159,13 +154,13 @@ export const BlogTemplate = () => {
                     velit egestas. Fermentum leo vel orci porta. Faucibus
                     interdum posuere lorem ipsum.
                   </div>
-                </div>
-              </div>
-            </div>
+                </Content>
+              </CardBody>
+            </Card>
 
-            <div className="card article">
-              <div className="card-content">
-                <div className="media">
+            <Card className="card article">
+              <CardBody className="card-content">
+                <MediaObject className="media">
                   <div className="media-center">
                     <img
                       src="http://www.radfaces.com/images/avatars/daria-morgendorffer.jpg"
@@ -173,16 +168,16 @@ export const BlogTemplate = () => {
                       alt="Placeholder image"
                     />
                   </div>
-                  <div className="media-content has-text-centered">
-                    <p className="title article-title">
+                  <MediaContent className="media-content has-text-centered">
+                    <Title as="p" className="title article-title">
                       Sapien eget mi proin sed 🔱
-                    </p>
-                    <p className="subtitle is-6 article-subtitle">
+                    </Title>
+                    <SubTitle as="p" is="6" className="article-subtitle">
                       <a href="#">@daria</a> on February 17, 2018
-                    </p>
-                  </div>
-                </div>
-                <div className="content article-body">
+                    </SubTitle>
+                  </MediaContent>
+                </MediaObject>
+                <Content className="article-body">
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
@@ -209,27 +204,42 @@ export const BlogTemplate = () => {
                     tellus mauris a diam. Arcu non sodales neque sodales ut
                     etiam sit amet.
                   </p>
-                </div>
-              </div>
-            </div>
+                </Content>
+              </CardBody>
+            </Card>
 
-            <section className="hero is-info is-bold is-small promo-block">
-              <div className="hero-body">
-                <div className="container">
-                  <h1 className="title">
-                    <i className="fa fa-bell-o"></i> Nemo enim ipsam voluptatem
-                    quia.
-                  </h1>
-                  <span className="tag is-black is-medium is-rounded">
+            <Hero
+              isInfo
+              isBold
+              isSmall
+              className="hero is-info is-bold is-small promo-block"
+            >
+              <></>
+              <HeroBody>
+                <Container className="container">
+                  <Title className="title">
+                    <BaseIcon
+                      fa
+                      icon="ball-o"
+                      className="fa fa-bell-o"
+                    ></BaseIcon>{' '}
+                    Nemo enim ipsam voluptatem quia.
+                  </Title>
+                  <Tag
+                    isBlack
+                    isMedium
+                    isRounded
+                    className="tag is-black is-medium is-rounded"
+                  >
                     Natus error sit voluptatem
-                  </span>
-                </div>
-              </div>
-            </section>
+                  </Tag>
+                </Container>
+              </HeroBody>
+            </Hero>
 
-            <div className="card article">
-              <div className="card-content">
-                <div className="media">
+            <Card className=" article">
+              <CardBody>
+                <MediaObject className="media">
                   <div className="media-center">
                     <img
                       src="http://www.radfaces.com/images/avatars/angela-chase.jpg"
@@ -237,16 +247,16 @@ export const BlogTemplate = () => {
                       alt="Placeholder image"
                     />
                   </div>
-                  <div className="media-content has-text-centered">
-                    <p className="title article-title">
+                  <MediaContent hasTextCentered>
+                    <Title as="p" className="article-title">
                       Cras tincidunt lobortis feugiat vivamus.
-                    </p>
-                    <p className="subtitle is-6 article-subtitle">
+                    </Title>
+                    <SubTitle as="p" is="6" className="article-subtitle">
                       <a href="#">@angela</a> on October 7, 2017
-                    </p>
-                  </div>
-                </div>
-                <div className="content article-body">
+                    </SubTitle>
+                  </MediaContent>
+                </MediaObject>
+                <Content className="article-body">
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
@@ -274,10 +284,10 @@ export const BlogTemplate = () => {
                     tellus mauris a diam. Arcu non sodales neque sodales ut
                     etiam sit amet.
                   </p>
-                </div>
-              </div>
-            </div>
-          </div>
+                </Content>
+              </CardBody>
+            </Card>
+          </Column>
         </section>
       </Container>
     </>
