@@ -1,11 +1,29 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable spellcheck/spell-checker */
 import React from 'react'
-import { Hero, Container, SubTitle, Title } from '../../src'
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  Hero,
+  Container,
+  SubTitle,
+  Title,
+} from '../../src'
 
 export default () => {
   return (
     <Container>
+      <Breadcrumb>
+        <BreadcrumbItem>
+          <a>Home</a>
+        </BreadcrumbItem>
+        <BreadcrumbItem>
+          <a>Components</a>
+        </BreadcrumbItem>
+        <BreadcrumbItem>
+          <a>Hero</a>
+        </BreadcrumbItem>
+      </Breadcrumb>
       <Container>
         <Hero>
           <Container>
