@@ -1,4 +1,5 @@
 import React from 'react'
+import { useStyleSheet, useStyles } from '@brightleaf/react-hooks'
 import {
   BaseIcon,
   Box,
@@ -29,7 +30,6 @@ import {
   Tabs,
   TabItem,
 } from '../../src/'
-import { useStyleSheet, useStyles } from './hook'
 
 export const CoverTemplate = () => {
   useStyleSheet(
