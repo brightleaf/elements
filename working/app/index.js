@@ -28,6 +28,7 @@ import Media from '../pages/media'
 import NavBars from '../pages/navbars'
 import Messages from '../pages/messages'
 import Tags from '../pages/tags'
+import Tiles from '../pages/tile'
 import Intro from './intro'
 import Home from './home'
 const TabLink = props => {
@@ -57,13 +58,12 @@ const UpLink = props => {
   return (
     <Location>
       {({ location }) => {
-        const active = props.to === location.pathname
         return (
           <Link
             {...props}
             getProps={prop => {
-              console.info('link props', prop)
               const { isCurrent } = prop
+              console.log('uplkink', props.className)
               return {
                 className: isCurrent
                   ? props.className + ' is-active'
@@ -95,26 +95,128 @@ export default class App extends Component {
               <NavBarMenu id="navbarBasicExample">
                 <NavBarStart>
                   <NavBarItem>
-                    <a>Home</a>
+                    <UpLink to="/">Home</UpLink>
                   </NavBarItem>
-                  <NavBarItem>
-                    <a>Documentation</a>
-                  </NavBarItem>
-                  <NavBarDropDown title="Examples">
+                  <NavBarDropDown title="Layout">
                     <NavBarItem>
                       <UpLink to="/containers">Container</UpLink>
                     </NavBarItem>
                     <NavBarItem>
-                      <UpLink to="/columns">Columns</UpLink>
+                      <UpLink to="/level">Level</UpLink>
+                    </NavBarItem>
+                    <NavBarItem>
+                      <UpLink to="/media">Media Object</UpLink>
+                    </NavBarItem>
+                    <NavBarItem>
+                      <UpLink to="/hero">Hero</UpLink>
+                    </NavBarItem>
+                    <NavBarItem>
+                      <UpLink to="/section">Section</UpLink>
+                    </NavBarItem>
+                    <NavBarItem>
+                      <UpLink to="/footer">Footer</UpLink>
+                    </NavBarItem>
+                    <NavBarItem>
+                      <UpLink to="/tiles">Tiles</UpLink>
+                    </NavBarItem>
+                    <NavBarDivider />
+                    <NavBarItem>
+                      <a>Report an issue</a>
+                    </NavBarItem>
+                  </NavBarDropDown>
+
+                  <NavBarDropDown title="Elements">
+                    <NavBarItem>
+                      <UpLink to="/box">Box</UpLink>
+                    </NavBarItem>
+                    <NavBarItem>
+                      <UpLink to="/buttons">Button</UpLink>
+                    </NavBarItem>
+                    <NavBarItem>
+                      <UpLink to="/content">Content</UpLink>
+                    </NavBarItem>
+                    <NavBarItem>
+                      <UpLink to="/delete">Delete</UpLink>
+                    </NavBarItem>
+                    <NavBarItem>
+                      <UpLink to="/icons">Icon</UpLink>
+                    </NavBarItem>
+                    <NavBarItem
+                      className="tooltip is-tooltip-right"
+                      data-tooltip="The Image is not yet implemented"
+                    >
+                      <UpLink to="/images">Image (NI)</UpLink>
                     </NavBarItem>
                     <NavBarItem>
                       <UpLink to="/notifications">Notifications</UpLink>
                     </NavBarItem>
                     <NavBarItem>
-                      <UpLink to="/autocomplete">AutoComplete</UpLink>
+                      <UpLink to="/progress">Progress Bars</UpLink>
+                    </NavBarItem>
+                    <NavBarItem
+                      className="tooltip is-tooltip-right"
+                      data-tooltip="The Table is not yet implemented"
+                    >
+                      <UpLink to="/tables">Tables (NI)</UpLink>
+                    </NavBarItem>
+                    <NavBarItem>
+                      <UpLink to="/tags">Tag</UpLink>
+                    </NavBarItem>
+                    <NavBarItem>
+                      <UpLink to="/titles">title</UpLink>
+                    </NavBarItem>
+                  </NavBarDropDown>
+
+                  <NavBarDropDown title="Components">
+                    <NavBarItem>
+                      <UpLink to="/breadcrumb">Breadcrumb</UpLink>
+                    </NavBarItem>
+                    <NavBarItem>
+                      <UpLink to="/card">Card</UpLink>
+                    </NavBarItem>
+                    <NavBarItem>
+                      <UpLink to="/dropdown">DropDown</UpLink>
+                    </NavBarItem>
+                    <NavBarItem
+                      className="tooltip is-tooltip-right"
+                      data-tooltip="The Menu is not yet implemented"
+                    >
+                      <UpLink to="/autocomplete">
+                        Menu <i>(NI)</i>
+                      </UpLink>
                     </NavBarItem>
                     <NavBarItem>
                       <UpLink to="/messages">Messages</UpLink>
+                    </NavBarItem>
+                    <NavBarItem
+                      className="tooltip is-tooltip-right"
+                      data-tooltip="The Modal is not yet implemented"
+                    >
+                      <UpLink to="/modals">
+                        Modal <i>(NI)</i>
+                      </UpLink>
+                    </NavBarItem>
+                    <NavBarItem>
+                      <UpLink to="/navbars">NavBar</UpLink>
+                    </NavBarItem>
+                    <NavBarItem
+                      className="tooltip is-tooltip-right"
+                      data-tooltip="The Pagination is not yet implemented"
+                    >
+                      <UpLink to="/#">
+                        Pagination <i>(NI)</i>
+                      </UpLink>
+                    </NavBarItem>
+                    <NavBarItem
+                      className="tooltip is-tooltip-right"
+                      data-tooltip="The Panel is not yet implemented"
+                    >
+                      <UpLink to="/panels">
+                        Panel <i>(NI)</i>
+                      </UpLink>
+                    </NavBarItem>
+                    <NavBarItem>
+                      <UpLink to="/tabs">Tabs</UpLink>
                     </NavBarItem>
                     <NavBarDivider />
                     <NavBarItem>
@@ -177,6 +279,7 @@ export default class App extends Component {
                 <NavBars path="/navbars" />
                 <Tags path="/tags" />
                 <Messages path="/messages" />
+                <Tiles path="/tiles" />
               </Router>
             </Section>
           </React.Suspense>
