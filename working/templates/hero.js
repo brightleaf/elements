@@ -48,7 +48,7 @@ export const HeroTemplate = () => {
                       <a>Home</a>
                     </TabItem>
                     <TabItem>
-                      <a href="">Examples</a>
+                      <a href="#COVER">Cover</a>
                     </TabItem>
                     <TabItem>
                       <a href="">Features</a>

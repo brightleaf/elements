@@ -60,10 +60,10 @@ export const CoverTemplate = () => {
               <NavBarEnd>
                 <Tabs isRight>
                   <TabItem isActive>
-                    <a>Home</a>
+                    <a href="#HERO">Home</a>
                   </TabItem>
                   <TabItem>
-                    <a href="">Examples</a>
+                    <a href="#BLOG">Examples</a>
                   </TabItem>
                   <TabItem>
                     <a href="">Features</a>

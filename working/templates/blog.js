@@ -64,10 +64,14 @@ export const BlogTemplate = () => {
           <NavBarMenu id="navbarMenu" className="navbar-menu">
             <NavBarEnd className="navbar-end">
               <NavBarItem>
-                <a className="navbar-item is-active">Home</a>
+                <a className="navbar-item is-active" href="#HERO">
+                  Home
+                </a>
               </NavBarItem>
               <NavBarItem>
-                <a className="navbar-item">Examples</a>
+                <a className="navbar-item" href="#COVER">
+                  Examples
+                </a>
               </NavBarItem>
               <NavBarItem>
                 <a className="navbar-item">Features</a>
@@ -110,7 +114,7 @@ export const BlogTemplate = () => {
         </Container>
       </Hero>
 
-      <div className="container">
+      <Container className="container">
         <section className="articles">
           <div className="column is-8 is-offset-2">
             <div className="card article">
@@ -275,7 +279,7 @@ export const BlogTemplate = () => {
             </div>
           </div>
         </section>
-      </div>
+      </Container>
     </>
   )
 }
