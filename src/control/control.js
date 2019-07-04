@@ -1,6 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 export const Control = ({
+  as: El,
   className,
   children,
   hasIconsLeft,
@@ -13,6 +14,10 @@ export const Control = ({
     'is-expanded': isExpanded,
   }
   return (
-    <div className={classnames('control', className, classes)}>{children}</div>
+    <El className={classnames('control', className, classes)}>{children}</El>
   )
+}
+
+Control.defaultProps = {
+  as: 'div',
 }
