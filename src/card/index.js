@@ -4,10 +4,19 @@ import {
   CardHeader,
   CardFooter,
   CardImage,
+  CardImageContainer,
   CardFooterItem,
 } from './card'
 
-export { Card, CardBody, CardHeader, CardFooter, CardImage, CardFooterItem }
+export {
+  Card,
+  CardBody,
+  CardHeader,
+  CardFooter,
+  CardImage,
+  CardImageContainer,
+  CardFooterItem,
+}
 
 export default {
   Card,
@@ -15,5 +24,6 @@ export default {
   CardHeader,
   CardFooter,
   CardImage,
+  CardImageContainer,
   CardFooterItem,
 }

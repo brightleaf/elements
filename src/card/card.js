@@ -39,12 +39,23 @@ export const CardImage = ({ src, alt }) => {
   )
 }
 CardImage.sortOrder = 1
-export const CardBody = ({ children }) => {
+export const CardImageContainer = ({
+  children,
+  className,
+  hasTextCentered,
+}) => {
+  const classes = {
+    'has-text-centered': hasTextCentered,
+  }
   return (
-    <div className="card-content">
+    <div className={classnames('card-image', className, classes)}>
       {children}
     </div>
   )
+}
+CardImageContainer.sortOrder = 1
+export const CardBody = ({ children }) => {
+  return <div className="card-content">{children}</div>
 }
 CardBody.sortOrder = 2
 
@@ -112,7 +123,7 @@ export const Card = ({
       return 0
     }
   )
-  var types = [CardHeader, CardBody, CardFooter, CardImage]
+  var types = [CardHeader, CardBody, CardFooter, CardImage, CardImageContainer]
   childrenAsArray.forEach(child => {
     if (types.indexOf(child.type) === -1) {
       throw new Error(`'${child.type}' not allowed`)
@@ -128,7 +139,14 @@ export const Card = ({
 Card.propTypes = {
   children: function(props, propName, componentName) {
     const prop = props[propName]
-    const types = [CardHeader, CardBody, CardBody, CardImage, Card]
+    const types = [
+      CardHeader,
+      CardBody,
+      CardBody,
+      CardImage,
+      Card,
+      CardImageContainer,
+    ]
     // Only accept a single child, of the appropriate type
     if (propName === 'children') {
       prop.forEach(p => {
