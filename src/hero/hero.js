@@ -14,6 +14,7 @@ export const HeroFooter = ({ children }) => {
 export const HeroContext = createContext()
 export const Hero = ({
   children,
+  className,
   isPrimary,
   isSuccess,
   isInfo,
@@ -50,9 +51,16 @@ export const Hero = ({
     return (
       <HeroContext.Provider value={{ isInHero: true }}>
         <section
-          className={classnames('hero', classes, sizeClasses, screenSizes, {
-            'is-bold': isBold,
-          })}
+          className={classnames(
+            'hero',
+            className,
+            classes,
+            sizeClasses,
+            screenSizes,
+            {
+              'is-bold': isBold,
+            }
+          )}
         >
           <div className="hero-body">{children}</div>
         </section>
@@ -61,7 +69,15 @@ export const Hero = ({
   }
   return (
     <HeroContext.Provider value={{ isInHero: true }}>
-      <section className={classnames('hero', classes, sizeClasses)}>
+      <section
+        className={classnames(
+          'hero',
+          className,
+          classes,
+          sizeClasses,
+          screenSizes
+        )}
+      >
         {children}
       </section>
     </HeroContext.Provider>
