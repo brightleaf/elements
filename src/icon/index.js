@@ -1,5 +1,5 @@
-import { Icon } from './icon'
+import { Icon, BaseIcon } from './icon'
 
-export { Icon }
+export { Icon, BaseIcon }
 
 export default Icon
