@@ -3,7 +3,6 @@
 import React from 'react'
 import { Box, Button, Buttons, FullColumn } from '../../src'
 
-console.info('Button', Button)
 const Callout = ({ children }) => {
   return <div className="callout is-primary">{children}</div>
 }
