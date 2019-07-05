@@ -44,7 +44,7 @@ export const Image = ({
     is1by3,
   }
   if (is) {
-    classes[`is-${is}by${is}`] = true
+    classes[`is-${is}x${is}`] = true
   }
   return (
     <figure className={classnames('image', className, classes)}>
