@@ -5,6 +5,7 @@ import {
   HeroTemplate,
   BlogTemplate,
   LandingTemplate,
+  AdminTemplate,
 } from './templates/index'
 
 const App = () => {
@@ -30,6 +31,9 @@ const App = () => {
   }
   if (hash === '#LANDING') {
     return <LandingTemplate />
+  }
+  if (hash === '#ADMIN') {
+    return <AdminTemplate />
   }
   return <HeroTemplate />
 }
