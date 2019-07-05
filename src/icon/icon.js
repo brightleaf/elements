@@ -11,6 +11,10 @@ export const Icon = ({
   isSmall,
   isMedium,
   isLarge,
+  isMediumFA,
+  isLargeFA,
+  isLeft,
+  isRight,
   hasTextWhite,
   hasTextBlack,
   hasTextLight,
@@ -35,10 +39,12 @@ export const Icon = ({
     fa: fa,
     fas: fas,
     fab: fab,
-    'fa-2x': isMedium,
-    'fa-3x': isLarge,
+    'fa-2x': isMediumFA,
+    'fa-3x': isLargeFA,
   }
   const parent = {
+    'is-left': isLeft,
+    'is-right': isRight,
     ...Sizes({ isSmall, isMedium, isLarge }),
     ...HasText({
       hasTextWhite,
@@ -111,6 +117,8 @@ export const BaseIcon = ({
   isSmall,
   isMedium,
   isLarge,
+  isMediumFA,
+  isLargeFA,
   hasTextWhite,
   hasTextBlack,
   hasTextLight,
@@ -135,9 +143,10 @@ export const BaseIcon = ({
     fa: fa,
     fas: fas,
     fab: fab,
-    'fa-2x': isMedium,
-    'fa-3x': isLarge,
+    'fa-2x': isMediumFA,
+    'fa-3x': isLargeFA,
   }
+  console.log('classes', classes)
   const parent = {
     ...Sizes({ isSmall, isMedium, isLarge }),
     ...HasText({
