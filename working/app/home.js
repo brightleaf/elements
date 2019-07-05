@@ -38,7 +38,7 @@ export default function Home() {
           <Highlight className="javascript">
             {`
 import React from 'react'
-import { Hero, HeroBody } from '@brightleaf/elements'
+import { Hero, HeroBody, Title, SubTitle  } from '@brightleaf/elements'
 import { useStyleSheet , useScript } from '@brightleaf/react-hooks'
 
 export default () => {
