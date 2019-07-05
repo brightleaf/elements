@@ -1,1 +1,5 @@
-export { Breadcrumb, BreadcrumbItem } from './breadcrumb'
+import { Breadcrumb, BreadcrumbItem } from './breadcrumb'
+
+export { Breadcrumb, BreadcrumbItem }
+
+export default { Breadcrumb, BreadcrumbItem }
