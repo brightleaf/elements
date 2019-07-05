@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Router, Link, LocationProvider, Location } from '@reach/router'
 import {
+  BaseIcon,
   Button,
   Buttons,
   NavBar,
@@ -229,11 +230,21 @@ export default class App extends Component {
                   <NavBarItem>
                     <div>
                       <Buttons>
-                        <Button isPrimary isAnchor>
-                          <strong>Sign up</strong>
+                        <Button
+                          isWarning
+                          isAnchor
+                          href="https://github.com/brightleaf/elements"
+                        >
+                          <strong>
+                            <BaseIcon fab icon="github" /> GitHub
+                          </strong>
                         </Button>
-                        <Button isLight isAnchor>
-                          Log in
+                        <Button
+                          isLight
+                          isAnchor
+                          href="https://github.com/brightleaf/elements/releases"
+                        >
+                          Download
                         </Button>
                       </Buttons>
                     </div>
@@ -244,7 +255,7 @@ export default class App extends Component {
             <Section>
               <div className="tabs">
                 <ul>
-                  <Home to="/">Home</Home>
+                  <TabLink to="/">Home</TabLink>
                   <TabLink to="/containers">Container</TabLink>
                   <TabLink to="/columns">Columns</TabLink>
                   <TabLink to="/notifications">Notifications</TabLink>
@@ -261,7 +272,7 @@ export default class App extends Component {
                   <TabLink to="/tags">Tags</TabLink>
                 </ul>
               </div>
-              <Intro />
+
               <Router>
                 <Home path="/" />
                 <Container path="/containers" />
