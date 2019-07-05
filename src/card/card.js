@@ -2,14 +2,21 @@ import React from 'react'
 import classnames from 'classnames'
 import { Colors, Screens } from '../modifiers'
 
-export const CardHeader = ({ title, hasIcon }) => {
+export const CardHeader = ({ title, hasIcon, fa, fas }) => {
+  const classes = {
+    fa,
+    fas,
+  }
   return (
     <header className="card-header">
       <p className="card-header-title">{title}</p>
       {hasIcon && (
         <a href="#" className="card-header-icon" aria-label="more options">
           <span className="icon">
-            <i className="fas fa-angle-down" aria-hidden="true"></i>
+            <i
+              className={classnames(classes, 'fa-angle-down')}
+              aria-hidden="true"
+            ></i>
           </span>
         </a>
       )}
@@ -125,7 +132,10 @@ export const Card = ({
   )
   var types = [CardHeader, CardBody, CardFooter, CardImage, CardImageContainer]
   childrenAsArray.forEach(child => {
-    if (types.indexOf(child.type) === -1) {
+    if (
+      types.indexOf(child.type) === -1 &&
+      child.props.className.indexOf('card') === -1
+    ) {
       throw new Error(`'${child.type}' not allowed`)
     }
   })
@@ -139,14 +149,7 @@ export const Card = ({
 Card.propTypes = {
   children: function(props, propName, componentName) {
     const prop = props[propName]
-    const types = [
-      CardHeader,
-      CardBody,
-      CardBody,
-      CardImage,
-      Card,
-      CardImageContainer,
-    ]
+    const types = [CardHeader, CardBody, CardImage, Card, CardImageContainer]
     // Only accept a single child, of the appropriate type
     if (propName === 'children') {
       if (!prop.forEach) {
