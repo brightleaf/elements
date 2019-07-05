@@ -58,37 +58,33 @@ export const BlogTemplate = () => {
           ></NavBarBrand>
           <NavBarMenu id="navbarMenu" className="navbar-menu">
             <NavBarEnd className="navbar-end">
-              <NavBarItem>
-                <a className="navbar-item is-active" href="#HERO">
-                  Hero
-                </a>
+              <NavBarItem isActive>
+                <a href="#HERO">Hero</a>
               </NavBarItem>
               <NavBarItem>
-                <a className="navbar-item" href="#COVER">
-                  Cover
-                </a>
+                <a href="#COVER">Cover</a>
               </NavBarItem>
               <NavBarItem>
-                <a className="navbar-item">Features</a>
+                <a href="#ADMIN">Admin</a>
               </NavBarItem>
               <NavBarItem>
-                <a className="navbar-item">Team</a>
+                <a href="#LANDING">Landing</a>
               </NavBarItem>
               <NavBarItem>
-                <a className="navbar-item">Archives</a>
+                <a>Archives</a>
               </NavBarItem>
               <NavBarItem>
-                <a className="navbar-item">Help</a>
+                <a>Help</a>
               </NavBarItem>
               <NavBarDropDown title="Account" isHoverable>
                 <NavBarItem>
-                  <a className="navbar-item">Dashboard</a>
+                  <a>Dashboard</a>
                 </NavBarItem>
                 <NavBarItem>
-                  <a className="navbar-item">Profile</a>
+                  <a>Profile</a>
                 </NavBarItem>
                 <NavBarItem>
-                  <a className="navbar-item">Settings</a>
+                  <a>Settings</a>
                 </NavBarItem>
                 <NavBarDivider />
                 <NavBarItem>

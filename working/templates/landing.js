@@ -52,13 +52,7 @@ export const LandingTemplate = () => {
               <NavBarEnd className="navbar-end">
                 <NavBarItem>
                   <span>
-                    <Button
-                      isWhite
-                      isAnchor
-                      isOutlined
-                      className="button is-white is-outlined"
-                      href="#"
-                    >
+                    <Button isWhite isAnchor isOutlined href="#">
                       <Icon fa icon="book" className="home"></Icon>
                       <span>Home</span>
                     </Button>
@@ -66,27 +60,15 @@ export const LandingTemplate = () => {
                 </NavBarItem>
                 <NavBarItem>
                   <span>
-                    <Button
-                      isWhite
-                      isAnchor
-                      isOutlined
-                      className="button is-white is-outlined"
-                      href="#"
-                    >
-                      <Icon fa icon="book" className="superpowers"></Icon>
+                    <Button isWhite isAnchor isOutlined href="#">
+                      <Icon fa icon="superpowers"></Icon>
                       <span>Examples</span>
                     </Button>
                   </span>
                 </NavBarItem>
                 <NavBarItem>
                   <span>
-                    <Button
-                      isWhite
-                      isAnchor
-                      isOutlined
-                      className="button is-white is-outlined"
-                      href="#"
-                    >
+                    <Button isWhite isAnchor isOutlined href="#">
                       <Icon fa icon="book" className="icon"></Icon>
                       <span>Documentation</span>
                     </Button>
@@ -94,13 +76,7 @@ export const LandingTemplate = () => {
                 </NavBarItem>
                 <NavBarItem>
                   <span>
-                    <Button
-                      isWhite
-                      isAnchor
-                      isOutlined
-                      className="button is-white is-outlined"
-                      href="#"
-                    >
+                    <Button isWhite isAnchor isOutlined href="#">
                       <Icon fa icon="github" className="icon"></Icon>
                       <span>View Source</span>
                     </Button>

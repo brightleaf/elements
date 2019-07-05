@@ -66,10 +66,10 @@ export const CoverTemplate = () => {
                     <a href="#BLOG">Examples</a>
                   </TabItem>
                   <TabItem>
-                    <a href="">Features</a>
+                    <a href="#LANDING">Landing</a>
                   </TabItem>
                   <TabItem>
-                    <a href="">Team</a>
+                    <a href="#ADMIN">Admin</a>
                   </TabItem>
                   <TabItem>
                     <a href="">Help</a>
