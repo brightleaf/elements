@@ -15,16 +15,16 @@
       background: #00d1b2;
     }
 
-    .bd-example,
-    .bd-structure,
-    .bd-snippet {
+    .example,
+    .structure,
+    .snippet {
       border: 2px solid whitesmoke;
       position: relative;
     }
 
-    .bd-example::before,
-    .bd-structure::before,
-    .bd-snippet::before {
+    .example::before,
+    .structure::before,
+    .snippet::before {
       background: #ffdd57;
       border-radius: 2px 2px 0 0;
       bottom: 100%;
@@ -42,45 +42,100 @@
       vertical-align: top;
     }
 
+    .snippet {
+      margin-top: 2rem;
+      position: relative;
+    }
+
+    .snippet:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+
+    .snippet::before {
+      content: "Snippet";
+      align-items: stretch;
+      display: flex;
+    }
+
+    .snippet-preview {
+      padding: 1.5rem;
+    }
+
+    .snippet-code.is-more.is-more-clipped .highlight {
+      height: 2em;
+      overflow: hidden;
+    }
+
+    .snippet-code.is-more.is-more-clipped .highlight pre {
+      overflow: hidden;
+    }
+
+    .snippet-code.is-more.is-more-clipped .highlight .show {
+      display: flex;
+    }
+
+    .snippet.is-horizontal {
+      border-radius: 6px;
+      border-top-left-radius: 0;
+    }
+
+    .snippet.is-horizontal .snippet-code .highlight {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    .snippet.is-horizontal .snippet-code.is-more.is-more-clipped .highlight pre {
+      padding-top: 0.325rem;
+    }
+
+    .snippet.is-clipped .snippet-code {
+      overflow: auto;
+    }
+
+    .snippet.is-fullwidth {
+      border-radius: 0;
+      border-width: 1px 0;
+    }
+
     @media screen and (min-width: 769px),
     print {
 
-      .bd-example.is-fullwidth,
-      .bd-structure.is-fullwidth,
-      .bd-snippet.is-fullwidth {
+      .example.is-fullwidth,
+      .structure.is-fullwidth,
+      .snippet.is-fullwidth {
         border-left: none;
         border-right: none;
         padding: 0;
       }
     }
 
-    .bd-example,
-    .bd-structure {
+    .example,
+    .structure {
       padding: 1.5rem;
     }
 
-    .bd-example:not(:first-child),
-    .bd-structure:not(:first-child) {
+    .example:not(:first-child),
+    .structure:not(:first-child) {
       margin-top: 2rem;
     }
 
-    .bd-example:not(:last-child),
-    .bd-structure:not(:last-child) {
+    .example:not(:last-child),
+    .structure:not(:last-child) {
       margin-bottom: 1.5rem;
     }
 
-    .bd-example.bd-is-clipped {
+    .example.is-clipped {
       border-top-right-radius: 6px;
     }
 
-    .bd-example+.highlight {
+    .example+.highlight {
       border: 1px solid #ffdd57;
       border-radius: 0 0 4px 4px;
       border-top: none;
       margin-top: -1.5rem;
     }
 
-    .bd-example+.highlight:not(:last-child) {
+    .example+.highlight:not(:last-child) {
       margin-bottom: 1.5rem;
     }
 
@@ -332,6 +387,70 @@
 
     .content li .highlight {
       margin-top: 0.5em;
+    }
+
+    @media screen and (min-width: 1024px) {
+      .snippet.is-vertical {
+        align-items: stretch;
+        border-radius: 6px;
+        border-top-left-radius: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .snippet.is-vertical .snippet-preview,
+      .snippet.is-vertical .snippet-code {
+        width: 50%;
+      }
+
+      .snippet.is-vertical .snippet-code,
+      .snippet.is-vertical .snippet-code .highlight,
+      .snippet.is-vertical .snippet-code .highlight pre {
+        align-items: stretch;
+        border-radius: 0 6px 6px 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .snippet.is-vertical .snippet-code .highlight,
+      .snippet.is-vertical .snippet-code .highlight pre,
+      .snippet.is-vertical .snippet-code .highlight .language-html {
+        flex-grow: 1;
+      }
+
+      .snippet.is-vertical .snippet-code .highlight pre {
+        white-space: pre;
+      }
+
+      .snippet.is-vertical.is-one-fifth .snippet-preview {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        width: calc(128px + 3rem);
+      }
+
+      .snippet.is-vertical.is-one-fifth .snippet-code {
+        width: calc(100% - 128px - 3rem);
+      }
+
+      .snippet.is-vertical.is-two-fifths .snippet-preview {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        width: calc(256px + 3rem);
+      }
+
+      .snippet.is-vertical.is-two-fifths .snippet-code {
+        width: calc(100% - 256px - 3rem);
+      }
+
+      .snippet.is-vertical.is-one-third .snippet-preview {
+        width: 33.3333%;
+      }
+
+      .snippet.is-vertical.is-one-third .snippet-code {
+        width: 66.6666%;
+      }
     }
   </style>
 </head>
