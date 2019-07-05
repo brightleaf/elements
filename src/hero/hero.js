@@ -47,7 +47,7 @@ export const Hero = ({
     isFullHeightWithNavBar,
   })
 
-  if (!Array.isArray(children)) {
+  if (!Array.isArray(children) && children.type !== HeroBody) {
     return (
       <HeroContext.Provider value={{ isInHero: true }}>
         <section
