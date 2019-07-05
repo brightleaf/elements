@@ -29,6 +29,7 @@ export {
   MediaObject,
   MediaRight,
 } from './media-object'
+export { Menu, MenuLabel, MenuList, MenuListItem } from './menu'
 export { MessageHeader, MessageBody, Message } from './message'
 export {
   NavBar,
@@ -43,6 +44,7 @@ export {
 export { Notification } from './notification'
 export { Section } from './section'
 export { SubTitle } from './subtitle'
+export { Table } from './table'
 export { Tabs, TabItem } from './tabs'
 export { Tag, Tags } from './tag'
 export { Tile } from './tile'
