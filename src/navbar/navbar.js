@@ -13,15 +13,18 @@ export const NavBarItem = ({ children, className, ...props }) => {
 export const NavBarBrand = ({
   href,
   src,
+  className,
   target,
   onClick,
   width = 112,
   height = 28,
+  title,
 }) => {
   return (
     <div className="navbar-brand">
-      <a className="navbar-item" href={href}>
-        <img src={src} width={width} height={height} />
+      <a className={classnames('navbar-item', className)} href={href}>
+        {src && <img src={src} width={width} height={height} />}
+        {title}
       </a>
 
       <a
