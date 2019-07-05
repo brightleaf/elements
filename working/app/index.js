@@ -142,11 +142,8 @@ export default class App extends Component {
                     <NavBarItem>
                       <UpLink to="/icons">Icon</UpLink>
                     </NavBarItem>
-                    <NavBarItem
-                      className="tooltip is-tooltip-right"
-                      data-tooltip="The Image is not yet implemented"
-                    >
-                      <UpLink to="/images">Image (NI)</UpLink>
+                    <NavBarItem>
+                      <UpLink to="/images">Image</UpLink>
                     </NavBarItem>
                     <NavBarItem>
                       <UpLink to="/notifications">Notifications</UpLink>
@@ -154,11 +151,8 @@ export default class App extends Component {
                     <NavBarItem>
                       <UpLink to="/progress">Progress Bars</UpLink>
                     </NavBarItem>
-                    <NavBarItem
-                      className="tooltip is-tooltip-right"
-                      data-tooltip="The Table is not yet implemented"
-                    >
-                      <UpLink to="/tables">Tables (NI)</UpLink>
+                    <NavBarItem>
+                      <UpLink to="/tables">Tables</UpLink>
                     </NavBarItem>
                     <NavBarItem>
                       <UpLink to="/tags">Tag</UpLink>
@@ -178,13 +172,8 @@ export default class App extends Component {
                     <NavBarItem>
                       <UpLink to="/dropdown">DropDown</UpLink>
                     </NavBarItem>
-                    <NavBarItem
-                      className="tooltip is-tooltip-right"
-                      data-tooltip="The Menu is not yet implemented"
-                    >
-                      <UpLink to="/autocomplete">
-                        Menu <i>(NI)</i>
-                      </UpLink>
+                    <NavBarItem>
+                      <UpLink to="/autocomplete">Menu</UpLink>
                     </NavBarItem>
                     <NavBarItem>
                       <UpLink to="/messages">Messages</UpLink>
