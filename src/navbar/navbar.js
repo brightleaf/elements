@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import classnames from 'classnames'
 import { Colors } from '../modifiers'
 
-export const NavBarItem = ({ children, className, ...props }) => {
+export const NavBarItem = ({ children, className, isActive, ...props }) => {
   const kid = React.cloneElement(children, {
-    className: classnames('navbar-item', className),
+    // eslint-disable-next-line sonarjs/no-duplicate-string
+    className: classnames('navbar-item', className, { 'is-active': isActive }),
     ...props,
   })
   return <>{kid}</>
