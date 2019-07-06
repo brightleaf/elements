@@ -1,5 +1,12 @@
 import React, { Component, Fragment } from 'react'
-import { Router, Link, LocationProvider, Location } from '@reach/router'
+import {
+  createHistory,
+  Router,
+  Link,
+  LocationProvider,
+  Location,
+} from '@reach/router'
+import createHashSource from 'hash-source'
 import {
   BaseIcon,
   Button,
@@ -32,6 +39,10 @@ import Tags from '../pages/tags'
 import Tiles from '../pages/tile'
 import Intro from './intro'
 import Home from './home'
+
+let source = createHashSource()
+let history = createHistory(source)
+
 const TabLink = props => {
   return (
     <Location>
@@ -81,7 +92,7 @@ const UpLink = props => {
 export default class App extends Component {
   render() {
     return (
-      <LocationProvider>
+      <LocationProvider history={history}>
         <Fragment>
           <React.Suspense fallback={<div>Loading</div>}>
             <NavBar isFixedTop>
