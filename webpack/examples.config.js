@@ -2,13 +2,14 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
-
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const pkg = require('../package.json')
 module.exports = {
   entry: {
     index: './working/index.js',
     vendor: Object.keys(pkg.dependencies),
     hero: './working/templates.js',
+    bootswatch: './working/boot.js',
   },
   module: {
     rules: [
@@ -52,6 +53,13 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       hash: true,
+      title: 'Brightleaf Elements Bootswatch',
+      template: './working/swatch.html',
+      chunks: ['bootswatch', 'vendor'],
+      filename: 'bootswatch.html',
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
       title: 'Brightleaf Hero',
       template: './working/hero.html',
       chunks: ['hero', 'vendor'],
@@ -63,6 +71,10 @@ module.exports = {
         to: path.join(process.cwd(), '/dist'),
       },
     ]),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      generateStatsFile: true,
+    }),
   ],
   resolve: {
     extensions: ['*', '.mjs', '.js', '.jsx'],

@@ -8,6 +8,7 @@ module.exports = {
     index: './working/index.js',
     vendor: Object.keys(pkg.dependencies),
     hero: './working/templates.js',
+    bootswatch: './working/boot.js',
   },
   module: {
     rules: [
@@ -55,6 +56,13 @@ module.exports = {
       template: './working/hero.html',
       chunks: ['hero', 'vendor'],
       filename: 'hero.html',
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      title: 'Brightleaf Elements Bootswatch',
+      template: './working/swatch.html',
+      chunks: ['bootswatch', 'vendor'],
+      filename: 'bootswatch.html',
     }),
   ],
   devServer: {
