@@ -8,13 +8,14 @@ export const Title = ({
   is,
   isSpaced,
   children,
+  force,
   ...props
 }) => {
   const value = useContext(HeroContext)
   const isInHero = value && value.isInHero
 
   const classes = {
-    [`is-${is}`]: !isInHero && !!is,
+    [`is-${is}`]: is,
     'is-spaced': isSpaced,
   }
 
