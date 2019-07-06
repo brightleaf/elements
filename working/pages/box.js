@@ -2,7 +2,7 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react'
 import { useStyleSheet, useStyles } from '@brightleaf/react-hooks'
-import Highlight from 'react-highlight'
+import Highlight from '../components/highlighter'
 import {
   Box,
   Content,
@@ -81,7 +81,7 @@ export default () => {
           </Box>
         </Column>
         <Column isHalf>
-          <Highlight className="javascript">
+          <Highlight className="javascript" languages={['javascript']}>
             {`
 import React from 'react'
 import {

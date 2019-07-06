@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useStyleSheet, useStyles } from '@brightleaf/react-hooks'
-import Highlight from 'react-highlight'
+import Highlight from '../components/highlighter'
 import { Container, Column, Columns, AutoComplete } from '../../src'
 import { Snippet } from '../components/snippet'
 export default () => {
@@ -38,7 +38,7 @@ export default () => {
             />
           </Column>
           <Column isHalf>
-            <Highlight className="javascript">
+            <Highlight className="javascript" language={['javascript']}>
               {`
 import React from 'react'
 import { AutoComplete } from '@brightleaf/elements'

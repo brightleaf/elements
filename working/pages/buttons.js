@@ -2,7 +2,7 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react'
 import { useStyleSheet, useStyles } from '@brightleaf/react-hooks'
-import Highlight from 'react-highlight'
+import Highlight from '../components/highlighter'
 import {
   Box,
   Button,
@@ -45,7 +45,7 @@ export default () => {
             </Container>
           </Column>
           <Column isHalf>
-            <Highlight className="javascript">
+            <Highlight className="javascript" languages={['javascript']}>
               {`
 import React from 'react'
 import { Button } from '@brightleaf/elements'
@@ -82,7 +82,7 @@ export default () => {
             </Container>
           </Column>
           <Column isHalf>
-            <Highlight className="javascript">
+            <Highlight className="javascript" languages={['javascript']}>
               {`
 import React from 'react'
 import { Buttons, Button } from '@brightleaf/elements'
@@ -142,7 +142,7 @@ export default () => {
             </Container>
           </Column>
           <Column isHalf>
-            <Highlight className="javascript">
+            <Highlight className="javascript" languages={['javascript']}>
               {`
 import React from 'react'
 import { Buttons, Button } from '@brightleaf/elements'
@@ -202,7 +202,7 @@ export default () => {
             </Buttons>
           </Column>
           <Column isHalf>
-            <Highlight className="javascript">
+            <Highlight className="javascript" languages={['javascript']}>
               {`
 import React from 'react'
 import { Buttons, Button } from '@brightleaf/elements'
@@ -253,7 +253,7 @@ export default () => {
             </Buttons>
           </Column>
           <Column isHalf>
-            <Highlight className="javascript">
+            <Highlight className="javascript" languages={['javascript']}>
               {`
 import React from 'react'
 import { Buttons, Button } from '@brightleaf/elements'
