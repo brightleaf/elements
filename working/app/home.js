@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStyles, useStyleSheet } from '@brightleaf/react-hooks'
-import Highlight from 'react-highlight'
+import Highlight from '../components/highlighter'
 import {
   Box,
   Column,
@@ -30,12 +30,21 @@ export default function Home() {
               <SubTitle as="h4">Bulma Styled React Components</SubTitle>
             </HeroBody>
           </Hero>
+          <br />
+          <Content>
+            <div>
+              <p>
+                <a href="https://bulma.io">Bulma</a> powered React elements to
+                allow the creation of sites and apps
+              </p>
+            </div>
+          </Content>
         </Column>
         <Column isTwoThirds>
-          <Highlight className="bash">
+          <Highlight className="bash" languages={['bash', 'javascript']}>
             {`npm install @brightleaf/elements @brightleaf/react-hooks`}
           </Highlight>
-          <Highlight className="javascript">
+          <Highlight className="javascript" languages={['javascript']}>
             {`
 import React from 'react'
 import { Hero, HeroBody, Title, SubTitle  } from '@brightleaf/elements'
