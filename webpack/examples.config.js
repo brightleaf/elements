@@ -3,8 +3,13 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 
+const pkg = require('../package.json')
 module.exports = {
-  entry: './working/index.js',
+  entry: {
+    index: './working/index.js',
+    vendor: Object.keys(pkg.dependencies),
+    hero: './working/templates.js',
+  },
   module: {
     rules: [
       {
@@ -40,9 +45,17 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Custom template',
+      title: 'Brightleaf Elements',
       template: './working/index.html',
       historyApiFallback: true,
+      chunks: ['vendor', 'index'],
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      title: 'Brightleaf Hero',
+      template: './working/hero.html',
+      chunks: ['hero', 'vendor'],
+      filename: 'hero.html',
     }),
     new CopyPlugin([
       {
@@ -59,6 +72,6 @@ module.exports = {
   output: {
     path: path.join(process.cwd(), '/dist'),
     publicPath: '/elements/',
-    filename: 'bundle.js',
+    filename: './[name].bundle.js',
   },
 }

@@ -13,7 +13,7 @@ import {
   Control,
 } from '../../src'
 const Example = ({ children, isPrimary }) => {
-  return <div className="bd-example">{children}</div>
+  return <div className="example">{children}</div>
 }
 export default () => {
   return (

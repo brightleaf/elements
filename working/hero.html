@@ -16,16 +16,16 @@
       background: #00d1b2;
     }
 
-    .bd-example,
-    .bd-structure,
-    .bd-snippet {
+    .example,
+    .structure,
+    .snippet {
       border: 2px solid whitesmoke;
       position: relative;
     }
 
-    .bd-example::before,
-    .bd-structure::before,
-    .bd-snippet::before {
+    .example::before,
+    .structure::before,
+    .snippet::before {
       background: #ffdd57;
       border-radius: 2px 2px 0 0;
       bottom: 100%;
@@ -46,42 +46,42 @@
     @media screen and (min-width: 769px),
     print {
 
-      .bd-example.is-fullwidth,
-      .bd-structure.is-fullwidth,
-      .bd-snippet.is-fullwidth {
+      .example.is-fullwidth,
+      .structure.is-fullwidth,
+      .snippet.is-fullwidth {
         border-left: none;
         border-right: none;
         padding: 0;
       }
     }
 
-    .bd-example,
-    .bd-structure {
+    .example,
+    .structure {
       padding: 1.5rem;
     }
 
-    .bd-example:not(:first-child),
-    .bd-structure:not(:first-child) {
+    .example:not(:first-child),
+    .structure:not(:first-child) {
       margin-top: 2rem;
     }
 
-    .bd-example:not(:last-child),
-    .bd-structure:not(:last-child) {
+    .example:not(:last-child),
+    .structure:not(:last-child) {
       margin-bottom: 1.5rem;
     }
 
-    .bd-example.bd-is-clipped {
+    .example.is-clipped {
       border-top-right-radius: 6px;
     }
 
-    .bd-example+.highlight {
+    .example+.highlight {
       border: 1px solid #ffdd57;
       border-radius: 0 0 4px 4px;
       border-top: none;
       margin-top: -1.5rem;
     }
 
-    .bd-example+.highlight:not(:last-child) {
+    .example+.highlight:not(:last-child) {
       margin-bottom: 1.5rem;
     }
 
