@@ -7,7 +7,6 @@ const pkg = require('../package.json')
 module.exports = {
   entry: {
     index: './working/index.js',
-    vendor: Object.keys(pkg.dependencies),
     hero: './working/templates.js',
     bootswatch: './working/boot.js',
   },
@@ -49,20 +48,20 @@ module.exports = {
       title: 'Brightleaf Elements',
       template: './working/index.html',
       historyApiFallback: true,
-      chunks: ['vendor', 'index'],
+      chunks: ['index'],
     }),
     new HtmlWebpackPlugin({
       hash: true,
       title: 'Brightleaf Elements Bootswatch',
       template: './working/swatch.html',
-      chunks: ['bootswatch', 'vendor'],
+      chunks: ['bootswatch'],
       filename: 'bootswatch.html',
     }),
     new HtmlWebpackPlugin({
       hash: true,
       title: 'Brightleaf Hero',
       template: './working/hero.html',
-      chunks: ['hero', 'vendor'],
+      chunks: ['hero'],
       filename: 'hero.html',
     }),
     new CopyPlugin([
