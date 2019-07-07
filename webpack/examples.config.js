@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const TerserPlugin = require('terser-webpack-plugin')
 const pkg = require('../package.json')
 module.exports = {
   entry: {
@@ -84,5 +85,8 @@ module.exports = {
     path: path.join(process.cwd(), '/dist'),
     publicPath: '/elements/',
     filename: './[name].bundle.js',
+  },
+  optimization: {
+    minimizer: [new TerserPlugin()],
   },
 }

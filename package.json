@@ -61,6 +61,7 @@
     "react-fast-highlight": "^2.2.2",
     "regenerator-runtime": "^0.13.2",
     "style-loader": "^0.23.1",
+    "terser-webpack-plugin": "^1.3.0",
     "web-cli": "^1.0.0-prealpha",
     "webpack": "^4.35.2",
     "webpack-bundle-analyzer": "^3.3.2",
