@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { Sizes, HasText } from '../modifiers'
 
 export const Icon = ({
+  className,
+  iconClassName,
   icon = 'home',
   fas,
   fab,
@@ -72,13 +74,15 @@ export const Icon = ({
   const iconName = `fa-${icon}`
 
   return (
-    <span className={classnames('icon', parent)}>
+    <span className={classnames(iconClassName, className, parent)}>
       <i className={classnames(classes, iconName)} aria-hidden="true"></i>
     </span>
   )
 }
 
 Icon.propTypes = {
+  className: PropTypes.string,
+  iconClassName: PropTypes.string,
   icon: PropTypes.string,
   fas: PropTypes.bool,
   fab: PropTypes.bool,
@@ -106,7 +110,9 @@ Icon.propTypes = {
   hasTextWhiteTer: PropTypes.bool,
   hasTextWhiteBis: PropTypes.bool,
 }
-
+Icon.defaultProps = {
+  iconClassName: 'icon',
+}
 export default Icon
 
 export const BaseIcon = ({
@@ -114,30 +120,8 @@ export const BaseIcon = ({
   fas,
   fab,
   fa,
-  isSmall,
-  isMedium,
-  isLarge,
   isMediumFA,
   isLargeFA,
-  hasTextWhite,
-  hasTextBlack,
-  hasTextLight,
-  hasTextDark,
-  hasTextPrimary,
-  hasTextInfo,
-  hasTextLink,
-  hasTextSuccess,
-  hasTextWarning,
-  hasTextDanger,
-  hasTextBlackBis,
-  hasTextBlackTer,
-  hasTextGreyDarker,
-  hasTextGreyDark,
-  hasTextGrey,
-  hasTextGreyLight,
-  hasTextGreyLighter,
-  hasTextWhiteTer,
-  hasTextWhiteBis,
 }) => {
   const classes = {
     fa: fa,
@@ -146,34 +130,8 @@ export const BaseIcon = ({
     'fa-2x': isMediumFA,
     'fa-3x': isLargeFA,
   }
-  console.log('classes', classes)
-  const parent = {
-    ...Sizes({ isSmall, isMedium, isLarge }),
-    ...HasText({
-      hasTextWhite,
-      hasTextBlack,
-      hasTextLight,
-      hasTextDark,
-      hasTextPrimary,
-      hasTextInfo,
-      hasTextLink,
-      hasTextSuccess,
-      hasTextWarning,
-      hasTextDanger,
-      hasTextBlackBis,
-      hasTextBlackTer,
-      hasTextGreyDarker,
-      hasTextGreyDark,
-      hasTextGrey,
-      hasTextGreyLight,
-      hasTextGreyLighter,
-      hasTextWhiteTer,
-      hasTextWhiteBis,
-    }),
-  }
 
   const iconName = `fa-${icon}`
-
   return <i className={classnames(classes, iconName)} aria-hidden="true"></i>
 }
 
