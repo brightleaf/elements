@@ -37,7 +37,7 @@ import NavBars from '../pages/navbars'
 import Messages from '../pages/messages'
 import Tags from '../pages/tags'
 import Tiles from '../pages/tile'
-import Intro from './intro'
+import Panel from '../pages/panel'
 import Home from './home'
 
 let source = createHashSource()
@@ -208,13 +208,8 @@ export default class App extends Component {
                         Pagination <i>(NI)</i>
                       </UpLink>
                     </NavBarItem>
-                    <NavBarItem
-                      className="tooltip is-tooltip-right"
-                      data-tooltip="The Panel is not yet implemented"
-                    >
-                      <UpLink to="/panels">
-                        Panel <i>(NI)</i>
-                      </UpLink>
+                    <NavBarItem>
+                      <UpLink to="/panels">Panel</UpLink>
                     </NavBarItem>
                     <NavBarItem>
                       <UpLink to="/tabs">Tabs</UpLink>
@@ -291,6 +286,7 @@ export default class App extends Component {
                 <Tags path="/tags" />
                 <Messages path="/messages" />
                 <Tiles path="/tiles" />
+                <Panel path="/panels" />
               </Router>
             </Section>
           </React.Suspense>
