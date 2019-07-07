@@ -16,7 +16,12 @@ export { Container } from './container'
 export { Content } from './content'
 export { Control } from './control'
 export { Delete } from './delete'
-export { DropDown } from './dropdown'
+export {
+  DropDown,
+  DropDownItem,
+  DropDownMenu,
+  DropDownDivider,
+} from './dropdown'
 export { Field } from './field'
 export { Footer } from './footer'
 export { Heading } from './heading'
