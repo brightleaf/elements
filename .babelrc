@@ -10,7 +10,7 @@
         "targets": {
           "chrome": 70,
           "browsers": [
-            "last 2 versions",
+            "last 1 versions",
             "safari >= 12"
           ]
         }
