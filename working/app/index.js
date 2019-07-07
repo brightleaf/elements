@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment, lazy, Suspense } from 'react'
 import {
   createHistory,
   Router,
@@ -21,24 +21,25 @@ import {
   NavBarMenu,
   Section,
 } from '../../src'
-import Container from '../pages/container'
-import Columns from '../pages/columns'
-import Notifications from '../pages/notifications'
-import AutoComplete from '../pages/autocomplete'
-import Box from '../pages/box'
-import ButtonsPage from '../pages/buttons'
-import DropDown from '../pages/dropdown'
-import Card from '../pages/card'
-import Hero from '../pages/hero'
-import Icons from '../pages/icon'
-import Level from '../pages/level'
-import Media from '../pages/media'
-import NavBars from '../pages/navbars'
-import Messages from '../pages/messages'
-import Tags from '../pages/tags'
-import Tiles from '../pages/tile'
-import Panel from '../pages/panel'
-import Home from './home'
+
+const Home = React.lazy(() => import('./home'))
+const Columns = React.lazy(() => import('../pages/columns'))
+const Notifications = React.lazy(() => import('../pages/notifications'))
+const AutoComplete = React.lazy(() => import('../pages/autocomplete'))
+const Box = React.lazy(() => import('../pages/box'))
+const ButtonsPage = React.lazy(() => import('../pages/buttons'))
+const DropDown = React.lazy(() => import('../pages/dropdown'))
+const Card = React.lazy(() => import('../pages/card'))
+const Hero = React.lazy(() => import('../pages/hero'))
+const Icons = React.lazy(() => import('../pages/icon'))
+const Level = React.lazy(() => import('../pages/level'))
+const Media = React.lazy(() => import('../pages/media'))
+const NavBars = React.lazy(() => import('../pages/navbars'))
+const Messages = React.lazy(() => import('../pages/messages'))
+const Tags = React.lazy(() => import('../pages/tags'))
+const Tiles = React.lazy(() => import('../pages/tile'))
+const Panel = React.lazy(() => import('../pages/panel'))
+const Container = React.lazy(() => import('../pages/container'))
 
 let source = createHashSource()
 let history = createHistory(source)
@@ -75,7 +76,6 @@ const UpLink = props => {
             {...props}
             getProps={prop => {
               const { isCurrent } = prop
-              console.log('uplkink', props.className)
               return {
                 className: isCurrent
                   ? props.className + ' is-active'
@@ -94,7 +94,7 @@ export default class App extends Component {
     return (
       <LocationProvider history={history}>
         <Fragment>
-          <React.Suspense fallback={<div>Loading</div>}>
+          <Suspense fallback={<div>Loading</div>}>
             <NavBar isFixedTop>
               <NavBarBrand
                 src="brightleafjs-logo.png"
@@ -289,7 +289,7 @@ export default class App extends Component {
                 <Panel path="/panels" />
               </Router>
             </Section>
-          </React.Suspense>
+          </Suspense>
         </Fragment>
       </LocationProvider>
     )
