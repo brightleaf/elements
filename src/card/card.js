@@ -153,7 +153,6 @@ Card.propTypes = {
     // Only accept a single child, of the appropriate type
     if (propName === 'children') {
       if (!prop.forEach) {
-        console.log('prop no for each', prop)
         return
       }
       prop.forEach(p => {
