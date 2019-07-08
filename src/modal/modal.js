@@ -123,6 +123,7 @@ export const CoreModal = ({
   ModalType,
   triggerFn,
   isActive,
+  includeTrigger,
 }) => {
   const [show, setShow] = useState(false)
 
@@ -145,7 +146,7 @@ export const CoreModal = ({
         >
           {children}
         </ModalType>
-        {!isActive && (
+        {includeTrigger && !isActive && (
           <div>
             <button
               className={classnames('button', triggerClassName)}
@@ -166,6 +167,7 @@ export const CoreModal = ({
 CoreModal.defaultProps = {
   triggerClassName: 'is-primary',
   triggerText: 'Show',
+  includeTrigger: true,
   ModalType: BaseModal,
 }
 
