@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Box component should render 1`] = `
+<div
+  class="box"
+>
+  <div>
+    Trapped in a Box
+  </div>
+</div>
+`;
+
+exports[`Box component should render with extra classnames 1`] = `
+<div
+  class="box boxed-in"
+>
+  <div>
+    Trapped in a Box
+  </div>
+</div>
+`;
