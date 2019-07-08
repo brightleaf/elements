@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container component should render 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="notification"
+  >
+    This container is 
+    <strong>
+      centered
+    </strong>
+     on desktop.
+  </div>
+</div>
+`;
+
+exports[`Container component should render with extra classnames 1`] = `
+<div
+  class="container contained"
+>
+  <div
+    class="notification"
+  >
+    This container is 
+    <strong>
+      centered
+    </strong>
+     on desktop.
+  </div>
+</div>
+`;
+
+exports[`Container component should render with isFluid 1`] = `
+<div
+  class="container is-fluid"
+>
+  <div
+    class="notification"
+  >
+    This container is 
+    <strong>
+      fluid
+    </strong>
+    : it will have a 32px gap on either side, on any viewport size.
+  </div>
+</div>
+`;
+
+exports[`Container component should render with isWideScreen 1`] = `
+<div
+  class="container is-widescreen"
+>
+  <div
+    class="notification"
+  >
+    This container is 
+    <strong>
+      fullwidth
+    </strong>
+     
+    <em>
+      until
+    </em>
+     the
+     
+    <code>
+      $widescreen
+    </code>
+     breakpoint.
+  </div>
+</div>
+`;
+
+exports[`Container component should render with isWideScreen 2`] = `
+<div
+  class="container is-fullhd"
+>
+  <div
+    class="notification"
+  >
+    This container is 
+    <strong>
+      fullwidth
+    </strong>
+     
+    <em>
+      until
+    </em>
+     the
+     
+    <code>
+      $fullhd
+    </code>
+     breakpoint.
+  </div>
+</div>
+`;
