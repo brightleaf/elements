@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AutoComplete component should render 1`] = `
+<div
+  class="autocomplete control"
+>
+  <div
+    class="control is-clearfix has-icons-right"
+  >
+    <input
+      autocomplete="off"
+      class="input"
+      data-lpignore="true"
+      placeholder="Placeholder Text"
+      type="text"
+      value=""
+    />
+    <span
+      class="icon is-small is-right"
+    >
+      <i
+        class="fa fa-chevron-down"
+      />
+    </span>
+  </div>
+   
+  <div
+    class="dropdown-menu animated is-hidden"
+  >
+    <div
+      class="dropdown-content"
+    />
+  </div>
+</div>
+`;
