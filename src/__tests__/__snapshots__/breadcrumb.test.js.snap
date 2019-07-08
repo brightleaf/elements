@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumb component should render 1`] = `
+<nav
+  aria-label="breadcrumbs"
+  class="breadcrumb"
+>
+  <ul>
+    <li
+      class=""
+    >
+      <a>
+        Home
+      </a>
+    </li>
+    <li
+      class=""
+    >
+      <a>
+        Components
+      </a>
+    </li>
+    <li
+      aria-current="page"
+      class="is-active"
+    >
+      <a>
+        Hero
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
