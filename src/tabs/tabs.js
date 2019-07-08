@@ -1,6 +1,12 @@
 import React from 'react'
 import classnames from 'classnames'
 
+const isTabType = type => {
+  if (typeof type === 'function' && type.name.indexOf('Tab') === 0) {
+    return true
+  }
+  return false
+}
 export const TabItem = ({ children, className, isActive }) => {
   return (
     <li className={classnames(className, { 'is-active': isActive })}>
@@ -31,8 +37,11 @@ export const Tabs = ({
     'is-fullwidth': isFullWidth,
   }
   const kids = React.Children.toArray(children)
-  const list = kids.filter(child => child.type === TabItem)
-  const others = kids.filter(child => child.type !== TabItem)
+
+  const list = kids.filter(
+    child => child.type === TabItem || isTabType(child.type)
+  )
+  const others = kids.filter(child => !isTabType(child.type))
   return (
     <div className={classnames('tabs', className, classes)}>
       <ul>{list}</ul>
