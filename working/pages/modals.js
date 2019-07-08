@@ -1,6 +1,6 @@
 /* eslint-disable spellcheck/spell-checker */
 /* eslint-disable sonarjs/no-duplicate-string */
-import React, { useState, useCallback } from 'react'
+import React from 'react'
 import { useStyleSheet } from '@brightleaf/react-hooks'
 import {
   Box,
@@ -14,16 +14,11 @@ import {
   ModalCardBody,
   ModalCard,
   ModalCardFoot,
+  useToggle,
 } from '../../src'
 import { Snippet } from '../components/snippet'
 import Highlight from '../components/highlighter'
 
-function useToggle(initialValue) {
-  const [toggleValue, setToggleValue] = useState(initialValue)
-  const toggler = useCallback(() => setToggleValue(!toggleValue))
-
-  return [toggleValue, toggler]
-}
 export default () => {
   const [modalShown, setModalShown] = useToggle(false)
   useStyleSheet('code.css')
