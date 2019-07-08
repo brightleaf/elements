@@ -1,7 +1,7 @@
 import React from 'react'
-
-const Box = ({ children }) => {
-  return <div className="box">{children}</div>
+import classnames from 'classnames'
+const Box = ({ children, className }) => {
+  return <div className={classnames('box', className)}>{children}</div>
 }
 
 Box.propTypes = {}
