@@ -60,10 +60,10 @@ export const CoverTemplate = () => {
               <NavBarEnd>
                 <Tabs isRight>
                   <TabItem isActive>
-                    <a href="#HERO">Home</a>
+                    <a href="#HERO">Hero</a>
                   </TabItem>
                   <TabItem>
-                    <a href="#BLOG">Examples</a>
+                    <a href="#BLOG">Blog</a>
                   </TabItem>
                   <TabItem>
                     <a href="#LANDING">Landing</a>
@@ -72,7 +72,7 @@ export const CoverTemplate = () => {
                     <a href="#ADMIN">Admin</a>
                   </TabItem>
                   <TabItem>
-                    <a href="">Help</a>
+                    <a href="https://brightleaf.github.io/elements">Help</a>
                   </TabItem>
                 </Tabs>
               </NavBarEnd>

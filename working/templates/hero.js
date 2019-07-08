@@ -66,7 +66,7 @@ export const HeroTemplate = () => {
                           isWhite
                           isAnchor
                           isOutlined
-                          href="https://github.com/dansup/bulma-templates/blob/master/templates/hero.html"
+                          href="https://github.com/brightleaf/elements/blob/master/working/templates/hero.js"
                         >
                           <Icon fa icon="github"></Icon>
                           <span title="Hello from the other side">

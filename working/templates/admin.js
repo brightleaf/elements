@@ -57,7 +57,7 @@ export const AdminTemplate = () => {
           <NavBarMenu id="navMenu">
             <NavBarStart className="navbar-start">
               <NavBarItem>
-                <a href="#HERO">Home</a>
+                <a href="#HERO">Hero</a>
               </NavBarItem>
               <NavBarItem>
                 <a href="#BLOG">Blog</a>
