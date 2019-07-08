@@ -51,10 +51,10 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       hash: true,
-      title: 'Brightleaf Hero',
+      title: 'Brightleaf Elements Templates',
       template: './working/hero.html',
       chunks: ['hero'],
-      filename: 'hero.html',
+      filename: 'template.html',
     }),
     new HtmlWebpackPlugin({
       hash: true,
