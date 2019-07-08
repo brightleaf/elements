@@ -75,7 +75,10 @@ export const Hero = ({
           className,
           classes,
           sizeClasses,
-          screenSizes
+          screenSizes,
+          {
+            'is-bold': isBold,
+          }
         )}
       >
         {children}
