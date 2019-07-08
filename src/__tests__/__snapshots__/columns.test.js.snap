@@ -1,0 +1,439 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Columns and Columns components should render 1`] = `
+<div>
+  <div
+    class="columns"
+  >
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-primary"
+        title="notification element"
+      >
+        First column
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-primary"
+        title="notification element"
+      >
+        Second column
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-primary"
+        title="notification element"
+      >
+        Third column
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-primary"
+        title="notification element"
+      >
+        Fourth column
+      </div>
+    </div>
+  </div>
+  <div
+    class="columns"
+  >
+    <div
+      class="column is-four-fifths"
+    >
+      <div
+        class="notification animation fadeIn is-primary"
+        title="notification element"
+      >
+        is-four-fifths
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-light"
+        title="notification element"
+      >
+        Auto
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-light"
+        title="notification element"
+      >
+        Auto
+      </div>
+    </div>
+  </div>
+  <div
+    class="columns"
+  >
+    <div
+      class="column is-three-quarters"
+    >
+      <div
+        class="notification animation fadeIn is-primary"
+        title="notification element"
+      >
+        is-three-quarters
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-light"
+        title="notification element"
+      >
+        Auto
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-light"
+        title="notification element"
+      >
+        Auto
+      </div>
+    </div>
+  </div>
+  <div
+    class="columns"
+  >
+    <div
+      class="column is-two-thirds"
+    >
+      <div
+        class="notification animation fadeIn is-primary"
+        title="notification element"
+      >
+        is-two-thirds
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-light"
+        title="notification element"
+      >
+        Auto
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-light"
+        title="notification element"
+      >
+        Auto
+      </div>
+    </div>
+  </div>
+  <div
+    class="columns"
+  >
+    <div
+      class="column is-three-fifths"
+    >
+      <div
+        class="notification animation fadeIn is-primary"
+        title="notification element"
+      >
+        is-three-fifths
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-light"
+        title="notification element"
+      >
+        Auto
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-light"
+        title="notification element"
+      >
+        Auto
+      </div>
+    </div>
+  </div>
+  <div
+    class="columns"
+  >
+    <div
+      class="column is-half"
+    >
+      <p
+        class="notification is-primary"
+      >
+        is-half
+      </p>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-light"
+        title="notification element"
+      >
+        Auto
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-light"
+        title="notification element"
+      >
+        Auto
+      </div>
+    </div>
+  </div>
+  <div
+    class="columns"
+  >
+    <div
+      class="column is-two-fifths"
+    >
+      <div
+        class="notification animation fadeIn is-primary"
+        title="notification element"
+      >
+        is-two-fifths
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-light"
+        title="notification element"
+      >
+        Auto
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-light"
+        title="notification element"
+      >
+        Auto
+      </div>
+    </div>
+  </div>
+  <div
+    class="columns"
+  >
+    <div
+      class="column is-one-third"
+    >
+      <div
+        class="notification animation fadeIn is-primary"
+        title="notification element"
+      >
+        is-one-third
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-light"
+        title="notification element"
+      >
+        Auto
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-light"
+        title="notification element"
+      >
+        Auto
+      </div>
+    </div>
+  </div>
+  <div
+    class="columns"
+  >
+    <div
+      class="column is-one-quarter"
+    >
+      <div
+        class="notification animation fadeIn is-primary"
+        title="notification element"
+      >
+        is-one-quarter
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-light"
+        title="notification element"
+      >
+        Auto
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-light"
+        title="notification element"
+      >
+        Auto
+      </div>
+    </div>
+  </div>
+  <div
+    class="columns"
+  >
+    <div
+      class="column is-one-fifth"
+    >
+      <div
+        class="notification animation fadeIn is-primary"
+        title="notification element"
+      >
+        is-one-fifth
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-light"
+        title="notification element"
+      >
+        Auto
+      </div>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn is-light"
+        title="notification element"
+      >
+        Auto
+      </div>
+    </div>
+  </div>
+  <div
+    class="columns"
+  >
+    <div
+      class="column is-full"
+    >
+      <div
+        class="notification animation fadeIn is-info"
+        title="notification element"
+      >
+        FullColumn
+      </div>
+    </div>
+  </div>
+  <div
+    class="columns is-mobile is-multiline"
+  >
+    <div
+      class="column is-one-quarter"
+    >
+      <code>
+        is-one-quarter
+      </code>
+    </div>
+    <div
+      class="column is-one-quarter"
+    >
+      <code>
+        is-one-quarter
+      </code>
+    </div>
+    <div
+      class="column is-one-quarter"
+    >
+      <code>
+        is-one-quarter
+      </code>
+    </div>
+    <div
+      class="column is-one-quarter"
+    >
+      <code>
+        is-one-quarter
+      </code>
+    </div>
+    <div
+      class="column is-half"
+    >
+      <code>
+        is-half
+      </code>
+    </div>
+    <div
+      class="column is-one-quarter"
+    >
+      <code>
+        is-one-quarter
+      </code>
+    </div>
+    <div
+      class="column is-one-quarter"
+    >
+      <code>
+        is-one-quarter
+      </code>
+    </div>
+    <div
+      class="column is-one-quarter"
+    >
+      <code>
+        is-one-quarter
+      </code>
+    </div>
+    <div
+      class="column"
+    >
+      <div
+        class="notification animation fadeIn"
+        title="notification element"
+      >
+        Auto
+      </div>
+    </div>
+  </div>
+</div>
+`;
