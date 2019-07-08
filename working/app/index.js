@@ -189,13 +189,8 @@ export default class App extends Component {
                     <NavBarItem>
                       <UpLink to="/messages">Messages</UpLink>
                     </NavBarItem>
-                    <NavBarItem
-                      className="tooltip is-tooltip-right"
-                      data-tooltip="The Modal is not yet implemented"
-                    >
-                      <UpLink to="/modals">
-                        Modal <i>(NI)</i>
-                      </UpLink>
+                    <NavBarItem>
+                      <UpLink to="/modals">Modal</UpLink>
                     </NavBarItem>
                     <NavBarItem>
                       <UpLink to="/navbars">NavBar</UpLink>
