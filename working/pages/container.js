@@ -2,40 +2,41 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react'
 import { useStyleSheet } from '@brightleaf/react-hooks'
-import { Container, Column, Columns } from '../../src'
+import {
+  Container,
+  Column,
+  Columns,
+  Hero,
+  HeroBody,
+  Title,
+  SubTitle,
+  Section,
+} from '../../src'
 import { Snippet } from '../components/snippet'
 import Highlight from '../components/highlighter'
+import { LayoutTabs } from '../components/tabs'
 export default () => {
   useStyleSheet('code.css')
   return (
-    <Snippet>
-      <Columns>
-        <Column isHalf>
-          <Container>
-            <div className="notification">
-              This container is <strong>centered</strong> on desktop.
-            </div>
-          </Container>
-          <Container isFluid>
-            <div className="notification">
-              This container is <strong>fluid</strong>: it will have a 32px gap
-              on either side, on any viewport size.
-            </div>
-          </Container>
-          <Container isWideScreen>
-            <div className="notification">
-              This container is <strong>fullwidth</strong> <em>until</em> the{' '}
-              <code>$widescreen</code> breakpoint.
-            </div>
-          </Container>
-          <Container isFullHD>
-            <div className="notification">
-              This container is <strong>fullwidth</strong> <em>until</em> the{' '}
-              <code>$fullhd</code> breakpoint.
-            </div>
-          </Container>
-        </Column>
-        <Column isHalf>
+    <>
+      <Section>
+        <Hero isLight isBold>
+          <HeroBody>
+            <Title>Container</Title>
+            <SubTitle as="p" is="4">
+              A simple container to center your content horizontally
+            </SubTitle>
+          </HeroBody>
+        </Hero>
+        <LayoutTabs />
+      </Section>
+      <Snippet>
+        <Container>
+          <div className="notification">
+            This container is <strong>centered</strong> on desktop.
+          </div>
+        </Container>
+        <Container>
           <Highlight className="javascript" languages={['javascript']}>{`
 import React from 'react'
 import { Container } from '@brightleaf/elements'
@@ -46,18 +47,72 @@ export default () => {
         This container is <strong>centered</strong> on desktop.
       </div>
     </Container>
+  )
+}
+          `}</Highlight>
+        </Container>
+      </Snippet>
+      <Snippet>
+        <Container isFluid>
+          <div className="notification">
+            This container is <strong>fluid</strong>: it will have a 32px gap on
+            either side, on any viewport size.
+          </div>
+        </Container>
+        <Container isFluid>
+          <Highlight className="javascript" languages={['javascript']}>{`
+import React from 'react'
+import { Container } from '@brightleaf/elements'
+export default () => {
+  return (
     <Container isFluid>
       <div className="notification">
-        This container is <strong>fluid</strong>: it will have a 32px gap
-        on either side, on any viewport size.
+        This container is <strong>fluid</strong>: it will have a 32px gap on
+        either side, on any viewport size.
       </div>
-    </Container>
+  </Container>
+  )
+}
+          `}</Highlight>
+        </Container>
+      </Snippet>
+      <Snippet>
+        <Container isWideScreen>
+          <div className="notification">
+            This container is <strong>fullwidth</strong> <em>until</em> the{' '}
+            <code>$widescreen</code> breakpoint.
+          </div>
+        </Container>
+        <Container isFluid>
+          <Highlight className="javascript" languages={['javascript']}>{`
+import React from 'react'
+import { Container } from '@brightleaf/elements'
+export default () => {
+  return (
     <Container isWideScreen>
       <div className="notification">
         This container is <strong>fullwidth</strong> <em>until</em> the{' '}
         <code>$widescreen</code> breakpoint.
       </div>
     </Container>
+  )
+}
+          `}</Highlight>
+        </Container>
+      </Snippet>
+      <Snippet>
+        <Container isFullHD>
+          <div className="notification">
+            This container is <strong>fullwidth</strong> <em>until</em> the{' '}
+            <code>$fullhd</code> breakpoint.
+          </div>
+        </Container>
+
+        <Highlight className="javascript" languages={['javascript']}>{`
+import React from 'react'
+import { Container } from '@brightleaf/elements'
+export default () => {
+  return (
     <Container isFullHD>
       <div className="notification">
         This container is <strong>fullwidth</strong> <em>until</em> the{' '}
@@ -67,8 +122,7 @@ export default () => {
   )
 }
           `}</Highlight>
-        </Column>
-      </Columns>
-    </Snippet>
+      </Snippet>
+    </>
   )
 }

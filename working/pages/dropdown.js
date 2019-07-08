@@ -11,6 +11,8 @@ import {
 } from '../../src'
 import { Snippet } from '../components/snippet'
 import Highlight from '../components/highlighter'
+import { ComponentsTabs } from '../components/tabs'
+
 export default () => {
   useStyleSheet('./code.css')
   const items = [
@@ -28,7 +30,8 @@ export default () => {
   const [selected, setSelected] = useState('Choose')
 
   return (
-    <Container className="App content">
+    <Container className="App">
+      <ComponentsTabs />
       <Snippet>
         <Columns>
           <Column isHalf>

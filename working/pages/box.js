@@ -20,6 +20,7 @@ import {
   MediaRight,
 } from '../../src'
 import { Snippet } from '../components/snippet'
+import { ElementsTabs } from '../components/tabs'
 
 export default () => {
   useStyleSheet('https://fonts.googleapis.com/css?family=Open+Sans')
@@ -31,58 +32,60 @@ export default () => {
   `)
   useStyleSheet('code.css')
   return (
-    <Snippet>
-      <Columns>
-        <Column isHalf className="snippet-preview">
-          <Box>
-            <MediaObject>
-              <MediaLeft>
-                <Image
-                  is="64"
-                  src="https://bulma.io/images/placeholders/128x128.png"
-                />
-              </MediaLeft>
-              <MediaContent>
-                <Content>
-                  <p>
-                    <strong>John Smith</strong> <small>@johnsmith</small>{' '}
-                    <small>31m</small>
-                    <br />
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Proin ornare magna eros, eu pellentesque tortor vestibulum
-                    ut. Maecenas non massa sem. Etiam finibus odio quis feugiat
-                    facilisis.
-                  </p>
-                </Content>
-                <Level isMobile>
-                  <LevelLeft>
-                    <LevelItem>
-                      <a>
-                        <Icon isSmall fas icon="reply"></Icon>
-                      </a>
-                    </LevelItem>
-                    <LevelItem>
-                      <a>
-                        <Icon isSmall fas icon="retweet"></Icon>
-                      </a>
-                    </LevelItem>
-                    <LevelItem>
-                      <a>
-                        <Icon isSmall fas icon="heart"></Icon>
-                      </a>
-                    </LevelItem>
-                  </LevelLeft>
-                </Level>
-              </MediaContent>
-              <MediaRight>
-                <Delete></Delete>
-              </MediaRight>
-            </MediaObject>
-          </Box>
-        </Column>
-        <Column isHalf>
-          <Highlight className="javascript" languages={['javascript']}>
-            {`
+    <>
+      <ElementsTabs />
+      <Snippet>
+        <Columns>
+          <Column isHalf className="snippet-preview">
+            <Box>
+              <MediaObject>
+                <MediaLeft>
+                  <Image
+                    is="64"
+                    src="https://bulma.io/images/placeholders/128x128.png"
+                  />
+                </MediaLeft>
+                <MediaContent>
+                  <Content>
+                    <p>
+                      <strong>John Smith</strong> <small>@johnsmith</small>{' '}
+                      <small>31m</small>
+                      <br />
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Proin ornare magna eros, eu pellentesque tortor vestibulum
+                      ut. Maecenas non massa sem. Etiam finibus odio quis
+                      feugiat facilisis.
+                    </p>
+                  </Content>
+                  <Level isMobile>
+                    <LevelLeft>
+                      <LevelItem>
+                        <a>
+                          <Icon isSmall fas icon="reply"></Icon>
+                        </a>
+                      </LevelItem>
+                      <LevelItem>
+                        <a>
+                          <Icon isSmall fas icon="retweet"></Icon>
+                        </a>
+                      </LevelItem>
+                      <LevelItem>
+                        <a>
+                          <Icon isSmall fas icon="heart"></Icon>
+                        </a>
+                      </LevelItem>
+                    </LevelLeft>
+                  </Level>
+                </MediaContent>
+                <MediaRight>
+                  <Delete></Delete>
+                </MediaRight>
+              </MediaObject>
+            </Box>
+          </Column>
+          <Column isHalf>
+            <Highlight className="javascript" languages={['javascript']}>
+              {`
 import React from 'react'
 import {
   Box, Content, Columns, Column, Delete, Icon, Image, Level, LevelItem,
@@ -141,9 +144,10 @@ export default () => {
   )
 }
 `}
-          </Highlight>
-        </Column>
-      </Columns>
-    </Snippet>
+            </Highlight>
+          </Column>
+        </Columns>
+      </Snippet>
+    </>
   )
 }

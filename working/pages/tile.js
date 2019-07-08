@@ -1,11 +1,36 @@
 /* eslint-disable spellcheck/spell-checker */
 /* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react'
-import { Content, Tile, Title, SubTitle } from '../../src'
+import {
+  Content,
+  Columns,
+  Column,
+  Hero,
+  HeroBody,
+  Tile,
+  Title,
+  SubTitle,
+  Section,
+} from '../../src'
+import { LayoutTabs } from '../components/tabs'
 
 export default () => {
   return (
-    <Content>
+    <Section>
+      <Hero isLight isBold>
+        <HeroBody>
+          <Title>Tiles powered by Flexbox</Title>
+          <SubTitle as="p" is="4">
+            A single tile element to build 2-dimensional Metro-like,
+            Pinterest-like, or whatever-you-like grids
+          </SubTitle>
+        </HeroBody>
+      </Hero>
+      <LayoutTabs />
+      <Columns>
+        <Column isFull></Column>
+      </Columns>
+
       <Content>
         <Tile isAncestor>
           <Tile isVertical size="8">
@@ -219,6 +244,6 @@ export default () => {
           </Tile>
         </Tile>
       </Content>
-    </Content>
+    </Section>
   )
 }

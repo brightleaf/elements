@@ -14,10 +14,11 @@ import {
   Title,
   SubTitle,
 } from '../../src'
-
+import { ComponentsTabs } from '../components/tabs'
 export default () => {
   return (
     <Container>
+      <ComponentsTabs />
       <Columns>
         <Column isOneQuarter>
           <Card>

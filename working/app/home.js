@@ -10,6 +10,7 @@ import {
   HeroBody,
   Title,
   SubTitle,
+  Section,
 } from '../../src/'
 export default function Home() {
   useStyleSheet('https://fonts.googleapis.com/css?family=Open+Sans')
@@ -21,7 +22,8 @@ export default function Home() {
   `)
   useStyleSheet('code.css')
   return (
-    <Content>
+    <Section>
+      <br />
       <Columns>
         <Column isOneThird>
           <Hero isWarning>
@@ -68,6 +70,6 @@ export default () => {
           </Highlight>
         </Column>
       </Columns>
-    </Content>
+    </Section>
   )
 }

@@ -5,25 +5,25 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   Hero,
+  HeroBody,
   Container,
+  Section,
   SubTitle,
   Title,
 } from '../../src'
-
+import { LayoutTabs } from '../components/tabs'
 export default () => {
   return (
-    <Container>
-      <Breadcrumb>
-        <BreadcrumbItem>
-          <a>Home</a>
-        </BreadcrumbItem>
-        <BreadcrumbItem>
-          <a>Components</a>
-        </BreadcrumbItem>
-        <BreadcrumbItem>
-          <a>Hero</a>
-        </BreadcrumbItem>
-      </Breadcrumb>
+    <Section>
+      <Hero isLight isBold>
+        <HeroBody>
+          <Title>Hero</Title>
+          <SubTitle as="p" is="4">
+            An imposing hero banner to showcase something
+          </SubTitle>
+        </HeroBody>
+      </Hero>
+      <LayoutTabs />
       <Container>
         <Hero>
           <Container>
@@ -64,6 +64,6 @@ export default () => {
           </Container>
         </Hero>
       </Container>
-    </Container>
+    </Section>
   )
 }

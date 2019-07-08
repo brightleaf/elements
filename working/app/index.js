@@ -22,6 +22,8 @@ import {
   Section,
 } from '../../src'
 
+import { ElementsTabs, LayoutTabs, ComponentsTabs } from '../components/tabs'
+
 const Home = React.lazy(() => import('./home'))
 const Columns = React.lazy(() => import('../pages/columns'))
 const Notifications = React.lazy(() => import('../pages/notifications'))
@@ -247,49 +249,28 @@ export default class App extends Component {
                 </NavBarEnd>
               </NavBarMenu>
             </NavBar>
-            <Section>
-              <div className="tabs">
-                <ul>
-                  <TabLink to="/">Home</TabLink>
-                  <TabLink to="/containers">Container</TabLink>
-                  <TabLink to="/columns">Columns</TabLink>
-                  <TabLink to="/notifications">Notifications</TabLink>
-                  <TabLink to="/autocomplete">AutoComplete</TabLink>
-                  <TabLink to="/card">Card</TabLink>
-                  <TabLink to="/media">Media</TabLink>
-                  <TabLink to="/dropdown">DropDown</TabLink>
-                  <TabLink to="/hero">Hero</TabLink>
-                  <TabLink to="/box">Box</TabLink>
-                  <TabLink to="/level">Level</TabLink>
-                  <TabLink to="/buttons">Buttons</TabLink>
-                  <TabLink to="/icons">Icons</TabLink>
-                  <TabLink to="/navbars">NavBar</TabLink>
-                  <TabLink to="/tags">Tags</TabLink>
-                </ul>
-              </div>
 
-              <Router>
-                <Home path="/" />
-                <Container path="/containers" />
-                <Columns path="/columns" />
-                <Notifications path="/notifications" />
-                <AutoComplete path="/autocomplete" />
-                <Card path="/card" />
-                <Media path="/media" />
-                <DropDown path="/dropdown" />
-                <Hero path="/hero" />
-                <Box path="/box" />
-                <Level path="/level" />
-                <ButtonsPage path="/buttons" />
-                <Icons path="/icons" />
-                <NavBars path="/navbars" />
-                <Tags path="/tags" />
-                <Messages path="/messages" />
-                <Tiles path="/tiles" />
-                <Panel path="/panels" />
-                <Modals path="/modals" />
-              </Router>
-            </Section>
+            <Router>
+              <Home path="/" />
+              <Container path="/containers" />
+              <Columns path="/columns" />
+              <Notifications path="/notifications" />
+              <AutoComplete path="/autocomplete" />
+              <Card path="/card" />
+              <Media path="/media" />
+              <DropDown path="/dropdown" />
+              <Hero path="/hero" />
+              <Box path="/box" />
+              <Level path="/level" />
+              <ButtonsPage path="/buttons" />
+              <Icons path="/icons" />
+              <NavBars path="/navbars" />
+              <Tags path="/tags" />
+              <Messages path="/messages" />
+              <Tiles path="/tiles" />
+              <Panel path="/panels" />
+              <Modals path="/modals" />
+            </Router>
           </Suspense>
         </Fragment>
       </LocationProvider>

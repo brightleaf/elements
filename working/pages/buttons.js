@@ -14,6 +14,7 @@ import {
   Content,
 } from '../../src'
 import { Snippet } from '../components/snippet'
+import { ElementsTabs } from '../components/tabs'
 const Callout = ({ children }) => {
   return <div className="callout is-primary">{children}</div>
 }
@@ -28,6 +29,7 @@ export default () => {
   useStyleSheet('code.css')
   return (
     <>
+      <ElementsTabs />
       <FullColumn>
         <Content>
           <p>

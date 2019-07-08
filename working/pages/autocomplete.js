@@ -3,6 +3,7 @@ import { useStyleSheet, useStyles } from '@brightleaf/react-hooks'
 import { Container, Column, Columns, AutoComplete } from '../../src'
 import { Snippet } from '../components/snippet'
 import Highlight from '../components/highlighter'
+import { ComponentsTabs } from '../components/tabs'
 export default () => {
   useStyleSheet('https://fonts.googleapis.com/css?family=Open+Sans')
   useStyles(`
@@ -23,6 +24,7 @@ export default () => {
   )
   return (
     <Container className="App content">
+      <ComponentsTabs />
       <Snippet>
         <Columns>
           <Column isHalf className="snippet-preview">

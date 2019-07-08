@@ -12,6 +12,8 @@ import {
   Delete,
   Field,
   Heading,
+  Hero,
+  HeroBody,
   Icon,
   Image,
   Level,
@@ -24,14 +26,25 @@ import {
   MediaRight,
   SubTitle,
   Title,
+  Section,
 } from '../../src'
 import { Snippet } from '../components/snippet'
 import Highlight from '../components/highlighter'
+import { LayoutTabs } from '../components/tabs'
 export default () => {
   useTitle('Level Component')
   useStyleSheet('code.css')
   return (
-    <>
+    <Section>
+      <Hero isLight isBold>
+        <HeroBody>
+          <Title>Container</Title>
+          <SubTitle as="p" is="4">
+            A simple container to center your content horizontally
+          </SubTitle>
+        </HeroBody>
+      </Hero>
+      <LayoutTabs />
       <Snippet>
         <Columns>
           <Column isHalf>
@@ -361,6 +374,6 @@ export default () => {
           </Column>
         </Columns>
       </Snippet>
-    </>
+    </Section>
   )
 }
