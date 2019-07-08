@@ -38,6 +38,15 @@ export {
 export { Menu, MenuLabel, MenuList, MenuListItem } from './menu'
 export { MessageHeader, MessageBody, Message } from './message'
 export {
+  useToggle,
+  Modal,
+  ModalCardHead,
+  ModalCardBody,
+  ModalCard,
+  ModalCardFoot,
+  ModalContext,
+} from './modal'
+export {
   NavBar,
   NavBarBrand,
   NavBarDivider,
