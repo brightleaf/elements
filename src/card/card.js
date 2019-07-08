@@ -133,11 +133,12 @@ export const Card = ({
   var types = [CardHeader, CardBody, CardFooter, CardImage, CardImageContainer]
   childrenAsArray.forEach(child => {
     if (
-      types.indexOf(child.type) === -1 &&
-      child.props.className.indexOf('card') === -1
+      types.indexOf(child.type) > -1 ||
+      (child.props.className && child.props.className.indexOf('card') > -1)
     ) {
-      throw new Error(`'${child.type}' not allowed`)
+      return
     }
+    throw new Error(`'${child.type}' not allowed`)
   })
   return (
     <div className={classnames('card', className, classes)}>

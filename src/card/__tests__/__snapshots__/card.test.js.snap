@@ -7,11 +7,7 @@ exports[`Card and components should render 1`] = `
   <div
     class="card-content"
   >
-    <div
-      class="content"
-    >
-      Hi
-    </div>
+    Hi
   </div>
 </div>
 `;
@@ -28,29 +24,11 @@ exports[`Card and components should render with footer header and body 1`] = `
     >
       HEADER
     </p>
-    <a
-      aria-label="more options"
-      class="card-header-icon"
-      href="#"
-    >
-      <span
-        class="icon"
-      >
-        <i
-          aria-hidden="true"
-          class="fas fa-angle-down"
-        />
-      </span>
-    </a>
   </header>
   <div
     class="card-content"
   >
-    <div
-      class="content"
-    >
-      Hi
-    </div>
+    Hi
   </div>
   <footer
     class="card-footer"
@@ -70,29 +48,11 @@ exports[`Card and components should render with header and footer and body 1`] =
     >
       HEADER
     </p>
-    <a
-      aria-label="more options"
-      class="card-header-icon"
-      href="#"
-    >
-      <span
-        class="icon"
-      >
-        <i
-          aria-hidden="true"
-          class="fas fa-angle-down"
-        />
-      </span>
-    </a>
   </header>
   <div
     class="card-content"
   >
-    <div
-      class="content"
-    >
-      Hi
-    </div>
+    Hi
   </div>
   <footer
     class="card-footer"
