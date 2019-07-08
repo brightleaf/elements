@@ -6,22 +6,37 @@ React based UI elements using bulma css.
 
 * AutoComplete
 * Box
+* Breadcrumb
 * Button
 * Card
-* Container
 * Columns
 * Column
 * Container
 * Content
+* Control
 * Delete
 * DropDown
+* Field
 * Footer
+* Heading
 * Hero
 * Icon
+* Image
 * Level
 * MediaObject
+* Menu
+* Message
+* Modal
+* NavBar
 * Notification
+* Panel
 * Section
+* SubTitle
+* Table
+* Tabs
+* Tags
+* Tile
+* Title
 
 ## Getting Started
 
