@@ -57,6 +57,14 @@ export {
   NavBarMenu,
 } from './navbar'
 export { Notification } from './notification'
+export {
+  Pagination,
+  PaginationEllipsis,
+  PaginationLink,
+  PaginationList,
+  PaginationNext,
+  PaginationPrevious,
+} from './pagination'
 export { Panel, PanelBlock, PanelTabs } from './panel'
 export { Section } from './section'
 export { SubTitle } from './subtitle'
