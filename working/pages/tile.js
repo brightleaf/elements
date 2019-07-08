@@ -1,6 +1,7 @@
 /* eslint-disable spellcheck/spell-checker */
 /* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react'
+import { useStyleSheet } from '@brightleaf/react-hooks'
 import {
   Content,
   Columns,
@@ -13,8 +14,9 @@ import {
   Section,
 } from '../../src'
 import { LayoutTabs } from '../components/tabs'
-
+import Highlight from '../components/highlighter'
 export default () => {
+  useStyleSheet('code.css')
   return (
     <Section>
       <Hero isLight isBold>
@@ -28,9 +30,26 @@ export default () => {
       </Hero>
       <LayoutTabs />
       <Columns>
-        <Column isFull></Column>
+        <Column isFull>
+          To build intricate 2-dimensional layouts, you only need a{' '}
+          <strong>single element</strong>: the <code>tile</code>:
+        </Column>
       </Columns>
-
+      <Columns>
+        <Column isFull>
+          <Highlight className="javascript" languages={['javascript']}>{`
+import React from 'react'
+import { Tile } from '@brightleaf/elements'
+export default () => {
+  return (
+    <Tile>
+       {/* The magical tile element! */}
+    </Tile>
+  )
+}
+          `}</Highlight>
+        </Column>
+      </Columns>
       <Content>
         <Tile isAncestor>
           <Tile isVertical size="8">
