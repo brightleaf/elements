@@ -40,7 +40,7 @@ const Tags = React.lazy(() => import('../pages/tags'))
 const Tiles = React.lazy(() => import('../pages/tile'))
 const Panel = React.lazy(() => import('../pages/panel'))
 const Container = React.lazy(() => import('../pages/container'))
-
+const Modals = React.lazy(() => import('../pages/modals'))
 let source = createHashSource()
 let history = createHistory(source)
 
@@ -225,8 +225,13 @@ export default class App extends Component {
                   <NavBarItem>
                     <div>
                       <Buttons>
+                        <Button isWarning isAnchor href="/template.html">
+                          <strong>
+                            <BaseIcon fas icon="eye" /> Examples
+                          </strong>
+                        </Button>
                         <Button
-                          isWarning
+                          isLight
                           isAnchor
                           href="https://github.com/brightleaf/elements"
                         >
@@ -287,6 +292,7 @@ export default class App extends Component {
                 <Messages path="/messages" />
                 <Tiles path="/tiles" />
                 <Panel path="/panels" />
+                <Modals path="/modals" />
               </Router>
             </Section>
           </Suspense>
