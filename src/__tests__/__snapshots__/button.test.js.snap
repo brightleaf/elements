@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button components should render 1`] = `
+<button
+  class="button"
+>
+  Button
+</button>
+`;
+
+exports[`Button components should render as correct elements 1`] = `
+<div
+  class="buttons"
+>
+  <button
+    class="button"
+  >
+    Button
+  </button>
+  <input
+    class="button"
+    type="submit"
+    value="Submit"
+  />
+  <a
+    class="button"
+    href="#"
+  >
+    Anchor
+  </a>
+  <input
+    class="button"
+    type="reset"
+    value="Reset"
+  />
+</div>
+`;
+
+exports[`Button components should render with colored classes applied 1`] = `
+<div
+  class="buttons"
+>
+  <button
+    class="button is-primary"
+  >
+    Primary
+  </button>
+  <button
+    class="button is-info"
+  >
+    Info
+  </button>
+  <button
+    class="button is-danger"
+  >
+    Danger
+  </button>
+  <button
+    class="button is-link"
+  >
+    Link
+  </button>
+  <button
+    class="button is-warning"
+  >
+    Warning
+  </button>
+  <button
+    class="button is-success"
+  >
+    Success
+  </button>
+</div>
+`;
