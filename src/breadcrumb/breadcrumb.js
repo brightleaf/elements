@@ -10,7 +10,11 @@ export const BreadcrumbItem = ({ children, isActive }) => {
   if (isActive) {
     aria['aria-current'] = 'page'
   }
-  return <li className={classnames(classes)}>{children}</li>
+  return (
+    <li className={classnames(classes)} {...aria}>
+      {children}
+    </li>
+  )
 }
 export const Breadcrumb = ({
   children,
