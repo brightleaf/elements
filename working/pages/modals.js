@@ -21,6 +21,7 @@ import Highlight from '../components/highlighter'
 
 export default () => {
   const [modalShown, setModalShown] = useToggle(false)
+  const [modalShownNoTrigger, setModalShownNoTrigger] = useToggle(false)
   useStyleSheet('code.css')
   return (
     <Container>
@@ -129,6 +130,7 @@ export default () => {
       <Snippet>
         <Columns>
           <Column isOneThird>
+            Image Modal{' '}
             <Modal>
               <Image
                 is4by3
@@ -156,32 +158,96 @@ export default () => {
           `}</Highlight>
           </Column>
         </Columns>
+      </Snippet>
+      <Snippet>
         <Columns>
           <Column isOneThird>
-            <Modal>
-              <div>test</div>
+            A custom trigger that{' '}
+            <a
+              href="#"
+              onClick={e => {
+                e.preventDefault()
+                setModalShownNoTrigger(false)
+              }}
+            >
+              will show
+            </a>{' '}
+            the modal
+            <Modal
+              includeTrigger={false}
+              triggerText="Display"
+              triggerFn={setModalShownNoTrigger}
+              isActive={modalShownNoTrigger}
+            >
+              <Box>
+                <div>Triggered</div>
+              </Box>
             </Modal>
+          </Column>
+          <Column isTwoThirds>
+            <Highlight className="javascript" languages={['javascript']}>{`
+import React from 'react'
+import { Box, Container, Modal, useToggle } from '@brightleaf/elements'
+export default () => {
+  const [modalShown, setModalShown] = useToggle(false)
+
+  return (
+    <Container>
+      <a
+        href="#"
+        onClick={e => {
+          e.preventDefault()
+          setModalShownNoTrigger(false)
+        }}
+      >
+        Show that
+      </a>
+      <Modal
+        includeTrigger={false}
+        triggerText="Display"
+        triggerFn={setModalShownNoTrigger}
+        isActive={modalShownNoTrigger}
+      >
+        <Box>
+          <div>Triggered</div>
+        </Box>
+      </Modal>
+    </Container>
+  )
+}
+          `}</Highlight>
           </Column>
         </Columns>
       </Snippet>
-      <Columns>
-        <Column isHalf>
-          <Box>
-            <Modal>
-              <div>test</div>
+      <Snippet>
+        <Columns>
+          <Column isOneThird>
+            Custom Trigger Text
+            <Modal triggerText="Display Modal">
+              <Box>
+                <div>test</div>
+              </Box>
             </Modal>
-          </Box>
-        </Column>
-      </Columns>
-      <Columns>
-        <Column isHalf>
-          <Box>
-            <Modal>
-              <div>test</div>
-            </Modal>
-          </Box>
-        </Column>
-      </Columns>
+          </Column>
+          <Column isTwoThirds>
+            <Highlight className="javascript" languages={['javascript']}>{`
+import React from 'react'
+import { Box, Container, Modal } from '@brightleaf/elements'
+export default () => {
+  return (
+    <Container>
+      <Modal triggerText="Display Modal">
+        <Box>
+          <div>test</div>
+        </Box>
+      </Modal>
+    </Container>
+  )
+}
+          `}</Highlight>
+          </Column>
+        </Columns>
+      </Snippet>
       <Columns>
         <Column isHalf>
           <Box>
