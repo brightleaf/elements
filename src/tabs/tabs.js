@@ -5,6 +5,7 @@ const isTabType = type => {
   if (typeof type === 'function' && type.name.indexOf('Tab') === 0) {
     return true
   }
+  console.log('tab type', type())
   return false
 }
 export const TabItem = ({ children, className, isActive }) => {
@@ -13,6 +14,9 @@ export const TabItem = ({ children, className, isActive }) => {
       {children}
     </li>
   )
+}
+export const TabList = ({ children, className, isActive }) => {
+  return <ul>{children}</ul>
 }
 export const Tabs = ({
   children,
@@ -36,14 +40,8 @@ export const Tabs = ({
     'is-toggle': isToggle,
     'is-fullwidth': isFullWidth,
   }
-  const kids = React.Children.toArray(children)
 
-  const list = kids.filter(child => isTabType(child.type))
-  const others = kids.filter(child => !isTabType(child.type))
   return (
-    <div className={classnames('tabs', className, classes)}>
-      <ul>{list}</ul>
-      {others}
-    </div>
+    <div className={classnames('tabs', className, classes)}>{children}</div>
   )
 }
