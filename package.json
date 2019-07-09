@@ -1,6 +1,6 @@
 {
   "name": "@brightleaf/elements",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "UI elements",
   "main": "lib/index.js",
   "files": [
