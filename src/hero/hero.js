@@ -2,14 +2,14 @@ import React, { createContext } from 'react'
 import classnames from 'classnames'
 import { Colors, Sizes, Screens } from '../modifiers'
 
-export const HeroHead = ({ children }) => {
-  return <div className="hero-head">{children}</div>
+export const HeroHead = ({ children, className }) => {
+  return <div className={classnames('hero-head', className)}>{children}</div>
 }
-export const HeroBody = ({ children }) => {
-  return <div className="hero-body">{children}</div>
+export const HeroBody = ({ children, className }) => {
+  return <div className={classnames('hero-body', className)}>{children}</div>
 }
-export const HeroFooter = ({ children }) => {
-  return <div className="hero-foot">{children}</div>
+export const HeroFooter = ({ children, className }) => {
+  return <div className={classnames('hero-foot', className)}>{children}</div>
 }
 export const HeroContext = createContext()
 export const Hero = ({
