@@ -1,5 +1,6 @@
 import React from 'react'
-import { useStyles, useStyleSheet } from '@brightleaf/react-hooks'
+import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
+import { useStyles } from '@brightleaf/react-hooks/lib/use-styles'
 import Highlight from '../components/highlighter'
 import {
   Box,
