@@ -61,3 +61,9 @@ export default () => {
   )
 }
 ```
+
+## More information
+
+[Docs](https://brightleaf.github.io/elements)
+[Templates](https://brightleaf.github.io/elements/templates.html)
+[CodeSandbox](https://codesandbox.io/s/brightleaf-elements-hero-8fu96)
