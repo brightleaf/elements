@@ -38,9 +38,7 @@ export const Tabs = ({
   }
   const kids = React.Children.toArray(children)
 
-  const list = kids.filter(
-    child => child.type === TabItem || isTabType(child.type)
-  )
+  const list = kids.filter(child => isTabType(child.type))
   const others = kids.filter(child => !isTabType(child.type))
   return (
     <div className={classnames('tabs', className, classes)}>
