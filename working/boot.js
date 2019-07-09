@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
-import { useStyles } from '@brightleaf/react-hooks/lib/use-styles'
+import { useScript } from '@brightleaf/react-hooks/lib/use-script'
 import {
   Button,
   Column,
@@ -21,6 +21,7 @@ import {
 } from '../src'
 export const BootSwatchApp = () => {
   const [sheet, setSheet] = useState('slate')
+  const [ val, setVal] = useState('')
   useStyleSheet(
     `https://jenil.github.io/bulmaswatch/${sheet}/bulmaswatch.min.css`
   )
@@ -544,19 +545,19 @@ export const BootSwatchApp = () => {
                       <a className="level-item">
                         <span className="icon is-small">
                           {' '}
-                          <i className="fa fa-reply"> </i>{' '}
+                          <i className="fas fa-reply"> </i>{' '}
                         </span>
                       </a>
                       <a className="level-item">
                         <span className="icon is-small">
                           {' '}
-                          <i className="fa fa-retweet"> </i>{' '}
+                          <i className="fas fa-retweet"> </i>{' '}
                         </span>
                       </a>
                       <a className="level-item">
                         <span className="icon is-small">
                           {' '}
-                          <i className="fa fa-heart"> </i>{' '}
+                          <i className="fas fa-heart"> </i>{' '}
                         </span>
                       </a>
                     </div>
@@ -1004,7 +1005,3209 @@ export const BootSwatchApp = () => {
             </div>
           </section>
 
-          <hr />
+          <section className="section" id="delete">
+            <h1 className="title"> Delete </h1>
+            <hr />
+            <div className="block">
+              <span className="tag is-success">
+                {' '}
+                Hello World
+                <button className="delete is-small"> </button>
+              </span>
+              <a className="delete is-small"> </a>
+              <a className="delete"> </a>
+              <a className="delete is-medium"> </a>
+              <a className="delete is-large"> </a>
+            </div>
+            <div className="notification is-danger">
+              <button className="delete"> </button> Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit lorem ipsum dolor sit amet,
+              consectetur adipiscing elit{' '}
+            </div>
+            <article className="message is-info">
+              <div className="message-header">
+                {' '}
+                Info
+                <button className="delete"> </button>
+              </div>
+              <div className="message-body">
+                {' '}
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Pellentesque risus mi, tempus quis placerat ut, porta nec nulla.
+                Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida
+                purus diam, et dictum felis venenatis efficitur. Aenean ac
+                eleifend lacus, in mollis lectus. Donec sodales, arcu et
+                sollicitudin porttitor, tortor urna tempor ligula, id porttitor
+                mi magna a neque. Donec dui urna, vehicula et sem eget,
+                facilisis sodales sem.{' '}
+              </div>
+            </article>
+          </section>
+
+
+          <section className="section" id="form">
+            <h1 className="title"> Form </h1>
+            <hr />
+            <div className="columns">
+              <div className="column">
+                <div className="field">
+                  <label className="label">Name</label>
+                  <p className="control">
+                    <input className="input" type="text" placeholder="Text input" onChange={setVal}  value={val} />
+                  </p>
+                </div>
+                <div className="field">
+                  <label className="label">Username</label>
+                  <p className="control has-icons-left has-icons-right">
+                    <input className="input is-success" type="text" placeholder="Text input" value="bulma" onChange={setVal} />
+                    <span className="icon is-small is-left">
+                      <i className="fas fa-user"></i>
+                    </span>
+                    <span className="icon is-small is-right">
+                      <i className="fas fa-check"></i>
+                    </span>
+                  </p>
+                  <p className="help is-success">This username is available</p>
+                </div>
+                <div className="field">
+                  <label className="label">Email</label>
+                  <p className="control has-icons-left has-icons-right">
+                    <input className="input is-danger" type="text" placeholder="Email input" value="hello@ " onChange={setVal} />
+                    <span className="icon is-small is-left">
+                      <i className="fas fa-envelope"></i>
+                    </span>
+                    <span className="icon is-small is-right">
+                      <i className="fas fa-warning"></i>
+                    </span>
+                  </p>
+                  <p className="help is-danger">This email is invalid</p>
+                </div>
+                <div className="field">
+                  <label className="label">Subject</label>
+                  <p className="control">
+                    <span className="select">
+                      <select>
+                        <option>Select dropdown</option>
+                        <option>With options</option>
+                      </select>
+                    </span>
+                  </p>
+                </div>
+                <div className="field">
+                  <label className="label">Message</label>
+                  <p className="control">
+                    <textarea className="textarea" placeholder="Textarea" defaultValue="" />
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control">
+                    <label className="checkbox">
+                      <input type="checkbox" /> I agree to the
+                      <a href="#">terms and conditions</a>
+                    </label>
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control">
+                    <label className="radio">
+                      <input type="radio" name="question" /> Yes
+                    </label>
+                    <label className="radio">
+                      <input type="radio" name="question" /> No
+                    </label>
+                  </p>
+                </div>
+                <div className="field is-grouped">
+                  <p className="control">
+                    <button className="button is-primary">Submit</button>
+                  </p>
+                  <p className="control">
+                    <button className="button is-link">Cancel</button>
+                  </p>
+                </div>
+                <br />
+                <h4 className="subtitle"> Disabled </h4>
+                <hr />
+                <div className="field">
+                  <p className="control">
+                    <input className="input" disabled="" placeholder="Disabled input" type="text" />
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control">
+                    <textarea className="textarea" disabled="" placeholder="Disabled textarea" defaultValue="" />
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control">
+                    <label className="checkbox is-disabled">
+                      <input disabled="" type="checkbox" /> Remember me
+                    </label>
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control">
+                    <label className="radio is-disabled">
+                      <input disabled="" name="question" type="radio" /> Yes
+                    </label>
+                    <label className="radio is-disabled">
+                      <input disabled="" name="question" type="radio" /> No
+                    </label>
+                  </p>
+                </div>
+                <div className="field is-grouped">
+                  <p className="control">
+                    <button className="button is-primary" disabled=""> Submit </button>
+                  </p>
+                  <p className="control">
+                    <button className="button" disabled=""> Cancel </button>
+                  </p>
+                </div>
+                <br />
+                <h3 className="title"> Horizontal Form </h3>
+                <hr />
+                <div className="field is-horizontal">
+                  <div className="field-label is-normal">
+                    <label className="label">From</label>
+                  </div>
+                  <div className="field-body">
+                    <div className="field is-grouped">
+                      <p className="control is-expanded has-icons-left">
+                        <input className="input" type="text" placeholder="Name" />
+                        <span className="icon is-small is-left">
+                          <i className="fas fa-user"></i>
+                        </span>
+                      </p>
+                    </div>
+                    <div className="field">
+                      <p className="control is-expanded has-icons-left has-icons-right">
+                        <input className="input is-success" type="email" placeholder="Email" value="alex@smith.com" />
+                        <span className="icon is-small is-left">
+                          <i className="fas fa-envelope"></i>
+                        </span>
+                        <span className="icon is-small is-right">
+                          <i className="fas fa-check"></i>
+                        </span>
+                      </p>
+                      <p className="help is-success">This email is correct</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="field is-horizontal">
+                  <div className="field-label is-normal">
+                    <label className="label">Department</label>
+                  </div>
+                  <div className="field-body">
+                    <div className="field is-narrow">
+                      <div className="control">
+                        <div className="select is-fullwidth">
+                          <select>
+                            <option>Business development</option>
+                            <option>Marketing</option>
+                            <option>Sales</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="field is-horizontal">
+                  <div className="field-label">
+                    <label className="label">Already a member?</label>
+                  </div>
+                  <div className="field-body">
+                    <div className="field is-narrow">
+                      <div className="control">
+                        <label className="radio">
+                          <input type="radio" name="member" /> Yes
+                        </label>
+                        <label className="radio">
+                          <input type="radio" name="member" /> No
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="field is-horizontal">
+                  <div className="field-label is-normal">
+                    <label className="label">Subject</label>
+                  </div>
+                  <div className="field-body">
+                    <div className="field">
+                      <div className="control">
+                        <input className="input is-danger" type="text" placeholder="e.g. Partnership opportunity"
+                          style={{
+                            backgroundImage: 'url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;)',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundAttachment: 'scroll',
+                            backgroundSize: '16px 18px',
+                            backgroundPosition: '98% 50%'
+                            }} autoComplete="off" />
+                      </div>
+                      <p className="help is-danger">
+                        This field is required
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="field is-horizontal">
+                  <div className="field-label is-normal">
+                    <label className="label">Question</label>
+                  </div>
+                  <div className="field-body">
+                    <div className="field">
+                      <div className="control">
+                        <textarea className="textarea" placeholder="Explain how we can help you" defaultValue="" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="field is-horizontal">
+                  <div className="field-label">
+                    {' '}
+                  </div>
+                  <div className="field-body">
+                    <div className="field">
+                      <div className="control">
+                        <button className="button is-primary">
+                          Send message
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <h3 className="title">File</h3>
+                <hr />
+                <div className="field">
+                  <div className="file">
+                    <label className="file-label">
+                      <input className="file-input" type="file" name="resume" />
+                      <span className="file-cta">
+                        <span className="file-icon">
+                          <i className="fas fa-upload"></i>
+                        </span>
+                        <span className="file-label">
+                          Choose a file…
+                        </span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <div className="field">
+                  <div className="file has-name">
+                    <label className="file-label">
+                      <input className="file-input" type="file" name="resume" />
+                      <span className="file-cta">
+                        <span className="file-icon">
+                          <i className="fas fa-upload"></i>
+                        </span>
+                        <span className="file-label">
+                          Choose a file…
+                        </span>
+                      </span>
+                      <span className="file-name">
+                        Screen Shot 2017-07-29 at 15.54.25.png
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <div className="field">
+                  <div className="file is-primary">
+                    <label className="file-label">
+                      <input className="file-input" type="file" name="resume" />
+                      <span className="file-cta">
+                        <span className="file-icon">
+                          <i className="fas fa-upload"></i>
+                        </span>
+                        <span className="file-label">
+                          Primary file…
+                        </span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+
+                <div className="field">
+                  <div className="file is-info has-name">
+                    <label className="file-label">
+                      <input className="file-input" type="file" name="resume" />
+                      <span className="file-cta">
+                        <span className="file-icon">
+                          <i className="fas fa-upload"></i>
+                        </span>
+                        <span className="file-label">
+                          Info file…
+                        </span>
+                      </span>
+                      <span className="file-name">
+                        Screen Shot 2017-07-29 at 15.54.25.png
+                      </span>
+                    </label>
+                  </div>
+                </div>
+
+                <div className="field">
+                  <div className="file is-warning is-boxed">
+                    <label className="file-label">
+                      <input className="file-input" type="file" name="resume" />
+                      <span className="file-cta">
+                        <span className="file-icon">
+                          <i className="fas fa-cloud-upload-alt"></i>
+                        </span>
+                        <span className="file-label">
+                          Warning file…
+                        </span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+
+                <div className="field">
+                  <div className="file is-danger has-name is-boxed">
+                    <label className="file-label">
+                      <input className="file-input" type="file" name="resume" />
+                      <span className="file-cta">
+                        <span className="file-icon">
+                          <i className="fas fa-cloud-upload-alt"></i>
+                        </span>
+                        <span className="file-label">
+                          Danger file…
+                        </span>
+                      </span>
+                      <span className="file-name">
+                        Screen Shot 2017-07-29 at 15.54.25.png
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div className="column">
+                <br />
+                <h3 className="subtitle"> Styles </h3>
+                <hr />
+                <div className="field">
+                  <p className="control">
+                    <input className="input is-rounded" type="text" placeholder="Rounded input" />
+                  </p>
+                </div>
+                <br />
+                <h3 className="subtitle"> Colors </h3>
+                <hr />
+                <div className="field">
+                  <p className="control">
+                    <input className="input is-primary" type="text" placeholder="Primary input" />
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control">
+                    <input className="input is-info" type="text" placeholder="Info input" />
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control">
+                    <input className="input is-success" type="text" placeholder="Success input" />
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control">
+                    <input className="input is-warning" type="text" placeholder="Warning input" />
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control">
+                    <input className="input is-danger" type="text" placeholder="Danger input" />
+                  </p>
+                </div>
+                <br />
+                <h3 className="subtitle"> Sizes </h3>
+                <hr />
+                <div className="field">
+                  <p className="control">
+                    <input className="input is-small" type="text" placeholder="Small input" />
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control">
+                    <input className="input" type="text" placeholder="Normal input" />
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control">
+                    <input className="input is-medium" type="text" placeholder="Medium input" />
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control">
+                    <input className="input is-large" type="text" placeholder="Large input" />
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control">
+                    <span className="select is-small">
+                      <select>
+                        <option>Select dropdown</option>
+                        <option>With options</option>
+                      </select>
+                    </span>
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control">
+                    <span className="select">
+                      <select>
+                        <option>Select dropdown</option>
+                        <option>With options</option>
+                      </select>
+                    </span>
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control">
+                    <span className="select is-medium">
+                      <select>
+                        <option>Select dropdown</option>
+                        <option>With options</option>
+                      </select>
+                    </span>
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control">
+                    <span className="select is-large">
+                      <select>
+                        <option>Select dropdown</option>
+                        <option>With options</option>
+                      </select>
+                    </span>
+                  </p>
+                </div>
+                <div className="field">
+                  <label className="label is-small">Small input</label>
+                  <p className="control has-icons-left has-icons-right">
+                    <input className="input is-small" type="email" placeholder="Email" />
+                    <span className="icon is-small is-left">
+                      <i className="fas fa-envelope"></i>
+                    </span>
+                    <span className="icon is-small is-right">
+                      <i className="fas fa-check"></i>
+                    </span>
+                  </p>
+                </div>
+                <div className="field">
+                  <label className="label">Normal input</label>
+                  <p className="control has-icons-left has-icons-right">
+                    <input className="input" type="email" placeholder="Email" />
+                    <span className="icon is-small is-left">
+                      <i className="fas fa-envelope"></i>
+                    </span>
+                    <span className="icon is-small is-right">
+                      <i className="fas fa-check"></i>
+                    </span>
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control has-icons-left has-icons-right">
+                    <input className="input" type="email" placeholder="Email" />
+                    <span className="icon is-left">
+                      <i className="fas fa-envelope"></i>
+                    </span>
+                    <span className="icon is-right">
+                      <i className="fas fa-check"></i>
+                    </span>
+                  </p>
+                </div>
+                <div className="field">
+                  <label className="label is-medium">Medium input</label>
+                  <p className="control has-icons-left has-icons-right">
+                    <input className="input is-medium" type="email" placeholder="Email" />
+                    <span className="icon is-small is-left">
+                      <i className="fas fa-envelope"></i>
+                    </span>
+                    <span className="icon is-small is-right">
+                      <i className="fas fa-check"></i>
+                    </span>
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control has-icons-left has-icons-right">
+                    <input className="input is-medium" type="email" placeholder="Email" />
+                    <span className="icon is-left">
+                      <i className="fas fa-envelope"></i>
+                    </span>
+                    <span className="icon is-right">
+                      <i className="fas fa-check"></i>
+                    </span>
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control has-icons-left has-icons-right">
+                    <input className="input is-medium" type="email" placeholder="Email" />
+                    <span className="icon is-medium is-left">
+                      <i className="fas fa-envelope"></i>
+                    </span>
+                    <span className="icon is-medium is-right">
+                      <i className="fas fa-check"></i>
+                    </span>
+                  </p>
+                </div>
+                <div className="field">
+                  <label className="label is-large">Large input</label>
+                  <p className="control has-icons-left has-icons-right">
+                    <input className="input is-large" type="email" placeholder="Email" />
+                    <span className="icon is-small is-left">
+                      <i className="fas fa-envelope"></i>
+                    </span>
+                    <span className="icon is-small is-right">
+                      <i className="fas fa-check"></i>
+                    </span>
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control has-icons-left has-icons-right">
+                    <input className="input is-large" type="email" placeholder="Email" />
+                    <span className="icon is-left">
+                      <i className="fas fa-envelope"></i>
+                    </span>
+                    <span className="icon is-right">
+                      <i className="fas fa-check"></i>
+                    </span>
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control has-icons-left has-icons-right">
+                    <input className="input is-large" type="email" placeholder="Email" />
+                    <span className="icon is-medium is-left">
+                      <i className="fas fa-envelope"></i>
+                    </span>
+                    <span className="icon is-medium is-right">
+                      <i className="fas fa-check"></i>
+                    </span>
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control has-icons-left has-icons-right">
+                    <input className="input is-large" type="email" placeholder="Email" />
+                    <span className="icon is-large is-left">
+                      <i className="fas fa-envelope"></i>
+                    </span>
+                    <span className="icon is-large is-right">
+                      <i className="fas fa-check"></i>
+                    </span>
+                  </p>
+                </div>
+                <br />
+                <h4 className="subtitle"> With Font Awesome icons </h4>
+                <hr />
+                <div className="field">
+                  <p className="control has-icons-left">
+                    <input className="input" type="email" placeholder="Email" />
+                    <span className="icon is-small is-left">
+                      <i className="fas fa-envelope"></i>
+                    </span>
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control has-icons-left">
+                    <input className="input" type="password" placeholder="Password"
+                      style={{
+                        backgroundImage: 'url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;)',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundAttachment: 'scroll',
+                        backgroundSize: '16px 18px',
+                        backgroundPosition: '98% 50%'}}
+                        autoComplete="off" />
+                    <span className="icon is-small is-left">
+                      <i className="fas fa-lock"></i>
+                    </span>
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control">
+                    <button className="button is-success">
+                      Login
+                    </button>
+                  </p>
+                </div>
+                <br />
+                <h3 className="title"> Form addons </h3>
+                <hr />
+                <div className="field has-addons">
+                  <p className="control">
+                    <input className="input" type="text" placeholder="Find a repository" />
+                  </p>
+                  <p className="control">
+                    <a className="button is-info">
+                      Search
+                    </a>
+                  </p>
+                </div>
+                <div className="field has-addons">
+                  <p className="control">
+                    <input className="input is-large" type="text" placeholder="Find a repository" />
+                  </p>
+                  <p className="control">
+                    <a className="button is-info is-large">
+                      Search
+                    </a>
+                  </p>
+                </div>
+                <div className="field has-addons">
+                  <p className="control">
+                    <span className="select">
+                      <select>
+                        <option>$</option>
+                        <option>£</option>
+                        <option>€</option>
+                      </select>
+                    </span>
+                  </p>
+                  <p className="control">
+                    <input className="input" type="text" placeholder="Amount of money" />
+                  </p>
+                  <p className="control">
+                    <a className="button">
+                      Transfer
+                    </a>
+                  </p>
+                </div>
+                <div className="field has-addons">
+                  <p className="control">
+                    <span className="select">
+                      <select>
+                        <option>$</option>
+                        <option>£</option>
+                        <option>€</option>
+                      </select>
+                    </span>
+                  </p>
+                  <p className="control is-expanded">
+                    <input className="input" type="text" placeholder="Amount of money" />
+                  </p>
+                  <p className="control">
+                    <a className="button">
+                      Transfer
+                    </a>
+                  </p>
+                </div>
+                <div className="field has-addons">
+                  <p className="control is-expanded">
+                    <span className="select is-fullwidth">
+                      <select name="country">
+                        <option value="Argentina">Argentina</option>
+                        <option value="Bolivia">Bolivia</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Ecuador">Ecuador</option>
+                        <option value="Guyana">Guyana</option>
+                        <option value="Paraguay">Paraguay</option>
+                        <option value="Peru">Peru</option>
+                        <option value="Suriname">Suriname</option>
+                        <option value="Uruguay">Uruguay</option>
+                        <option value="Venezuela">Venezuela</option>
+                      </select>
+                    </span>
+                  </p>
+                  <p className="control">
+                    <button type="submit" className="button is-primary">Choose</button>
+                  </p>
+                </div>
+                <div className="field is-grouped">
+                  <p className="control is-expanded">
+                    <input className="input" type="text" placeholder="Find a repository" />
+                  </p>
+                  <p className="control">
+                    <a className="button is-info">
+                      Search
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section className="section" id="icon">
+            <h1 className="title"> Icons </h1>
+            <hr />
+            <span className="icon is-small"> <i className="fas fa-home"> </i> </span>
+            <span className="icon"> <i className="fas fa-home"> </i> </span>
+            <span className="icon is-medium"> <i className="fas fa-home"> </i> </span>
+            <span className="icon is-large"> <i className="fas fa-home"> </i> </span>
+          </section>
+
+
+
+          <section className="section" id="images">
+            <h1 className="title"> Images </h1>
+            <hr />
+            <figure className="image is-128x128"> <img src="https://s3.amazonaws.com/uifaces/faces/twitter/zeldman/128.jpg" />
+            </figure>
+          </section>
+
+
+          <section className="section" id="notifications">
+            <h1 className="title"> Notifications </h1>
+            <hr />
+            <div className="columns is-multiline">
+
+              <div className="column is-half">
+                <div className="notification ">
+                  <button className="delete"> </button> Lorem ipsum dolor sit amet,
+                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit </div>
+              </div>
+
+              <div className="column is-half">
+                <div className="notification is-primary">
+                  <button className="delete"> </button> Lorem ipsum dolor sit amet,
+                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit </div>
+              </div>
+
+              <div className="column is-half">
+                <div className="notification is-link">
+                  <button className="delete"> </button> Lorem ipsum dolor sit amet,
+                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit </div>
+              </div>
+
+              <div className="column is-half">
+                <div className="notification is-info">
+                  <button className="delete"> </button> Lorem ipsum dolor sit amet,
+                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit </div>
+              </div>
+
+              <div className="column is-half">
+                <div className="notification is-success">
+                  <button className="delete"> </button> Lorem ipsum dolor sit amet,
+                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit </div>
+              </div>
+
+              <div className="column is-half">
+                <div className="notification is-warning">
+                  <button className="delete"> </button> Lorem ipsum dolor sit amet,
+                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit </div>
+              </div>
+
+              <div className="column is-half">
+                <div className="notification is-danger">
+                  <button className="delete"> </button> Lorem ipsum dolor sit amet,
+                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit </div>
+              </div>
+
+            </div>
+          </section>
+
+          <section className="section" id="progress">
+            <h1 className="title"> Progress bars </h1>
+            <hr />
+
+            <progress className="progress " max="100" value="15"> 15% </progress>
+
+            <progress className="progress is-primary" max="100" value="15"> 15% </progress>
+
+            <progress className="progress is-link" max="100" value="15"> 15% </progress>
+
+            <progress className="progress is-info" max="100" value="15"> 15% </progress>
+
+            <progress className="progress is-success" max="100" value="15"> 15% </progress>
+
+            <progress className="progress is-warning" max="100" value="15"> 15% </progress>
+
+            <progress className="progress is-danger" max="100" value="15"> 15% </progress>
+
+            <progress className="progress is-small" max="100" value="15"> 15% </progress>
+            <progress className="progress" max="100" value="30"> 30% </progress>
+            <progress className="progress is-medium" max="100" value="45"> 45% </progress>
+            <progress className="progress is-large" max="100" value="60"> 60% </progress>
+          </section>
+
+          <section className="section" id="table">
+            <h1 className="title"> Table </h1>
+            <hr />
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>
+                    <abbr title="Position"> Pos </abbr>
+                  </th>
+                  <th> Team </th>
+                  <th>
+                    <abbr title="Played"> Pld </abbr>
+                  </th>
+                  <th>
+                    <abbr title="Won"> W </abbr>
+                  </th>
+                  <th>
+                    <abbr title="Drawn"> D </abbr>
+                  </th>
+                  <th>
+                    <abbr title="Lost"> L </abbr>
+                  </th>
+                  <th>
+                    <abbr title="Goals for"> GF </abbr>
+                  </th>
+                  <th>
+                    <abbr title="Goals against"> GA </abbr>
+                  </th>
+                  <th>
+                    <abbr title="Goal difference"> GD </abbr>
+                  </th>
+                  <th>
+                    <abbr title="Points"> Pts </abbr>
+                  </th>
+                  <th> Qualification or relegation </th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>
+                    <abbr title="Position"> Pos </abbr>
+                  </th>
+                  <th> Team </th>
+                  <th>
+                    <abbr title="Played"> Pld </abbr>
+                  </th>
+                  <th>
+                    <abbr title="Won"> W </abbr>
+                  </th>
+                  <th>
+                    <abbr title="Drawn"> D </abbr>
+                  </th>
+                  <th>
+                    <abbr title="Lost"> L </abbr>
+                  </th>
+                  <th>
+                    <abbr title="Goals for"> GF </abbr>
+                  </th>
+                  <th>
+                    <abbr title="Goals against"> GA </abbr>
+                  </th>
+                  <th>
+                    <abbr title="Goal difference"> GD </abbr>
+                  </th>
+                  <th>
+                    <abbr title="Points"> Pts </abbr>
+                  </th>
+                  <th> Qualification or relegation </th>
+                </tr>
+              </tfoot>
+              <tbody>
+                <tr>
+                  <th> 1 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C."> Leicester City </a> <strong> (C) </strong> </td>
+                  <td> 38 </td>
+                  <td> 23 </td>
+                  <td> 12 </td>
+                  <td> 3 </td>
+                  <td> 68 </td>
+                  <td> 36 </td>
+                  <td> +32 </td>
+                  <td> 81 </td>
+                  <td> Qualification for the
+                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage" title="2016–17 UEFA Champions League"> Champions League group stage </a>
+                  </td>
+                </tr>
+                <tr>
+                  <th> 2 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/Arsenal_F.C." title="Arsenal F.C."> Arsenal </a>
+                  </td>
+                  <td> 38 </td>
+                  <td> 20 </td>
+                  <td> 11 </td>
+                  <td> 7 </td>
+                  <td> 65 </td>
+                  <td> 36 </td>
+                  <td> +29 </td>
+                  <td> 71 </td>
+                  <td> Qualification for the
+                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage" title="2016–17 UEFA Champions League"> Champions League group stage </a>
+                  </td>
+                </tr>
+                <tr>
+                  <th> 3 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/Tottenham_Hotspur_F.C." title="Tottenham Hotspur F.C."> Tottenham Hotspur </a>
+                  </td>
+                  <td> 38 </td>
+                  <td> 19 </td>
+                  <td> 13 </td>
+                  <td> 6 </td>
+                  <td> 69 </td>
+                  <td> 35 </td>
+                  <td> +34 </td>
+                  <td> 70 </td>
+                  <td> Qualification for the
+                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage" title="2016–17 UEFA Champions League"> Champions League group stage </a>
+                  </td>
+                </tr>
+                <tr>
+                  <th> 4 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/Manchester_City_F.C." title="Manchester City F.C."> Manchester City </a>
+                  </td>
+                  <td> 38 </td>
+                  <td> 19 </td>
+                  <td> 9 </td>
+                  <td> 10 </td>
+                  <td> 71 </td>
+                  <td> 41 </td>
+                  <td> +30 </td>
+                  <td> 66 </td>
+                  <td> Qualification for the
+                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Play-off_round" title="2016–17 UEFA Champions League"> Champions League play-off round </a>
+                  </td>
+                </tr>
+                <tr className="is-selected">
+                  <th> 5 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/Manchester_United_F.C." title="Manchester United F.C."> Manchester United </a>
+                  </td>
+                  <td> 38 </td>
+                  <td> 19 </td>
+                  <td> 9 </td>
+                  <td> 10 </td>
+                  <td> 49 </td>
+                  <td> 35 </td>
+                  <td> +14 </td>
+                  <td> 66 </td>
+                  <td> Qualification for the
+                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Group_stage" title="2016–17 UEFA Europa League"> Europa League group stage </a>
+                  </td>
+                </tr>
+                <tr>
+                  <th> 6 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/Southampton_F.C." title="Southampton F.C."> Southampton </a>
+                  </td>
+                  <td> 38 </td>
+                  <td> 18 </td>
+                  <td> 9 </td>
+                  <td> 11 </td>
+                  <td> 59 </td>
+                  <td> 41 </td>
+                  <td> +18 </td>
+                  <td> 63 </td>
+                  <td> Qualification for the
+                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Group_stage" title="2016–17 UEFA Europa League"> Europa League group stage </a>
+                  </td>
+                </tr>
+                <tr>
+                  <th> 7 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/West_Ham_United_F.C." title="West Ham United F.C."> West Ham United </a>
+                  </td>
+                  <td> 38 </td>
+                  <td> 16 </td>
+                  <td> 14 </td>
+                  <td> 8 </td>
+                  <td> 65 </td>
+                  <td> 51 </td>
+                  <td> +14 </td>
+                  <td> 62 </td>
+                  <td> Qualification for the
+                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Third_qualifying_round" title="2016–17 UEFA Europa League"> Europa League third qualifying round </a>
+                  </td>
+                </tr>
+                <tr>
+                  <th> 8 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/Liverpool_F.C." title="Liverpool F.C."> Liverpool </a>
+                  </td>
+                  <td> 38 </td>
+                  <td> 16 </td>
+                  <td> 12 </td>
+                  <td> 10 </td>
+                  <td> 63 </td>
+                  <td> 50 </td>
+                  <td> +13 </td>
+                  <td> 60 </td>
+                  <td> </td>
+                </tr>
+                <tr>
+                  <th> 9 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/Stoke_City_F.C." title="Stoke City F.C."> Stoke City </a>
+                  </td>
+                  <td> 38 </td>
+                  <td> 14 </td>
+                  <td> 9 </td>
+                  <td> 15 </td>
+                  <td> 41 </td>
+                  <td> 55 </td>
+                  <td> −14 </td>
+                  <td> 51 </td>
+                  <td> </td>
+                </tr>
+                <tr>
+                  <th> 10 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/Chelsea_F.C." title="Chelsea F.C."> Chelsea </a>
+                  </td>
+                  <td> 38 </td>
+                  <td> 12 </td>
+                  <td> 14 </td>
+                  <td> 12 </td>
+                  <td> 59 </td>
+                  <td> 53 </td>
+                  <td> +6 </td>
+                  <td> 50 </td>
+                  <td> </td>
+                </tr>
+                <tr>
+                  <th> 11 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/Everton_F.C." title="Everton F.C."> Everton </a>
+                  </td>
+                  <td> 38 </td>
+                  <td> 11 </td>
+                  <td> 14 </td>
+                  <td> 13 </td>
+                  <td> 59 </td>
+                  <td> 55 </td>
+                  <td> +4 </td>
+                  <td> 47 </td>
+                  <td> </td>
+                </tr>
+                <tr>
+                  <th> 12 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/Swansea_City_A.F.C." title="Swansea City A.F.C."> Swansea City </a>
+                  </td>
+                  <td> 38 </td>
+                  <td> 12 </td>
+                  <td> 11 </td>
+                  <td> 15 </td>
+                  <td> 42 </td>
+                  <td> 52 </td>
+                  <td> −10 </td>
+                  <td> 47 </td>
+                  <td> </td>
+                </tr>
+                <tr>
+                  <th> 13 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/Watford_F.C." title="Watford F.C."> Watford </a>
+                  </td>
+                  <td> 38 </td>
+                  <td> 12 </td>
+                  <td> 9 </td>
+                  <td> 17 </td>
+                  <td> 40 </td>
+                  <td> 50 </td>
+                  <td> −10 </td>
+                  <td> 45 </td>
+                  <td> </td>
+                </tr>
+                <tr>
+                  <th> 14 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/West_Bromwich_Albion_F.C." title="West Bromwich Albion F.C."> West Bromwich Albion </a>
+                  </td>
+                  <td> 38 </td>
+                  <td> 10 </td>
+                  <td> 13 </td>
+                  <td> 15 </td>
+                  <td> 34 </td>
+                  <td> 48 </td>
+                  <td> −14 </td>
+                  <td> 43 </td>
+                  <td> </td>
+                </tr>
+                <tr>
+                  <th> 15 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/Crystal_Palace_F.C." title="Crystal Palace F.C."> Crystal Palace </a>
+                  </td>
+                  <td> 38 </td>
+                  <td> 11 </td>
+                  <td> 9 </td>
+                  <td> 18 </td>
+                  <td> 39 </td>
+                  <td> 51 </td>
+                  <td> −12 </td>
+                  <td> 42 </td>
+                  <td> </td>
+                </tr>
+                <tr>
+                  <th> 16 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/A.F.C._Bournemouth" title="A.F.C. Bournemouth"> AFC Bournemouth </a>
+                  </td>
+                  <td> 38 </td>
+                  <td> 11 </td>
+                  <td> 9 </td>
+                  <td> 18 </td>
+                  <td> 45 </td>
+                  <td> 67 </td>
+                  <td> −22 </td>
+                  <td> 42 </td>
+                  <td> </td>
+                </tr>
+                <tr>
+                  <th> 17 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/Sunderland_A.F.C." title="Sunderland A.F.C."> Sunderland </a>
+                  </td>
+                  <td> 38 </td>
+                  <td> 9 </td>
+                  <td> 12 </td>
+                  <td> 17 </td>
+                  <td> 48 </td>
+                  <td> 62 </td>
+                  <td> −14 </td>
+                  <td> 39 </td>
+                  <td> </td>
+                </tr>
+                <tr>
+                  <th> 18 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/Newcastle_United_F.C." title="Newcastle United F.C."> Newcastle United </a> <strong> (R) </strong> </td>
+                  <td> 38 </td>
+                  <td> 9 </td>
+                  <td> 10 </td>
+                  <td> 19 </td>
+                  <td> 44 </td>
+                  <td> 65 </td>
+                  <td> −21 </td>
+                  <td> 37 </td>
+                  <td> Relegation to the
+                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship" title="2016–17 Football League Championship"> Football League Championship </a>
+                  </td>
+                </tr>
+                <tr>
+                  <th> 19 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/Norwich_City_F.C." title="Norwich City F.C."> Norwich City </a> <strong> (R) </strong> </td>
+                  <td> 38 </td>
+                  <td> 9 </td>
+                  <td> 7 </td>
+                  <td> 22 </td>
+                  <td> 39 </td>
+                  <td> 67 </td>
+                  <td> −28 </td>
+                  <td> 34 </td>
+                  <td> Relegation to the
+                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship" title="2016–17 Football League Championship"> Football League Championship </a>
+                  </td>
+                </tr>
+                <tr>
+                  <th> 20 </th>
+                  <td>
+                    <a href="https://en.wikipedia.org/wiki/Aston_Villa_F.C." title="Aston Villa F.C."> Aston Villa </a> <strong> (R) </strong> </td>
+                  <td> 38 </td>
+                  <td> 3 </td>
+                  <td> 8 </td>
+                  <td> 27 </td>
+                  <td> 27 </td>
+                  <td> 76 </td>
+                  <td> −49 </td>
+                  <td> 17 </td>
+                  <td> Relegation to the
+                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship" title="2016–17 Football League Championship"> Football League Championship </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table className="table is-striped">
+              <thead>
+                <tr>
+                  <th> One </th>
+                  <th> Two </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> Three </td>
+                  <td> Four </td>
+                </tr>
+                <tr>
+                  <td> Five </td>
+                  <td> Six </td>
+                </tr>
+                <tr>
+                  <td> Seven </td>
+                  <td> Eight </td>
+                </tr>
+                <tr>
+                  <td> Nine </td>
+                  <td> Ten </td>
+                </tr>
+                <tr>
+                  <td> Eleven </td>
+                  <td> Twelve </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table className="table is-bordered">
+              <thead>
+                <tr>
+                  <th> One </th>
+                  <th> Two </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> Three </td>
+                  <td> Four </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table className="table is-narrow">
+              <thead>
+                <tr>
+                  <th> One </th>
+                  <th> Two </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> Three </td>
+                  <td> Four </td>
+                </tr>
+                <tr>
+                  <td> Five </td>
+                  <td> Six </td>
+                </tr>
+                <tr>
+                  <td> Seven </td>
+                  <td> Eight </td>
+                </tr>
+                <tr>
+                  <td> Nine </td>
+                  <td> Ten </td>
+                </tr>
+                <tr>
+                  <td> Eleven </td>
+                  <td> Twelve </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table className="table is-bordered is-striped is-narrow">
+              <thead>
+                <tr>
+                  <th> One </th>
+                  <th> Two </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> Three </td>
+                  <td> Four </td>
+                </tr>
+                <tr>
+                  <td> Five </td>
+                  <td> Six </td>
+                </tr>
+                <tr>
+                  <td> Seven </td>
+                  <td> Eight </td>
+                </tr>
+                <tr>
+                  <td> Nine </td>
+                  <td> Ten </td>
+                </tr>
+                <tr>
+                  <td> Eleven </td>
+                  <td> Twelve </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section className="section" id="tag">
+            <h1 className="title"> Tag </h1>
+            <hr />
+            <div className="tags">
+
+              <span className="tag is-primary"> Primary </span>
+
+              <span className="tag is-link"> Link </span>
+
+              <span className="tag is-info"> Info </span>
+
+              <span className="tag is-success"> Success </span>
+
+              <span className="tag is-warning"> Warning </span>
+
+              <span className="tag is-danger"> Danger </span>
+
+              <span className="tag is-white"> White </span>
+
+              <span className="tag is-black"> Black </span>
+
+              <span className="tag is-light"> Light </span>
+
+              <span className="tag is-dark"> Dark </span>
+
+              <span className="tag is-primary is-medium"> Medium </span>
+              <span className="tag is-info is-large"> Large </span>
+              <span className="tag is-success"> Bar
+                <button className="delete is-small"> </button>
+              </span>
+              <span className="tag is-warning is-medium"> Hello
+                <button className="delete is-small"> </button>
+              </span>
+              <span className="tag is-danger is-large"> World
+                <button className="delete"> </button>
+              </span>
+            </div>
+            <div className="field is-grouped is-grouped-multiline">
+              <div className="control">
+                <div className="tags has-addons">
+                  <span className="tag is-dark">npm</span>
+                  <span className="tag is-info">0.5.0</span>
+                </div>
+              </div>
+
+              <div className="control">
+                <div className="tags has-addons">
+                  <span className="tag is-dark">build</span>
+                  <span className="tag is-success">passing</span>
+                </div>
+              </div>
+
+              <div className="control">
+                <div className="tags has-addons">
+                  <span className="tag is-dark">chat</span>
+                  <span className="tag is-primary">on gitter</span>
+                </div>
+              </div>
+            </div>
+            <div className="field is-grouped is-grouped-multiline">
+              <div className="control">
+                <div className="tags has-addons">
+                  <a className="tag is-link">Technology</a>
+                  <a className="tag is-delete"></a>
+                </div>
+              </div>
+
+              <div className="control">
+                <div className="tags has-addons">
+                  <a className="tag is-link">CSS</a>
+                  <a className="tag is-delete"></a>
+                </div>
+              </div>
+
+              <div className="control">
+                <div className="tags has-addons">
+                  <a className="tag is-link">Flexbox</a>
+                  <a className="tag is-delete"></a>
+                </div>
+              </div>
+
+              <div className="control">
+                <div className="tags has-addons">
+                  <a className="tag is-link">Web Design</a>
+                  <a className="tag is-delete"></a>
+                </div>
+              </div>
+
+              <div className="control">
+                <div className="tags has-addons">
+                  <a className="tag is-link">Open Source</a>
+                  <a className="tag is-delete"></a>
+                </div>
+              </div>
+
+              <div className="control">
+                <div className="tags has-addons">
+                  <a className="tag is-link">Community</a>
+                  <a className="tag is-delete"></a>
+                </div>
+              </div>
+
+              <div className="control">
+                <div className="tags has-addons">
+                  <a className="tag is-link">Documentation</a>
+                  <a className="tag is-delete"></a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="section" id="breadcrumb">
+            <h1 className="title">Breadcrumb</h1>
+            <hr />
+            <nav className="breadcrumb">
+              <ul>
+                <li>
+                  <a>Bulma</a>
+                </li>
+                <li>
+                  <a>Documentation</a>
+                </li>
+                <li>
+                  <a>Components</a>
+                </li>
+                <li className="is-active">
+                  <a>Breadcrumb</a>
+                </li>
+              </ul>
+            </nav>
+          </section>
+
+          <section className="section" id="hero">
+            <h1 className="title">Hero</h1>
+            <hr />
+
+            <section className="hero ">
+              <div className="hero-head">
+                <nav className="navbar">
+                  <div className="container">
+                    <div className="navbar-brand">
+                      <a className="navbar-item">
+                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                      </a>
+                      <span className="navbar-burger burger" data-target="navbarMenuHero1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </span>
+                    </div>
+                    <div id="navbarMenuHero1" className="navbar-menu">
+                      <div className="navbar-end">
+                        <a className="navbar-item is-active">
+                          Home
+                        </a>
+                        <a className="navbar-item">
+                          Examples
+                        </a>
+                        <a className="navbar-item">
+                          Documentation
+                        </a>
+                        <div className="navbar-item has-dropdown is-hoverable">
+                            <div className="navbar-link">
+                              More
+                            </div>
+                            <div id="moreDropdown" className="navbar-dropdown ">
+                              <a className="navbar-item " href="#">
+                                <div className="level is-mobile">
+                                  <div className="level-left">
+                                    <div className="level-item">
+                                      <p>
+                                        <strong>Extensions</strong>
+                                        <br />
+                                        <small>Side projects to enhance Bulma</small>
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        <span className="navbar-item">
+                          <a className="button is-primary is-inverted">
+                            <span className="icon">
+                              <i className="fab fa-github"></i>
+                            </span>
+                            <span>Download</span>
+                          </a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+              <div className="hero-body">
+                <div className="container has-text-centered">
+                  <h1 className="title">
+                  Title
+                </h1>
+                  <h2 className="subtitle">
+                  Subtitle
+                </h2>
+                </div>
+              </div>
+              <div className="hero-foot">
+                <nav className="tabs">
+                  <div className="container">
+                    <ul>
+                      <li className="is-active">
+                        <a>Overview</a>
+                      </li>
+                      <li>
+                        <a>Modifiers</a>
+                      </li>
+                      <li>
+                        <a>Grid</a>
+                      </li>
+                      <li>
+                        <a>Elements</a>
+                      </li>
+                      <li>
+                        <a>Components</a>
+                      </li>
+                      <li>
+                        <a>Layout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </section>
+            <br />
+
+            <section className="hero is-primary">
+              <div className="hero-head">
+                <nav className="navbar">
+                  <div className="container">
+                    <div className="navbar-brand">
+                      <a className="navbar-item">
+                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                      </a>
+                      <span className="navbar-burger burger" data-target="navbarMenuHero2">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </span>
+                    </div>
+                    <div id="navbarMenuHero2" className="navbar-menu">
+                      <div className="navbar-end">
+                        <a className="navbar-item is-active">
+                          Home
+                        </a>
+                        <a className="navbar-item">
+                          Examples
+                        </a>
+                        <a className="navbar-item">
+                          Documentation
+                        </a>
+                        <div className="navbar-item has-dropdown is-hoverable">
+                            <div className="navbar-link">
+                              More
+                            </div>
+                            <div id="moreDropdown" className="navbar-dropdown ">
+                              <a className="navbar-item " href="#">
+                                <div className="level is-mobile">
+                                  <div className="level-left">
+                                    <div className="level-item">
+                                      <p>
+                                        <strong>Extensions</strong>
+                                        <br />
+                                        <small>Side projects to enhance Bulma</small>
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        <span className="navbar-item">
+                          <a className="button is-primary is-inverted">
+                            <span className="icon">
+                              <i className="fab fa-github"></i>
+                            </span>
+                            <span>Download</span>
+                          </a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+              <div className="hero-body">
+                <div className="container has-text-centered">
+                  <h1 className="title">
+                  Title
+                </h1>
+                  <h2 className="subtitle">
+                  Subtitle
+                </h2>
+                </div>
+              </div>
+              <div className="hero-foot">
+                <nav className="tabs">
+                  <div className="container">
+                    <ul>
+                      <li className="is-active">
+                        <a>Overview</a>
+                      </li>
+                      <li>
+                        <a>Modifiers</a>
+                      </li>
+                      <li>
+                        <a>Grid</a>
+                      </li>
+                      <li>
+                        <a>Elements</a>
+                      </li>
+                      <li>
+                        <a>Components</a>
+                      </li>
+                      <li>
+                        <a>Layout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </section>
+            <br />
+
+            <section className="hero is-link">
+              <div className="hero-head">
+                <nav className="navbar">
+                  <div className="container">
+                    <div className="navbar-brand">
+                      <a className="navbar-item">
+                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                      </a>
+                      <span className="navbar-burger burger" data-target="navbarMenuHero3">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </span>
+                    </div>
+                    <div id="navbarMenuHero3" className="navbar-menu">
+                      <div className="navbar-end">
+                        <a className="navbar-item is-active">
+                          Home
+                        </a>
+                        <a className="navbar-item">
+                          Examples
+                        </a>
+                        <a className="navbar-item">
+                          Documentation
+                        </a>
+                        <div className="navbar-item has-dropdown is-hoverable">
+                            <div className="navbar-link">
+                              More
+                            </div>
+                            <div id="moreDropdown" className="navbar-dropdown ">
+                              <a className="navbar-item " href="#">
+                                <div className="level is-mobile">
+                                  <div className="level-left">
+                                    <div className="level-item">
+                                      <p>
+                                        <strong>Extensions</strong>
+                                        <br />
+                                        <small>Side projects to enhance Bulma</small>
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        <span className="navbar-item">
+                          <a className="button is-primary is-inverted">
+                            <span className="icon">
+                              <i className="fab fa-github"></i>
+                            </span>
+                            <span>Download</span>
+                          </a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+              <div className="hero-body">
+                <div className="container has-text-centered">
+                  <h1 className="title">
+                  Title
+                </h1>
+                  <h2 className="subtitle">
+                  Subtitle
+                </h2>
+                </div>
+              </div>
+              <div className="hero-foot">
+                <nav className="tabs">
+                  <div className="container">
+                    <ul>
+                      <li className="is-active">
+                        <a>Overview</a>
+                      </li>
+                      <li>
+                        <a>Modifiers</a>
+                      </li>
+                      <li>
+                        <a>Grid</a>
+                      </li>
+                      <li>
+                        <a>Elements</a>
+                      </li>
+                      <li>
+                        <a>Components</a>
+                      </li>
+                      <li>
+                        <a>Layout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </section>
+            <br />
+
+            <section className="hero is-info">
+              <div className="hero-head">
+                <nav className="navbar">
+                  <div className="container">
+                    <div className="navbar-brand">
+                      <a className="navbar-item">
+                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                      </a>
+                      <span className="navbar-burger burger" data-target="navbarMenuHero4">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </span>
+                    </div>
+                    <div id="navbarMenuHero4" className="navbar-menu">
+                      <div className="navbar-end">
+                        <a className="navbar-item is-active">
+                          Home
+                        </a>
+                        <a className="navbar-item">
+                          Examples
+                        </a>
+                        <a className="navbar-item">
+                          Documentation
+                        </a>
+                        <div className="navbar-item has-dropdown is-hoverable">
+                            <div className="navbar-link">
+                              More
+                            </div>
+                            <div id="moreDropdown" className="navbar-dropdown ">
+                              <a className="navbar-item " href="#">
+                                <div className="level is-mobile">
+                                  <div className="level-left">
+                                    <div className="level-item">
+                                      <p>
+                                        <strong>Extensions</strong>
+                                        <br />
+                                        <small>Side projects to enhance Bulma</small>
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        <span className="navbar-item">
+                          <a className="button is-primary is-inverted">
+                            <span className="icon">
+                              <i className="fab fa-github"></i>
+                            </span>
+                            <span>Download</span>
+                          </a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+              <div className="hero-body">
+                <div className="container has-text-centered">
+                  <h1 className="title">
+                  Title
+                </h1>
+                  <h2 className="subtitle">
+                  Subtitle
+                </h2>
+                </div>
+              </div>
+              <div className="hero-foot">
+                <nav className="tabs">
+                  <div className="container">
+                    <ul>
+                      <li className="is-active">
+                        <a>Overview</a>
+                      </li>
+                      <li>
+                        <a>Modifiers</a>
+                      </li>
+                      <li>
+                        <a>Grid</a>
+                      </li>
+                      <li>
+                        <a>Elements</a>
+                      </li>
+                      <li>
+                        <a>Components</a>
+                      </li>
+                      <li>
+                        <a>Layout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </section>
+            <br />
+
+            <section className="hero is-success">
+              <div className="hero-head">
+                <nav className="navbar">
+                  <div className="container">
+                    <div className="navbar-brand">
+                      <a className="navbar-item">
+                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                      </a>
+                      <span className="navbar-burger burger" data-target="navbarMenuHero5">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </span>
+                    </div>
+                    <div id="navbarMenuHero5" className="navbar-menu">
+                      <div className="navbar-end">
+                        <a className="navbar-item is-active">
+                          Home
+                        </a>
+                        <a className="navbar-item">
+                          Examples
+                        </a>
+                        <a className="navbar-item">
+                          Documentation
+                        </a>
+                        <div className="navbar-item has-dropdown is-hoverable">
+                            <div className="navbar-link">
+                              More
+                            </div>
+                            <div id="moreDropdown" className="navbar-dropdown ">
+                              <a className="navbar-item " href="#">
+                                <div className="level is-mobile">
+                                  <div className="level-left">
+                                    <div className="level-item">
+                                      <p>
+                                        <strong>Extensions</strong>
+                                        <br />
+                                        <small>Side projects to enhance Bulma</small>
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        <span className="navbar-item">
+                          <a className="button is-primary is-inverted">
+                            <span className="icon">
+                              <i className="fab fa-github"></i>
+                            </span>
+                            <span>Download</span>
+                          </a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+              <div className="hero-body">
+                <div className="container has-text-centered">
+                  <h1 className="title">
+                  Title
+                </h1>
+                  <h2 className="subtitle">
+                  Subtitle
+                </h2>
+                </div>
+              </div>
+              <div className="hero-foot">
+                <nav className="tabs">
+                  <div className="container">
+                    <ul>
+                      <li className="is-active">
+                        <a>Overview</a>
+                      </li>
+                      <li>
+                        <a>Modifiers</a>
+                      </li>
+                      <li>
+                        <a>Grid</a>
+                      </li>
+                      <li>
+                        <a>Elements</a>
+                      </li>
+                      <li>
+                        <a>Components</a>
+                      </li>
+                      <li>
+                        <a>Layout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </section>
+            <br />
+
+            <section className="hero is-warning">
+              <div className="hero-head">
+                <nav className="navbar">
+                  <div className="container">
+                    <div className="navbar-brand">
+                      <a className="navbar-item">
+                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                      </a>
+                      <span className="navbar-burger burger" data-target="navbarMenuHero6">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </span>
+                    </div>
+                    <div id="navbarMenuHero6" className="navbar-menu">
+                      <div className="navbar-end">
+                        <a className="navbar-item is-active">
+                          Home
+                        </a>
+                        <a className="navbar-item">
+                          Examples
+                        </a>
+                        <a className="navbar-item">
+                          Documentation
+                        </a>
+                        <div className="navbar-item has-dropdown is-hoverable">
+                            <div className="navbar-link">
+                              More
+                            </div>
+                            <div id="moreDropdown" className="navbar-dropdown ">
+                              <a className="navbar-item " href="#">
+                                <div className="level is-mobile">
+                                  <div className="level-left">
+                                    <div className="level-item">
+                                      <p>
+                                        <strong>Extensions</strong>
+                                        <br />
+                                        <small>Side projects to enhance Bulma</small>
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        <span className="navbar-item">
+                          <a className="button is-primary is-inverted">
+                            <span className="icon">
+                              <i className="fab fa-github"></i>
+                            </span>
+                            <span>Download</span>
+                          </a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+
+              <div className="hero-body">
+                <div className="container has-text-centered">
+                  <h1 className="title">
+                  Title
+                </h1>
+                  <h2 className="subtitle">
+                  Subtitle
+                </h2>
+                </div>
+              </div>
+
+              <div className="hero-foot">
+                <nav className="tabs">
+                  <div className="container">
+                    <ul>
+                      <li className="is-active">
+                        <a>Overview</a>
+                      </li>
+                      <li>
+                        <a>Modifiers</a>
+                      </li>
+                      <li>
+                        <a>Grid</a>
+                      </li>
+                      <li>
+                        <a>Elements</a>
+                      </li>
+                      <li>
+                        <a>Components</a>
+                      </li>
+                      <li>
+                        <a>Layout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </section>
+            <br />
+
+            <section className="hero is-danger">
+
+              <div className="hero-head">
+                <nav className="navbar">
+                  <div className="container">
+                    <div className="navbar-brand">
+                      <a className="navbar-item">
+                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                      </a>
+                      <span className="navbar-burger burger" data-target="navbarMenuHero7">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </span>
+                    </div>
+                    <div id="navbarMenuHero7" className="navbar-menu">
+                      <div className="navbar-end">
+                        <a className="navbar-item is-active">
+                          Home
+                        </a>
+                        <a className="navbar-item">
+                          Examples
+                        </a>
+                        <a className="navbar-item">
+                          Documentation
+                        </a>
+                        <div className="navbar-item has-dropdown is-hoverable">
+                            <div className="navbar-link">
+                              More
+                            </div>
+                            <div id="moreDropdown" className="navbar-dropdown ">
+                              <a className="navbar-item " href="#">
+                                <div className="level is-mobile">
+                                  <div className="level-left">
+                                    <div className="level-item">
+                                      <p>
+                                        <strong>Extensions</strong>
+                                        <br />
+                                        <small>Side projects to enhance Bulma</small>
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        <span className="navbar-item">
+                          <a className="button is-primary is-inverted">
+                            <span className="icon">
+                              <i className="fab fa-github"></i>
+                            </span>
+                            <span>Download</span>
+                          </a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+
+              <div className="hero-body">
+                <div className="container has-text-centered">
+                  <h1 className="title">
+                  Title
+                </h1>
+                  <h2 className="subtitle">
+                  Subtitle
+                </h2>
+                </div>
+              </div>
+
+              <div className="hero-foot">
+                <nav className="tabs">
+                  <div className="container">
+                    <ul>
+                      <li className="is-active">
+                        <a>Overview</a>
+                      </li>
+                      <li>
+                        <a>Modifiers</a>
+                      </li>
+                      <li>
+                        <a>Grid</a>
+                      </li>
+                      <li>
+                        <a>Elements</a>
+                      </li>
+                      <li>
+                        <a>Components</a>
+                      </li>
+                      <li>
+                        <a>Layout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </section>
+            <br />
+
+            <section className="hero is-white">
+
+              <div className="hero-head">
+                <nav className="navbar">
+                  <div className="container">
+                    <div className="navbar-brand">
+                      <a className="navbar-item">
+                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                      </a>
+                      <span className="navbar-burger burger" data-target="navbarMenuHero8">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </span>
+                    </div>
+                    <div id="navbarMenuHero8" className="navbar-menu">
+                      <div className="navbar-end">
+                        <a className="navbar-item is-active">
+                          Home
+                        </a>
+                        <a className="navbar-item">
+                          Examples
+                        </a>
+                        <a className="navbar-item">
+                          Documentation
+                        </a>
+                        <div className="navbar-item has-dropdown is-hoverable">
+                            <div className="navbar-link">
+                              More
+                            </div>
+                            <div id="moreDropdown" className="navbar-dropdown ">
+                              <a className="navbar-item " href="#">
+                                <div className="level is-mobile">
+                                  <div className="level-left">
+                                    <div className="level-item">
+                                      <p>
+                                        <strong>Extensions</strong>
+                                        <br />
+                                        <small>Side projects to enhance Bulma</small>
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        <span className="navbar-item">
+                          <a className="button is-primary is-inverted">
+                            <span className="icon">
+                              <i className="fab fa-github"></i>
+                            </span>
+                            <span>Download</span>
+                          </a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+
+              <div className="hero-body">
+                <div className="container has-text-centered">
+                  <h1 className="title">
+                  Title
+                </h1>
+                  <h2 className="subtitle">
+                  Subtitle
+                </h2>
+                </div>
+              </div>
+
+              <div className="hero-foot">
+                <nav className="tabs">
+                  <div className="container">
+                    <ul>
+                      <li className="is-active">
+                        <a>Overview</a>
+                      </li>
+                      <li>
+                        <a>Modifiers</a>
+                      </li>
+                      <li>
+                        <a>Grid</a>
+                      </li>
+                      <li>
+                        <a>Elements</a>
+                      </li>
+                      <li>
+                        <a>Components</a>
+                      </li>
+                      <li>
+                        <a>Layout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </section>
+            <br />
+
+            <section className="hero is-black">
+
+              <div className="hero-head">
+                <nav className="navbar">
+                  <div className="container">
+                    <div className="navbar-brand">
+                      <a className="navbar-item">
+                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                      </a>
+                      <span className="navbar-burger burger" data-target="navbarMenuHero9">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </span>
+                    </div>
+                    <div id="navbarMenuHero9" className="navbar-menu">
+                      <div className="navbar-end">
+                        <a className="navbar-item is-active">
+                          Home
+                        </a>
+                        <a className="navbar-item">
+                          Examples
+                        </a>
+                        <a className="navbar-item">
+                          Documentation
+                        </a>
+                        <div className="navbar-item has-dropdown is-hoverable">
+                            <div className="navbar-link">
+                              More
+                            </div>
+                            <div id="moreDropdown" className="navbar-dropdown ">
+                              <a className="navbar-item " href="#">
+                                <div className="level is-mobile">
+                                  <div className="level-left">
+                                    <div className="level-item">
+                                      <p>
+                                        <strong>Extensions</strong>
+                                        <br />
+                                        <small>Side projects to enhance Bulma</small>
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        <span className="navbar-item">
+                          <a className="button is-primary is-inverted">
+                            <span className="icon">
+                              <i className="fab fa-github"></i>
+                            </span>
+                            <span>Download</span>
+                          </a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+
+              <div className="hero-body">
+                <div className="container has-text-centered">
+                  <h1 className="title">
+                  Title
+                </h1>
+                  <h2 className="subtitle">
+                  Subtitle
+                </h2>
+                </div>
+              </div>
+
+              <div className="hero-foot">
+                <nav className="tabs">
+                  <div className="container">
+                    <ul>
+                      <li className="is-active">
+                        <a>Overview</a>
+                      </li>
+                      <li>
+                        <a>Modifiers</a>
+                      </li>
+                      <li>
+                        <a>Grid</a>
+                      </li>
+                      <li>
+                        <a>Elements</a>
+                      </li>
+                      <li>
+                        <a>Components</a>
+                      </li>
+                      <li>
+                        <a>Layout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </section>
+            <br />
+
+            <section className="hero is-light">
+
+              <div className="hero-head">
+                <nav className="navbar">
+                  <div className="container">
+                    <div className="navbar-brand">
+                      <a className="navbar-item">
+                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                      </a>
+                      <span className="navbar-burger burger" data-target="navbarMenuHero10">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </span>
+                    </div>
+                    <div id="navbarMenuHero10" className="navbar-menu">
+                      <div className="navbar-end">
+                        <a className="navbar-item is-active">
+                          Home
+                        </a>
+                        <a className="navbar-item">
+                          Examples
+                        </a>
+                        <a className="navbar-item">
+                          Documentation
+                        </a>
+                        <div className="navbar-item has-dropdown is-hoverable">
+                            <div className="navbar-link">
+                              More
+                            </div>
+                            <div id="moreDropdown" className="navbar-dropdown ">
+                              <a className="navbar-item " href="#">
+                                <div className="level is-mobile">
+                                  <div className="level-left">
+                                    <div className="level-item">
+                                      <p>
+                                        <strong>Extensions</strong>
+                                        <br />
+                                        <small>Side projects to enhance Bulma</small>
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        <span className="navbar-item">
+                          <a className="button is-primary is-inverted">
+                            <span className="icon">
+                              <i className="fab fa-github"></i>
+                            </span>
+                            <span>Download</span>
+                          </a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+
+              <div className="hero-body">
+                <div className="container has-text-centered">
+                  <h1 className="title">
+                  Title
+                </h1>
+                  <h2 className="subtitle">
+                  Subtitle
+                </h2>
+                </div>
+              </div>
+
+              <div className="hero-foot">
+                <nav className="tabs">
+                  <div className="container">
+                    <ul>
+                      <li className="is-active">
+                        <a>Overview</a>
+                      </li>
+                      <li>
+                        <a>Modifiers</a>
+                      </li>
+                      <li>
+                        <a>Grid</a>
+                      </li>
+                      <li>
+                        <a>Elements</a>
+                      </li>
+                      <li>
+                        <a>Components</a>
+                      </li>
+                      <li>
+                        <a>Layout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </section>
+            <br />
+
+            <section className="hero is-dark">
+
+              <div className="hero-head">
+                <nav className="navbar">
+                  <div className="container">
+                    <div className="navbar-brand">
+                      <a className="navbar-item">
+                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                      </a>
+                      <span className="navbar-burger burger" data-target="navbarMenuHero11">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </span>
+                    </div>
+                    <div id="navbarMenuHero11" className="navbar-menu">
+                      <div className="navbar-end">
+                        <a className="navbar-item is-active">
+                          Home
+                        </a>
+                        <a className="navbar-item">
+                          Examples
+                        </a>
+                        <a className="navbar-item">
+                          Documentation
+                        </a>
+                        <div className="navbar-item has-dropdown is-hoverable">
+                            <div className="navbar-link">
+                              More
+                            </div>
+                            <div id="moreDropdown" className="navbar-dropdown ">
+                              <a className="navbar-item " href="#">
+                                <div className="level is-mobile">
+                                  <div className="level-left">
+                                    <div className="level-item">
+                                      <p>
+                                        <strong>Extensions</strong>
+                                        <br />
+                                        <small>Side projects to enhance Bulma</small>
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        <span className="navbar-item">
+                          <a className="button is-primary is-inverted">
+                            <span className="icon">
+                              <i className="fab fa-github"></i>
+                            </span>
+                            <span>Download</span>
+                          </a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+
+              <div className="hero-body">
+                <div className="container has-text-centered">
+                  <h1 className="title">
+                  Title
+                </h1>
+                  <h2 className="subtitle">
+                  Subtitle
+                </h2>
+                </div>
+              </div>
+
+              <div className="hero-foot">
+                <nav className="tabs">
+                  <div className="container">
+                    <ul>
+                      <li className="is-active">
+                        <a>Overview</a>
+                      </li>
+                      <li>
+                        <a>Modifiers</a>
+                      </li>
+                      <li>
+                        <a>Grid</a>
+                      </li>
+                      <li>
+                        <a>Elements</a>
+                      </li>
+                      <li>
+                        <a>Components</a>
+                      </li>
+                      <li>
+                        <a>Layout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </section>
+            <br />
+
+          </section>
+
+
+
+          <section className="section" id="card">
+            <h1 className="title">Cards</h1>
+            <hr />
+            <div className="columns">
+              <div className="column">
+                <div className="card">
+                  <div className="card-image">
+                    <figure className="image is-4by3"> <img src="https://source.unsplash.com/random/800x600" alt="Image" /> </figure>
+                  </div>
+                  <div className="card-content">
+                    <div className="media">
+                      <div className="media-left">
+                        <figure className="image" style={{height: '40px', width: '40px'}}> <img src="https://source.unsplash.com/random/96x96" alt="Image" /> </figure>
+                      </div>
+                      <div className="media-content">
+                        <p className="title is-4">John Smith</p>
+                        <p className="subtitle is-6">@johnsmith</p>
+                      </div>
+                    </div>
+                    <div className="content"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                      <a>@bulmaio</a>.
+                      <a>#css</a>
+                      <a>#responsive</a>
+                      <br /> <small>11:09 PM - 1 Jan 2016</small> </div>
+                  </div>
+                </div>
+              </div>
+              <div className="column">
+                <div className="card">
+                  <header className="card-header">
+                    <p className="card-header-title"> Component </p>
+                    <a className="card-header-icon">
+                      <span className="icon"> <i className="fa fa-angle-down"></i> </span>
+                    </a>
+                  </header>
+                  <div className="card-content">
+                    <div className="content"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                      <a>@bulmaio</a>.
+                      <a>#css</a>
+                      <a>#responsive</a>
+                      <br /> <small>11:09 PM - 1 Jan 2016</small> </div>
+                  </div>
+                  <footer className="card-footer">
+                    <a className="card-footer-item">Save</a>
+                    <a className="card-footer-item">Edit</a>
+                    <a className="card-footer-item">Delete</a>
+                  </footer>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+
+
+          <section className="section" id="dropdown">
+            <h1 className="title">Dropdown</h1>
+            <hr />
+            <div className="columns">
+              <div className="column">
+                <div className="dropdown is-active">
+                  <div className="dropdown-trigger">
+                    <button className="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                      <span>Dropdown button</span>
+                      <span className="icon is-small">
+                        <i className="fa fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                  </div>
+                  <div className="dropdown-menu" id="dropdown-menu" role="menu">
+                    <div className="dropdown-content">
+                      <a href="#" className="dropdown-item">
+                        Dropdown item
+                      </a>
+                      <a className="dropdown-item">
+                        Other dropdown item
+                      </a>
+                      <a href="#" className="dropdown-item is-active">
+                        Active dropdown item
+                      </a>
+                      <a href="#" className="dropdown-item">
+                        Other dropdown item
+                      </a>
+                      <hr className="dropdown-divider" />
+                      <a href="#" className="dropdown-item">
+                        With a divider
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="column">
+                <div className="dropdown is-active">
+                  <div className="dropdown-trigger">
+                    <button className="button is-info" aria-haspopup="true" aria-controls="dropdown-menu2">
+                      <span>Content</span>
+                      <span className="icon is-small">
+                        <i className="fa fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                  </div>
+                  <div className="dropdown-menu" id="dropdown-menu2" role="menu">
+                    <div className="dropdown-content">
+                      <div className="dropdown-item">
+                        <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
+                      </div>
+                      <hr className="dropdown-divider" />
+                      <div className="dropdown-item">
+                        <p>You simply need to use a <code>&lt;div&gt;</code> instead.</p>
+                      </div>
+                      <hr className="dropdown-divider" />
+                      <a href="#" className="dropdown-item">
+                        This is a link
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="section" id="level">
+            <h1 className="title">Level</h1>
+            <hr />
+            {/* Main container */ }
+            <nav className="level">
+              {/* Left side */ }
+              <div className="level-left">
+                <div className="level-item">
+                  <p className="subtitle is-5"> <strong>123</strong> posts </p>
+                </div>
+                <div className="level-item">
+                  <div className="field has-addons">
+                    <p className="control">
+                      <input className="input" type="text" placeholder="Find a post" />
+                    </p>
+                    <p className="control">
+                      <button className="button">
+                        Search
+                      </button>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {/* Right side */ }
+              <div className="level-right">
+                <p className="level-item"><strong>All</strong></p>
+                <p className="level-item">
+                  <a>Published</a>
+                </p>
+                <p className="level-item">
+                  <a>Drafts</a>
+                </p>
+                <p className="level-item">
+                  <a>Deleted</a>
+                </p>
+                <p className="level-item">
+                  <a className="button is-success">New</a>
+                </p>
+              </div>
+            </nav>
+            <hr />
+            <nav className="level">
+              <div className="level-item has-text-centered">
+                <div>
+                  <p className="heading">Tweets</p>
+                  <p className="title">3,456</p>
+                </div>
+              </div>
+              <div className="level-item has-text-centered">
+                <div>
+                  <p className="heading">Following</p>
+                  <p className="title">123</p>
+                </div>
+              </div>
+              <div className="level-item has-text-centered">
+                <div>
+                  <p className="heading">Followers</p>
+                  <p className="title">456K</p>
+                </div>
+              </div>
+              <div className="level-item has-text-centered">
+                <div>
+                  <p className="heading">Likes</p>
+                  <p className="title">789</p>
+                </div>
+              </div>
+            </nav>
+            <hr />
+            <nav className="level">
+              <p className="level-item has-text-centered">
+                <a className="link is-info">Home</a>
+              </p>
+              <p className="level-item has-text-centered">
+                <a className="link is-info">Menu</a>
+              </p>
+              <p className="level-item has-text-centered"> <img src="http://bulma.io/images/bulma-type.png" alt="" style={{height: '30px'}} /> </p>
+              <p className="level-item has-text-centered">
+                <a className="link is-info">Reservations</a>
+              </p>
+              <p className="level-item has-text-centered">
+                <a className="link is-info">Contact</a>
+              </p>
+            </nav>
+            <hr />
+            <nav className="level is-mobile">
+              <div className="level-item has-text-centered">
+                <div>
+                  <p className="heading">Tweets</p>
+                  <p className="title">3,456</p>
+                </div>
+              </div>
+              <div className="level-item has-text-centered">
+                <div>
+                  <p className="heading">Following</p>
+                  <p className="title">123</p>
+                </div>
+              </div>
+              <div className="level-item has-text-centered">
+                <div>
+                  <p className="heading">Followers</p>
+                  <p className="title">456K</p>
+                </div>
+              </div>
+              <div className="level-item has-text-centered">
+                <div>
+                  <p className="heading">Likes</p>
+                  <p className="title">789</p>
+                </div>
+              </div>
+            </nav>
+            <hr />
+          </section>
+
+          <section className="section" id="media">
+            <h1 className="title">Media Object</h1>
+            <hr />
+            <article className="media">
+              <figure className="media-left">
+                <p className="image is-64x64">
+                  <img src="https://s3.amazonaws.com/uifaces/faces/twitter/zeldman/128.jpg" />
+                </p>
+              </figure>
+              <div className="media-content">
+                <div className="content">
+                  <p>
+                    <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+                    <br /> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+                  </p>
+                </div>
+                <nav className="level">
+                  <div className="level-left">
+                    <a className="level-item">
+                      <span className="icon is-small"><i className="fas fa-reply"></i></span>
+                    </a>
+                    <a className="level-item">
+                      <span className="icon is-small"><i className="fas fa-retweet"></i></span>
+                    </a>
+                    <a className="level-item">
+                      <span className="icon is-small"><i className="fas fa-heart"></i></span>
+                    </a>
+                  </div>
+                </nav>
+              </div>
+              <div className="media-right">
+                <button className="delete"></button>
+              </div>
+            </article>
+            <hr />
+            <article className="media">
+              <figure className="media-left">
+                <p className="image is-64x64">
+                  <img src="https://s3.amazonaws.com/uifaces/faces/twitter/zeldman/128.jpg" />
+                </p>
+              </figure>
+              <div className="media-content">
+                <div className="field">
+                  <p className="control">
+                    <textarea className="textarea" placeholder="Add a comment..." defaultValue=""></textarea>
+                  </p>
+                </div>
+                <nav className="level">
+                  <div className="level-left">
+                    <div className="level-item">
+                      <a className="button is-info">Post comment</a>
+                    </div>
+                  </div>
+                  <div className="level-right">
+                    <div className="level-item">
+                      <label className="checkbox">
+                        <input type="checkbox" /> Press enter to submit
+                      </label>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+            </article>
+            <hr />
+            <h4 className="subtitle">Nesting</h4>
+            <article className="media">
+              <figure className="media-left">
+                <p className="image is-64x64">
+                  <img src="https://s3.amazonaws.com/uifaces/faces/twitter/zeldman/128.jpg" />
+                </p>
+              </figure>
+              <div className="media-content">
+                <div className="content">
+                  <p>
+                    <strong>Barbara Middleton</strong>
+                    <br /> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
+                    <br />
+                    <small><a>Like</a> · <a>Reply</a> · 3 hrs</small>
+                  </p>
+                </div>
+                <article className="media">
+                  <figure className="media-left">
+                    <p className="image is-48x48">
+                      <img src="http://bulma.io/images/placeholders/96x96.png" />
+                    </p>
+                  </figure>
+                  <div className="media-content">
+                    <div className="content">
+                      <p>
+                        <strong>Sean Brown</strong>
+                        <br /> Donec sollicitudin urna eget eros malesuada sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam blandit nisl a nulla sagittis, a lobortis leo feugiat.
+                        <br />
+                        <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
+                      </p>
+                    </div>
+                    <article className="media">
+                      Vivamus quis semper metus, non tincidunt dolor. Vivamus in mi eu lorem cursus ullamcorper sit amet nec massa.
+                    </article>
+                    <article className="media">
+                      Morbi vitae diam et purus tincidunt porttitor vel vitae augue. Praesent malesuada metus sed pharetra euismod. Cras tellus odio, tincidunt iaculis diam non, porta aliquet tortor.
+                    </article>
+                  </div>
+                </article>
+                <article className="media">
+                  <figure className="media-left">
+                    <p className="image is-48x48">
+                      <img src="http://bulma.io/images/placeholders/96x96.png" />
+                    </p>
+                  </figure>
+                  <div className="media-content">
+                    <div className="content">
+                      <p>
+                        <strong>Kayli Eunice </strong>
+                        <br /> Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas varius felis sit amet magna vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat.
+                        <br />
+                        <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </article>
+            <article className="media">
+              <figure className="media-left">
+                <p className="image is-64x64">
+                  <img src="https://s3.amazonaws.com/uifaces/faces/twitter/zeldman/128.jpg" />
+                </p>
+              </figure>
+              <div className="media-content">
+                <div className="field">
+                  <p className="control">
+                    <textarea className="textarea" placeholder="Add a comment..." defaultValue=""></textarea>
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control">
+                    <button className="button">Post comment</button>
+                  </p>
+                </div>
+              </div>
+            </article>
+          </section>
+
+
+          <section className="section" id="menu">
+            <h1 className="title">Menu</h1>
+            <hr />
+            <div className="column is-3">
+              <aside className="menu">
+                <p className="menu-label">
+                  General
+                </p>
+                <ul className="menu-list">
+                  <li>
+                    <a>Dashboard</a>
+                  </li>
+                  <li>
+                    <a>Customers</a>
+                  </li>
+                </ul>
+                <p className="menu-label">
+                  Administration
+                </p>
+                <ul className="menu-list">
+                  <li>
+                    <a>Team Settings</a>
+                  </li>
+                  <li>
+                    <a className="is-active">Manage Your Team</a>
+                    <ul>
+                      <li>
+                        <a>Members</a>
+                      </li>
+                      <li>
+                        <a>Plugins</a>
+                      </li>
+                      <li>
+                        <a>Add a member</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a>Invitations</a>
+                  </li>
+                  <li>
+                    <a>Cloud Storage Environment Settings</a>
+                  </li>
+                  <li>
+                    <a>Authentication</a>
+                  </li>
+                </ul>
+                <p className="menu-label">
+                  Transactions
+                </p>
+                <ul className="menu-list">
+                  <li>
+                    <a>Payments</a>
+                  </li>
+                  <li>
+                    <a>Transfers</a>
+                  </li>
+                  <li>
+                    <a>Balance</a>
+                  </li>
+                </ul>
+              </aside>
+            </div>
+          </section>
+
+
+          <section className="section" id="message">
+            <h1 className="title">Message</h1>
+            <hr />
+            <div className="columns is-multiline">
+
+              <div className="column is-half">
+                <article className="message ">
+                  <div className="message-header">
+                    <p>
+
+                      Message
+
+                    </p>
+                    <button className="delete"></button>
+                  </div>
+                  <div className="message-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                  </div>
+                </article>
+              </div>
+
+              <div className="column is-half">
+                <article className="message is-primary">
+                  <div className="message-header">
+                    <p>
+
+                      Primary
+
+                    </p>
+                    <button className="delete"></button>
+                  </div>
+                  <div className="message-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                  </div>
+                </article>
+              </div>
+
+              <div className="column is-half">
+                <article className="message is-link">
+                  <div className="message-header">
+                    <p>
+
+                      Link
+
+                    </p>
+                    <button className="delete"></button>
+                  </div>
+                  <div className="message-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                  </div>
+                </article>
+              </div>
+
+              <div className="column is-half">
+                <article className="message is-info">
+                  <div className="message-header">
+                    <p>
+
+                      Info
+
+                    </p>
+                    <button className="delete"></button>
+                  </div>
+                  <div className="message-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                  </div>
+                </article>
+              </div>
+
+              <div className="column is-half">
+                <article className="message is-success">
+                  <div className="message-header">
+                    <p>
+
+                      Success
+
+                    </p>
+                    <button className="delete"></button>
+                  </div>
+                  <div className="message-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                  </div>
+                </article>
+              </div>
+
+              <div className="column is-half">
+                <article className="message is-warning">
+                  <div className="message-header">
+                    <p>
+
+                      Warning
+
+                    </p>
+                    <button className="delete"></button>
+                  </div>
+                  <div className="message-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                  </div>
+                </article>
+              </div>
+
+              <div className="column is-half">
+                <article className="message is-danger">
+                  <div className="message-header">
+                    <p>
+
+                      Danger
+
+                    </p>
+                    <button className="delete"></button>
+                  </div>
+                  <div className="message-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                  </div>
+                </article>
+              </div>
+
+              <div className="column is-half">
+                <article className="message is-white">
+                  <div className="message-header">
+                    <p>
+
+                      White
+
+                    </p>
+                    <button className="delete"></button>
+                  </div>
+                  <div className="message-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                  </div>
+                </article>
+              </div>
+
+              <div className="column is-half">
+                <article className="message is-black">
+                  <div className="message-header">
+                    <p>
+
+                      Black
+
+                    </p>
+                    <button className="delete"></button>
+                  </div>
+                  <div className="message-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                  </div>
+                </article>
+              </div>
+
+              <div className="column is-half">
+                <article className="message is-light">
+                  <div className="message-header">
+                    <p>
+
+                      Light
+
+                    </p>
+                    <button className="delete"></button>
+                  </div>
+                  <div className="message-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                  </div>
+                </article>
+              </div>
+
+              <div className="column is-half">
+                <article className="message is-dark">
+                  <div className="message-header">
+                    <p>
+
+                      Dark
+
+                    </p>
+                    <button className="delete"></button>
+                  </div>
+                  <div className="message-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                  </div>
+                </article>
+              </div>
+
+            </div>
+          </section>
+
+          <section className="section" id="modal">
+            <h1 className="title">Modal</h1>
+            <hr />
+            <a className="button is-primary is-large" data-target="#myModal">Launch example modal</a>
+            <div className="modal" id="myModal">
+              <div className="modal-background"></div>
+              <div className="modal-card">
+                <header className="modal-card-head">
+                  <p className="modal-card-title">Modal title</p>
+                  <button className="delete"></button>
+                </header>
+                <section className="modal-card-body">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </section>
+                <footer className="modal-card-foot">
+                  <a className="button is-primary">Save changes</a>
+                  <a className="button">Cancel</a>
+                </footer>
+              </div>
+            </div>
+          </section>
+
+
+
+
+
+
         </div>
       </div>
     </>
