@@ -1,10 +1,10 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react'
-import { useTitle, useStyleSheet } from '@brightleaf/react-hooks'
+
+import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
+import { useTitle } from '@brightleaf/react-hooks/lib/use-title'
 import {
-  Box,
   Button,
-  Content,
   Control,
   Columns,
   Column,

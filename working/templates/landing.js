@@ -1,5 +1,6 @@
 import React from 'react'
-import { useStyleSheet } from '@brightleaf/react-hooks'
+import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
+
 import {
   BaseIcon,
   Box,

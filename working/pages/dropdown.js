@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useStyleSheet } from '@brightleaf/react-hooks'
+import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
 import {
   Container,
   DropDown,

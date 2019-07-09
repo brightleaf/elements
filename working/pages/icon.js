@@ -1,6 +1,6 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react'
-import { useTitle } from '@brightleaf/react-hooks'
+import { useTitle } from '@brightleaf/react-hooks/lib/use-title'
 import { Box, Content, Icon } from '../../src'
 export default () => {
   useTitle('Icons example from @brightleaf/elements')

@@ -1,7 +1,8 @@
 /* eslint-disable spellcheck/spell-checker */
 /* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react'
-import { useStyleSheet, useStyles } from '@brightleaf/react-hooks'
+import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
+import { useStyles } from '@brightleaf/react-hooks/lib/use-styles'
 import Highlight from '../components/highlighter'
 import {
   Box,

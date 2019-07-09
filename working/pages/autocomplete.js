@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { useStyleSheet, useStyles } from '@brightleaf/react-hooks'
+import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
+import { useStyles } from '@brightleaf/react-hooks/lib/use-styles'
 import { Container, Column, Columns, AutoComplete } from '../../src'
 import { Snippet } from '../components/snippet'
 import Highlight from '../components/highlighter'
