@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { useClickOutside } from '@brightleaf/react-hooks'
+import { useClickOutside } from '@brightleaf/react-hooks/lib/use-click-outside'
 import classnames from 'classnames'
 import './autocomplete.css'
 import '../css/animations.css'
