@@ -29,6 +29,7 @@ React based UI elements using bulma css.
 * Modal
 * NavBar
 * Notification
+* Pagination
 * Panel
 * Section
 * SubTitle
