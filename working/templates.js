@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, lazy, Suspense } from 'react'
 import ReactDOM from 'react-dom'
-import {
-  CoverTemplate,
-  HeroTemplate,
-  BlogTemplate,
-  LandingTemplate,
-  AdminTemplate,
-} from './templates/index'
 
+const CoverTemplate = lazy(() => import('./templates/cover'))
+const HeroTemplate = lazy(() => import('./templates/hero'))
+const BlogTemplate = lazy(() => import('./templates/blog'))
+const LandingTemplate = lazy(() => import('./templates/landing'))
+const AdminTemplate = lazy(() => import('./templates/admin'))
 const App = () => {
   const [hash, setHash] = useState(window.location.hash)
   const hashChange = e => {
@@ -21,21 +19,45 @@ const App = () => {
   }, [])
 
   if (hash === '#COVER') {
-    return <CoverTemplate />
+    return (
+      <Suspense fallback={<div>Loading</div>}>
+        <CoverTemplate />
+      </Suspense>
+    )
   }
   if (hash === '#HERO') {
-    return <HeroTemplate />
+    return (
+      <Suspense fallback={<div>Loading</div>}>
+        <HeroTemplate />
+      </Suspense>
+    )
   }
   if (hash === '#BLOG') {
-    return <BlogTemplate />
+    return (
+      <Suspense fallback={<div>Loading</div>}>
+        <BlogTemplate />
+      </Suspense>
+    )
   }
   if (hash === '#LANDING') {
-    return <LandingTemplate />
+    return (
+      <Suspense fallback={<div>Loading</div>}>
+        <LandingTemplate />
+      </Suspense>
+    )
   }
   if (hash === '#ADMIN') {
-    return <AdminTemplate />
+    return (
+      <Suspense fallback={<div>Loading</div>}>
+        <AdminTemplate />
+      </Suspense>
+    )
   }
-  return <HeroTemplate />
+  return (
+    <Suspense fallback={<div>Loading</div>}>
+      <HeroTemplate />
+    </Suspense>
+  )
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
