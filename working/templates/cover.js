@@ -31,6 +31,7 @@ import {
   Tag,
   Tabs,
   TabItem,
+  TabList,
 } from '../../src/'
 
 export const CoverTemplate = () => {
@@ -61,21 +62,23 @@ export const CoverTemplate = () => {
             <NavBarMenu id="navbarMenu">
               <NavBarEnd>
                 <Tabs isRight>
-                  <TabItem isActive>
-                    <a href="#HERO">Hero</a>
-                  </TabItem>
-                  <TabItem>
-                    <a href="#BLOG">Blog</a>
-                  </TabItem>
-                  <TabItem>
-                    <a href="#LANDING">Landing</a>
-                  </TabItem>
-                  <TabItem>
-                    <a href="#ADMIN">Admin</a>
-                  </TabItem>
-                  <TabItem>
-                    <a href="https://brightleaf.github.io/elements">Help</a>
-                  </TabItem>
+                  <TabList>
+                    <TabItem isActive>
+                      <a href="#HERO">Hero</a>
+                    </TabItem>
+                    <TabItem>
+                      <a href="#BLOG">Blog</a>
+                    </TabItem>
+                    <TabItem>
+                      <a href="#LANDING">Landing</a>
+                    </TabItem>
+                    <TabItem>
+                      <a href="#ADMIN">Admin</a>
+                    </TabItem>
+                    <TabItem>
+                      <a href="https://brightleaf.github.io/elements">Help</a>
+                    </TabItem>
+                  </TabList>
                 </Tabs>
               </NavBarEnd>
             </NavBarMenu>
@@ -111,9 +114,11 @@ export const CoverTemplate = () => {
       <HeroFooter>
         <Container>
           <Tabs isCentered>
-            <TabItem>
-              <a>And this is the bottom</a>
-            </TabItem>
+            <TabList>
+              <TabItem>
+                <a>And this is the bottom</a>
+              </TabItem>
+            </TabList>
           </Tabs>
         </Container>
       </HeroFooter>

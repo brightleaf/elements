@@ -27,6 +27,7 @@ import {
   Icon,
   Tabs,
   TabItem,
+  TabList,
   Tile,
   Title,
   SubTitle,
@@ -55,22 +56,23 @@ export const HeroTemplate = () => {
               <NavBarMenu>
                 <NavBarEnd>
                   <Tabs isRight>
-                    <TabItem className="is-active">
-                      <a>Home</a>
-                    </TabItem>
-                    <TabItem>
-                      <a href="#COVER">Cover</a>
-                    </TabItem>
-                    <TabItem>
-                      <a href="#BLOG">Blog</a>
-                    </TabItem>
-                    <TabItem>
-                      <a href="#LANDING">Landing</a>
-                    </TabItem>
-                    <TabItem>
-                      <a href="">Help</a>
-                    </TabItem>
-
+                    <TabList>
+                      <TabItem className="is-active">
+                        <a>Home</a>
+                      </TabItem>
+                      <TabItem>
+                        <a href="#COVER">Cover</a>
+                      </TabItem>
+                      <TabItem>
+                        <a href="#BLOG">Blog</a>
+                      </TabItem>
+                      <TabItem>
+                        <a href="#LANDING">Landing</a>
+                      </TabItem>
+                      <TabItem>
+                        <a href="">Help</a>
+                      </TabItem>
+                    </TabList>
                     <NavBarItem>
                       <span>
                         <Button
@@ -493,11 +495,13 @@ const HeroTemplate = () => {
               <NavBarMenu>
                 <NavBarEnd>
                   <Tabs isRight>
-                    <TabItem className="is-active"><a>Home</a></TabItem>
-                    <TabItem><a href="#COVER">Cover</a></TabItem>
-                    <TabItem><a href="#BLOG">Blog</a></TabItem>
-                    <TabItem><a href="#LANDING">Landing</a></TabItem>
-                    <TabItem><a href="">Help</a></TabItem>
+                    <TabList>
+                      <TabItem className="is-active"><a>Home</a></TabItem>
+                      <TabItem><a href="#COVER">Cover</a></TabItem>
+                      <TabItem><a href="#BLOG">Blog</a></TabItem>
+                      <TabItem><a href="#LANDING">Landing</a></TabItem>
+                      <TabItem><a href="">Help</a></TabItem>
+                    </TabList>
                     <NavBarItem>
                       <span>
                         <Button
