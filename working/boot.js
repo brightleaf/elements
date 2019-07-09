@@ -1,7 +1,8 @@
 /* eslint-disable spellcheck/spell-checker */
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
-import { useScript, useStyleSheet } from '@brightleaf/react-hooks'
+import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
+import { useStyles } from '@brightleaf/react-hooks/lib/use-styles'
 import {
   Button,
   Column,
