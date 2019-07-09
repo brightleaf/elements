@@ -13,6 +13,7 @@ import {
   NavBarItem,
   NavBarStart,
   NavBarMenu,
+  Section,
 } from '../../src'
 
 const Example = ({ children, isPrimary }) => {
@@ -20,7 +21,7 @@ const Example = ({ children, isPrimary }) => {
 }
 export default () => {
   return (
-    <>
+    <Section>
       <Example>
         <NavBar>
           <NavBarBrand
@@ -332,6 +333,6 @@ export default () => {
           </NavBarMenu>
         </NavBar>
       </Example>
-    </>
+    </Section>
   )
 }
