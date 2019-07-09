@@ -4,7 +4,13 @@ import ReactDOM from 'react-dom'
 import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
 import { useScript } from '@brightleaf/react-hooks/lib/use-script'
 import {
+  Box,
+  Breadcrumb,
+  BreadcrumbItem,
+  Buttons,
   Button,
+  Card,
+
   Column,
   Columns,
   Container,
@@ -4204,6 +4210,2275 @@ export const BootSwatchApp = () => {
           </section>
 
 
+
+          <section className="section" id="navbar">
+            <h1 className="title">Navbar</h1>
+            <hr />
+
+            <nav className="navbar ">
+              <div className="navbar-brand">
+                <a className="navbar-item" href="http://bulma.io">
+                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
+                  <span className="icon"style={{color:'#333'}}>
+                    <i className="fa fa-github"></i>
+                  </span>
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
+                  <span className="icon"style={{color:'#55acee'}}>
+                    <i className="fa fa-twitter"></i>
+                  </span>
+                </a>
+                <div className="navbar-burger burger" data-target="navMenuExample1">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div id="navMenuExample1" className="navbar-menu">
+                <div className="navbar-start">
+                  <a className="navbar-item " href="#">
+                    Home
+                  </a>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link  is-active" href="#">
+                      Docs
+                    </a>
+                    <div className="navbar-dropdown ">
+                      <a className="navbar-item " href="#">
+                        Overview
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Modifiers
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Grid
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Form
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Elements
+                      </a>
+                      <a className="navbar-item is-active" href="#">
+                        Components
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Layout
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div>version
+                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link " href="#blog/">
+                      Blog
+                    </a>
+                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
+                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">10 Mar 2017</small>
+                          </p>
+                          <p>New field element (for better controls)</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">11 Apr 2016</small>
+                          </p>
+                          <p>Metro UI CSS grid with Bulma tiles</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">09 Feb 2016</small>
+                          </p>
+                          <p>Blog launched, new responsive columns, new helpers</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="#blog/">
+                        More posts
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div className="navbar-content">
+                          <div className="level is-mobile">
+                            <div className="level-left">
+                              <div className="level-item">
+                                <strong>Stay up to date!</strong>
+                              </div>
+                            </div>
+                            <div className="level-right">
+                              <div className="level-item">
+                                <a className="button is-rss is-small" href="#atom.xml">
+                                  <span className="icon is-small">
+                                    <i className="fa fa-rss"></i>
+                                  </span>
+                                  <span>Subscribe</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <div className="navbar-link">
+                      More
+                    </div>
+                    <div id="moreDropdown" className="navbar-dropdown ">
+                      <a className="navbar-item " href="#extensions/">
+                        <div className="level is-mobile">
+                          <div className="level-left">
+                            <div className="level-item">
+                              <p>
+                                <strong>Extensions</strong>
+                                <br />
+                                <small>Side projects to enhance Bulma</small>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="navbar-end">
+                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                    Github
+                  </a>
+                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                    Twitter
+                  </a>
+                  <div className="navbar-item">
+                    <div className="field is-grouped">
+                      <p className="control">
+                        <a id="twitter" className="button">
+                          <span>Tweet</span>
+                        </a>
+                      </p>
+                      <p className="control">
+                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                          <span className="icon">
+                            <i className="fa fa-download"></i>
+                          </span>
+                          <span>Download</span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <br />
+
+            <nav className="navbar is-primary">
+              <div className="navbar-brand">
+                <a className="navbar-item" href="http://bulma.io">
+                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
+                  <span className="icon" style={{color:'#333'}}>
+                    <i className="fa fa-github"></i>
+                  </span>
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
+                  <span className="icon" style={{color: '#55acee'}}>
+                    <i className="fa fa-twitter"></i>
+                  </span>
+                </a>
+                <div className="navbar-burger burger" data-target="navMenuExample2">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div id="navMenuExample2" className="navbar-menu">
+                <div className="navbar-start">
+                  <a className="navbar-item " href="#">
+                    Home
+                  </a>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link  is-active" href="#">
+                      Docs
+                    </a>
+                    <div className="navbar-dropdown ">
+                      <a className="navbar-item " href="#">
+                        Overview
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Modifiers
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Grid
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Form
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Elements
+                      </a>
+                      <a className="navbar-item is-active" href="#">
+                        Components
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Layout
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div>version
+                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link " href="#blog/">
+                      Blog
+                    </a>
+                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
+                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">10 Mar 2017</small>
+                          </p>
+                          <p>New field element (for better controls)</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">11 Apr 2016</small>
+                          </p>
+                          <p>Metro UI CSS grid with Bulma tiles</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">09 Feb 2016</small>
+                          </p>
+                          <p>Blog launched, new responsive columns, new helpers</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="#blog/">
+                        More posts
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div className="navbar-content">
+                          <div className="level is-mobile">
+                            <div className="level-left">
+                              <div className="level-item">
+                                <strong>Stay up to date!</strong>
+                              </div>
+                            </div>
+                            <div className="level-right">
+                              <div className="level-item">
+                                <a className="button is-rss is-small" href="#atom.xml">
+                                  <span className="icon is-small">
+                                    <i className="fa fa-rss"></i>
+                                  </span>
+                                  <span>Subscribe</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <div className="navbar-link">
+                      More
+                    </div>
+                    <div id="moreDropdown" className="navbar-dropdown ">
+                      <a className="navbar-item " href="#extensions/">
+                        <div className="level is-mobile">
+                          <div className="level-left">
+                            <div className="level-item">
+                              <p>
+                                <strong>Extensions</strong>
+                                <br />
+                                <small>Side projects to enhance Bulma</small>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="navbar-end">
+                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                    Github
+                  </a>
+                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                    Twitter
+                  </a>
+                  <div className="navbar-item">
+                    <div className="field is-grouped">
+                      <p className="control">
+                        <a id="twitter" className="button">
+                          <span>Tweet</span>
+                        </a>
+                      </p>
+                      <p className="control">
+                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                          <span className="icon">
+                            <i className="fa fa-download"></i>
+                          </span>
+                          <span>Download</span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <br />
+
+            <nav className="navbar is-link">
+              <div className="navbar-brand">
+                <a className="navbar-item" href="http://bulma.io">
+                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
+                  <span className="icon" style={{color: '#333'}}>
+                    <i className="fa fa-github"></i>
+                  </span>
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
+                  <span className="icon" style={{color: '#55acee'}}>
+                    <i className="fa fa-twitter"></i>
+                  </span>
+                </a>
+                <div className="navbar-burger burger" data-target="navMenuExample3">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div id="navMenuExample3" className="navbar-menu">
+                <div className="navbar-start">
+                  <a className="navbar-item " href="#">
+                    Home
+                  </a>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link  is-active" href="#">
+                      Docs
+                    </a>
+                    <div className="navbar-dropdown ">
+                      <a className="navbar-item " href="#">
+                        Overview
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Modifiers
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Grid
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Form
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Elements
+                      </a>
+                      <a className="navbar-item is-active" href="#">
+                        Components
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Layout
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div>version
+                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link " href="#blog/">
+                      Blog
+                    </a>
+                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
+                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">10 Mar 2017</small>
+                          </p>
+                          <p>New field element (for better controls)</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">11 Apr 2016</small>
+                          </p>
+                          <p>Metro UI CSS grid with Bulma tiles</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">09 Feb 2016</small>
+                          </p>
+                          <p>Blog launched, new responsive columns, new helpers</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="#blog/">
+                        More posts
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div className="navbar-content">
+                          <div className="level is-mobile">
+                            <div className="level-left">
+                              <div className="level-item">
+                                <strong>Stay up to date!</strong>
+                              </div>
+                            </div>
+                            <div className="level-right">
+                              <div className="level-item">
+                                <a className="button is-rss is-small" href="#atom.xml">
+                                  <span className="icon is-small">
+                                    <i className="fa fa-rss"></i>
+                                  </span>
+                                  <span>Subscribe</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <div className="navbar-link">
+                      More
+                    </div>
+                    <div id="moreDropdown" className="navbar-dropdown ">
+                      <a className="navbar-item " href="#extensions/">
+                        <div className="level is-mobile">
+                          <div className="level-left">
+                            <div className="level-item">
+                              <p>
+                                <strong>Extensions</strong>
+                                <br />
+                                <small>Side projects to enhance Bulma</small>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="navbar-end">
+                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                    Github
+                  </a>
+                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                    Twitter
+                  </a>
+                  <div className="navbar-item">
+                    <div className="field is-grouped">
+                      <p className="control">
+                        <a id="twitter" className="button">
+                          <span>Tweet</span>
+                        </a>
+                      </p>
+                      <p className="control">
+                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                          <span className="icon">
+                            <i className="fa fa-download"></i>
+                          </span>
+                          <span>Download</span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <br />
+
+            <nav className="navbar is-info">
+              <div className="navbar-brand">
+                <a className="navbar-item" href="http://bulma.io">
+                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
+                  <span className="icon" style={{color: '#333'}}>
+                    <i className="fa fa-github"></i>
+                  </span>
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
+                  <span className="icon" style={{color: '#55acee'}}>
+                    <i className="fa fa-twitter"></i>
+                  </span>
+                </a>
+                <div className="navbar-burger burger" data-target="navMenuExample4">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div id="navMenuExample4" className="navbar-menu">
+                <div className="navbar-start">
+                  <a className="navbar-item " href="#">
+                    Home
+                  </a>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link  is-active" href="#">
+                      Docs
+                    </a>
+                    <div className="navbar-dropdown ">
+                      <a className="navbar-item " href="#">
+                        Overview
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Modifiers
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Grid
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Form
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Elements
+                      </a>
+                      <a className="navbar-item is-active" href="#">
+                        Components
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Layout
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div>version
+                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link " href="#blog/">
+                      Blog
+                    </a>
+                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
+                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">10 Mar 2017</small>
+                          </p>
+                          <p>New field element (for better controls)</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">11 Apr 2016</small>
+                          </p>
+                          <p>Metro UI CSS grid with Bulma tiles</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">09 Feb 2016</small>
+                          </p>
+                          <p>Blog launched, new responsive columns, new helpers</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="#blog/">
+                        More posts
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div className="navbar-content">
+                          <div className="level is-mobile">
+                            <div className="level-left">
+                              <div className="level-item">
+                                <strong>Stay up to date!</strong>
+                              </div>
+                            </div>
+                            <div className="level-right">
+                              <div className="level-item">
+                                <a className="button is-rss is-small" href="#atom.xml">
+                                  <span className="icon is-small">
+                                    <i className="fa fa-rss"></i>
+                                  </span>
+                                  <span>Subscribe</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <div className="navbar-link">
+                      More
+                    </div>
+                    <div id="moreDropdown" className="navbar-dropdown ">
+                      <a className="navbar-item " href="#extensions/">
+                        <div className="level is-mobile">
+                          <div className="level-left">
+                            <div className="level-item">
+                              <p>
+                                <strong>Extensions</strong>
+                                <br />
+                                <small>Side projects to enhance Bulma</small>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="navbar-end">
+                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                    Github
+                  </a>
+                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                    Twitter
+                  </a>
+                  <div className="navbar-item">
+                    <div className="field is-grouped">
+                      <p className="control">
+                        <a id="twitter" className="button">
+                          <span>Tweet</span>
+                        </a>
+                      </p>
+                      <p className="control">
+                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                          <span className="icon">
+                            <i className="fa fa-download"></i>
+                          </span>
+                          <span>Download</span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <br />
+
+            <nav className="navbar is-success">
+              <div className="navbar-brand">
+                <a className="navbar-item" href="http://bulma.io">
+                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
+                  <span className="icon"style={{color:'#333'}}>
+                    <i className="fa fa-github"></i>
+                  </span>
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
+                  <span className="icon"style={{color:'#55acee'}}>
+                    <i className="fa fa-twitter"></i>
+                  </span>
+                </a>
+                <div className="navbar-burger burger" data-target="navMenuExample5">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div id="navMenuExample5" className="navbar-menu">
+                <div className="navbar-start">
+                  <a className="navbar-item " href="#">
+                    Home
+                  </a>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link  is-active" href="#">
+                      Docs
+                    </a>
+                    <div className="navbar-dropdown ">
+                      <a className="navbar-item " href="#">
+                        Overview
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Modifiers
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Grid
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Form
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Elements
+                      </a>
+                      <a className="navbar-item is-active" href="#">
+                        Components
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Layout
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div>version
+                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link " href="#blog/">
+                      Blog
+                    </a>
+                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
+                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">10 Mar 2017</small>
+                          </p>
+                          <p>New field element (for better controls)</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">11 Apr 2016</small>
+                          </p>
+                          <p>Metro UI CSS grid with Bulma tiles</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">09 Feb 2016</small>
+                          </p>
+                          <p>Blog launched, new responsive columns, new helpers</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="#blog/">
+                        More posts
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div className="navbar-content">
+                          <div className="level is-mobile">
+                            <div className="level-left">
+                              <div className="level-item">
+                                <strong>Stay up to date!</strong>
+                              </div>
+                            </div>
+                            <div className="level-right">
+                              <div className="level-item">
+                                <a className="button is-rss is-small" href="#atom.xml">
+                                  <span className="icon is-small">
+                                    <i className="fa fa-rss"></i>
+                                  </span>
+                                  <span>Subscribe</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <div className="navbar-link">
+                      More
+                    </div>
+                    <div id="moreDropdown" className="navbar-dropdown ">
+                      <a className="navbar-item " href="#extensions/">
+                        <div className="level is-mobile">
+                          <div className="level-left">
+                            <div className="level-item">
+                              <p>
+                                <strong>Extensions</strong>
+                                <br />
+                                <small>Side projects to enhance Bulma</small>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="navbar-end">
+                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                    Github
+                  </a>
+                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                    Twitter
+                  </a>
+                  <div className="navbar-item">
+                    <div className="field is-grouped">
+                      <p className="control">
+                        <a id="twitter" className="button">
+                          <span>Tweet</span>
+                        </a>
+                      </p>
+                      <p className="control">
+                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                          <span className="icon">
+                            <i className="fa fa-download"></i>
+                          </span>
+                          <span>Download</span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <br />
+
+            <nav className="navbar is-warning">
+              <div className="navbar-brand">
+                <a className="navbar-item" href="http://bulma.io">
+                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
+                  <span className="icon"style={{color:'#333'}}>
+                    <i className="fa fa-github"></i>
+                  </span>
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
+                  <span className="icon"style={{color:'#55acee'}}>
+                    <i className="fa fa-twitter"></i>
+                  </span>
+                </a>
+                <div className="navbar-burger burger" data-target="navMenuExample6">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div id="navMenuExample6" className="navbar-menu">
+                <div className="navbar-start">
+                  <a className="navbar-item " href="#">
+                    Home
+                  </a>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link  is-active" href="#">
+                      Docs
+                    </a>
+                    <div className="navbar-dropdown ">
+                      <a className="navbar-item " href="#">
+                        Overview
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Modifiers
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Grid
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Form
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Elements
+                      </a>
+                      <a className="navbar-item is-active" href="#">
+                        Components
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Layout
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div>version
+                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link " href="#blog/">
+                      Blog
+                    </a>
+                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
+                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">10 Mar 2017</small>
+                          </p>
+                          <p>New field element (for better controls)</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">11 Apr 2016</small>
+                          </p>
+                          <p>Metro UI CSS grid with Bulma tiles</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">09 Feb 2016</small>
+                          </p>
+                          <p>Blog launched, new responsive columns, new helpers</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="#blog/">
+                        More posts
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div className="navbar-content">
+                          <div className="level is-mobile">
+                            <div className="level-left">
+                              <div className="level-item">
+                                <strong>Stay up to date!</strong>
+                              </div>
+                            </div>
+                            <div className="level-right">
+                              <div className="level-item">
+                                <a className="button is-rss is-small" href="#atom.xml">
+                                  <span className="icon is-small">
+                                    <i className="fa fa-rss"></i>
+                                  </span>
+                                  <span>Subscribe</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <div className="navbar-link">
+                      More
+                    </div>
+                    <div id="moreDropdown" className="navbar-dropdown ">
+                      <a className="navbar-item " href="#extensions/">
+                        <div className="level is-mobile">
+                          <div className="level-left">
+                            <div className="level-item">
+                              <p>
+                                <strong>Extensions</strong>
+                                <br />
+                                <small>Side projects to enhance Bulma</small>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="navbar-end">
+                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                    Github
+                  </a>
+                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                    Twitter
+                  </a>
+                  <div className="navbar-item">
+                    <div className="field is-grouped">
+                      <p className="control">
+                        <a id="twitter" className="button">
+                          <span>Tweet</span>
+                        </a>
+                      </p>
+                      <p className="control">
+                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                          <span className="icon">
+                            <i className="fa fa-download"></i>
+                          </span>
+                          <span>Download</span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <br />
+
+            <nav className="navbar is-danger">
+              <div className="navbar-brand">
+                <a className="navbar-item" href="http://bulma.io">
+                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
+                  <span className="icon"style={{color:'#333'}}>
+                    <i className="fa fa-github"></i>
+                  </span>
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
+                  <span className="icon"style={{color:'#55acee'}}>
+                    <i className="fa fa-twitter"></i>
+                  </span>
+                </a>
+                <div className="navbar-burger burger" data-target="navMenuExample7">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div id="navMenuExample7" className="navbar-menu">
+                <div className="navbar-start">
+                  <a className="navbar-item " href="#">
+                    Home
+                  </a>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link  is-active" href="#">
+                      Docs
+                    </a>
+                    <div className="navbar-dropdown ">
+                      <a className="navbar-item " href="#">
+                        Overview
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Modifiers
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Grid
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Form
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Elements
+                      </a>
+                      <a className="navbar-item is-active" href="#">
+                        Components
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Layout
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div>version
+                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link " href="#blog/">
+                      Blog
+                    </a>
+                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
+                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">10 Mar 2017</small>
+                          </p>
+                          <p>New field element (for better controls)</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">11 Apr 2016</small>
+                          </p>
+                          <p>Metro UI CSS grid with Bulma tiles</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">09 Feb 2016</small>
+                          </p>
+                          <p>Blog launched, new responsive columns, new helpers</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="#blog/">
+                        More posts
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div className="navbar-content">
+                          <div className="level is-mobile">
+                            <div className="level-left">
+                              <div className="level-item">
+                                <strong>Stay up to date!</strong>
+                              </div>
+                            </div>
+                            <div className="level-right">
+                              <div className="level-item">
+                                <a className="button is-rss is-small" href="#atom.xml">
+                                  <span className="icon is-small">
+                                    <i className="fa fa-rss"></i>
+                                  </span>
+                                  <span>Subscribe</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <div className="navbar-link">
+                      More
+                    </div>
+                    <div id="moreDropdown" className="navbar-dropdown ">
+                      <a className="navbar-item " href="#extensions/">
+                        <div className="level is-mobile">
+                          <div className="level-left">
+                            <div className="level-item">
+                              <p>
+                                <strong>Extensions</strong>
+                                <br />
+                                <small>Side projects to enhance Bulma</small>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="navbar-end">
+                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                    Github
+                  </a>
+                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                    Twitter
+                  </a>
+                  <div className="navbar-item">
+                    <div className="field is-grouped">
+                      <p className="control">
+                        <a id="twitter" className="button">
+                          <span>Tweet</span>
+                        </a>
+                      </p>
+                      <p className="control">
+                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                          <span className="icon">
+                            <i className="fa fa-download"></i>
+                          </span>
+                          <span>Download</span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <br />
+
+            <nav className="navbar is-white">
+              <div className="navbar-brand">
+                <a className="navbar-item" href="http://bulma.io">
+                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
+                  <span className="icon"style={{color:'#333'}}>
+                    <i className="fa fa-github"></i>
+                  </span>
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
+                  <span className="icon"style={{color:'#55acee'}}>
+                    <i className="fa fa-twitter"></i>
+                  </span>
+                </a>
+                <div className="navbar-burger burger" data-target="navMenuExample8">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div id="navMenuExample8" className="navbar-menu">
+                <div className="navbar-start">
+                  <a className="navbar-item " href="#">
+                    Home
+                  </a>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link  is-active" href="#">
+                      Docs
+                    </a>
+                    <div className="navbar-dropdown ">
+                      <a className="navbar-item " href="#">
+                        Overview
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Modifiers
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Grid
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Form
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Elements
+                      </a>
+                      <a className="navbar-item is-active" href="#">
+                        Components
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Layout
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div>version
+                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link " href="#blog/">
+                      Blog
+                    </a>
+                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
+                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">10 Mar 2017</small>
+                          </p>
+                          <p>New field element (for better controls)</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">11 Apr 2016</small>
+                          </p>
+                          <p>Metro UI CSS grid with Bulma tiles</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">09 Feb 2016</small>
+                          </p>
+                          <p>Blog launched, new responsive columns, new helpers</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="#blog/">
+                        More posts
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div className="navbar-content">
+                          <div className="level is-mobile">
+                            <div className="level-left">
+                              <div className="level-item">
+                                <strong>Stay up to date!</strong>
+                              </div>
+                            </div>
+                            <div className="level-right">
+                              <div className="level-item">
+                                <a className="button is-rss is-small" href="#atom.xml">
+                                  <span className="icon is-small">
+                                    <i className="fa fa-rss"></i>
+                                  </span>
+                                  <span>Subscribe</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <div className="navbar-link">
+                      More
+                    </div>
+                    <div id="moreDropdown" className="navbar-dropdown ">
+                      <a className="navbar-item " href="#extensions/">
+                        <div className="level is-mobile">
+                          <div className="level-left">
+                            <div className="level-item">
+                              <p>
+                                <strong>Extensions</strong>
+                                <br />
+                                <small>Side projects to enhance Bulma</small>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="navbar-end">
+                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                    Github
+                  </a>
+                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                    Twitter
+                  </a>
+                  <div className="navbar-item">
+                    <div className="field is-grouped">
+                      <p className="control">
+                        <a id="twitter" className="button">
+                          <span>Tweet</span>
+                        </a>
+                      </p>
+                      <p className="control">
+                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                          <span className="icon">
+                            <i className="fa fa-download"></i>
+                          </span>
+                          <span>Download</span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <br />
+
+            <nav className="navbar is-black">
+              <div className="navbar-brand">
+                <a className="navbar-item" href="http://bulma.io">
+                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
+                  <span className="icon"style={{color:'#333'}}>
+                    <i className="fa fa-github"></i>
+                  </span>
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
+                  <span className="icon"style={{color:'#55acee'}}>
+                    <i className="fa fa-twitter"></i>
+                  </span>
+                </a>
+                <div className="navbar-burger burger" data-target="navMenuExample9">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div id="navMenuExample9" className="navbar-menu">
+                <div className="navbar-start">
+                  <a className="navbar-item " href="#">
+                    Home
+                  </a>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link  is-active" href="#">
+                      Docs
+                    </a>
+                    <div className="navbar-dropdown ">
+                      <a className="navbar-item " href="#">
+                        Overview
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Modifiers
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Grid
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Form
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Elements
+                      </a>
+                      <a className="navbar-item is-active" href="#">
+                        Components
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Layout
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div>version
+                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link " href="#blog/">
+                      Blog
+                    </a>
+                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
+                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">10 Mar 2017</small>
+                          </p>
+                          <p>New field element (for better controls)</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">11 Apr 2016</small>
+                          </p>
+                          <p>Metro UI CSS grid with Bulma tiles</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">09 Feb 2016</small>
+                          </p>
+                          <p>Blog launched, new responsive columns, new helpers</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="#blog/">
+                        More posts
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div className="navbar-content">
+                          <div className="level is-mobile">
+                            <div className="level-left">
+                              <div className="level-item">
+                                <strong>Stay up to date!</strong>
+                              </div>
+                            </div>
+                            <div className="level-right">
+                              <div className="level-item">
+                                <a className="button is-rss is-small" href="#atom.xml">
+                                  <span className="icon is-small">
+                                    <i className="fa fa-rss"></i>
+                                  </span>
+                                  <span>Subscribe</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <div className="navbar-link">
+                      More
+                    </div>
+                    <div id="moreDropdown" className="navbar-dropdown ">
+                      <a className="navbar-item " href="#extensions/">
+                        <div className="level is-mobile">
+                          <div className="level-left">
+                            <div className="level-item">
+                              <p>
+                                <strong>Extensions</strong>
+                                <br />
+                                <small>Side projects to enhance Bulma</small>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="navbar-end">
+                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                    Github
+                  </a>
+                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                    Twitter
+                  </a>
+                  <div className="navbar-item">
+                    <div className="field is-grouped">
+                      <p className="control">
+                        <a id="twitter" className="button">
+                          <span>Tweet</span>
+                        </a>
+                      </p>
+                      <p className="control">
+                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                          <span className="icon">
+                            <i className="fa fa-download"></i>
+                          </span>
+                          <span>Download</span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <br />
+
+            <nav className="navbar is-light">
+              <div className="navbar-brand">
+                <a className="navbar-item" href="http://bulma.io">
+                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
+                  <span className="icon"style={{color:'#333'}}>
+                    <i className="fa fa-github"></i>
+                  </span>
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
+                  <span className="icon"style={{color:'#55acee'}}>
+                    <i className="fa fa-twitter"></i>
+                  </span>
+                </a>
+                <div className="navbar-burger burger" data-target="navMenuExample10">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div id="navMenuExample10" className="navbar-menu">
+                <div className="navbar-start">
+                  <a className="navbar-item " href="#">
+                    Home
+                  </a>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link  is-active" href="#">
+                      Docs
+                    </a>
+                    <div className="navbar-dropdown ">
+                      <a className="navbar-item " href="#">
+                        Overview
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Modifiers
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Grid
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Form
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Elements
+                      </a>
+                      <a className="navbar-item is-active" href="#">
+                        Components
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Layout
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div>version
+                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link " href="#blog/">
+                      Blog
+                    </a>
+                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
+                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">10 Mar 2017</small>
+                          </p>
+                          <p>New field element (for better controls)</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">11 Apr 2016</small>
+                          </p>
+                          <p>Metro UI CSS grid with Bulma tiles</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">09 Feb 2016</small>
+                          </p>
+                          <p>Blog launched, new responsive columns, new helpers</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="#blog/">
+                        More posts
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div className="navbar-content">
+                          <div className="level is-mobile">
+                            <div className="level-left">
+                              <div className="level-item">
+                                <strong>Stay up to date!</strong>
+                              </div>
+                            </div>
+                            <div className="level-right">
+                              <div className="level-item">
+                                <a className="button is-rss is-small" href="#atom.xml">
+                                  <span className="icon is-small">
+                                    <i className="fa fa-rss"></i>
+                                  </span>
+                                  <span>Subscribe</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <div className="navbar-link">
+                      More
+                    </div>
+                    <div id="moreDropdown" className="navbar-dropdown ">
+                      <a className="navbar-item " href="#extensions/">
+                        <div className="level is-mobile">
+                          <div className="level-left">
+                            <div className="level-item">
+                              <p>
+                                <strong>Extensions</strong>
+                                <br />
+                                <small>Side projects to enhance Bulma</small>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="navbar-end">
+                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                    Github
+                  </a>
+                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                    Twitter
+                  </a>
+                  <div className="navbar-item">
+                    <div className="field is-grouped">
+                      <p className="control">
+                        <a id="twitter" className="button">
+                          <span>Tweet</span>
+                        </a>
+                      </p>
+                      <p className="control">
+                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                          <span className="icon">
+                            <i className="fa fa-download"></i>
+                          </span>
+                          <span>Download</span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <br />
+
+            <nav className="navbar is-dark">
+              <div className="navbar-brand">
+                <a className="navbar-item" href="http://bulma.io">
+                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
+                  <span className="icon"style={{color:'#333'}}>
+                    <i className="fa fa-github"></i>
+                  </span>
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
+                  <span className="icon"style={{color:'#55acee'}}>
+                    <i className="fa fa-twitter"></i>
+                  </span>
+                </a>
+                <div className="navbar-burger burger" data-target="navMenuExample11">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div id="navMenuExample11" className="navbar-menu">
+                <div className="navbar-start">
+                  <a className="navbar-item " href="#">
+                    Home
+                  </a>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link  is-active" href="#">
+                      Docs
+                    </a>
+                    <div className="navbar-dropdown ">
+                      <a className="navbar-item " href="#">
+                        Overview
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Modifiers
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Grid
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Form
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Elements
+                      </a>
+                      <a className="navbar-item is-active" href="#">
+                        Components
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Layout
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div>version
+                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link " href="#blog/">
+                      Blog
+                    </a>
+                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
+                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">10 Mar 2017</small>
+                          </p>
+                          <p>New field element (for better controls)</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">11 Apr 2016</small>
+                          </p>
+                          <p>Metro UI CSS grid with Bulma tiles</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                        <div className="navbar-content">
+                          <p>
+                            <small className="has-text-info">09 Feb 2016</small>
+                          </p>
+                          <p>Blog launched, new responsive columns, new helpers</p>
+                        </div>
+                      </a>
+                      <a className="navbar-item" href="#blog/">
+                        More posts
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div className="navbar-content">
+                          <div className="level is-mobile">
+                            <div className="level-left">
+                              <div className="level-item">
+                                <strong>Stay up to date!</strong>
+                              </div>
+                            </div>
+                            <div className="level-right">
+                              <div className="level-item">
+                                <a className="button is-rss is-small" href="#atom.xml">
+                                  <span className="icon is-small">
+                                    <i className="fa fa-rss"></i>
+                                  </span>
+                                  <span>Subscribe</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <div className="navbar-link">
+                      More
+                    </div>
+                    <div id="moreDropdown" className="navbar-dropdown ">
+                      <a className="navbar-item " href="#extensions/">
+                        <div className="level is-mobile">
+                          <div className="level-left">
+                            <div className="level-item">
+                              <p>
+                                <strong>Extensions</strong>
+                                <br />
+                                <small>Side projects to enhance Bulma</small>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="navbar-end">
+                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                    Github
+                  </a>
+                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                    Twitter
+                  </a>
+                  <div className="navbar-item">
+                    <div className="field is-grouped">
+                      <p className="control">
+                        <a id="twitter" className="button">
+                          <span>Tweet</span>
+                        </a>
+                      </p>
+                      <p className="control">
+                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                          <span className="icon">
+                            <i className="fa fa-download"></i>
+                          </span>
+                          <span>Download</span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <br />
+
+            <h2 className="subtitle">Transparent</h2>
+            <nav className="navbar is-transparent">
+              <div className="navbar-brand">
+                <a className="navbar-item" href="http://bulma.io">
+                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
+                  <span className="icon"style={{color:'#333'}}>
+                    <i className="fa fa-github"></i>
+                  </span>
+                </a>
+                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
+                  <span className="icon"style={{color:'#55acee'}}>
+                    <i className="fa fa-twitter"></i>
+                  </span>
+                </a>
+                <div className="navbar-burger burger" data-target="navMenuExamplet">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div id="navMenuExamplet" className="navbar-menu">
+                <div className="navbar-start">
+                  <a className="navbar-item " href="#">
+                    Home
+                  </a>
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a className="navbar-link  is-active" href="#">
+                      Docs
+                    </a>
+                    <div className="navbar-dropdown is-boxed">
+                      <a className="navbar-item " href="#">
+                        Overview
+                      </a>
+                      <a className="navbar-item " href="#">
+                        Discover
+                      </a>
+                      <hr className="navbar-divider" />
+                      <div className="navbar-item">
+                        <div>version
+                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="navbar-end">
+                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                    Github
+                  </a>
+                  <div className="navbar-item">
+                    <div className="field is-grouped">
+                      <p className="control">
+                        <a id="twitter" className="button">
+                          <span>Tweet</span>
+                        </a>
+                      </p>
+                      <p className="control">
+                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                          <span className="icon">
+                            <i className="fa fa-download"></i>
+                          </span>
+                          <span>Download</span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </section>
+
+
+
+
+
+
+          <section className="section" id="pagination">
+            <h1 className="title">Pagination</h1>
+            <hr />
+            <nav className="pagination">
+              <a className="pagination-previous is-disabled">Previous</a>
+              <a className="pagination-next">Next page</a>
+              <ul className="pagination-list">
+                <li>
+                  <a className="pagination-link">1</a>
+                </li>
+                <li>
+                  <span className="pagination-ellipsis">…</span>
+                </li>
+                <li>
+                  <a className="pagination-link">45</a>
+                </li>
+                <li>
+                  <a className="pagination-link is-current">46</a>
+                </li>
+                <li>
+                  <a className="pagination-link">47</a>
+                </li>
+                <li>
+                  <span className="pagination-ellipsis">…</span>
+                </li>
+                <li>
+                  <a className="pagination-link">86</a>
+                </li>
+              </ul>
+            </nav>
+            <br />
+            <nav className="pagination is-rounded" role="navigation" aria-label="pagination">
+              <a className="pagination-previous">Previous</a>
+              <a className="pagination-next">Next page</a>
+              <ul className="pagination-list">
+                <li><a className="pagination-link" aria-label="Goto page 1">1</a></li>
+                <li><span className="pagination-ellipsis">…</span></li>
+                <li><a className="pagination-link" aria-label="Goto page 45">45</a></li>
+                <li><a className="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
+                <li><a className="pagination-link" aria-label="Goto page 47">47</a></li>
+                <li><span className="pagination-ellipsis">…</span></li>
+                <li><a className="pagination-link" aria-label="Goto page 86">86</a></li>
+              </ul>
+            </nav>
+          </section>
+
+
+
+
+          <section className="section" id="panel">
+            <h1 className="title">Panel</h1>
+            <hr />
+            <div className="column is-4">
+              <nav className="panel">
+                <p className="panel-heading"> Repositories </p>
+                <div className="panel-block">
+                  <p className="control has-icons-left">
+                    <input className="input is-small" type="text" placeholder="Search" />
+                    <span className="icon is-small is-left">
+                      <i className="fa fa-search"></i>
+                    </span>
+                  </p>
+                </div>
+                <p className="panel-tabs">
+                  <a className="is-active">All</a>
+                  <a>Public</a>
+                  <a>Private</a>
+                  <a>Sources</a>
+                  <a>Forks</a>
+                </p>
+                <a className="panel-block is-active">
+                  <span className="panel-icon"> <i className="fa fa-book"></i> </span> bulma </a>
+                <a className="panel-block">
+                  <span className="panel-icon"> <i className="fa fa-book"></i> </span> marksheet </a>
+                <a className="panel-block">
+                  <span className="panel-icon"> <i className="fa fa-book"></i> </span> minireset.css </a>
+                <a className="panel-block">
+                  <span className="panel-icon"> <i className="fa fa-book"></i> </span> jgthms.github.io </a>
+                <a className="panel-block">
+                  <span className="panel-icon"> <i className="fa fa-code-fork"></i> </span> daniellowtw/infBoard </a>
+                <a className="panel-block">
+                  <span className="panel-icon"> <i className="fa fa-code-fork"></i> </span> mojs </a>
+                <label className="panel-block">
+                  <input type="checkbox" /> Remember me </label>
+                <div className="panel-block">
+                  <button className="button is-primary is-outlined is-fullwidth"> Reset all filters </button>
+                </div>
+              </nav>
+            </div>
+          </section>
+
+
+          <section className="section" id="tabs">
+            <h1 className="title">Tabs</h1>
+            <hr />
+            <div className="tabs">
+              <ul>
+                <li className="is-active">
+                  <a>Pictures</a>
+                </li>
+                <li>
+                  <a>Music</a>
+                </li>
+                <li>
+                  <a>Videos</a>
+                </li>
+                <li>
+                  <a>Documents</a>
+                </li>
+              </ul>
+            </div>
+            <br />
+            <div className="tabs is-centered">
+              <ul>
+                <li className="is-active">
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-image"></i></span>
+                    <span>Pictures</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-music"></i></span>
+                    <span>Music</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-film"></i></span>
+                    <span>Videos</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-file-text-o"></i></span>
+                    <span>Documents</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <br />
+            <div className="tabs is-small">
+              <ul>
+                <li className="is-active">
+                  <a>Pictures</a>
+                </li>
+                <li>
+                  <a>Music</a>
+                </li>
+                <li>
+                  <a>Videos</a>
+                </li>
+                <li>
+                  <a>Documents</a>
+                </li>
+              </ul>
+            </div>
+            <br />
+            <div className="tabs is-medium">
+              <ul>
+                <li className="is-active">
+                  <a>Pictures</a>
+                </li>
+                <li>
+                  <a>Music</a>
+                </li>
+                <li>
+                  <a>Videos</a>
+                </li>
+                <li>
+                  <a>Documents</a>
+                </li>
+              </ul>
+            </div>
+            <br />
+            <div className="tabs is-large">
+              <ul>
+                <li className="is-active">
+                  <a>Pictures</a>
+                </li>
+                <li>
+                  <a>Music</a>
+                </li>
+                <li>
+                  <a>Videos</a>
+                </li>
+                <li>
+                  <a>Documents</a>
+                </li>
+              </ul>
+            </div>
+            <br />
+            <div className="tabs is-boxed">
+              <ul>
+                <li className="is-active">
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-image"></i></span>
+                    <span>Pictures</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-music"></i></span>
+                    <span>Music</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-film"></i></span>
+                    <span>Videos</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-file-text-o"></i></span>
+                    <span>Documents</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <br />
+            <div className="tabs is-toggle">
+              <ul>
+                <li className="is-active">
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-image"></i></span>
+                    <span>Pictures</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-music"></i></span>
+                    <span>Music</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-film"></i></span>
+                    <span>Videos</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-file-text-o"></i></span>
+                    <span>Documents</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <br />
+            <div className="tabs is-toggle is-toggle-rounded">
+              <ul>
+                <li className="is-active">
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-image"></i></span>
+                    <span>Pictures</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-music"></i></span>
+                    <span>Music</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-film"></i></span>
+                    <span>Videos</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-file-text-o"></i></span>
+                    <span>Documents</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <br />
+            <div className="tabs is-fullwidth">
+              <ul>
+                <li>
+                  <a>
+                    <span className="icon"><i className="fa fa-angle-left"></i></span>
+                    <span>Left</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span className="icon"><i className="fa fa-angle-up"></i></span>
+                    <span>Up</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span>Right</span>
+                    <span className="icon"><i className="fa fa-angle-right"></i></span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <br />
+            <div className="tabs is-centered is-boxed">
+              <ul>
+                <li className="is-active">
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-image"></i></span>
+                    <span>Pictures</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-music"></i></span>
+                    <span>Music</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-film"></i></span>
+                    <span>Videos</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span className="icon is-small"><i className="fa fa-file-text-o"></i></span>
+                    <span>Documents</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <br />
+            <div className="tabs is-toggle is-fullwidth is-large">
+              <ul>
+                <li className="is-active">
+                  <a>
+                    <span className="icon"><i className="fa fa-image"></i></span>
+                    <span>Pictures</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span className="icon"><i className="fa fa-music"></i></span>
+                    <span>Music</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span className="icon"><i className="fa fa-film"></i></span>
+                    <span>Videos</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <span className="icon"><i className="fa fa-file-text-o"></i></span>
+                    <span>Documents</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </section>
 
 
 
