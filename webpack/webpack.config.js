@@ -1,8 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const pkg = require('../package.json')
-
 module.exports = {
   entry: {
     index: './working/index.js',
@@ -54,7 +54,7 @@ module.exports = {
       title: 'Brightleaf Elements Templates',
       template: './working/hero.html',
       chunks: ['hero'],
-      filename: 'template.html',
+      filename: 'templates.html',
     }),
     new HtmlWebpackPlugin({
       hash: true,
@@ -80,5 +80,8 @@ module.exports = {
     path: path.join(process.cwd(), '/dist'),
     publicPath: '/',
     filename: './dist/[name].bundle.js',
+  },
+  optimization: {
+    minimizer: [new TerserPlugin()],
   },
 }

@@ -209,7 +209,7 @@ export default class App extends Component {
                   <NavBarItem>
                     <div>
                       <Buttons>
-                        <Button isWarning isAnchor href="/template.html">
+                        <Button isWarning isAnchor href="/templates.html">
                           <strong>
                             <BaseIcon fas icon="eye" /> Examples
                           </strong>
