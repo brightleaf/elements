@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/brightleaf/elements/issues"
   },
-  "homepage": "https://github.com/brightleaf/elements#readme",
+  "homepage": "https://brightleaf.github.io/elements",
   "peerDependencies": {
     "react": "^16.8.1",
     "react-dom": "^16.8.6"
