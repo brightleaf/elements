@@ -22,52 +22,33 @@ import {
   Section,
 } from '../../src'
 
-import { ElementsTabs, LayoutTabs, ComponentsTabs } from '../components/tabs'
-
-const Home = React.lazy(() => import('./home'))
-const Columns = React.lazy(() => import('../pages/columns'))
-const Notifications = React.lazy(() => import('../pages/notifications'))
-const AutoComplete = React.lazy(() => import('../pages/autocomplete'))
-const Box = React.lazy(() => import('../pages/box'))
-const ButtonsPage = React.lazy(() => import('../pages/buttons'))
-const DropDown = React.lazy(() => import('../pages/dropdown'))
-const Card = React.lazy(() => import('../pages/card'))
-const Hero = React.lazy(() => import('../pages/hero'))
-const Icons = React.lazy(() => import('../pages/icon'))
-const Level = React.lazy(() => import('../pages/level'))
-const Media = React.lazy(() => import('../pages/media'))
-const NavBars = React.lazy(() => import('../pages/navbars'))
-const Messages = React.lazy(() => import('../pages/messages'))
-const Tags = React.lazy(() => import('../pages/tags'))
-const Tiles = React.lazy(() => import('../pages/tile'))
-const Panel = React.lazy(() => import('../pages/panel'))
-const Container = React.lazy(() => import('../pages/container'))
-const Modals = React.lazy(() => import('../pages/modals'))
+const Home = lazy(() => import('./home'))
+const Columns = lazy(() => import('../pages/columns'))
+const Notifications = lazy(() => import('../pages/notifications'))
+const AutoComplete = lazy(() => import('../pages/autocomplete'))
+const Box = lazy(() => import('../pages/box'))
+const ButtonsPage = lazy(() => import('../pages/buttons'))
+const DropDown = lazy(() => import('../pages/dropdown'))
+const Card = lazy(() => import('../pages/card'))
+const Hero = lazy(() => import('../pages/hero'))
+const Icons = lazy(() => import('../pages/icon'))
+const Level = lazy(() => import('../pages/level'))
+const Media = lazy(() => import('../pages/media'))
+const NavBars = lazy(() => import('../pages/navbars'))
+const Messages = lazy(() => import('../pages/messages'))
+const Tags = lazy(() => import('../pages/tags'))
+const Tiles = lazy(() => import('../pages/tile'))
+const Panel = lazy(() => import('../pages/panel'))
+const Container = lazy(() => import('../pages/container'))
+const Modals = lazy(() => import('../pages/modals'))
 let source = createHashSource()
 let history = createHistory(source)
 
-const TabLink = props => {
-  return (
-    <Location>
-      {({ location }) => {
-        const active = props.to === location.pathname
-        return (
-          <li className={active ? 'is-active' : ''}>
-            <Link
-              {...props}
-              getProps={prop => {
-                const { isCurrent } = prop
-                return {
-                  className: isCurrent ? 'is-active' : '',
-                }
-              }}
-            />
-          </li>
-        )
-      }}
-    </Location>
-  )
-}
+const NotFound = () => (
+  <Section>
+    <p>Documentation is not yet finished</p>
+  </Section>
+)
 
 const UpLink = props => {
   return (
@@ -134,8 +115,11 @@ export default class App extends Component {
                       <UpLink to="/tiles">Tiles</UpLink>
                     </NavBarItem>
                     <NavBarDivider />
+
                     <NavBarItem>
-                      <a>Report an issue</a>
+                      <a href="https://github.com/brightleaf/elements/issues/new">
+                        Report an issue
+                      </a>
                     </NavBarItem>
                   </NavBarDropDown>
 
@@ -171,7 +155,13 @@ export default class App extends Component {
                       <UpLink to="/tags">Tag</UpLink>
                     </NavBarItem>
                     <NavBarItem>
-                      <UpLink to="/titles">title</UpLink>
+                      <UpLink to="/titles">Title</UpLink>
+                    </NavBarItem>
+                    <NavBarDivider />
+                    <NavBarItem>
+                      <a href="https://github.com/brightleaf/elements/issues/new">
+                        Report an issue
+                      </a>
                     </NavBarItem>
                   </NavBarDropDown>
 
@@ -197,13 +187,8 @@ export default class App extends Component {
                     <NavBarItem>
                       <UpLink to="/navbars">NavBar</UpLink>
                     </NavBarItem>
-                    <NavBarItem
-                      className="tooltip is-tooltip-right"
-                      data-tooltip="The Pagination is not yet implemented"
-                    >
-                      <UpLink to="/#">
-                        Pagination <i>(NI)</i>
-                      </UpLink>
+                    <NavBarItem>
+                      <UpLink to="/#">Pagination</UpLink>
                     </NavBarItem>
                     <NavBarItem>
                       <UpLink to="/panels">Panel</UpLink>
@@ -213,7 +198,9 @@ export default class App extends Component {
                     </NavBarItem>
                     <NavBarDivider />
                     <NavBarItem>
-                      <a>Report an issue</a>
+                      <a href="https://github.com/brightleaf/elements/issues/new">
+                        Report an issue
+                      </a>
                     </NavBarItem>
                   </NavBarDropDown>
                 </NavBarStart>
@@ -251,6 +238,7 @@ export default class App extends Component {
             </NavBar>
 
             <Router>
+              <NotFound default />
               <Home path="/" />
               <Container path="/containers" />
               <Columns path="/columns" />
