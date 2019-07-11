@@ -66,14 +66,14 @@ export const Button = ({
 
   if (isStatic) {
     return (
-      <span className={classnames('button', classes)} {...props}>
+      <span className={classnames('button', className, classes)} {...props}>
         {children}
       </span>
     )
   }
   if (isAnchor) {
     return (
-      <a className={classnames('button', classes)} {...props}>
+      <a className={classnames('button', className, classes)} {...props}>
         {children}
       </a>
     )
@@ -82,7 +82,7 @@ export const Button = ({
   if (isSubmit) {
     return (
       <input
-        className={classnames('button', classes)}
+        className={classnames('button', className, classes)}
         {...props}
         type="submit"
         value={children}
@@ -92,7 +92,7 @@ export const Button = ({
   if (isReset) {
     return (
       <input
-        className={classnames('button', classes)}
+        className={classnames('button', className, classes)}
         {...props}
         type="reset"
         value={children}
@@ -100,7 +100,7 @@ export const Button = ({
     )
   }
   return (
-    <button className={classnames('button', classes)} {...props}>
+    <button className={classnames('button', className, classes)} {...props}>
       {children}
     </button>
   )
@@ -111,6 +111,7 @@ Button.propTypes = {}
 export default Button
 
 export const Buttons = ({
+  className,
   children,
   areSmall,
   areMedium,
@@ -127,5 +128,7 @@ export const Buttons = ({
     'is-centered': isCentered,
     'is-right': isRight,
   }
-  return <div className={classnames('buttons', sized)}>{children}</div>
+  return (
+    <div className={classnames('buttons', className, sized)}>{children}</div>
+  )
 }
