@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
 import { useScript } from '@brightleaf/react-hooks/lib/use-script'
-
+import { useStyles } from '@brightleaf/react-hooks/lib/use-styles'
 import { AutoComplete } from '../src/autocomplete'
 import { Box } from '../src/box'
 import { Breadcrumb, BreadcrumbItem } from '../src/breadcrumb'
@@ -86,6 +86,24 @@ export const BootSwatchApp = () => {
     `https://jenil.github.io/bulmaswatch/${sheet}/bulmaswatch.min.css`
   )
   useScript('https://kit.fontawesome.com/d8b67ee174.js')
+
+  const defaultColor ='#00b89c'
+  const colors = {
+    cerulean :'#1a99e2',
+    cosmo: '#2780E3',
+    slate: '#000'
+
+  }
+  console.log('shet', colors[sheet])
+  console.log('sheet', sheet)
+  useStyles(`
+  .navbar-dropdown a.navbar-item {
+    color: ${colors[sheet] || defaultColor }!important;
+  }
+  .navbar-dropdown a.navbar-item.is-active {
+    color: ${colors[sheet] || defaultColor }!important;
+  }
+  `)
   return (
     <>
       <Hero isPrimary>
@@ -110,7 +128,11 @@ export const BootSwatchApp = () => {
                   <Columns>
                     <Column>
                       <NavBarItem>
-                        <a href="https://jenil.github.io/bulmaswatch/default">
+                        <a href="https://jenil.github.io/bulmaswatch/default"
+                          onClick={e => {
+                            e.preventDefault()
+                            setSheet('cerulean')
+                          }}>
                           {' '}
                           Default{' '}
                         </a>
@@ -121,6 +143,7 @@ export const BootSwatchApp = () => {
                           onClick={e => {
                             e.preventDefault()
                             setSheet('cerulean')
+                            console.log('cerulean')
                           }}
                         >
                           {' '}
