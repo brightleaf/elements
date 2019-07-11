@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
 import { useStyles } from '@brightleaf/react-hooks/lib/use-styles'
@@ -50,6 +50,7 @@ export const CoverTemplate = () => {
       border: 1px solid #ccc;
   }
   `)
+  const [menuIsActive, setMenuIsActive] = useState(false)
   return (
     <Hero isFullHeight isDefault isBold>
       <HeroHead>
@@ -58,8 +59,12 @@ export const CoverTemplate = () => {
             <NavBarBrand
               src="https://bulmatemplates.github.io/bulma-templates/images/bulma.png"
               href="#"
+              onClick={e => {
+                e.preventDefault()
+                setMenuIsActive(!menuIsActive)
+              }}
             ></NavBarBrand>
-            <NavBarMenu id="navbarMenu">
+            <NavBarMenu id="navbarMenu" isActive={menuIsActive}>
               <NavBarEnd>
                 <Tabs isRight>
                   <TabList>
