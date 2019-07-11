@@ -46,7 +46,7 @@ export const LandingTemplate = () => {
         <NavBar>
           <Container className="container">
             <NavBarBrand
-              src="http://bulma.io/images/bulma-type-white.png"
+              src="https://bulma.io/images/bulma-type-white.png"
               href="#HERO"
             ></NavBarBrand>
             <NavBarMenu id="navbarMenu" className="navbar-menu">

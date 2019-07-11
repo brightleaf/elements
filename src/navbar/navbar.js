@@ -24,7 +24,7 @@ export const NavBarBrand = ({
   return (
     <div className="navbar-brand">
       <a className={classnames('navbar-item', className)} href={href}>
-        {src && <img src={src} width={width} height={height} />}
+        {src && <img src={src} width={width} height={height} alt={title} />}
         {title}
       </a>
 
