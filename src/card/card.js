@@ -2,13 +2,13 @@ import React from 'react'
 import classnames from 'classnames'
 import { Colors, Screens } from '../modifiers'
 
-export const CardHeader = ({ title, hasIcon, fa, fas }) => {
+export const CardHeader = ({ title, hasIcon, fa, fas, className }) => {
   const classes = {
     fa,
     fas,
   }
   return (
-    <header className="card-header">
+    <header className={classnames('card-header', className)}>
       <p className="card-header-title">{title}</p>
       {hasIcon && (
         <a href="#" className="card-header-icon" aria-label="more options">
@@ -31,20 +31,23 @@ export const CardFooterItem = ({ className, children }) => {
   })
   return <>{kid}</>
 }
-export const CardFooter = ({ children }) => {
-  return <footer className="card-footer">{children}</footer>
+export const CardFooter = ({ children, className }) => {
+  return (
+    <footer className={classnames('card-footer', className)}>{children}</footer>
+  )
 }
 CardFooter.sortOrder = 5
 
-export const CardImage = ({ src, alt }) => {
+export const CardImage = ({ src, alt, className }) => {
   return (
-    <div className="card-image">
+    <div className={classnames('card-image', className)}>
       <figure className="image is-4by3">
         <img src={src} alt={alt} />
       </figure>
     </div>
   )
 }
+
 CardImage.sortOrder = 1
 export const CardImageContainer = ({
   children,
@@ -61,54 +64,10 @@ export const CardImageContainer = ({
   )
 }
 CardImageContainer.sortOrder = 1
-export const CardBody = ({ children }) => {
-  return <div className="card-content">{children}</div>
+export const CardBody = ({ children, className }) => {
+  return <div className={classnames('card-content', className)}>{children}</div>
 }
 CardBody.sortOrder = 2
-
-const CardX = ({
-  children,
-  isMobile,
-  className,
-  isFluid,
-  isWideScreen,
-  isFullHD,
-}) => {
-  const classes = Screens({ isMobile, isFluid, isWideScreen, isFullHD })
-  return (
-    <div className={classnames('card', className, classes)}>
-      <header className="card-header">
-        <p className="card-header-title">Component</p>
-        <a href="#" className="card-header-icon" aria-label="more options">
-          <span className="icon">
-            <i className="fas fa-angle-down" aria-hidden="true"></i>
-          </span>
-        </a>
-      </header>
-      <div className="card-content">
-        <div className="content">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec
-          iaculis mauris.
-          <a href="#">@bulmaio</a>. <a href="#">#css</a>{' '}
-          <a href="#">#responsive</a>
-          <br />
-          <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-        </div>
-      </div>
-      <footer className="card-footer">
-        <a href="#" className="card-footer-item">
-          Save
-        </a>
-        <a href="#" className="card-footer-item">
-          Edit
-        </a>
-        <a href="#" className="card-footer-item">
-          Delete
-        </a>
-      </footer>
-    </div>
-  )
-}
 
 export const Card = ({
   children,
@@ -138,7 +97,7 @@ export const Card = ({
     ) {
       return
     }
-    throw new Error(`'${child.type}' not allowed`)
+    console.warn(`'${child.type}' not allowed`)
   })
   return (
     <div className={classnames('card', className, classes)}>
@@ -151,7 +110,6 @@ Card.propTypes = {
   children: function(props, propName, componentName) {
     const prop = props[propName]
     const types = [CardHeader, CardBody, CardImage, Card, CardImageContainer]
-    // Only accept a single child, of the appropriate type
     if (propName === 'children') {
       if (!prop.forEach) {
         return

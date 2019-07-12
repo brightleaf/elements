@@ -122,6 +122,7 @@ export const BaseIcon = ({
   fa,
   isMediumFA,
   isLargeFA,
+  className,
 }) => {
   const classes = {
     fa: fa,
@@ -132,7 +133,12 @@ export const BaseIcon = ({
   }
 
   const iconName = `fa-${icon}`
-  return <i className={classnames(classes, iconName)} aria-hidden="true"></i>
+  return (
+    <i
+      className={classnames(classes, className, iconName)}
+      aria-hidden="true"
+    ></i>
+  )
 }
 
 BaseIcon.propTypes = {

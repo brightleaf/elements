@@ -5,7 +5,6 @@ const isTabType = type => {
   if (typeof type === 'function' && type.name.indexOf('Tab') === 0) {
     return true
   }
-  console.log('tab type', type())
   return false
 }
 export const TabItem = ({ children, className, isActive }) => {
@@ -16,7 +15,7 @@ export const TabItem = ({ children, className, isActive }) => {
   )
 }
 export const TabList = ({ children, className, isActive }) => {
-  return <ul>{children}</ul>
+  return <ul className={classnames(className)}>{children}</ul>
 }
 export const Tabs = ({
   children,

@@ -4,13 +4,18 @@ import classnames from 'classnames'
 import { Colors, Sizes } from '../modifiers'
 const MessageContext = createContext()
 
-export const MessageHeader = ({ hasDelete, children, onDeleteClick }) => {
+export const MessageHeader = ({
+  hasDelete,
+  children,
+  onDeleteClick,
+  className,
+}) => {
   const value = useContext(MessageContext)
 
   const classes = Sizes(value)
 
   return (
-    <div className="message-header">
+    <div className={classnames('message-header', className)}>
       <p>{children}</p>
       {hasDelete && (
         <button
@@ -34,8 +39,8 @@ MessageHeader.defaultProps = {
   onDeleteClick: () => {},
 }
 
-export const MessageBody = ({ children }) => {
-  return <div className="message-body">{children}</div>
+export const MessageBody = ({ children, className }) => {
+  return <div className={classnames('message-body', className)}>{children}</div>
 }
 
 MessageBody.propTypes = {
@@ -58,6 +63,7 @@ export const Message = ({
   isDark,
   isBlack,
   isText,
+  className,
 }) => {
   const classes = {
     ...Colors({
@@ -81,7 +87,9 @@ export const Message = ({
   }
   return (
     <MessageContext.Provider value={{ isSmall, isMedium, isLarge }}>
-      <article className={classnames('message', classes)}>{children}</article>
+      <article className={classnames('message', className, classes)}>
+        {children}
+      </article>
     </MessageContext.Provider>
   )
 }

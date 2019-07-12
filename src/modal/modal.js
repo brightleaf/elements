@@ -34,14 +34,18 @@ export const ModalCardBody = ({ children, className }) => {
   )
 }
 
-export const ModalCardFoot = ({ children }) => {
-  return <footer className="modal-card-foot">{children}</footer>
+export const ModalCardFoot = ({ children, className }) => {
+  return (
+    <footer className={classnames('modal-card-foot', className)}>
+      {children}
+    </footer>
+  )
 }
 
-export const CardModal = ({ children, isActive, onCloseClick }) => {
+export const CardModal = ({ children, isActive, onCloseClick, className }) => {
   console.info('card Modal', isActive)
   return (
-    <div className={classnames('modal', { 'is-active': isActive })}>
+    <div className={classnames('modal', className, { 'is-active': isActive })}>
       <div className="modal-background"></div>
       <div className="modal-card">{children}</div>
       <button
@@ -57,10 +61,10 @@ CardModal.defaultProps = {
   isActive: false,
   onCloseClick: () => {},
 }
-export const BaseModal = ({ children, isActive, onCloseClick }) => {
+export const BaseModal = ({ children, isActive, onCloseClick, className }) => {
   console.log('isActive in  BaseModal', isActive)
   return (
-    <div className={classnames('modal', { 'is-active': isActive })}>
+    <div className={classnames('modal', className, { 'is-active': isActive })}>
       <div className="modal-background"></div>
       <div className="modal-content">{children}</div>
       <button
@@ -83,10 +87,12 @@ const SimpleModal = ({
   triggerText,
   triggerFn,
   isModalShown,
+  className,
 }) => {
   return (
     <div>
       <BaseModal
+        className={className}
         isActive={isModalShown}
         onCloseClick={() => {
           triggerFn(false)
@@ -118,6 +124,7 @@ SimpleModal.defaultProps = {
 
 export const CoreModal = ({
   children,
+  className,
   triggerClassName,
   triggerText,
   ModalType,
@@ -137,6 +144,7 @@ export const CoreModal = ({
     >
       <div>
         <ModalType
+          className={className}
           isActive={isActive !== undefined ? isActive : show}
           onCloseClick={() => {
             const showHide = triggerFn !== undefined ? triggerFn : setShow

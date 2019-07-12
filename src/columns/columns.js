@@ -58,6 +58,7 @@ export const Column = ({
   isOneFifth,
   isNarrow,
   size,
+  is,
 }) => {
   const classes = {
     'is-four-fifths': isFourFifths,
@@ -75,12 +76,32 @@ export const Column = ({
   if (size) {
     classes[`is-${size}`] = true
   }
+  if (is) {
+    classes[`is-${is}`] = true
+  }
+  if (size && is) {
+    console.warn('Do not use both size and is')
+  }
   return (
     <div className={classnames('column', className, classes)}>{children}</div>
   )
 }
 Columns.propTypes = {
   size: PropTypes.oneOf([
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
+  ]),
+  is: PropTypes.oneOf([
     '1',
     '2',
     '3',

@@ -2,7 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 import { Sizes } from '../modifiers'
 
-export const BreadcrumbItem = ({ children, isActive }) => {
+export const BreadcrumbItem = ({ children, isActive, className }) => {
   const classes = {
     'is-active': isActive,
   }
@@ -11,13 +11,14 @@ export const BreadcrumbItem = ({ children, isActive }) => {
     aria['aria-current'] = 'page'
   }
   return (
-    <li className={classnames(classes)} {...aria}>
+    <li className={classnames(className, classes)} {...aria}>
       {children}
     </li>
   )
 }
 export const Breadcrumb = ({
   children,
+  className,
   isCentered,
   isRight,
   hasArrowSeparator,
@@ -48,7 +49,10 @@ export const Breadcrumb = ({
   })
 
   return (
-    <nav className={classnames('breadcrumb', classes)} aria-label="breadcrumbs">
+    <nav
+      className={classnames('breadcrumb', className, classes)}
+      aria-label="breadcrumbs"
+    >
       <ul>{kids}</ul>
     </nav>
   )

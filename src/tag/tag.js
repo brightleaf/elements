@@ -23,6 +23,7 @@ export const Tag = ({
   isRounded,
   isDelete,
   onClick,
+  className,
 }) => {
   const classes = {
     'is-delete': isDelete,
@@ -50,7 +51,7 @@ export const Tag = ({
   if (isDelete || isLink) {
     return (
       <a
-        className={classnames('tag', classes)}
+        className={classnames('tag', className, classes)}
         href="#"
         onClick={onClick || noop}
       >
@@ -58,7 +59,9 @@ export const Tag = ({
       </a>
     )
   }
-  return <span className={classnames('tag', classes)}>{children}</span>
+  return (
+    <span className={classnames('tag', className, classes)}>{children}</span>
+  )
 }
 
 export const Tags = ({
@@ -67,6 +70,7 @@ export const Tags = ({
   areNormal,
   areMedium,
   areLarge,
+  className,
 }) => {
   const classes = {
     'has-addons': hasAddons,
@@ -74,5 +78,7 @@ export const Tags = ({
     'are-medium': areMedium,
     'are-large': areLarge,
   }
-  return <span className={classnames('tags', classes)}>{children}</span>
+  return (
+    <span className={classnames('tags', className, classes)}>{children}</span>
+  )
 }

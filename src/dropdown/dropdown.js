@@ -3,7 +3,7 @@ import { useClickOutside } from '@brightleaf/react-hooks/lib/use-click-outside'
 import classnames from 'classnames'
 import '../css/animations.css'
 
-export const DropDown = ({ list, onSelect, label }) => {
+export const DropDown = ({ list, onSelect, label, className }) => {
   const [dropDownIsShown, setDropDownIsShown] = useState(false)
   const mappedItems = list.map((item, index) => {
     if (!item) {
@@ -34,7 +34,7 @@ export const DropDown = ({ list, onSelect, label }) => {
   return (
     <div
       ref={dropDown}
-      className={classnames('dropdown', {
+      className={classnames('dropdown', className, {
         'is-active': dropDownIsShown,
       })}
       onFocus={e => {
@@ -95,7 +95,9 @@ DropDownItem.defaultProps = {
   onClick: () => {},
 }
 
-export const DropDownDivider = () => <hr className="dropdown-divider" />
+export const DropDownDivider = ({ className }) => (
+  <hr className={classnames('dropdown-divider', className)} />
+)
 export const DropDownMenu = ({ children, label }) => {
   const [dropDownIsShown, setDropDownIsShown] = useState(false)
 

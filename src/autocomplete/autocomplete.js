@@ -10,6 +10,7 @@ export const AutoComplete = ({
   onValueChange,
   onSelect,
   initialValue,
+  className,
 }) => {
   const [selectedValue, setSelectedValue] = useState('')
   const [isFocused, setFocus] = useState(false)
@@ -54,7 +55,7 @@ export const AutoComplete = ({
   return (
     <div
       ref={dropDown}
-      className={classnames('autocomplete', 'control', {
+      className={classnames('autocomplete', className, 'control', {
         'is-active': isFocused,
       })}
       onFocus={e => {

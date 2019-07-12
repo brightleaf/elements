@@ -44,13 +44,27 @@ export const NavBarBrand = ({
   )
 }
 
-export const NavBarDivider = () => <hr className="navbar-divider" />
+export const NavBarDivider = ({ className }) => (
+  <hr className={classnames('navbar-divider', className)} />
+)
 
-export const NavBarDropDown = ({ title, isRight, children, isBoxed }) => {
-  const classes = classnames('navbar-item', 'has-dropdown', 'is-hoverable', {
-    'is-right': isRight,
-    'is-boxed': isBoxed,
-  })
+export const NavBarDropDown = ({
+  title,
+  isRight,
+  children,
+  isBoxed,
+  className,
+}) => {
+  const classes = classnames(
+    'navbar-item',
+    'has-dropdown',
+    'is-hoverable',
+    className,
+    {
+      'is-right': isRight,
+      'is-boxed': isBoxed,
+    }
+  )
 
   const ddClasses = classnames('navbar-dropdown', {
     'is-boxed': isBoxed,
@@ -63,17 +77,19 @@ export const NavBarDropDown = ({ title, isRight, children, isBoxed }) => {
     </div>
   )
 }
-export const NavBarStart = ({ children }) => {
-  return <div className="navbar-start">{children}</div>
+export const NavBarStart = ({ children, className }) => {
+  return <div className={classnames('navbar-start', className)}>{children}</div>
 }
-export const NavBarEnd = ({ children }) => {
-  return <div className="navbar-end">{children}</div>
+export const NavBarEnd = ({ children, className }) => {
+  return <div className={classnames('navbar-end', className)}>{children}</div>
 }
-export const NavBarMenu = ({ children, id, isActive }) => {
+export const NavBarMenu = ({ children, id, isActive, className }) => {
   return (
     <div
       id={id}
-      className={classnames('navbar-menu', { 'is-active': isActive })}
+      className={classnames('navbar-menu', className, {
+        'is-active': isActive,
+      })}
     >
       {children}
     </div>
@@ -96,11 +112,12 @@ export const NavBar = ({
   isDark,
   isBlack,
   isText,
+  className,
 }) => {
   // is-transparent is-fixed-top  is-fixed-bottom
   const [isActive, setActive] = useState(false)
 
-  const classes = classnames('navbar', {
+  const classes = classnames('navbar', className, {
     'is-transparent': isTransparent,
     'is-fixed-top': isFixedTop,
     'is-fixed-bottom': isFixedBottom,

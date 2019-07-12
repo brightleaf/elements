@@ -1,11 +1,11 @@
 import React from 'react'
 import classnames from 'classnames'
 
-export const LevelLeft = ({ children }) => {
-  return <div className="level-left">{children}</div>
+export const LevelLeft = ({ children, className }) => {
+  return <div className={classnames('level-left', className)}>{children}</div>
 }
-export const LevelRight = ({ children }) => {
-  return <div className="level-right">{children}</div>
+export const LevelRight = ({ children, className }) => {
+  return <div className={classnames('level-right', className)}>{children}</div>
 }
 export const LevelItem = ({ className, children, hasTextCentered }) => {
   const kid = React.cloneElement(children, {
@@ -16,8 +16,8 @@ export const LevelItem = ({ className, children, hasTextCentered }) => {
   return <>{kid}</>
 }
 
-export const Level = ({ children, isMobile }) => {
-  const classNames = classnames('level', { 'is-mobile': isMobile })
+export const Level = ({ children, isMobile, className }) => {
+  const classNames = classnames('level', className, { 'is-mobile': isMobile })
 
   return <nav className={classNames}>{children}</nav>
 }

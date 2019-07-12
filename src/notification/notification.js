@@ -25,6 +25,7 @@ export const Notification = forwardRef(
       isLink,
       isLight,
       isDismissible,
+      className,
     },
     ref
   ) => {
@@ -82,7 +83,7 @@ export const Notification = forwardRef(
     return (
       <div
         ref={container}
-        className={classnames('notification', animation, classes)}
+        className={classnames('notification', className, animation, classes)}
         title="notification element"
       >
         {isDismissible && (
