@@ -26,15 +26,6 @@ describe('Card and components', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  it('should error when an div is passed in', () => {
-    expect(() => {
-      render(
-        <Card>
-          <div>Fail</div>
-        </Card>
-      )
-    }).toThrowError("'div' not allowed")
-  })
   it('should render with footer header and body', () => {
     const { container } = render(
       <Card>
