@@ -50,7 +50,7 @@ export const HeroTemplate = () => {
           <NavBar>
             <Container>
               <NavBarBrand
-                src="http://bulma.io/images/bulma-type-white.png"
+                src="https://bulma.io/images/bulma-type-white.png"
                 href="#"
               />
               <NavBarMenu>
@@ -490,7 +490,7 @@ const HeroTemplate = () => {
           <NavBar>
             <Container>
               <NavBarBrand
-                src="http://bulma.io/images/bulma-type-white.png" href="#"
+                src="https://bulma.io/images/bulma-type-white.png" href="#"
               />
               <NavBarMenu>
                 <NavBarEnd>
