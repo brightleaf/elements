@@ -81,7 +81,7 @@ export default class App extends Component {
             <NavBar isFixedTop>
               <NavBarBrand
                 src="brightleafjs-logo.png"
-                href="ttps://brightleaf.dev"
+                href="https://brightleaf.dev"
                 target="navbarBasicExample"
                 width="112"
                 height="28"

@@ -26,7 +26,7 @@ export default () => {
         <NavBar>
           <NavBarBrand
             src="brightleafjs-logo.png"
-            href="ttps://brightleaf.dev"
+            href="https://brightleaf.dev"
             target="navbarBasicExample"
             width="112"
             height="28"
@@ -81,7 +81,7 @@ export default () => {
         <NavBar isPrimary>
           <NavBarBrand
             src="brightleafjs-logo.png"
-            href="ttps://brightleaf.dev"
+            href="https://brightleaf.dev"
             target="navbarBasicExample"
             width="112"
             height="28"
@@ -136,7 +136,7 @@ export default () => {
         <NavBar isLight>
           <NavBarBrand
             src="brightleafjs-logo.png"
-            href="ttps://brightleaf.dev"
+            href="https://brightleaf.dev"
             target="navbarBasicExample"
             width="112"
             height="28"
@@ -191,7 +191,7 @@ export default () => {
         <NavBar isInfo>
           <NavBarBrand
             src="brightleafjs-logo.png"
-            href="ttps://brightleaf.dev"
+            href="https://brightleaf.dev"
             target="navbarBasicExample"
             width="112"
             height="28"
@@ -246,7 +246,7 @@ export default () => {
         <NavBar isTransparent>
           <NavBarBrand
             src="brightleafjs-logo.png"
-            href="ttps://brightleaf.dev"
+            href="https://brightleaf.dev"
             target="navbarBasicExample"
             width="112"
             height="28"
