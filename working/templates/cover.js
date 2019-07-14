@@ -6,6 +6,7 @@ import {
   Column,
   Columns,
   Container,
+  Hero,
   HeroHead,
   HeroBody,
   HeroFooter,
