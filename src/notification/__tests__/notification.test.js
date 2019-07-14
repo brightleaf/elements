@@ -5,7 +5,7 @@ import {
   fireEvent,
   waitForElement,
 } from '@testing-library/react'
-import { toBeInTheDocument, toHaveClass } from 'jest-dom'
+import { toBeInTheDocument, toHaveClass } from '@testing-library/jest-dom'
 import { Notification } from '../index'
 
 expect.extend({ toBeInTheDocument, toHaveClass })

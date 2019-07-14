@@ -1,7 +1,7 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react'
 import { render, cleanup } from '@testing-library/react'
-import { toHaveClass } from 'jest-dom'
+import { toHaveClass } from '@testing-library/jest-dom'
 import { Column, Columns, FullColumn, Notification } from '../'
 
 expect.extend({ toHaveClass })
