@@ -1,20 +1,11 @@
 import React, { useState } from 'react'
-
 import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
 import { useStyles } from '@brightleaf/react-hooks/lib/use-styles'
 import {
-  BaseIcon,
-  Box,
   Button,
-  Card,
-  CardImageContainer,
-  CardBody,
   Column,
   Columns,
   Container,
-  Content,
-  Footer,
-  Hero,
   HeroHead,
   HeroBody,
   HeroFooter,
@@ -23,12 +14,8 @@ import {
   NavBarEnd,
   NavBarMenu,
   NavBarBrand,
-  NavBarItem,
-  Icon,
-  Tile,
   Title,
   SubTitle,
-  Tag,
   Tabs,
   TabItem,
   TabList,
