@@ -1,20 +1,22 @@
 /* eslint-disable sonarjs/no-duplicate-string */
-import React from 'react'
+import React, { Fragment } from 'react'
 import { render, cleanup } from '@testing-library/react'
 import { toHaveClass } from '@testing-library/jest-dom'
-import { Column, Columns, FullColumn, Notification } from '../'
-
+import { Column, Columns, FullColumn } from '../columns'
+import { Notification } from '../notification'
 expect.extend({ toHaveClass })
-const Auto = () => (
-  <Notification isLight isDismissible={false}>
-    Auto
-  </Notification>
-)
+const Auto = () => {
+  return (
+    <Notification isLight isDismissible={false}>
+      Auto
+    </Notification>
+  )
+}
 describe('Columns and Columns components', () => {
   afterEach(cleanup)
   it('should render', () => {
     const { container } = render(
-      <>
+      <Fragment>
         <Columns>
           <Column>
             <Notification isPrimary isDismissible={false}>
@@ -195,7 +197,7 @@ describe('Columns and Columns components', () => {
             <Notification isDismissible={false}>Auto</Notification>
           </Column>
         </Columns>
-      </>
+      </Fragment>
     )
     expect(container).toMatchSnapshot()
   })

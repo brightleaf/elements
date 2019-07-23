@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, cleanup } from '@testing-library/react'
 import { toHaveClass } from '@testing-library/jest-dom'
-import { Container } from '../'
+import { Container } from '../container'
 
 expect.extend({ toHaveClass })
 
