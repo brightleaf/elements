@@ -138,7 +138,19 @@ export default () => {
               <BaseIcon icon="circle" fas className="fa-stack-2x" />
               <BaseIcon icon="flag" fas className="fa-stack-1x fa-inverse" />
             </StackedIcons>
-            <br />
+            <hr />
+            <StackedIcons isMedium is3x>
+              <BaseIcon icon="square" fas className="fa-stack-2x" />
+              <BaseIcon icon="twitter" fab className="fa-stack-1x fa-inverse" />
+            </StackedIcons>
+            <StackedIcons isLarge is4x>
+              <BaseIcon icon="square" fas className="fa-stack-2x" />
+              <BaseIcon
+                icon="terminal"
+                fas
+                className="fa-stack-1x fa-inverse"
+              />
+            </StackedIcons>
             <StackedIcons isLarge isLargeFA>
               <BaseIcon icon="camera" fas className="fa-stack-1x" />
               <BaseIcon icon="ban" fas className="fa-stack-2x" hasTextDanger />
@@ -147,6 +159,13 @@ export default () => {
           <Column isHalf>
             <Highlight className="javascript" languages={['javascript']}>
               {`
+<span class="icon is-medium">
+<span class="fa-stack">
+  <i class="fas fa-circle fa-stack-2x"></i>
+  <i class="fas fa-flag fa-stack-1x fa-inverse"></i>
+</span>
+</span>
+
 import React from 'react'
 import { Icon } from '@brightleaf/elements'
 
@@ -167,6 +186,22 @@ export default () => {
         <BaseIcon icon="camera" fas className="fa-stack-1x" />
         <BaseIcon icon="ban" fas className="fa-stack-2x" hasTextDanger />
       </StackedIcons>
+      <StackedIcons isMedium is3x>
+      <BaseIcon icon="square" fas className="fa-stack-2x" />
+      <BaseIcon icon="twitter" fab className="fa-stack-1x fa-inverse" />
+    </StackedIcons>
+    <StackedIcons isLarge is4x>
+      <BaseIcon icon="square" fas className="fa-stack-2x" />
+      <BaseIcon
+        icon="terminal"
+        fas
+        className="fa-stack-1x fa-inverse"
+      />
+    </StackedIcons>
+    <StackedIcons isLarge isLargeFA>
+      <BaseIcon icon="camera" fas className="fa-stack-1x" />
+      <BaseIcon icon="ban" fas className="fa-stack-2x" hasTextDanger />
+    </StackedIcons>
     </>
   )
 }

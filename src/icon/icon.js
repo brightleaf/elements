@@ -225,9 +225,13 @@ export const StackedIcons = ({
   hasTextGreyLighter,
   hasTextWhiteTer,
   hasTextWhiteBis,
+  is4x,
+  is3x,
 }) => {
   const classes = {
     'fa-lg': isLargeFA,
+    'fa-4x': is4x,
+    'fa-3x': is3x,
   }
   const parent = {
     'is-left': isLeft,
@@ -257,7 +261,7 @@ export const StackedIcons = ({
   }
 
   return (
-    <span className={classnames('icon', className, parent)}>
+    <span className={classnames('icons', className, parent)}>
       <span className={classnames('fa-stack', classes)}>{children}</span>
     </span>
   )
