@@ -87,7 +87,7 @@ export const Icon = ({
   const iconName = `fa-${icon}`
 
   const change = rotation(props)
-  console.log('change', change)
+
   return (
     <span className={classnames(iconClassName, className, parent)}>
       <i

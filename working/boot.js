@@ -94,8 +94,7 @@ export const BootSwatchApp = () => {
     slate: '#000'
 
   }
-  console.log('shet', colors[sheet])
-  console.log('sheet', sheet)
+
   useStyles(`
   .navbar-dropdown a.navbar-item {
     color: ${colors[sheet] || defaultColor }!important;

@@ -43,7 +43,6 @@ export const ModalCardFoot = ({ children, className }) => {
 }
 
 export const CardModal = ({ children, isActive, onCloseClick, className }) => {
-  console.info('card Modal', isActive)
   return (
     <div className={classnames('modal', className, { 'is-active': isActive })}>
       <div className="modal-background"></div>
@@ -62,7 +61,6 @@ CardModal.defaultProps = {
   onCloseClick: () => {},
 }
 export const BaseModal = ({ children, isActive, onCloseClick, className }) => {
-  console.log('isActive in  BaseModal', isActive)
   return (
     <div className={classnames('modal', className, { 'is-active': isActive })}>
       <div className="modal-background"></div>
