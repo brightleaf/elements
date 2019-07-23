@@ -1,6 +1,9 @@
 import React from 'react'
 import classnames from 'classnames'
-
-export const Content = ({ children, className }) => {
-  return <div className={classnames('content', className)}>{children}</div>
+import { allTheClasses } from '../modifiers'
+export const Content = ({ children, className, ...props }) => {
+  const classes = allTheClasses(props)
+  return (
+    <div className={classnames('content', className, classes)}>{children}</div>
+  )
 }
