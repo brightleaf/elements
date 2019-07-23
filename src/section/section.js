@@ -1,8 +1,13 @@
 import React from 'react'
 import classnames from 'classnames'
-export const Section = ({ children, className }) => {
+import { allTheClasses } from '../modifiers'
+
+export const Section = ({ children, className, ...props }) => {
+  const classes = allTheClasses(props)
   return (
-    <section className={classnames('section', className)}>{children}</section>
+    <section className={classnames('section', className, classes)}>
+      {children}
+    </section>
   )
 }
 
