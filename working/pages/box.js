@@ -10,6 +10,8 @@ import {
   Columns,
   Column,
   Delete,
+  Hero,
+  HeroBody,
   Icon,
   Image,
   Level,
@@ -19,6 +21,9 @@ import {
   MediaLeft,
   MediaObject,
   MediaRight,
+  Section,
+  SubTitle,
+  Title,
 } from '../../src'
 import { Snippet } from '../components/snippet'
 import { ElementsTabs } from '../components/tabs'
@@ -33,7 +38,16 @@ export default () => {
   `)
   useStyleSheet('code.css')
   return (
-    <>
+    <Section>
+      <Hero isLight isBold>
+        <HeroBody>
+          <Title>Box</Title>
+          <SubTitle as="p" is="4">
+            A white <strong>box</strong> to contain other elements
+          </SubTitle>
+        </HeroBody>
+      </Hero>
+
       <ElementsTabs />
       <Snippet>
         <Columns>
@@ -149,6 +163,6 @@ export default () => {
           </Column>
         </Columns>
       </Snippet>
-    </>
+    </Section>
   )
 }
