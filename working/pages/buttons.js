@@ -13,6 +13,11 @@ import {
   Container,
   FullColumn,
   Content,
+  Hero,
+  HeroBody,
+  Title,
+  SubTitle,
+  Section,
 } from '../../src'
 import { Snippet } from '../components/snippet'
 import { ElementsTabs } from '../components/tabs'
@@ -29,7 +34,16 @@ export default () => {
   `)
   useStyleSheet('code.css')
   return (
-    <>
+    <Section>
+      <Hero isLight isBold>
+        <HeroBody>
+          <Title>Box</Title>
+          <SubTitle as="p" is="4">
+            A white <strong>box</strong> to contain other elements
+          </SubTitle>
+        </HeroBody>
+      </Hero>
+
       <ElementsTabs />
       <FullColumn>
         <Content>
@@ -454,6 +468,6 @@ export default () => {
           </Button>
         </Buttons>
       </FullColumn>
-    </>
+    </Section>
   )
 }
