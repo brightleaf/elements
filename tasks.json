@@ -16,5 +16,6 @@
     "npx isom build:examples",
     "npx isom build"
   ],
-  "ci": "jest"
+  "ci": "jest",
+  "built": "jest ./lib"
 }
