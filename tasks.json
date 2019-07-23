@@ -10,5 +10,11 @@
   "transpile": "babel src -d lib --copy-files",
   "posttranspile": "jest",
   "prepages": "webpack --config ./webpack/examples.config.js --mode production",
-  "pages": "node ./scripts/publish.js"
+  "pages": "node ./scripts/publish.js",
+  "preci": [
+    "npx isom transpile",
+    "npx isom build:examples",
+    "npx isom build"
+  ],
+  "ci": "jest"
 }

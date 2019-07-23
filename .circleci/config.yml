@@ -1,0 +1,19 @@
+version: 2.1
+commands:
+  client_build:
+    description: 'Build Elements'
+    steps:
+      - run: npm install
+      - run: npm install isom -g
+      - run: isom ci
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:12
+
+    working_directory: ~/elements
+
+    steps:
+      - checkout
+      - client_build
