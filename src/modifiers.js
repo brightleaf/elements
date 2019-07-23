@@ -96,6 +96,7 @@ export const HasText = ({
   hasTextGreyLighter,
   hasTextWhiteTer,
   hasTextWhiteBis,
+  hasTextCentered,
 }) => ({
   'has-text-white': hasTextWhite,
   'has-text-black': hasTextBlack,
@@ -116,4 +117,85 @@ export const HasText = ({
   'has-text-grey-lighter': hasTextGreyLighter,
   'has-text-white-ter': hasTextWhiteTer,
   'has-text-white-bis': hasTextWhiteBis,
+  'has-text-centered': hasTextCentered,
 })
+
+export const BackgroundColor = ({
+  hasBackgroundWhite,
+  hasBackgroundBlack,
+  hasBackgroundLight,
+  hasBackgroundDark,
+  hasBackgroundPrimary,
+  hasBackgroundInfo,
+  hasBackgroundLink,
+  hasBackgroundSuccess,
+  hasBackgroundWarning,
+  hasBackgroundDanger,
+  hasBackgroundBlackBis,
+  hasBackgroundBlackTer,
+  hasBackgroundGreyDarker,
+  hasBackgroundGreyDark,
+  hasBackgroundGrey,
+  hasBackgroundGreyLight,
+  hasBackgroundGreyLighter,
+  hasBackgroundWhiteTer,
+  hasBackgroundWhiteBis,
+}) => ({
+  'has-background-white': hasBackgroundWhite,
+  'has-background-black': hasBackgroundBlack,
+  'has-background-light': hasBackgroundLight,
+  'has-background-dark': hasBackgroundDark,
+  'has-background-primary': hasBackgroundPrimary,
+  'has-background-info': hasBackgroundInfo,
+  'has-background-link': hasBackgroundLink,
+  'has-background-success': hasBackgroundSuccess,
+  'has-background-warning	': hasBackgroundWarning,
+  'has-background-danger': hasBackgroundDanger,
+  'has-background-black-bis': hasBackgroundBlackBis,
+  'has-background-black-ter': hasBackgroundBlackTer,
+  'has-background-grey-darker': hasBackgroundGreyDarker,
+  'has-background-grey-dark': hasBackgroundGreyDark,
+  'has-background-grey': hasBackgroundGrey,
+  'has-background-grey-light': hasBackgroundGreyLight,
+  'has-background-grey-lighter': hasBackgroundGreyLighter,
+  'has-background-white-ter': hasBackgroundWhiteTer,
+  'has-background-white-bis': hasBackgroundWhiteBis,
+})
+export const Sized = ({
+  isSize1,
+  isSize2,
+  isSize3,
+  isSize4,
+  isSize5,
+  isSize6,
+  isSize7,
+}) => {
+  return {
+    'is-size-1': isSize1,
+    'is-size-2': isSize2,
+    'is-size-3': isSize3,
+    'is-size-4': isSize4,
+    'is-size-5': isSize5,
+    'is-size-6': isSize6,
+    'is-size-7': isSize7,
+  }
+}
+
+export const Size = ({ size }) => {
+  const classes = {}
+  classes[`is-size-${size}`] = !!size
+  return classes
+}
+export const allTheClasses = props => {
+  return {
+    ...Sized(props),
+    ...BackgroundColor(props),
+    ...Colors(props),
+    ...HasText(props),
+    ...StyleOrState(props),
+    ...Screens(props),
+    ...Sizes(props),
+    ...Colors(props),
+    ...Size(props),
+  }
+}
