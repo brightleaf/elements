@@ -41,6 +41,12 @@ const Tiles = lazy(() => import('../pages/tile'))
 const Panel = lazy(() => import('../pages/panel'))
 const Container = lazy(() => import('../pages/container'))
 const Modals = lazy(() => import('../pages/modals'))
+const Footers = lazy(() => import('../pages/footer'))
+const Sections = lazy(() => import('../pages/section'))
+const Contents = lazy(() => import('../pages/content'))
+const Deletes = lazy(() => import('../pages/delete'))
+const Images = lazy(() => import('../pages/image'))
+
 let source = createHashSource()
 let history = createHistory(source)
 
@@ -258,6 +264,11 @@ export default class App extends Component {
               <Tiles path="/tiles" />
               <Panel path="/panels" />
               <Modals path="/modals" />
+              <Footers path="/footer" />
+              <Sections path="/section" />
+              <Contents path="/content" />
+              <Deletes path="/delete" />
+              <Images path="/images" />
             </Router>
           </Suspense>
         </Fragment>
