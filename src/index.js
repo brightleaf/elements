@@ -26,7 +26,7 @@ export { Field } from './field'
 export { Footer } from './footer'
 export { Heading } from './heading'
 export { Hero, HeroBody, HeroFooter, HeroHead } from './hero'
-export { Icon, BaseIcon } from './icon'
+export { Icon, BaseIcon, StackedIcons } from './icon'
 export { Image } from './image'
 export { Level, LevelItem, LevelLeft, LevelRight } from './level'
 export {
