@@ -4,8 +4,7 @@ commands:
     description: 'Build Elements'
     steps:
       - run: npm install
-      - run: npm install isom -g
-      - run: isom ci
+      - run: npm run ci
 
 jobs:
   build:
