@@ -61,6 +61,7 @@ export default () => {
   )
 }
 ```
+![example](example.png)
 
 ## More information
 
