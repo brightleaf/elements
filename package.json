@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/brightleaf/elements/issues"
   },
-  "homepage": "https://brightleaf.dev/elements",
+  "homepage": "https://brightleaf.dev/elements/#",
   "peerDependencies": {
     "react": "^16.8.1",
     "react-dom": "^16.8.6"
