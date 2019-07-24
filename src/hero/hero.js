@@ -22,6 +22,7 @@ export const Hero = ({
   isDanger,
   isLink,
   isLight,
+  isDark,
   isMedium,
   isLarge,
   isBold,
@@ -36,6 +37,7 @@ export const Hero = ({
     isDanger,
     isLink,
     isLight,
+    isDark,
   })
   const sizeClasses = Sizes({
     isMedium,
