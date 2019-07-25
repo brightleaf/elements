@@ -106,22 +106,7 @@ export const Card = ({
   )
 }
 
-Card.propTypes = {
-  children: function(props, propName, componentName) {
-    const prop = props[propName]
-    const types = [CardHeader, CardBody, CardImage, Card, CardImageContainer]
-    if (propName === 'children') {
-      if (!prop.forEach) {
-        return
-      }
-      prop.forEach(p => {
-        if (types.indexOf(p.type) === -1) {
-          return new Error(`'${prop.type}' not allowed`)
-        }
-      })
-    }
-  },
-}
+Card.propTypes = {}
 Card.defaultProps = {
   className: '',
   isMobile: false,
