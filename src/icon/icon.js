@@ -87,6 +87,13 @@ export const Icon = ({
   const iconName = `fa-${icon}`
 
   const change = rotation(props)
+  /*
+
+  material-icons
+<span className="icon is-left is-small">
+  <i className="material-icons">search</i>
+</span>
+  */
 
   return (
     <span className={classnames(iconClassName, className, parent)}>
@@ -298,3 +305,117 @@ StackedIcons.propTypes = {
   hasTextWhiteBis: PropTypes.bool,
 }
 StackedIcons.defaultProps = {}
+
+export const MaterialIcon = ({
+  className,
+  iconClassName,
+  icon = 'home',
+  isSmall,
+  isMedium,
+  isLarge,
+  isMediumFA,
+  isLargeFA,
+  isLeft,
+  isRight,
+  hasTextWhite,
+  hasTextBlack,
+  hasTextLight,
+  hasTextDark,
+  hasTextPrimary,
+  hasTextInfo,
+  hasTextLink,
+  hasTextSuccess,
+  hasTextWarning,
+  hasTextDanger,
+  hasTextBlackBis,
+  hasTextBlackTer,
+  hasTextGreyDarker,
+  hasTextGreyDark,
+  hasTextGrey,
+  hasTextGreyLight,
+  hasTextGreyLighter,
+  hasTextWhiteTer,
+  hasTextWhiteBis,
+  ...props
+}) => {
+  const parent = {
+    'is-left': isLeft,
+    'is-right': isRight,
+    ...Sizes({ isSmall, isMedium, isLarge }),
+    ...HasText({
+      hasTextWhite,
+      hasTextBlack,
+      hasTextLight,
+      hasTextDark,
+      hasTextPrimary,
+      hasTextInfo,
+      hasTextLink,
+      hasTextSuccess,
+      hasTextWarning,
+      hasTextDanger,
+      hasTextBlackBis,
+      hasTextBlackTer,
+      hasTextGreyDarker,
+      hasTextGreyDark,
+      hasTextGrey,
+      hasTextGreyLight,
+      hasTextGreyLighter,
+      hasTextWhiteTer,
+      hasTextWhiteBis,
+    }),
+  }
+
+  const iconName = `${icon}`
+
+  /*
+
+  material-icons
+<span className="icon is-left is-small">
+  <i className="material-icons">search</i>
+</span>
+<MaterialIcon icon="search" />
+  */
+
+  return (
+    <span className={classnames('icon', className, parent)}>
+      <i className="material-icons">{iconName}</i>
+    </span>
+  )
+}
+
+MaterialIcon.propTypes = {
+  className: PropTypes.string,
+  iconClassName: PropTypes.string,
+  icon: PropTypes.string,
+  fas: PropTypes.bool,
+  fab: PropTypes.bool,
+  fa: PropTypes.bool,
+  isSmall: PropTypes.bool,
+  isMedium: PropTypes.bool,
+  isLarge: PropTypes.bool,
+  hasTextWhite: PropTypes.bool,
+  hasTextBlack: PropTypes.bool,
+  hasTextLight: PropTypes.bool,
+  hasTextDark: PropTypes.bool,
+  hasTextPrimary: PropTypes.bool,
+  hasTextInfo: PropTypes.bool,
+  hasTextLink: PropTypes.bool,
+  hasTextSuccess: PropTypes.bool,
+  hasTextWarning: PropTypes.bool,
+  hasTextDanger: PropTypes.bool,
+  hasTextBlackBis: PropTypes.bool,
+  hasTextBlackTer: PropTypes.bool,
+  hasTextGreyDarker: PropTypes.bool,
+  hasTextGreyDark: PropTypes.bool,
+  hasTextGrey: PropTypes.bool,
+  hasTextGreyLight: PropTypes.bool,
+  hasTextGreyLighter: PropTypes.bool,
+  hasTextWhiteTer: PropTypes.bool,
+  hasTextWhiteBis: PropTypes.bool,
+  flipVertical: PropTypes.bool,
+  flipHorizontal: PropTypes.bool,
+  rotation: PropTypes.oneOf(['90', '180', '270']),
+}
+MaterialIcon.defaultProps = {
+  iconClassName: 'icon',
+}

@@ -1,5 +1,5 @@
-import { Icon, BaseIcon, StackedIcons } from './icon'
+import { Icon, BaseIcon, StackedIcons, MaterialIcon } from './icon'
 
-export { Icon, BaseIcon, StackedIcons }
+export { Icon, BaseIcon, StackedIcons, MaterialIcon }
 
 export default Icon
