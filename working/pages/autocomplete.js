@@ -1,7 +1,17 @@
 import React, { useState } from 'react'
 import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
 import { useStyles } from '@brightleaf/react-hooks/lib/use-styles'
-import { Container, Column, Columns, AutoComplete } from '../../src'
+import {
+  Container,
+  Column,
+  Columns,
+  AutoComplete,
+  Hero,
+  HeroBody,
+  Section,
+  SubTitle,
+  Title,
+} from '../../src'
 import { Snippet } from '../components/snippet'
 import Highlight from '../components/highlighter'
 import { ComponentsTabs } from '../components/tabs'
@@ -24,7 +34,15 @@ export default () => {
     i => i.name.toLowerCase().indexOf(filter.toLowerCase()) > -1
   )
   return (
-    <Container className="App content">
+    <Section className="App">
+      <Hero isLight isBold>
+        <HeroBody>
+          <Title>AutoComplete</Title>
+          <SubTitle as="p" is="4">
+            A simple <strong>autocomplete</strong>
+          </SubTitle>
+        </HeroBody>
+      </Hero>
       <ComponentsTabs />
       <Snippet>
         <Columns>
@@ -74,6 +92,6 @@ export default () => {
           </Column>
         </Columns>
       </Snippet>
-    </Container>
+    </Section>
   )
 }
