@@ -200,7 +200,7 @@ export default class App extends Component {
                       <UpLink to="/navbars">NavBar</UpLink>
                     </NavBarItem>
                     <NavBarItem>
-                      <UpLink to="/#">Pagination</UpLink>
+                      <UpLink to="/pagination">Pagination</UpLink>
                     </NavBarItem>
                     <NavBarItem>
                       <UpLink to="/panels">Panel</UpLink>
