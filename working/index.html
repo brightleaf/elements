@@ -12,6 +12,49 @@
   <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
 
   <style>
+    .collapse {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .collapse.collapsed {
+      position: relative;
+      max-height: 125px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .collapse.expanded::before {
+      content: "Collapse" !important;
+      align-items: stretch;
+      display: flex !important;
+    }
+
+    .collapse.collapsed::before {
+      content: "Expand" !important;
+      align-items: stretch;
+      display: flex !important;
+    }
+
+    .collapse.expanded::before,
+    .collapse.collapsed::before {
+
+      background: #00d1b2;
+      border-radius: 2px 2px 0 0;
+      color: rgba(0, 0, 0, 0.7);
+      content: "Example";
+      display: inline-block;
+      font-size: 7px;
+      font-weight: bold;
+      left: -1px;
+      letter-spacing: 1px;
+      margin-left: -1px;
+      padding: 3px 5px;
+      position: absolute;
+      text-transform: uppercase;
+      vertical-align: top;
+    }
+
     .callout.is-primary {
       padding: 10px;
       background: #00d1b2;
