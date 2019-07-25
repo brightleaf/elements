@@ -1,13 +1,19 @@
 import React, { useState } from 'react'
 import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
 import {
-  Container,
   DropDown,
   Column,
   Columns,
+  Content,
   DropDownItem,
   DropDownMenu,
   DropDownDivider,
+  FullColumn,
+  Hero,
+  HeroBody,
+  Section,
+  SubTitle,
+  Title,
 } from '../../src'
 import { Snippet } from '../components/snippet'
 import Highlight from '../components/highlighter'
@@ -27,16 +33,38 @@ export default () => {
     null,
     { name: 'Fourth', id: 3 },
   ]
-  const [selected, setSelected] = useState('Choose')
+  const [selected, setSelected] = useState('DropDownMenu - Choose')
 
   return (
-    <Container className="App">
+    <Section className="App">
+      <Hero isLight isBold>
+        <HeroBody>
+          <Title>DropDown</Title>
+          <SubTitle as="p" is="4">
+            An interactive <strong>dropdown</strong> menu for discoverable
+            content
+          </SubTitle>
+        </HeroBody>
+      </Hero>
+
       <ComponentsTabs />
+      <FullColumn>
+        <Content>
+          <p>
+            The <strong>DropDown</strong> component can take an array of objects
+            with a name and id property set to the list attribute.
+          </p>
+          <p>
+            The <strong>DropDownMenu</strong> component allows children
+            components to be used.
+          </p>
+        </Content>
+      </FullColumn>
       <Snippet>
         <Columns>
           <Column isHalf>
             <DropDown
-              label="Select Item"
+              label="DropDown - Select Item"
               list={items}
               onSelect={item => {
                 console.info('Selected Item', item)
@@ -57,7 +85,7 @@ const items = [
 export default () => {
   return (
     <DropDown
-      label="Select Item"
+      label="DropDown - Select Item"
       list={items}
       onSelect={item => {
         console.info('Selected Item', item)
@@ -70,6 +98,14 @@ export default () => {
           </Column>
         </Columns>
       </Snippet>
+      <FullColumn>
+        <Content>
+          <p>
+            When the list has a null value the <code>DropDown</code> will render
+            the null entry as a divider.
+          </p>
+        </Content>
+      </FullColumn>
       <Snippet>
         <Columns>
           <Column isHalf>
@@ -110,6 +146,14 @@ export default () => {
           </Column>
         </Columns>
       </Snippet>
+      <FullColumn>
+        <Content>
+          <p>
+            The <code>DropDownMenu</code> component allows children:{' '}
+            <code>DropDownItem</code> and <code>DropDownDivider</code>
+          </p>
+        </Content>
+      </FullColumn>
       <Snippet>
         <Columns>
           <Column isHalf>
@@ -169,6 +213,6 @@ export default () => {
           </Column>
         </Columns>
       </Snippet>
-    </Container>
+    </Section>
   )
 }
