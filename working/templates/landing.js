@@ -45,10 +45,7 @@ export const LandingTemplate = () => {
       <HeroHead>
         <NavBar>
           <Container className="container">
-            <NavBarBrand
-              src="https://bulma.io/images/bulma-type-white.png"
-              href="#HERO"
-            ></NavBarBrand>
+            <NavBarBrand src="brightleafjs-logo.png" href="#HERO"></NavBarBrand>
             <NavBarMenu id="navbarMenu" className="navbar-menu">
               <NavBarEnd className="navbar-end">
                 <NavBarItem>

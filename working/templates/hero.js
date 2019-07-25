@@ -49,10 +49,7 @@ export const HeroTemplate = () => {
         <HeroHead>
           <NavBar>
             <Container>
-              <NavBarBrand
-                src="https://bulma.io/images/bulma-type-white.png"
-                href="#"
-              />
+              <NavBarBrand src="brightleafjs-logo.png" href="#" />
               <NavBarMenu>
                 <NavBarEnd>
                   <Tabs isRight>

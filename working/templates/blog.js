@@ -51,10 +51,10 @@ export const BlogTemplate = () => {
         <Container className="container">
           <NavBarBrand
             className="navbar-brand"
-            src="https://bulmatemplates.github.io/bulma-templates/images/bulma.png"
+            src="brightleaf.png"
             href="#"
-            width=""
-            height=""
+            width="32"
+            height="32"
           ></NavBarBrand>
           <NavBarMenu id="navbarMenu" className="navbar-menu">
             <NavBarEnd className="navbar-end">

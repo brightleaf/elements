@@ -45,8 +45,10 @@ export const CoverTemplate = () => {
         <NavBar>
           <Container>
             <NavBarBrand
-              src="https://bulmatemplates.github.io/bulma-templates/images/bulma.png"
+              src="brightleaf.png"
               href="#"
+              width="32"
+              height="32"
               onClick={e => {
                 e.preventDefault()
                 setMenuIsActive(!menuIsActive)
