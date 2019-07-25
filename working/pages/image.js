@@ -16,7 +16,7 @@ import { ElementsTabs } from '../components/tabs'
 import Highlight from '../components/highlighter'
 
 export default () => {
-  useTitle('Icons example from @brightleaf/elements')
+  useTitle('Image example from @brightleaf/elements')
 
   return (
     <Section>

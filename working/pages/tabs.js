@@ -23,7 +23,7 @@ import Highlight from '../components/highlighter'
 import { ComponentsTabs } from '../components/tabs'
 
 export default () => {
-  useTitle('Panel example from @brightleaf/elements')
+  useTitle('Tabs example from @brightleaf/elements')
   useStyleSheet('code.css')
   return (
     <Section>
