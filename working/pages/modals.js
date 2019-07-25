@@ -15,16 +15,32 @@ import {
   ModalCard,
   ModalCardFoot,
   useToggle,
+  Section,
+  Hero,
+  HeroBody,
+  Title,
+  SubTitle,
 } from '../../src'
 import { Snippet } from '../components/snippet'
 import Highlight from '../components/highlighter'
+import { ComponentsTabs } from '../components/tabs'
 
 export default () => {
   const [modalShown, setModalShown] = useToggle(false)
   const [modalShownNoTrigger, setModalShownNoTrigger] = useToggle(false)
   useStyleSheet('code.css')
   return (
-    <Container>
+    <Section>
+      <Hero isLight isBold>
+        <HeroBody>
+          <Title>Modal</Title>
+          <SubTitle as="p" is="4">
+            A classic <strong>modal</strong> overlay, in which you can include
+            any content you want
+          </SubTitle>
+        </HeroBody>
+      </Hero>
+      <ComponentsTabs />
       <Snippet>
         <Columns>
           <Column isOneThird>
@@ -248,69 +264,6 @@ export default () => {
           </Column>
         </Columns>
       </Snippet>
-      <Columns>
-        <Column isHalf>
-          <Box>
-            <Modal>
-              <div>test</div>
-            </Modal>
-          </Box>
-        </Column>
-      </Columns>
-      <Columns>
-        <Column isHalf>
-          <Box>
-            <Modal>
-              <div>test</div>
-            </Modal>
-          </Box>
-        </Column>
-      </Columns>
-      <Columns>
-        <Column isHalf>
-          <Box>
-            <Modal>
-              <div>test</div>
-            </Modal>
-          </Box>
-        </Column>
-      </Columns>
-      <Columns>
-        <Column isHalf>
-          <Box>
-            <Modal>
-              <div>test</div>
-            </Modal>
-          </Box>
-        </Column>
-      </Columns>
-      <Columns>
-        <Column isHalf>
-          <Box>
-            <Modal>
-              <div>test</div>
-            </Modal>
-          </Box>
-        </Column>
-      </Columns>
-      <Columns>
-        <Column isHalf>
-          <Box>
-            <Modal>
-              <div>test</div>
-            </Modal>
-          </Box>
-        </Column>
-      </Columns>
-      <Columns>
-        <Column isHalf>
-          <Box>
-            <Modal>
-              <div>test</div>
-            </Modal>
-          </Box>
-        </Column>
-      </Columns>
-    </Container>
+    </Section>
   )
 }
