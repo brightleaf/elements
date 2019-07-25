@@ -24,6 +24,7 @@ export const Tag = ({
   isDelete,
   onClick,
   className,
+  href,
 }) => {
   const classes = {
     'is-delete': isDelete,
@@ -52,7 +53,7 @@ export const Tag = ({
     return (
       <a
         className={classnames('tag', className, classes)}
-        href="#"
+        href={href}
         onClick={onClick || noop}
       >
         {children}
