@@ -64,10 +64,11 @@ export const ComponentsTabs = () => {
   return (
     <Tabs>
       <TabList>
+        <TabLink to="/autocomplete">AutoComplete</TabLink>
         <TabLink to="/breadcrumb">Breadcrumb</TabLink>
         <TabLink to="/card">Card</TabLink>
         <TabLink to="/dropdown">DropDown</TabLink>
-        <TabLink to="/autocomplete">Menu</TabLink>
+        <TabLink to="/menu">Menu</TabLink>
         <TabLink to="/messages">Messages</TabLink>
         <TabLink to="/modals">Modal</TabLink>
         <TabLink to="/navbars">NavBar</TabLink>
