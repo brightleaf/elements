@@ -1,7 +1,7 @@
 {
   "name": "@brightleaf/elements",
   "version": "0.17.0",
-  "description": "UI elements",
+  "description": "React UI elements styled with Bulma CSS",
   "main": "lib/index.js",
   "files": [
     "/lib"
@@ -23,6 +23,19 @@
     "url": "https://github.com/brightleaf/elements/issues"
   },
   "homepage": "https://brightleaf.dev/elements/#",
+  "keywords": [
+    "ui",
+    "react",
+    "css",
+    "bulma",
+    "bulma css",
+    "bulma.io",
+    "ui elements",
+    "design",
+    "reactjs",
+    "ui components",
+    "ui framework"
+  ],
   "peerDependencies": {
     "react": "^16.8.1",
     "react-dom": "^16.8.6"
