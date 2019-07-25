@@ -54,7 +54,10 @@ export const AdminTemplate = () => {
     <>
       <NavBar isWhite className="navbar is-white">
         <Container className="container">
-          <NavBarBrand className="brand-text" title="Bulma Admin"></NavBarBrand>
+          <NavBarBrand
+            className="brand-text"
+            title="Brightleaf Admin"
+          ></NavBarBrand>
           <NavBarMenu id="navMenu">
             <NavBarStart className="navbar-start">
               <NavBarItem>
@@ -68,6 +71,9 @@ export const AdminTemplate = () => {
               </NavBarItem>
               <NavBarItem>
                 <a href="#COVER">Cover</a>
+              </NavBarItem>
+              <NavBarItem>
+                <a href="#CHEATSHEET">CheatSheet</a>
               </NavBarItem>
             </NavBarStart>
           </NavBarMenu>
@@ -254,7 +260,7 @@ export const AdminTemplate = () => {
                           </tr>
                           <tr>
                             <td width="5%">
-                              <i className="fa fa-bell-o"></i>
+                              <BaseIcon icon="bell-o" fa />
                             </td>
                             <td>Lorum ipsum dolem aire</td>
                             <td>

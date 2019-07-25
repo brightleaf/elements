@@ -69,6 +69,10 @@ export const CoverTemplate = () => {
                       <a href="#ADMIN">Admin</a>
                     </TabItem>
                     <TabItem>
+                      <a href="#CHEATSHEET">Cheatsheet</a>
+                    </TabItem>
+
+                    <TabItem>
                       <a href="https://brightleaf.github.io/elements">Help</a>
                     </TabItem>
                   </TabList>

@@ -3,6 +3,7 @@ import CoverTemplate from './cover'
 import { BlogTemplate } from './blog'
 import { LandingTemplate } from './landing'
 import { AdminTemplate } from './admin'
+import { CheatSheetTemplate } from './cheatsheet'
 
 export {
   CoverTemplate,
@@ -10,6 +11,7 @@ export {
   BlogTemplate,
   LandingTemplate,
   AdminTemplate,
+  CheatSheetTemplate,
 }
 
 export default {
@@ -18,4 +20,5 @@ export default {
   BlogTemplate,
   LandingTemplate,
   AdminTemplate,
+  CheatSheetTemplate,
 }

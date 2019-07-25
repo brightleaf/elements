@@ -70,7 +70,10 @@ export const HeroTemplate = () => {
                         <a href="#LANDING">Landing</a>
                       </TabItem>
                       <TabItem>
-                        <a href="">Help</a>
+                        <a href="#CHEATSHEET">Cheatsheet</a>
+                      </TabItem>
+                      <TabItem>
+                        <a href="#ADMIN">Admin</a>
                       </TabItem>
                     </TabList>
                     <NavBarItem>

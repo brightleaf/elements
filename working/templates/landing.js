@@ -61,25 +61,33 @@ export const LandingTemplate = () => {
                 </NavBarItem>
                 <NavBarItem>
                   <span>
-                    <Button isWhite isAnchor isOutlined href="#">
+                    <Button isWhite isAnchor isOutlined href="#HERO">
                       <Icon fa icon="superpowers"></Icon>
-                      <span>Examples</span>
+                      <span>Hero</span>
                     </Button>
                   </span>
                 </NavBarItem>
                 <NavBarItem>
                   <span>
-                    <Button isWhite isAnchor isOutlined href="#">
+                    <Button isWhite isAnchor isOutlined href="#CHEATSHEET">
+                      <Icon fa icon="code"></Icon>
+                      <span>CheatSheet</span>
+                    </Button>
+                  </span>
+                </NavBarItem>
+                <NavBarItem>
+                  <span>
+                    <Button isWhite isAnchor isOutlined href="#COVER">
                       <Icon fa icon="book" className="icon"></Icon>
-                      <span>Documentation</span>
+                      <span>Cover</span>
                     </Button>
                   </span>
                 </NavBarItem>
                 <NavBarItem>
                   <span>
-                    <Button isWhite isAnchor isOutlined href="#">
-                      <Icon fa icon="github" className="icon"></Icon>
-                      <span>View Source</span>
+                    <Button isWhite isAnchor isOutlined href="#ADMIN">
+                      <Icon fa icon="cog" className="icon"></Icon>
+                      <span>Admin</span>
                     </Button>
                   </span>
                 </NavBarItem>

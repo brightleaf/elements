@@ -71,8 +71,9 @@ export const BlogTemplate = () => {
                 <a href="#LANDING">Landing</a>
               </NavBarItem>
               <NavBarItem>
-                <a>Archives</a>
+                <a href="#CHEATSHEET">Cheatsheet</a>
               </NavBarItem>
+
               <NavBarItem>
                 <a>Help</a>
               </NavBarItem>
