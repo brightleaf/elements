@@ -27,6 +27,7 @@ export const Tabs = ({
   isLarge,
   isBoxed,
   isToggle,
+  isToggleRounded,
   isFullWidth,
 }) => {
   const classes = {
@@ -37,6 +38,7 @@ export const Tabs = ({
     'is-large': isLarge,
     'is-boxed': isBoxed,
     'is-toggle': isToggle,
+    'is-toggle-rounded': isToggleRounded,
     'is-fullwidth': isFullWidth,
   }
 
