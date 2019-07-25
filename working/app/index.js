@@ -27,6 +27,7 @@ const Columns = lazy(() => import('../pages/columns'))
 const Notifications = lazy(() => import('../pages/notifications'))
 const AutoComplete = lazy(() => import('../pages/autocomplete'))
 const Box = lazy(() => import('../pages/box'))
+const Breadcrumbs = lazy(() => import('../pages/breadcrumb'))
 const ButtonsPage = lazy(() => import('../pages/buttons'))
 const DropDown = lazy(() => import('../pages/dropdown'))
 const Card = lazy(() => import('../pages/card'))
@@ -46,7 +47,9 @@ const Sections = lazy(() => import('../pages/section'))
 const Contents = lazy(() => import('../pages/content'))
 const Deletes = lazy(() => import('../pages/delete'))
 const Images = lazy(() => import('../pages/image'))
-
+const Menus = lazy(() => import('../pages/menu'))
+const Pager = lazy(() => import('../pages/pagination'))
+const Tab = lazy(() => import('../pages/tabs'))
 let source = createHashSource()
 let history = createHistory(source)
 
@@ -173,6 +176,9 @@ export default class App extends Component {
 
                   <NavBarDropDown title="Components">
                     <NavBarItem>
+                      <UpLink to="/autocomplete">AutoComplete</UpLink>
+                    </NavBarItem>
+                    <NavBarItem>
                       <UpLink to="/breadcrumb">Breadcrumb</UpLink>
                     </NavBarItem>
                     <NavBarItem>
@@ -182,7 +188,7 @@ export default class App extends Component {
                       <UpLink to="/dropdown">DropDown</UpLink>
                     </NavBarItem>
                     <NavBarItem>
-                      <UpLink to="/autocomplete">Menu</UpLink>
+                      <UpLink to="/menu">Menu</UpLink>
                     </NavBarItem>
                     <NavBarItem>
                       <UpLink to="/messages">Messages</UpLink>
@@ -269,6 +275,10 @@ export default class App extends Component {
               <Contents path="/content" />
               <Deletes path="/delete" />
               <Images path="/images" />
+              <Breadcrumbs path="/breadcrumb" />
+              <Menus path="/menu" />
+              <Pager path="/pagination" />
+              <Tab path="/tabs" />
             </Router>
           </Suspense>
         </Fragment>
