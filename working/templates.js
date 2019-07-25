@@ -6,6 +6,8 @@ const HeroTemplate = lazy(() => import('./templates/hero'))
 const BlogTemplate = lazy(() => import('./templates/blog'))
 const LandingTemplate = lazy(() => import('./templates/landing'))
 const AdminTemplate = lazy(() => import('./templates/admin'))
+const CheatSheetTemplate = lazy(() => import('./templates/cheatsheet'))
+
 const App = () => {
   const [hash, setHash] = useState(window.location.hash)
   const hashChange = e => {
@@ -53,6 +55,14 @@ const App = () => {
       </Suspense>
     )
   }
+  if (hash === '#CHEATSHEET') {
+    return (
+      <Suspense fallback={<div>Loading</div>}>
+        <CheatSheetTemplate />
+      </Suspense>
+    )
+  }
+
   return (
     <Suspense fallback={<div>Loading</div>}>
       <HeroTemplate />
