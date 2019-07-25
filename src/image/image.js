@@ -3,6 +3,7 @@ import classnames from 'classnames'
 
 export const Image = ({
   src,
+  alt,
   className,
   is,
   isRounded,
@@ -59,10 +60,13 @@ export const Image = ({
   if (is) {
     classes[`is-${is}x${is}`] = true
   }
+  console.info('src', src)
+  console.info('srpropdc', props)
   return (
     <figure className={classnames('image', className, classes)}>
       <img
         src={src}
+        alt={alt}
         {...props}
         className={classnames({
           'is-rounded': isRounded,
