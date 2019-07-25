@@ -57,6 +57,11 @@ export const Column = ({
   isTwoFifths,
   isOneFifth,
   isNarrow,
+  isOffsetOneQuarter,
+  isOffsetOneFifth,
+  isOffsetHalf,
+  isOffsetOneThird,
+  offset,
   size,
   is,
 }) => {
@@ -72,12 +77,19 @@ export const Column = ({
     'is-one-quarter': isOneQuarter,
     'is-full': isFull,
     'is-narrow': isNarrow,
+    'is-offset-one-quarter': isOffsetOneQuarter,
+    'is-offset-one-fifth': isOffsetOneFifth,
+    'is-offset-half': isOffsetHalf,
+    'is-offset-one-third': isOffsetOneThird,
   }
   if (size) {
     classes[`is-${size}`] = true
   }
   if (is) {
     classes[`is-${is}`] = true
+  }
+  if (offset) {
+    classes[`is-offset-${offset}`] = true
   }
   if (size && is) {
     console.warn('Do not use both size and is')
@@ -114,6 +126,19 @@ Columns.propTypes = {
     '10',
     '11',
     '12',
+  ]),
+  offset: PropTypes.oneOf([
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
   ]),
 }
 Column.defaultProps = {
