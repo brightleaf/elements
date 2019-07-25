@@ -7,6 +7,8 @@ const BlogTemplate = lazy(() => import('./templates/blog'))
 const LandingTemplate = lazy(() => import('./templates/landing'))
 const AdminTemplate = lazy(() => import('./templates/admin'))
 const CheatSheetTemplate = lazy(() => import('./templates/cheatsheet'))
+const ImageTimelineTemplate = lazy(() => import('./templates/image-timeline'))
+const KanbanTemplate = lazy(() => import('./templates/kanban'))
 
 const App = () => {
   const [hash, setHash] = useState(window.location.hash)
@@ -55,6 +57,13 @@ const App = () => {
       </Suspense>
     )
   }
+  if (hash === '#IMAGE_TIMELINE') {
+    return (
+      <Suspense fallback={<div>Loading</div>}>
+        <ImageTimelineTemplate />
+      </Suspense>
+    )
+  }
   if (hash === '#CHEATSHEET') {
     return (
       <Suspense fallback={<div>Loading</div>}>
@@ -62,7 +71,13 @@ const App = () => {
       </Suspense>
     )
   }
-
+  if (hash === '#KANBAN') {
+    return (
+      <Suspense fallback={<div>Loading</div>}>
+        <KanbanTemplate />
+      </Suspense>
+    )
+  }
   return (
     <Suspense fallback={<div>Loading</div>}>
       <HeroTemplate />
