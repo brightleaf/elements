@@ -7,6 +7,8 @@ import {
   BaseIcon,
   Box,
   Button,
+  Card,
+  CardBody,
   Column,
   Columns,
   Container,
@@ -23,6 +25,13 @@ import {
   MenuLabel,
   MenuList,
   MenuListItem,
+  NavBar,
+  NavBarEnd,
+  NavBarMenu,
+  NavBarBrand,
+  NavBarDivider,
+  NavBarDropDown,
+  NavBarItem,
   Icon,
   Title,
   SubTitle,
@@ -40,27 +49,21 @@ export const KanbanTemplate = () => {
   useStyleSheet('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700')
   useStyleSheet('cheatsheet.css')
   useScript('font-awesome.js')
-  const { matches } = useMediaQuery('(max-width: 768px)')
-
-  const tagMenu = classnames({ tags: matches })
 
   return (
     <>
-      <nav className="navbar has-shadow">
-        <div className="container">
-          <div className="navbar-brand">
-            <a className="navbar-item" href="../">
-              <img
-                src="http://bulma.io/images/bulma-logo.png"
-                alt="Bulma: a modern CSS framework based on Flexbox"
-              />
-            </a>
+      <NavBar className=" has-shadow">
+        <Container className="container">
+          <NavBarBrand
+            src="http://bulma.io/images/bulma-logo.png"
+            alt="Bulma: a modern CSS framework based on Flexbox"
+          >
             <div className="navbar-burger burger" data-target="navMenu">
               <span></span>
               <span></span>
               <span></span>
             </div>
-          </div>
+          </NavBarBrand>
           <div className="navbar-menu" id="navMenu">
             <div className="navbar-end">
               <div className="navbar-item has-dropdown is-hoverable">
@@ -75,11 +78,11 @@ export const KanbanTemplate = () => {
               </div>
             </div>
           </div>
-        </div>
-      </nav>
-      <section className="hero is-info">
-        <div className="hero-body">
-          <div className="container">
+        </Container>
+      </NavBar>
+      <Hero className="hero is-info">
+        <HeroBody className="hero-body">
+          <Container className="container">
             <div className="card">
               <div className="card-content">
                 <div className="content">
@@ -95,9 +98,9 @@ export const KanbanTemplate = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </Container>
+        </HeroBody>
+      </Hero>
       <div className="box cta">
         <div className="columns is-mobile is-centered">
           <div className="field is-grouped is-grouped-multiline">
