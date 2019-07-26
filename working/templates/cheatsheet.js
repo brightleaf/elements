@@ -96,6 +96,36 @@ export const CheatSheetTemplate = () => {
                       <BaseIcon fab icon="html5" /> HTML
                     </a>
                   </MenuListItem>
+                  <MenuListItem>
+                    <a href="#HERO" className="is-active">
+                      <BaseIcon fab icon="superpowers" /> HERO
+                    </a>
+                  </MenuListItem>
+                  <MenuListItem>
+                    <a href="#INBOX" className="is-active">
+                      <BaseIcon fas icon="inbox" /> INBOX
+                    </a>
+                  </MenuListItem>
+                  <MenuListItem>
+                    <a href="#LANDING" className="is-active">
+                      <BaseIcon fas icon="plane-arrival" /> LANDING
+                    </a>
+                  </MenuListItem>
+                  <MenuListItem>
+                    <a href="#ADMIN" className="is-active">
+                      <BaseIcon fas icon="cogs" /> ADMIN
+                    </a>
+                  </MenuListItem>
+                  <MenuListItem>
+                    <a href="#COVER" className="is-active">
+                      <BaseIcon fas icon="book-open" /> COVER
+                    </a>
+                  </MenuListItem>
+                  <MenuListItem>
+                    <a href="#IMAGE_TIMELINE" className="is-active">
+                      <BaseIcon far icon="images" /> INSTA
+                    </a>
+                  </MenuListItem>
                 </MenuList>
                 <MenuLabel>More to read...</MenuLabel>
                 <MenuList className={tagMenu}>
