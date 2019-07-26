@@ -1,6 +1,7 @@
 import {
   NavBar,
   NavBarBrand,
+  NavBarBurger,
   NavBarDivider,
   NavBarDropDown,
   NavBarEnd,
@@ -12,6 +13,7 @@ import {
 export {
   NavBar,
   NavBarBrand,
+  NavBarBurger,
   NavBarDivider,
   NavBarDropDown,
   NavBarEnd,

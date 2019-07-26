@@ -50,6 +50,7 @@ export {
 export {
   NavBar,
   NavBarBrand,
+  NavBarBurger,
   NavBarDivider,
   NavBarDropDown,
   NavBarEnd,

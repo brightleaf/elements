@@ -10,7 +10,23 @@ export const NavBarItem = ({ children, className, isActive, ...props }) => {
   })
   return <>{kid}</>
 }
-
+const noop = () => {}
+export const NavBarBurger = ({ onClick }) => {
+  return (
+    <div
+      className="navbar-burger burger"
+      data-target="navMenu"
+      onClick={onClick}
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  )
+}
+NavBarBurger.defaultProps = {
+  onClick: noop,
+}
 export const NavBarBrand = ({
   href,
   src,
