@@ -102,7 +102,7 @@ export const InboxTemplate = () => {
   if ((data === null || data.length === 0) && !loading) {
     getUrl()
   }
-  let messages = <div>Nope</div>
+  let messages = <div className="loader"> </div>
   if (data && data.data) {
     messages = data.data.map((msg, index) => {
       return (
@@ -118,7 +118,6 @@ export const InboxTemplate = () => {
       )
     })
   }
-  console.info({data, error, loading,})
   return (
     <>
       <NavBar className="has-shadow">
