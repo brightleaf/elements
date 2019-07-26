@@ -45,6 +45,7 @@ Columns.defaultProps = {
 }
 export const Column = ({
   children,
+  as: Col,
   className,
   isThreeQuarters,
   isTwoThirds,
@@ -61,6 +62,7 @@ export const Column = ({
   isOffsetOneFifth,
   isOffsetHalf,
   isOffsetOneThird,
+  isHidden,
   offset,
   size,
   is,
@@ -81,6 +83,7 @@ export const Column = ({
     'is-offset-one-fifth': isOffsetOneFifth,
     'is-offset-half': isOffsetHalf,
     'is-offset-one-third': isOffsetOneThird,
+    'is-hidden': isHidden,
   }
   if (size) {
     classes[`is-${size}`] = true
@@ -95,10 +98,11 @@ export const Column = ({
     console.warn('Do not use both size and is')
   }
   return (
-    <div className={classnames('column', className, classes)}>{children}</div>
+    <Col className={classnames('column', className, classes)}>{children}</Col>
   )
 }
 Columns.propTypes = {
+  as: PropTypes.node,
   size: PropTypes.oneOf([
     '1',
     '2',
@@ -153,6 +157,7 @@ Column.defaultProps = {
   isOneQuarter: false,
   isFull: false,
   isNarrow: false,
+  as: 'div',
 }
 
 export const FullColumn = ({ children, className }) => (
