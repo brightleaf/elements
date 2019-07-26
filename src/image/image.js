@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-
+import PropTypes from 'prop-types'
 export const Image = ({
   src,
   alt,
@@ -30,6 +30,7 @@ export const Image = ({
   is64,
   is96,
   is128,
+  as: Element,
   ...props
 }) => {
   const classes = {
@@ -60,10 +61,9 @@ export const Image = ({
   if (is) {
     classes[`is-${is}x${is}`] = true
   }
-  console.info('src', src)
-  console.info('srpropdc', props)
+
   return (
-    <figure className={classnames('image', className, classes)}>
+    <Element className={classnames('image', className, classes)}>
       <img
         src={src}
         alt={alt}
@@ -72,6 +72,12 @@ export const Image = ({
           'is-rounded': isRounded,
         })}
       />
-    </figure>
+    </Element>
   )
+}
+Image.propTypes = {
+  as: PropTypes.node,
+}
+Image.defaultProps = {
+  as: 'figure',
 }
