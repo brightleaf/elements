@@ -118,6 +118,7 @@ export const InboxTemplate = () => {
       )
     })
   }
+
   return (
     <>
       <NavBar className="has-shadow">
