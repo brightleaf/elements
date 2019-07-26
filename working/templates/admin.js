@@ -75,6 +75,12 @@ export const AdminTemplate = () => {
               <NavBarItem>
                 <a href="#CHEATSHEET">CheatSheet</a>
               </NavBarItem>
+              <NavBarItem>
+                <a href="#FORUM">Forum</a>
+              </NavBarItem>
+              <NavBarItem>
+                <a href="#INBOX">Inbox</a>
+              </NavBarItem>
             </NavBarStart>
           </NavBarMenu>
         </Container>

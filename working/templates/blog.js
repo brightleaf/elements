@@ -73,9 +73,11 @@ export const BlogTemplate = () => {
               <NavBarItem>
                 <a href="#CHEATSHEET">Cheatsheet</a>
               </NavBarItem>
-
               <NavBarItem>
-                <a>Help</a>
+                <a href="#INBOX">Inbox</a>
+              </NavBarItem>
+              <NavBarItem>
+                <a href="#FORUM">Forum</a>
               </NavBarItem>
               <NavBarDropDown title="Account" isHoverable>
                 <NavBarItem>

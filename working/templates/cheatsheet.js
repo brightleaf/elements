@@ -102,6 +102,11 @@ export const CheatSheetTemplate = () => {
                     </a>
                   </MenuListItem>
                   <MenuListItem>
+                    <a href="#FORUM" className="is-active">
+                      <BaseIcon fas icon="comments" /> FORUM
+                    </a>
+                  </MenuListItem>
+                  <MenuListItem>
                     <a href="#INBOX" className="is-active">
                       <BaseIcon fas icon="inbox" /> INBOX
                     </a>

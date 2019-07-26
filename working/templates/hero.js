@@ -75,6 +75,9 @@ export const HeroTemplate = () => {
                       <TabItem>
                         <a href="#INBOX">Inbox</a>
                       </TabItem>
+                      <TabItem>
+                        <a href="#FORUM">Forum</a>
+                      </TabItem>
                     </TabList>
                     <NavBarItem>
                       <span>
