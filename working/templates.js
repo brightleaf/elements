@@ -9,7 +9,8 @@ const AdminTemplate = lazy(() => import('./templates/admin'))
 const CheatSheetTemplate = lazy(() => import('./templates/cheatsheet'))
 const ImageTimelineTemplate = lazy(() => import('./templates/image-timeline'))
 const KanbanTemplate = lazy(() => import('./templates/kanban'))
-
+const InboxTemplate = lazy(() => import('./templates/inbox'))
+const ForumTemplate = lazy(() => import('./templates/forum'))
 const App = () => {
   const [hash, setHash] = useState(window.location.hash)
   const hashChange = e => {
@@ -75,6 +76,20 @@ const App = () => {
     return (
       <Suspense fallback={<div>Loading</div>}>
         <KanbanTemplate />
+      </Suspense>
+    )
+  }
+  if (hash === '#INBOX') {
+    return (
+      <Suspense fallback={<div>Loading</div>}>
+        <InboxTemplate />
+      </Suspense>
+    )
+  }
+  if (hash === '#FORUM') {
+    return (
+      <Suspense fallback={<div>Loading</div>}>
+        <ForumTemplate />
       </Suspense>
     )
   }
