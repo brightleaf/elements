@@ -1,0 +1,104 @@
+<div class="demo">
+  <div class="block">
+    <div class="navigation-view is-static" id="myNavigationView">
+      <a class="navbar-burger" id="myToggleButton" role="button" aria-expanded="false" aria-label="menu"
+        onclick="toggleNavigationView()">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+      <aside class="menu">
+        <p class="menu-label">
+          General
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a>
+              <span class="icon">
+                <i class="fas fa-box" aria-hidden="true"></i>
+              </span> Dashboard
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="icon">
+                <i class="fas fa-address-card" aria-hidden="true"></i>
+              </span> Customers</a>
+          </li>
+        </ul>
+        <p class="menu-label">
+          Administration
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a>
+              <span class="icon">
+                <i class="fas fa-cog" aria-hidden="true"></i>
+              </span> Team Settings</a>
+          </li>
+          <li>
+            <a class="is-active">
+              <span class="icon">
+                <i class="fas fa-child" aria-hidden="true"></i>
+              </span> Manage Your Team</a>
+          </li>
+          <li class="is-disabled">
+            <a>
+              <span class="icon">
+                <i class="fas fa-at" aria-hidden="true"></i>
+              </span> Invitations</a>
+          </li>
+          <li>
+            <a>
+              <span class="icon">
+                <i class="fas fa-cloud" aria-hidden="true"></i>
+              </span> Cloud Storage Settings</a>
+          </li>
+          <li>
+            <a>
+              <span class="icon">
+                <i class="fas fa-user" aria-hidden="true"></i>
+              </span> Authentication</a>
+          </li>
+        </ul>
+        <p class="menu-label">
+          Transactions
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a>
+              <span class="icon">
+                <i class="fas fa-credit-card" aria-hidden="true"></i>
+              </span> Payments</a>
+          </li>
+          <li>
+            <a>
+              <span class="icon">
+                <i class="fas fa-align-center" aria-hidden="true"></i>
+              </span> Transfers</a>
+          </li>
+          <li>
+            <a>
+              <span class="icon">
+                <i class="fas fa-briefcase" aria-hidden="true"></i>
+              </span> Balance</a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<script>
+
+
+  function toggleNavigationView() {
+    var navigationView = document.getElementById('myNavigationView');
+    var toggleButton = document.getElementById('myToggleButton');
+
+    navigationView.classList.toggle('is-active');
+    toggleButton.classList.toggle('is-active');
+  }
+
+
+</script>
