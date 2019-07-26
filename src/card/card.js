@@ -76,6 +76,7 @@ export const Card = ({
   isWideScreen,
   isFullHD,
   className,
+  onClick,
 }) => {
   const classes = Screens({ isMobile, isFluid, isWideScreen, isFullHD })
   const childrenAsArray = React.Children.toArray(children).sort(
@@ -100,7 +101,7 @@ export const Card = ({
     console.warn(`'${child.type}' not allowed`)
   })
   return (
-    <div className={classnames('card', className, classes)}>
+    <div className={classnames('card', className, classes)} onClick={onClick}>
       {childrenAsArray}
     </div>
   )
@@ -113,4 +114,5 @@ Card.defaultProps = {
   isFluid: false,
   isWideScreen: false,
   isFullHD: false,
+  onClick: () => {},
 }
