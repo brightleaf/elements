@@ -7,11 +7,13 @@ export const Control = ({
   hasIconsLeft,
   hasIconsRight,
   isExpanded,
+  isGrouped,
 }) => {
   const classes = {
     'has-icons-left': hasIconsLeft,
     'has-icons-right': hasIconsRight,
     'is-expanded': isExpanded,
+    'is-grouped': isGrouped,
   }
   return (
     <El className={classnames('control', className, classes)}>{children}</El>
