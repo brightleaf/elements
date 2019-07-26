@@ -39,6 +39,7 @@ import {
   Title,
   SubTitle,
   Tag,
+  Tags,
   Tabs,
   TabItem,
   MediaObject,
@@ -198,171 +199,189 @@ export const ForumTemplate = () => {
                     <Content>
                       <p>
                         <a href="#">@jsmith</a> replied 34 minutes ago &nbsp;
-                        <span className="tag">Question</span>
+                        <Tag as="span">Question</Tag>
                       </p>
                     </Content>
                   </MediaContent>
                   <MediaRight>
                     <span className="has-text-grey-light">
-                      <i className="fa fa-comments"></i> 1
+                      <BaseIcon icon="comments" fa /> 1
                     </span>
                   </MediaRight>
                 </MediaObject>
               </article>
               <article className="post">
                 <h4>How can I make a bulma button go full width?</h4>
-                <div className="media">
-                  <div className="media-left">
-                    <p className="image is-32x32">
-                      <img src="http://bulma.io/images/placeholders/128x128.png" />
-                    </p>
-                  </div>
-                  <div className="media-content">
-                    <div className="content">
+                <MediaObject as="div">
+                  <MediaLeft as="div">
+                    <Image
+                      as="p"
+                      is32
+                      src="http://bulma.io/images/placeholders/128x128.png"
+                    />
+                  </MediaLeft>
+                  <MediaContent>
+                    <Content>
                       <p>
                         <a href="#">@red</a> replied 40 minutes ago &nbsp;
-                        <span className="tag">Question</span>
+                        <Tag as="span">Question</Tag>
                       </p>
-                    </div>
-                  </div>
-                  <div className="media-right">
+                    </Content>
+                  </MediaContent>
+                  <MediaRight>
                     <span className="has-text-grey-light">
-                      <i className="fa fa-comments"></i> 0
+                      <BaseIcon icon="comments" fa /> 0
                     </span>
-                  </div>
-                </div>
+                  </MediaRight>
+                </MediaObject>
               </article>
               <article className="post">
                 <h4>
                   TypeError: Data must be a string or a buffer when trying touse
                   vue-bulma-tabs
                 </h4>
-                <div className="media">
-                  <div className="media-left">
-                    <p className="image is-32x32">
-                      <img src="http://bulma.io/images/placeholders/128x128.png" />
-                    </p>
-                  </div>
-                  <div className="media-content">
-                    <div className="content">
+                <MediaObject as="div">
+                  <MediaLeft as="div">
+                    <Image
+                      as="p"
+                      is32
+                      src="http://bulma.io/images/placeholders/128x128.png"
+                    />
+                  </MediaLeft>
+                  <MediaContent>
+                    <Content>
                       <p>
                         <a href="#">@jsmith</a> replied 53 minutes ago &nbsp;
-                        <span className="tag">Question</span>
+                        <Tag as="span">Question</Tag>
                       </p>
-                    </div>
-                  </div>
-                  <div className="media-right">
+                    </Content>
+                  </MediaContent>
+                  <MediaRight>
                     <span className="has-text-grey-light">
-                      <i className="fa fa-comments"></i> 13
+                      <BaseIcon icon="comments" fa /> 13
                     </span>
-                  </div>
-                </div>
+                  </MediaRight>
+                </MediaObject>
               </article>
               <article className="post">
                 <h4>How to vertically center elements in Bulma?</h4>
-                <div className="media">
-                  <div className="media-left">
-                    <p className="image is-32x32">
-                      <img src="http://bulma.io/images/placeholders/128x128.png" />
-                    </p>
-                  </div>
-                  <div className="media-content">
-                    <div className="content">
+                <MediaObject as="div">
+                  <MediaLeft as="div">
+                    <Image
+                      as="p"
+                      is32
+                      src="http://bulma.io/images/placeholders/128x128.png"
+                    />
+                  </MediaLeft>
+                  <MediaContent>
+                    <Content>
                       <p>
                         <a href="#">@brown</a> replied 3 hours ago &nbsp;
-                        <span className="tag">Question</span>
+                        <Tag as="span">Question</Tag>
                       </p>
-                    </div>
-                  </div>
-                  <div className="media-right">
+                    </Content>
+                  </MediaContent>
+                  <MediaRight>
                     <span className="has-text-grey-light">
-                      <i className="fa fa-comments"></i> 2
+                      <BaseIcon icon="comments" fa /> 2
                     </span>
-                  </div>
-                </div>
+                  </MediaRight>
+                </MediaObject>
               </article>
               <article className="post">
                 <h4>
                   I'm trying to use hamburger menu on bulma css, but it doesn't
                   work. What is wrong?
                 </h4>
-                <div className="media">
-                  <div className="media-left">
-                    <p className="image is-32x32">
-                      <img src="http://bulma.io/images/placeholders/128x128.png" />
-                    </p>
-                  </div>
-                  <div className="media-content">
-                    <div className="content">
+                <MediaObject as="div">
+                  <MediaLeft as="div">
+                    <Image
+                      as="p"
+                      is32
+                      src="http://bulma.io/images/placeholders/128x128.png"
+                    />
+                  </MediaLeft>
+                  <MediaContent>
+                    <Content>
                       <p>
                         <a href="#">@hamburgler</a> replied 5 hours ago &nbsp;
-                        <span className="tag">Question</span>
+                        <Tag as="span">Question</Tag>
                       </p>
-                    </div>
-                  </div>
-                  <div className="media-right">
+                    </Content>
+                  </MediaContent>
+                  <MediaRight>
                     <span className="has-text-grey-light">
-                      <i className="fa fa-comments"></i> 2
+                      <BaseIcon icon="comments" fa /> 2
                     </span>
-                  </div>
-                </div>
+                  </MediaRight>
+                </MediaObject>
               </article>
               <article className="post">
                 <h4>How to make tiles wrap with Bulma CSS?</h4>
-                <div className="media">
-                  <div className="media-left">
-                    <p className="image is-32x32">
-                      <img src="http://bulma.io/images/placeholders/128x128.png" />
-                    </p>
-                  </div>
-                  <div className="media-content">
-                    <div className="content">
+                <MediaObject as="div">
+                  <MediaLeft as="div">
+                    <Image
+                      as="p"
+                      is32
+                      src="http://bulma.io/images/placeholders/128x128.png"
+                    />
+                  </MediaLeft>
+                  <MediaContent>
+                    <Content>
                       <p>
                         <a href="#">@rapper</a> replied 3 hours ago &nbsp;
-                        <span className="tag">Question</span>
+                        <Tag as="span">Question</Tag>
                       </p>
-                    </div>
-                  </div>
-                  <div className="media-right">
+                    </Content>
+                  </MediaContent>
+                  <MediaRight>
                     <span className="has-text-grey-light">
-                      <i className="fa fa-comments"></i> 2
+                      <BaseIcon icon="comments" fa /> 2
                     </span>
-                  </div>
-                </div>
+                  </MediaRight>
+                </MediaObject>
               </article>
             </Box>
           </Column>
         </Columns>
       </Container>
-      <footer className="footer">
-        <div className="container">
-          <div className="content has-text-centered">
-            <div className="columns is-mobile is-centered">
-              <div className="field is-grouped is-grouped-multiline">
-                <div className="control">
-                  <div className="tags has-addons">
-                    <a
-                      className="tag is-link"
+      <Footer>
+        <Container>
+          <Content hasTextCentered>
+            <Columns isMobile isCentered>
+              <Field isGrouped isGroupedMultiline>
+                <Control>
+                  <Tags hasAddons>
+                    <Tag
+                      isLink
                       href="https://github.com/dansup/bulma-templates"
                     >
                       Bulma Templates
-                    </a>
-                    <span className="tag is-light">Daniel Supernault</span>
-                  </div>
-                </div>
-                <div className="control">
-                  <div className="tags has-addons">
-                    <a className="tag is-link">The source code is licensed</a>
-                    <span className="tag is-light">
-                      MIT &nbsp;<i className="fa fa-github"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+                    </Tag>
+                    <Tag isLight>Daniel Supernault</Tag>
+                  </Tags>
+                </Control>
+                <Control>
+                  <Tags hasAddons>
+                    <Tag isLink href="https://github.com/brightleaf/elements">
+                      Brightleaf/Elements
+                    </Tag>
+                    <Tag isLight>Kevin Isom</Tag>
+                  </Tags>
+                </Control>
+                <Control className="control">
+                  <Tags hasAddons className="tags has-addons">
+                    <Tag className="is-link">The source code is licensed</Tag>
+                    <Tag isLight>
+                      MIT &nbsp;<BaseIcon fab icon="github"></BaseIcon>
+                    </Tag>
+                  </Tags>
+                </Control>
+              </Field>
+            </Columns>
+          </Content>
+        </Container>
+      </Footer>
     </>
   )
 }
