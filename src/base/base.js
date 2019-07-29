@@ -9,15 +9,11 @@ export const Base = ({ as: Element, className, children, ...props }) => {
   const { onClick } = props
 
   const clean = htmlAttributes.reduce((objs, current) => {
-    console.log(current)
     if (props[current]) {
       objs[current] = props[current]
     }
     return objs
   }, {})
-
-  console.log('clean', clean)
-  console.log('props', props)
   return (
     <Element
       className={classnames(className, classes)}
