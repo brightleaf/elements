@@ -1,4 +1,5 @@
 export { AutoComplete } from './autocomplete'
+export { Base } from './base'
 export { Box } from './box'
 export { Breadcrumb, BreadcrumbItem } from './breadcrumb'
 export { Button, Buttons } from './button'

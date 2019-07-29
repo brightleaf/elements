@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Base component should render 1`] = `
+<div
+  class="base-class-to-check"
+>
+  <div
+    class="notification"
+  >
+    This container
+  </div>
+</div>
+`;
+
+exports[`Base component should render as label and for 1`] = `
+<label
+  class=""
+  for="something"
+>
+  <input
+    id="something"
+    type="text"
+  />
+  <div
+    class="notification"
+  >
+    This container is 
+    <strong>
+      primary
+    </strong>
+  </div>
+</label>
+`;
+
+exports[`Base component should render with extra classnames 1`] = `
+<div
+  class="base-class-to-check contained"
+>
+  <div
+    class="notification"
+  >
+    This container is 
+    <strong>
+      centered
+    </strong>
+     on desktop.
+  </div>
+</div>
+`;
+
+exports[`Base component should render with isFluid 1`] = `
+<div
+  class="is-fluid"
+>
+  <div
+    class="notification"
+  >
+    This container is 
+    <strong>
+      fluid
+    </strong>
+  </div>
+</div>
+`;
+
+exports[`Base component should render with isPrimary 1`] = `
+<div
+  class="is-primary"
+>
+  <div
+    class="notification"
+  >
+    This container is 
+    <strong>
+      primary
+    </strong>
+  </div>
+</div>
+`;
+
+exports[`Base component should render with isPrimary and be disabled 1`] = `
+<div
+  class="is-primary"
+>
+  <div
+    class="notification"
+  >
+    This container is 
+    <strong>
+      primary
+    </strong>
+  </div>
+</div>
+`;
+
+exports[`Base component should render with isWideScreen 1`] = `
+<div
+  class="is-widescreen"
+>
+  <div
+    class="notification"
+  >
+    This container is 
+    <strong>
+      isWideScreen
+    </strong>
+  </div>
+</div>
+`;
+
+exports[`Base component should render with isWideScreen 2`] = `
+<div
+  class="is-fullhd"
+>
+  <div
+    class="notification"
+  >
+    This container is 
+    <strong>
+      isFullHD
+    </strong>
+  </div>
+</div>
+`;
