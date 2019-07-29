@@ -8,7 +8,6 @@ export const Base = ({ as: Element, className, children, ...props }) => {
   const classes = allTheClasses(props)
   const { onClick } = props
 
-  console.log('el', Element.toString())
   const clean = htmlAttributes['*']
     .concat(htmlAttributes[Element] || [])
     .reduce((objs, current) => {
