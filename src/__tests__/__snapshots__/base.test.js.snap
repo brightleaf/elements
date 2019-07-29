@@ -12,6 +12,14 @@ exports[`Base component should render 1`] = `
 </div>
 `;
 
+exports[`Base component should render an image tag 1`] = `
+<img
+  alt="alt attr"
+  class=""
+  src="something.jpg"
+/>
+`;
+
 exports[`Base component should render as label and for 1`] = `
 <label
   class=""

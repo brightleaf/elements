@@ -98,4 +98,11 @@ describe('Base component', () => {
     )
     expect(container.firstChild).toMatchSnapshot()
   })
+
+  it('should render an image tag', () => {
+    const { container } = render(
+      <Base as="img" src="something.jpg" alt="alt attr" />
+    )
+    expect(container.firstChild).toMatchSnapshot()
+  })
 })
