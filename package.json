@@ -41,7 +41,7 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@brightleaf/react-hooks": "^1.4.0",
+    "@brightleaf/react-hooks": "^1.5.0",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "react-form-elements": "^4.11.0"
