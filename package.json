@@ -41,9 +41,10 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@brightleaf/react-hooks": "^1.1.1",
+    "@brightleaf/react-hooks": "^1.4.0",
     "classnames": "^2.2.6",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "react-form-elements": "^4.11.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -55,14 +56,14 @@
     "@kev_nz/eslint-config": "^4.0.0",
     "@reach/router": "^1.2.1",
     "@testing-library/jest-dom": "^4.0.0",
-    "@testing-library/react": "^8.0.6",
+    "@testing-library/react": "^8.0.7",
     "acorn": "^6.2.1",
     "babel-loader": "^8.0.6",
-    "copy-webpack-plugin": "^5.0.3",
+    "copy-webpack-plugin": "^5.0.4",
     "core-js": "^3.1.4",
     "css-loader": "^3.1.0",
     "eslint": "^6.1.0",
-    "gh-pages": "^2.0.1",
+    "gh-pages": "^2.1.0",
     "hash-source": "^1.0.4",
     "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
@@ -74,10 +75,10 @@
     "react-syntax-highlighter": "^11.0.2",
     "regenerator-runtime": "^0.13.3",
     "style-loader": "^0.23.1",
-    "terser-webpack-plugin": "^1.3.0",
+    "terser-webpack-plugin": "^1.4.1",
     "web-cli": "^1.0.0",
-    "webpack": "^4.37.0",
-    "webpack-bundle-analyzer": "^3.3.2",
+    "webpack": "^4.39.0",
+    "webpack-bundle-analyzer": "^3.4.1",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
   }
