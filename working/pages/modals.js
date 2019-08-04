@@ -5,7 +5,6 @@ import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
 import {
   Box,
   Button,
-  Container,
   Column,
   Columns,
   Image,
