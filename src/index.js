@@ -25,6 +25,7 @@ export {
 } from './dropdown'
 export { Field } from './field'
 export { Footer } from './footer'
+export { Form } from './form'
 export { Heading } from './heading'
 export { Header } from './header'
 export { Hero, HeroBody, HeroFooter, HeroHead } from './hero'
@@ -59,6 +60,7 @@ export {
   NavBarStart,
   NavBarMenu,
 } from './navbar'
+export { NavigationView } from './navigation-view'
 export { Notification } from './notification'
 export {
   Pagination,
@@ -74,5 +76,6 @@ export { SubTitle } from './subtitle'
 export { Table } from './table'
 export { Tabs, TabItem, TabList } from './tabs'
 export { Tag, Tags } from './tag'
+export { TextInput } from './input'
 export { Tile } from './tile'
 export { Title } from './title'
