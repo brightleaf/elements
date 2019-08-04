@@ -13,7 +13,6 @@ export const NavigationView = ({ children, className }) => {
     >
       <a
         className={classnames('navbar-burger', { 'is-active': !isActive })}
-        id="myToggleButton"
         role="button"
         aria-expanded="false"
         aria-label="menu"

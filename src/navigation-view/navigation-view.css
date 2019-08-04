@@ -85,6 +85,9 @@
 .navigation-view.is-static.is-active .menu-list a {
   text-align: left;
 }
+.navigation-view .menu {
+  /*background: transparent!important;*/
+}
 
 @media screen and (min-width: 1088px) {
   .navigation-view.is-static {
@@ -127,10 +130,17 @@
 body.has-static-navigation-view {
   padding-left: 75px;
 }
+body.has-static-navigation-view  .is-fixed-top {
+  left: 75px;
+}
 
 @media screen and (min-width: 1088px) {
   body.has-static-navigation-view {
     padding-left: 280px;
+  }
+
+  body.has-static-navigation-view .is-fixed-top,  body.has-static-navigation-view .is-fixed-bottom  {
+    left: 280px;
   }
 }
 
