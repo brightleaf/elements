@@ -94,7 +94,4 @@ TextInput.defaultProps = {
   initialValue: '',
   type: 'text',
   label: 'label',
-  className: '',
-  inputClassName: '',
-  labelClassName: '',
 }
