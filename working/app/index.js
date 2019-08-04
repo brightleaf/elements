@@ -20,6 +20,12 @@ import {
   NavBarStart,
   NavBarMenu,
   Section,
+  NavigationView,
+  Icon,
+  Menu,
+  MenuLabel,
+  MenuList,
+  MenuListItem,
 } from '../../src'
 
 const Home = lazy(() => import('./home'))
@@ -50,6 +56,7 @@ const Images = lazy(() => import('../pages/image'))
 const Menus = lazy(() => import('../pages/menu'))
 const Pager = lazy(() => import('../pages/pagination'))
 const Tab = lazy(() => import('../pages/tabs'))
+const Work = lazy(() => import('../samples/work'))
 let source = createHashSource()
 let history = createHistory(source)
 
@@ -85,6 +92,94 @@ export default class App extends Component {
   render() {
     return (
       <LocationProvider history={history}>
+        <NavigationView>
+          <Menu>
+            <MenuLabel>General</MenuLabel>
+            <MenuList className="menu-list">
+              <MenuListItem>
+                <Link to="/" className="is-active">
+                  <Icon fas icon="box" /> Dashboard
+                </Link>
+              </MenuListItem>
+              <MenuListItem>
+                <a>
+                  <Icon fas icon="address-card" /> Customers
+                </a>
+              </MenuListItem>
+            </MenuList>
+            <MenuLabel>Templates</MenuLabel>
+
+            <MenuList>
+              <MenuListItem>
+                <a href="templates.html#ADMIN">
+                  <Icon fas icon="cogs" />
+                  Admin
+                </a>
+              </MenuListItem>
+              <MenuListItem>
+                <a href="templates.html#BLOG">
+                  <Icon fas icon="blog" />
+                  Blog
+                </a>
+              </MenuListItem>
+              <MenuListItem>
+                <a href="templates.html#HERO">
+                  <Icon fab icon="superpowers" /> Hero
+                </a>
+              </MenuListItem>
+              <MenuListItem>
+                <a href="templates.html#COVER">
+                  <Icon fas icon="book-open" /> Cover
+                </a>
+              </MenuListItem>
+              <MenuListItem>
+                <a href="templates.html#CHEATSHEET">
+                  <Icon fas icon="code" /> CheatSheet
+                </a>
+              </MenuListItem>
+              <MenuListItem>
+                <a href="templates.html#FORUM">
+                  <Icon far icon="comments" /> Forum
+                </a>
+              </MenuListItem>
+              <MenuListItem>
+                <a href="templates.html#INBOX">
+                  <Icon fas icon="inbox" /> Inbox
+                </a>
+              </MenuListItem>
+              <MenuListItem>
+                <a href="templates.html#INBOX">
+                  <Icon fas icon="plane-arrival" /> Landing
+                </a>
+              </MenuListItem>
+              <MenuListItem>
+                <a href="templates.html#IMAGE_TIMELINE">
+                  <Icon far icon="images" />
+                  Insta
+                </a>
+              </MenuListItem>
+            </MenuList>
+            <MenuLabel>Transactions</MenuLabel>
+            <MenuList>
+              <MenuListItem>
+                <a>
+                  <Icon fas icon="credit-card" /> Payments
+                </a>
+              </MenuListItem>
+              <MenuListItem>
+                <a>
+                  <Icon fas icon="align-center" /> Transfers
+                </a>
+              </MenuListItem>
+              <MenuListItem>
+                <a>
+                  <Icon fas icon="briefcase" /> Balance
+                </a>
+              </MenuListItem>
+            </MenuList>
+          </Menu>
+        </NavigationView>
+
         <Fragment>
           <Suspense fallback={<div>Loading</div>}>
             <NavBar isFixedTop>
@@ -210,6 +305,9 @@ export default class App extends Component {
                     </NavBarItem>
                     <NavBarDivider />
                     <NavBarItem>
+                      <UpLink to="/nav-view">Nav View</UpLink>
+                    </NavBarItem>
+                    <NavBarItem>
                       <a href="https://github.com/brightleaf/elements/issues/new">
                         Report an issue
                       </a>
@@ -279,6 +377,7 @@ export default class App extends Component {
               <Menus path="/menu" />
               <Pager path="/pagination" />
               <Tab path="/tabs" />
+              <Work path="/nav-view" />
             </Router>
           </Suspense>
         </Fragment>
