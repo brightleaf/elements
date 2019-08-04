@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import classnames from 'classnames'
 import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
 import { useScript } from '@brightleaf/react-hooks/lib/use-script'
@@ -80,7 +80,7 @@ export const InboxTemplate = () => {
     picked: true,
   })
 
-  const { data, error, loading, getUrl } = useGet(
+  const { data, loading, getUrl, complete } = useGet(
     'https://kev-pi.herokuapp.com/api/mock/entities',
     {
       cors: 'no-cors',
@@ -98,13 +98,15 @@ export const InboxTemplate = () => {
       },
     }
   )
+
   const [menu, setMenu] = useState(false)
   if ((data === null || data.length === 0) && !loading) {
     getUrl()
   }
+
   let messages = <div className="loader"> </div>
-  if (data && data.data) {
-    messages = data.data.map((msg, index) => {
+  if (complete && data && data.length > 0) {
+    messages = data.map((msg, index) => {
       return (
         <MessageCard
           active={msg == message}
