@@ -7,7 +7,7 @@ import htmlAttributes from '../element-attributes'
  * TextBox Component.
  *
  */
-const TextInput = forwardRef(
+export const TextInput = forwardRef(
   (
     {
       name,
