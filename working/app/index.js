@@ -59,6 +59,7 @@ const Tab = lazy(() => import('../pages/tabs'))
 const Work = lazy(() => import('../samples/work'))
 const Layouts = lazy(() => import('../pages/layouts'))
 const Elements = lazy(() => import('../pages/elements'))
+const Components = lazy(() => import('../pages/components'))
 let source = createHashSource()
 let history = createHistory(source)
 
@@ -112,7 +113,7 @@ export default class App extends Component {
                 </UpLink>
               </MenuListItem>
               <MenuListItem>
-                <UpLink to="/elements">
+                <UpLink to="/forms">
                   <Icon fab icon="wpforms" /> Forms
                 </UpLink>
               </MenuListItem>
@@ -122,7 +123,7 @@ export default class App extends Component {
                 </UpLink>
               </MenuListItem>
               <MenuListItem>
-                <UpLink to="/elements">
+                <UpLink to="/components">
                   <Icon fas icon="cubes" /> Components
                 </UpLink>
               </MenuListItem>
@@ -400,6 +401,7 @@ export default class App extends Component {
               <Work path="/nav-view" />
               <Layouts path="/layouts" />
               <Elements path="/elements" />
+              <Components path="/components" />
             </Router>
           </Suspense>
         </Fragment>
