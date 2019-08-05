@@ -39,9 +39,10 @@ export default () => {
     <Section>
       <Hero isLight isBold>
         <HeroBody>
-          <Title>Container</Title>
+          <Title>Level</Title>
           <SubTitle as="p" is="4">
-            A simple container to center your content horizontally
+            A multi-purpose <strong>horizontal level</strong>, which can contain
+            almost any other element
           </SubTitle>
         </HeroBody>
       </Hero>
