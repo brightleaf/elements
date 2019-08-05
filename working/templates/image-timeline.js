@@ -211,7 +211,7 @@ export const ImageTimelineTemplate = () => {
             </Header>
             <CardImage
               is4by3
-              src="https://source.unsplash.com/random/1280x960"
+              src="https://source.unsplash.com/random/1280x964"
               alt="Placeholder image"
             />
 
@@ -290,7 +290,7 @@ export const ImageTimelineTemplate = () => {
             </Header>
             <CardImage
               is4by3
-              src="https://source.unsplash.com/random/1280x960"
+              src="https://source.unsplash.com/random/1280x963"
               alt="Placeholder image"
             />
 
@@ -369,7 +369,7 @@ export const ImageTimelineTemplate = () => {
             </Header>
             <CardImage
               is4by3
-              src="https://source.unsplash.com/random/1280x960"
+              src="https://source.unsplash.com/random/1280x962"
               alt="Placeholder image"
             />
 
@@ -448,7 +448,7 @@ export const ImageTimelineTemplate = () => {
             </Header>
             <CardImage
               is4by3
-              src="https://source.unsplash.com/random/1280x960"
+              src="https://source.unsplash.com/random/1280x961"
               alt="Placeholder image"
             />
 
