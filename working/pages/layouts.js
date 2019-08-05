@@ -102,7 +102,7 @@ const Layouts = () => {
           </Link>
         </Column>
         <Column isOneThird>
-          <MediaObject to="/hero" className="comp-link">
+          <Link to="/hero" className="comp-link">
             <MediaObject className="notification has-background-white media">
               <MediaLeft className="media-left">
                 <Icon fab icon="superpowers" className="fa-lg" hasTextGrey />
@@ -119,7 +119,7 @@ const Layouts = () => {
                 </Content>
               </MediaContent>
             </MediaObject>
-          </MediaObject>
+          </Link>
         </Column>
         <Column isOneThird>
           <Link to="/section" className="comp-link">

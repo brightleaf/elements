@@ -121,7 +121,7 @@ const Layouts = () => {
           </Link>
         </Column>
         <Column isOneThird>
-          <Link to="/message" className="comp-link">
+          <Link to="/messages" className="comp-link">
             <MediaObject className="notification has-background-white">
               <MediaLeft>
                 <Icon
@@ -146,7 +146,7 @@ const Layouts = () => {
           </Link>
         </Column>
         <Column>
-          <Link to="/modal" className="comp-link">
+          <Link to="/modals" className="comp-link">
             <MediaObject className="notification has-background-white media">
               <MediaLeft className="media-left">
                 <Icon fas icon="clone" className="fa-lg" hasTextDanger />
@@ -166,7 +166,7 @@ const Layouts = () => {
           </Link>
         </Column>
         <Column isOneThird>
-          <Link to="/navbar" className="comp-link">
+          <Link to="/navbars" className="comp-link">
             <MediaObject className="notification has-background-white media">
               <MediaLeft className="media-left">
                 <Icon fas icon="minus" className="fa-lg" hasTextGrey />
@@ -211,7 +211,7 @@ const Layouts = () => {
           </Link>
         </Column>
         <Column isOneThird>
-          <Link to="/panel" className="comp-link">
+          <Link to="/panels" className="comp-link">
             <MediaObject className="notification has-background-white media">
               <MediaLeft className="media-left">
                 <Icon far icon="list-alt" className="fa-lg" hasTextGrey />
