@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import classnames from 'classnames'
 import { Colors } from '../modifiers'
 
@@ -132,6 +132,16 @@ export const NavBar = ({
 }) => {
   // is-transparent is-fixed-top  is-fixed-bottom
   const [isActive, setActive] = useState(false)
+  useEffect(() => {
+    if (isFixedTop || isFixedBottom) {
+      const body = document.body.querySelector('body')
+      if (!body) return
+      body.classList.add('has-navbar-fixed-top')
+      return () => {
+        body.classList.remove('has-navbar-fixed-top')
+      }
+    }
+  }, [isFixedTop, isFixedBottom])
 
   const classes = classnames('navbar', className, {
     'is-transparent': isTransparent,
