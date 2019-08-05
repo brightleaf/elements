@@ -57,6 +57,8 @@ const Menus = lazy(() => import('../pages/menu'))
 const Pager = lazy(() => import('../pages/pagination'))
 const Tab = lazy(() => import('../pages/tabs'))
 const Work = lazy(() => import('../samples/work'))
+const Layouts = lazy(() => import('../pages/layouts'))
+const Elements = lazy(() => import('../pages/elements'))
 let source = createHashSource()
 let history = createHistory(source)
 
@@ -97,14 +99,32 @@ export default class App extends Component {
             <MenuLabel>General</MenuLabel>
             <MenuList className="menu-list">
               <MenuListItem>
-                <Link to="/" className="is-active">
-                  <Icon fas icon="box" /> Dashboard
-                </Link>
+                <UpLink to="/">
+                  <Icon fas icon="home" /> Home
+                </UpLink>
+              </MenuListItem>
+            </MenuList>
+            <MenuLabel>Documentation</MenuLabel>
+            <MenuList className="menu-list">
+              <MenuListItem>
+                <UpLink to="/layouts">
+                  <Icon fas icon="warehouse" /> Layout
+                </UpLink>
               </MenuListItem>
               <MenuListItem>
-                <a>
-                  <Icon fas icon="address-card" /> Customers
-                </a>
+                <UpLink to="/elements">
+                  <Icon fab icon="wpforms" /> Forms
+                </UpLink>
+              </MenuListItem>
+              <MenuListItem>
+                <UpLink to="/elements">
+                  <Icon fas icon="cube" /> Elements
+                </UpLink>
+              </MenuListItem>
+              <MenuListItem>
+                <UpLink to="/elements">
+                  <Icon fas icon="cubes" /> Components
+                </UpLink>
               </MenuListItem>
             </MenuList>
             <MenuLabel>Templates</MenuLabel>
@@ -378,6 +398,8 @@ export default class App extends Component {
               <Pager path="/pagination" />
               <Tab path="/tabs" />
               <Work path="/nav-view" />
+              <Layouts path="/layouts" />
+              <Elements path="/elements" />
             </Router>
           </Suspense>
         </Fragment>
