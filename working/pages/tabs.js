@@ -4,8 +4,8 @@ import React from 'react'
 import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
 import { useTitle } from '@brightleaf/react-hooks/lib/use-title'
 import {
-  Button,
-  Control,
+  Breadcrumb,
+  BreadcrumbItem,
   Columns,
   Column,
   Icon,
@@ -27,7 +27,20 @@ export default () => {
   useStyleSheet('code.css')
   return (
     <Section>
-      <Hero isLight isBold>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/components">Components</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/tabs">Tabs</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+      <Hero isPrimary isBold>
         <HeroBody>
           <Title>Tabs</Title>
           <SubTitle as="p" is="4">
@@ -36,8 +49,10 @@ export default () => {
           </SubTitle>
         </HeroBody>
       </Hero>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <ComponentsTabs />
+      </div>
 
-      <ComponentsTabs />
       <Snippet>
         <Columns>
           <Column isHalf>

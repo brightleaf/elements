@@ -4,6 +4,8 @@ import { useTitle } from '@brightleaf/react-hooks/lib/use-title'
 import {
   Icon,
   BaseIcon,
+  Breadcrumb,
+  BreadcrumbItem,
   StackedIcons,
   Column,
   Columns,
@@ -22,7 +24,20 @@ export default () => {
 
   return (
     <Section>
-      <Hero isLight isBold>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/elements">Elements</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/icons">Icon</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+      <Hero isPrimary isBold>
         <HeroBody>
           <Title>Icon</Title>
           <SubTitle as="p" is="4">
@@ -30,8 +45,9 @@ export default () => {
           </SubTitle>
         </HeroBody>
       </Hero>
-
-      <ElementsTabs />
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <ElementsTabs />
+      </div>
       <Snippet>
         <Columns>
           <Column isHalf>

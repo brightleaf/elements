@@ -6,6 +6,8 @@ import { useStyles } from '@brightleaf/react-hooks/lib/use-styles'
 import Highlight from '../components/highlighter'
 import {
   Box,
+  Breadcrumb,
+  BreadcrumbItem,
   Button,
   Buttons,
   Columns,
@@ -35,16 +37,32 @@ export default () => {
   useStyleSheet('code.css')
   return (
     <Section>
-      <Hero isLight isBold>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/elements">Elements</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/buttons">Buttons</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+
+      <Hero isPrimary isBold>
         <HeroBody>
-          <Title>Box</Title>
+          <Title>Button</Title>
           <SubTitle as="p" is="4">
-            A white <strong>box</strong> to contain other elements
+            The classic <strong>button</strong>, in different colors, sizes, and
+            states
           </SubTitle>
         </HeroBody>
       </Hero>
-
-      <ElementsTabs />
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <ElementsTabs />
+      </div>
       <FullColumn>
         <Content>
           <p>

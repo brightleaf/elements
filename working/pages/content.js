@@ -5,22 +5,13 @@ import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
 import { useStyles } from '@brightleaf/react-hooks/lib/use-styles'
 import Highlight from '../components/highlighter'
 import {
-  Box,
+  Breadcrumb,
+  BreadcrumbItem,
   Content,
   Columns,
   Column,
-  Delete,
   Hero,
   HeroBody,
-  Icon,
-  Image,
-  Level,
-  LevelItem,
-  LevelLeft,
-  MediaContent,
-  MediaLeft,
-  MediaObject,
-  MediaRight,
   Section,
   SubTitle,
   Title,
@@ -39,7 +30,20 @@ export default () => {
   useStyleSheet('code.css')
   return (
     <Section>
-      <Hero isLight isBold>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/elements">Elements</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/content">Content</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+      <Hero isPrimary isBold>
         <HeroBody>
           <Title>Content</Title>
           <SubTitle as="p" is="4">
@@ -48,8 +52,9 @@ export default () => {
           </SubTitle>
         </HeroBody>
       </Hero>
-
-      <ElementsTabs />
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <ElementsTabs />
+      </div>
       <Snippet>
         <Columns>
           <Column isHalf className="snippet-preview">

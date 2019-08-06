@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
 import { useStyles } from '@brightleaf/react-hooks/lib/use-styles'
 import {
-  Container,
+  Breadcrumb,
+  BreadcrumbItem,
   Column,
   Columns,
   AutoComplete,
@@ -35,15 +36,30 @@ export default () => {
   )
   return (
     <Section className="App">
-      <Hero isLight isBold>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/components">Components</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/autocomplete">AutoComplete</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+      <Hero isPrimary isBold>
         <HeroBody>
           <Title>AutoComplete</Title>
           <SubTitle as="p" is="4">
-            A simple <strong>autocomplete</strong>
+            A simple <strong>AutoComplete</strong>
           </SubTitle>
         </HeroBody>
       </Hero>
-      <ComponentsTabs />
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <ComponentsTabs />
+      </div>
       <Snippet>
         <Columns>
           <Column isHalf className="snippet-preview">

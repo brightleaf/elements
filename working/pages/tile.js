@@ -3,6 +3,8 @@
 import React from 'react'
 import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
 import {
+  Breadcrumb,
+  BreadcrumbItem,
   Content,
   Columns,
   Column,
@@ -19,6 +21,19 @@ export default () => {
   useStyleSheet('code.css')
   return (
     <Section>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/elements">Elements</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/tiles">Tiles</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
       <Hero isLight isBold>
         <HeroBody>
           <Title>Tiles powered by Flexbox</Title>

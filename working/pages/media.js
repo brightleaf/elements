@@ -1,6 +1,8 @@
 /* eslint-disable spellcheck/spell-checker */
 import React from 'react'
 import {
+  Breadcrumb,
+  BreadcrumbItem,
   Delete,
   MediaObject,
   MediaLeft,
@@ -22,7 +24,20 @@ import { LayoutTabs } from '../components/tabs'
 export default () => {
   return (
     <Section>
-      <Hero isLight isBold>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/layouts">Layout</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/hero">Media Object</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+      <Hero isPrimary isBold>
         <HeroBody>
           <Title>Media Object</Title>
           <SubTitle as="p" is="4">
@@ -31,7 +46,10 @@ export default () => {
           </SubTitle>
         </HeroBody>
       </Hero>
-      <LayoutTabs />
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <LayoutTabs />
+      </div>
+
       <Container>
         <Columns>
           <Column isFourFifths>

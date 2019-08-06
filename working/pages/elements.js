@@ -1,38 +1,35 @@
 import React from 'react'
 import { Link } from '@reach/router'
 import {
-  BaseIcon,
-  Box,
-  Button,
+  Breadcrumb,
+  BreadcrumbItem,
   Column,
   Columns,
-  Container,
   Content,
-  Control,
-  Field,
-  Footer,
   Hero,
   HeroBody,
   MediaObject,
   MediaContent,
   MediaLeft,
-  Menu,
-  MenuLabel,
-  MenuList,
-  MenuListItem,
   Icon,
   Title,
   SubTitle,
   Section,
-  Tag,
-  Tags,
-  Message,
-  MessageBody,
 } from '../../src/'
 const Elements = () => {
   return (
     <Section>
-      <Hero isLight isBold>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/elements">Elements</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+      <Hero>
         <HeroBody>
           <Title>Elements</Title>
           <SubTitle as="p" is="4">
@@ -40,6 +37,7 @@ const Elements = () => {
           </SubTitle>
         </HeroBody>
       </Hero>
+      <hr />
       <Columns isMultiline>
         <Column isOneThird>
           <Link to="/box" className="comp-link">

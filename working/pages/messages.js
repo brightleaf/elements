@@ -3,6 +3,8 @@
 import React from 'react'
 import {
   Box,
+  Breadcrumb,
+  BreadcrumbItem,
   Content,
   Column,
   Columns,
@@ -21,8 +23,21 @@ import Highlight from '../components/highlighter'
 
 export default () => {
   return (
-    <Section className="App">
-      <Hero isLight isBold>
+    <Section>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/components">Components</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/messages">Message</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+      <Hero isPrimary isBold>
         <HeroBody>
           <Title>Message</Title>
           <SubTitle as="p" is="4">
@@ -31,7 +46,10 @@ export default () => {
           </SubTitle>
         </HeroBody>
       </Hero>
-      <ComponentsTabs />
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <ComponentsTabs />
+      </div>
+
       <Content>
         <Columns>
           <Column isOneThird>

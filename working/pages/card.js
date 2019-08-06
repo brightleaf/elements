@@ -1,13 +1,14 @@
 /* eslint-disable spellcheck/spell-checker */
 import React from 'react'
 import {
+  Breadcrumb,
+  BreadcrumbItem,
   Card,
   CardBody,
   CardHeader,
   CardFooter,
   CardFooterItem,
   CardImage,
-  Container,
   Content,
   Column,
   Columns,
@@ -25,7 +26,21 @@ import Highlight from '../components/highlighter'
 export default () => {
   return (
     <Section>
-      <Hero isLight isBold>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/components">Components</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/card">Card</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+
+      <Hero isPrimary isBold>
         <HeroBody>
           <Title>Card</Title>
           <SubTitle as="p" is="4">
@@ -33,8 +48,9 @@ export default () => {
           </SubTitle>
         </HeroBody>
       </Hero>
-
-      <ComponentsTabs />
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <ComponentsTabs />
+      </div>
       <Snippet>
         <Columns>
           <Column isOneQuarter>

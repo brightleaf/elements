@@ -5,6 +5,8 @@ import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
 import { useTitle } from '@brightleaf/react-hooks/lib/use-title'
 import {
   Box,
+  Breadcrumb,
+  BreadcrumbItem,
   Button,
   Column,
   Columns,
@@ -37,7 +39,20 @@ export default () => {
   useStyleSheet('code.css')
   return (
     <Section>
-      <Hero isLight isBold>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/components">Components</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/level">Level</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+      <Hero isPrimary isBold>
         <HeroBody>
           <Title>Level</Title>
           <SubTitle as="p" is="4">
@@ -46,7 +61,10 @@ export default () => {
           </SubTitle>
         </HeroBody>
       </Hero>
-      <LayoutTabs />
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <LayoutTabs />
+      </div>
+
       <Snippet>
         <Columns>
           <Column isHalf>

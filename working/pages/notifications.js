@@ -2,6 +2,8 @@
 /* eslint-disable spellcheck/spell-checker */
 import React, { useRef, useState } from 'react'
 import {
+  Breadcrumb,
+  BreadcrumbItem,
   Columns,
   Column,
   FullColumn,
@@ -21,8 +23,21 @@ export default () => {
   const notifRef = useRef()
 
   return (
-    <Section className="App content">
-      <Hero isLight isBold>
+    <Section>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/elements">Elements</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/notifications">Notification</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+      <Hero isPrimary isBold>
         <HeroBody>
           <Title>Notification</Title>
           <SubTitle as="p" is="4">
@@ -31,8 +46,10 @@ export default () => {
           </SubTitle>
         </HeroBody>
       </Hero>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <ElementsTabs />
+      </div>
 
-      <ElementsTabs />
       <Snippet>
         <Columns>
           <Column isOneThird>

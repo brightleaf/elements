@@ -4,6 +4,8 @@ import React from 'react'
 import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
 import {
   Box,
+  Breadcrumb,
+  BreadcrumbItem,
   Button,
   Column,
   Columns,
@@ -30,7 +32,20 @@ export default () => {
   useStyleSheet('code.css')
   return (
     <Section>
-      <Hero isLight isBold>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/components">Components</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/modals">Modal</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+      <Hero isPrimary isBold>
         <HeroBody>
           <Title>Modal</Title>
           <SubTitle as="p" is="4">
@@ -39,7 +54,9 @@ export default () => {
           </SubTitle>
         </HeroBody>
       </Hero>
-      <ComponentsTabs />
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <ComponentsTabs />
+      </div>
       <Snippet>
         <Columns>
           <Column isOneThird>

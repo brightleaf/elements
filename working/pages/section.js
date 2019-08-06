@@ -3,6 +3,8 @@
 import React from 'react'
 import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
 import {
+  Breadcrumb,
+  BreadcrumbItem,
   Columns,
   Column,
   Hero,
@@ -17,7 +19,20 @@ export default () => {
   useStyleSheet('code.css')
   return (
     <Section>
-      <Hero isLight isBold>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/layouts">Layout</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/section">Section</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+      <Hero isPrimary isBold>
         <HeroBody>
           <Title>Section</Title>
           <SubTitle as="p" is="4">
@@ -26,7 +41,10 @@ export default () => {
           </SubTitle>
         </HeroBody>
       </Hero>
-      <LayoutTabs />
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <LayoutTabs />
+      </div>
+
       <Columns>
         <Column isFull>
           Use sections as direct children of <code>body</code>.

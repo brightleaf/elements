@@ -21,17 +21,33 @@ import Highlight from '../components/highlighter'
 export default () => {
   return (
     <Section>
-      <Hero isLight isBold>
-        <HeroBody>
-          <Title>Breadcrumb</Title>
-          <SubTitle as="p" is="4">
-            A simple <strong>breadcrumb</strong> component to improve your
-            navigation experience
-          </SubTitle>
-        </HeroBody>
-      </Hero>
-
-      <ComponentsTabs />
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/components">Components</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/breadcrumb">Breadcrumb</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+      <div style={{ paddingBottom: '3em' }}>
+        <Hero isPrimary isBold>
+          <HeroBody>
+            <Title>Breadcrumb</Title>
+            <SubTitle as="p" is="4">
+              A simple <strong>breadcrumb</strong> component to improve your
+              navigation experience
+            </SubTitle>
+          </HeroBody>
+        </Hero>
+      </div>
+      <div style={{ paddingBottom: '3em' }}>
+        <ComponentsTabs />
+      </div>
       <FullColumn>
         <Content>
           <p>

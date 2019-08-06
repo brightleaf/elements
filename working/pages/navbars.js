@@ -3,7 +3,8 @@
 import React from 'react'
 
 import {
-  Box,
+  Breadcrumb,
+  BreadcrumbItem,
   Button,
   Buttons,
   NavBar,
@@ -31,16 +32,32 @@ const Example = ({ children, isPrimary }) => {
 export default () => {
   return (
     <Section>
-      <Hero isLight isBold>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/components">Components</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/navbars">NavBar</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+      <Hero isPrimary isBold>
         <HeroBody>
-          <Title>Modal</Title>
+          <Title>NavBar</Title>
           <SubTitle as="p" is="4">
-            A classic <strong>modal</strong> overlay, in which you can include
-            any content you want
+            A responsive horizontal <strong>NavBar</strong> that can support
+            images, links, buttons, and dropdowns
           </SubTitle>
         </HeroBody>
       </Hero>
-      <ComponentsTabs />
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <ComponentsTabs />
+      </div>
+
       <Example>
         <NavBar>
           <NavBarBrand

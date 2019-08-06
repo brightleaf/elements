@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
 import {
+  Breadcrumb,
+  BreadcrumbItem,
   DropDown,
   Column,
   Columns,
@@ -37,7 +39,20 @@ export default () => {
 
   return (
     <Section className="App">
-      <Hero isLight isBold>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/components">Components</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/dropdown">DropDown</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+      <Hero isPrimary isBold>
         <HeroBody>
           <Title>DropDown</Title>
           <SubTitle as="p" is="4">
@@ -46,8 +61,9 @@ export default () => {
           </SubTitle>
         </HeroBody>
       </Hero>
-
-      <ComponentsTabs />
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <ComponentsTabs />
+      </div>
       <FullColumn>
         <Content>
           <p>

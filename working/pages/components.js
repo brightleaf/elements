@@ -1,25 +1,16 @@
 import React from 'react'
 import { Link } from '@reach/router'
 import {
-  BaseIcon,
-  Box,
-  Button,
+  Breadcrumb,
+  BreadcrumbItem,
   Column,
   Columns,
-  Container,
   Content,
-  Control,
-  Field,
-  Footer,
   Hero,
   HeroBody,
   MediaObject,
   MediaContent,
   MediaLeft,
-  Menu,
-  MenuLabel,
-  MenuList,
-  MenuListItem,
   Icon,
   Title,
   SubTitle,
@@ -32,7 +23,17 @@ import {
 const Layouts = () => {
   return (
     <Section>
-      <Hero isLight isBold>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/components">Components</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+      <Hero>
         <HeroBody>
           <Title>Components</Title>
           <SubTitle as="p" is="4">
@@ -40,6 +41,7 @@ const Layouts = () => {
           </SubTitle>
         </HeroBody>
       </Hero>
+      <hr />
       <Columns isMultiline>
         <Column isOneThird>
           <Link to="/breadcrumb" className="comp-link">

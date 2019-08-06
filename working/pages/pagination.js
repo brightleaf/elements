@@ -4,6 +4,8 @@ import React from 'react'
 import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
 import { useTitle } from '@brightleaf/react-hooks/lib/use-title'
 import {
+  Breadcrumb,
+  BreadcrumbItem,
   Columns,
   Column,
   Hero,
@@ -28,7 +30,20 @@ export default () => {
   useStyleSheet('code.css')
   return (
     <Section>
-      <Hero isLight isBold>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/components">Components</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/pagination">Pagination</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+      <Hero isPrimary isBold>
         <HeroBody>
           <Title>Pagination</Title>
           <SubTitle as="p" is="4">
@@ -36,8 +51,10 @@ export default () => {
           </SubTitle>
         </HeroBody>
       </Hero>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <ComponentsTabs />
+      </div>
 
-      <ComponentsTabs />
       <Content>
         <p>The Pagination component consists of several elements:</p>
         <ul>

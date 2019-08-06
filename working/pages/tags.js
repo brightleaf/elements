@@ -2,7 +2,8 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react'
 import {
-  Box,
+  Breadcrumb,
+  BreadcrumbItem,
   Content,
   Column,
   Columns,
@@ -27,16 +28,31 @@ const Example = ({ children, isPrimary }) => {
 export default () => {
   return (
     <Section>
-      <Hero isLight isBold>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="#/">Home</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/components">Components</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <a href="#/tags">Tags</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+      <Hero isPrimary isBold>
         <HeroBody>
-          <Title>Image</Title>
+          <Title>Tags</Title>
           <SubTitle as="p" is="4">
-            Images
+            Small <strong>tag</strong> labels to insert anywhere
           </SubTitle>
         </HeroBody>
       </Hero>
+      <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
+        <ElementsTabs />
+      </div>
 
-      <ElementsTabs />
       <Content>
         <Example>
           <Columns>
