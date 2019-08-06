@@ -56,6 +56,7 @@ const Images = lazy(() => import('../pages/image'))
 const Menus = lazy(() => import('../pages/menu'))
 const Pager = lazy(() => import('../pages/pagination'))
 const Tab = lazy(() => import('../pages/tabs'))
+const Titles = lazy(() => import('../pages/titles'))
 const Work = lazy(() => import('../samples/work'))
 const Layouts = lazy(() => import('../pages/layouts'))
 const Elements = lazy(() => import('../pages/elements'))
@@ -203,7 +204,7 @@ export default class App extends Component {
 
         <Fragment>
           <Suspense fallback={<div>Loading</div>}>
-            <NavBar isFixedTop>
+            <NavBar isFixedTop className="brightleaf-navbar">
               <NavBarBrand
                 src="brightleafjs-logo.png"
                 href="https://brightleaf.dev"
@@ -398,6 +399,7 @@ export default class App extends Component {
               <Menus path="/menu" />
               <Pager path="/pagination" />
               <Tab path="/tabs" />
+              <Titles path="/titles" />
               <Work path="/nav-view" />
               <Layouts path="/layouts" />
               <Elements path="/elements" />
