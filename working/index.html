@@ -505,6 +505,61 @@
       .brightleaf-navbar .navbar-dropdown {
         z-index: 4000;
       }
+
+
+      .loader {
+        display: inline-block;
+        width: 128px;
+        height: 128px;
+        position: absolute;
+        top: 200px;
+        left: 450px;
+      }
+
+      .loader:after {
+        content: " ";
+        display: block;
+        width: 46px;
+        height: 46px;
+        margin: 1px;
+        border-radius: 50%;
+        border: 5px solid #fff;
+        border-color: #fff transparent #fff transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+      }
+
+      @keyframes lds-dual-ring {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+
+    @media screen and (max-width: 1024px) {
+      .loader {
+        display: inline-block;
+        width: 128px;
+        height: 128px;
+        position: absolute;
+        top: 200px;
+        left: 250px;
+      }
+
+      .loader:after {
+        content: " ";
+        display: block;
+        width: 46px;
+        height: 46px;
+        margin: 1px;
+        border-radius: 50%;
+        border: 5px solid #fff;
+        border-color: #fff transparent #fff transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+      }
     }
   </style>
 
