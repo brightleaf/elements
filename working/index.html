@@ -561,6 +561,29 @@
         animation: lds-dual-ring 1.2s linear infinite;
       }
     }
+
+    @media screen and (max-width: 400px) {
+      .loader {
+        display: inline-block;
+        width: 128px;
+        height: 128px;
+        position: absolute;
+        top: 200px;
+        left: 110px;
+      }
+
+      .loader:after {
+        content: " ";
+        display: block;
+        width: 46px;
+        height: 46px;
+        margin: 1px;
+        border-radius: 50%;
+        border: 5px solid #fff;
+        border-color: #fff transparent #fff transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+      }
+    }
   </style>
 
 </head>
