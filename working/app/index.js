@@ -61,6 +61,7 @@ const Work = lazy(() => import('../samples/work'))
 const Layouts = lazy(() => import('../pages/layouts'))
 const Elements = lazy(() => import('../pages/elements'))
 const Components = lazy(() => import('../pages/components'))
+const Loader = lazy(() => import('../pages/loading'))
 let source = createHashSource()
 let history = createHistory(source)
 
@@ -203,172 +204,171 @@ export default class App extends Component {
         </NavigationView>
 
         <Fragment>
-          <Suspense fallback={<div>Loading</div>}>
-            <NavBar isFixedTop className="brightleaf-navbar">
-              <NavBarBrand
-                src="brightleafjs-logo.png"
-                href="https://brightleaf.dev"
-                target="navbarBasicExample"
-                width="112"
-                height="28"
-              />
+          <NavBar isFixedTop className="brightleaf-navbar">
+            <NavBarBrand
+              src="brightleafjs-logo.png"
+              href="https://brightleaf.dev"
+              target="navbarBasicExample"
+              width="112"
+              height="28"
+            />
 
-              <NavBarMenu id="navbarBasicExample">
-                <NavBarStart>
+            <NavBarMenu id="navbarBasicExample">
+              <NavBarStart>
+                <NavBarItem>
+                  <UpLink to="/">Home</UpLink>
+                </NavBarItem>
+                <NavBarDropDown title="Layout">
                   <NavBarItem>
-                    <UpLink to="/">Home</UpLink>
+                    <UpLink to="/containers">Container</UpLink>
                   </NavBarItem>
-                  <NavBarDropDown title="Layout">
-                    <NavBarItem>
-                      <UpLink to="/containers">Container</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/level">Level</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/media">Media Object</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/hero">Hero</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/section">Section</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/footer">Footer</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/tiles">Tiles</UpLink>
-                    </NavBarItem>
-                    <NavBarDivider />
-
-                    <NavBarItem>
-                      <a href="https://github.com/brightleaf/elements/issues/new">
-                        Report an issue
-                      </a>
-                    </NavBarItem>
-                  </NavBarDropDown>
-
-                  <NavBarDropDown title="Elements">
-                    <NavBarItem>
-                      <UpLink to="/box">Box</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/buttons">Button</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/content">Content</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/delete">Delete</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/icons">Icon</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/images">Image</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/notifications">Notifications</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/progress">Progress Bars</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/tables">Tables</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/tags">Tag</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/titles">Title</UpLink>
-                    </NavBarItem>
-                    <NavBarDivider />
-                    <NavBarItem>
-                      <a href="https://github.com/brightleaf/elements/issues/new">
-                        Report an issue
-                      </a>
-                    </NavBarItem>
-                  </NavBarDropDown>
-
-                  <NavBarDropDown title="Components">
-                    <NavBarItem>
-                      <UpLink to="/autocomplete">AutoComplete</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/breadcrumb">Breadcrumb</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/card">Card</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/dropdown">DropDown</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/menu">Menu</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/messages">Messages</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/modals">Modal</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/navbars">NavBar</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/pagination">Pagination</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/panels">Panel</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <UpLink to="/tabs">Tabs</UpLink>
-                    </NavBarItem>
-                    <NavBarDivider />
-                    <NavBarItem>
-                      <UpLink to="/nav-view">Nav View</UpLink>
-                    </NavBarItem>
-                    <NavBarItem>
-                      <a href="https://github.com/brightleaf/elements/issues/new">
-                        Report an issue
-                      </a>
-                    </NavBarItem>
-                  </NavBarDropDown>
-                </NavBarStart>
-
-                <NavBarEnd>
                   <NavBarItem>
-                    <div>
-                      <Buttons>
-                        <Button isWarning isAnchor href="templates.html">
-                          <strong>
-                            <BaseIcon fas icon="eye" /> Examples
-                          </strong>
-                        </Button>
-                        <Button
-                          isLight
-                          isAnchor
-                          href="https://github.com/brightleaf/elements"
-                        >
-                          <strong>
-                            <BaseIcon fab icon="github" /> GitHub
-                          </strong>
-                        </Button>
-                        <Button
-                          isLight
-                          isAnchor
-                          href="https://github.com/brightleaf/elements/releases"
-                        >
-                          Download
-                        </Button>
-                      </Buttons>
-                    </div>
+                    <UpLink to="/level">Level</UpLink>
                   </NavBarItem>
-                </NavBarEnd>
-              </NavBarMenu>
-            </NavBar>
+                  <NavBarItem>
+                    <UpLink to="/media">Media Object</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/hero">Hero</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/section">Section</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/footer">Footer</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/tiles">Tiles</UpLink>
+                  </NavBarItem>
+                  <NavBarDivider />
 
+                  <NavBarItem>
+                    <a href="https://github.com/brightleaf/elements/issues/new">
+                      Report an issue
+                    </a>
+                  </NavBarItem>
+                </NavBarDropDown>
+
+                <NavBarDropDown title="Elements">
+                  <NavBarItem>
+                    <UpLink to="/box">Box</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/buttons">Button</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/content">Content</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/delete">Delete</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/icons">Icon</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/images">Image</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/notifications">Notifications</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/progress">Progress Bars</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/tables">Tables</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/tags">Tag</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/titles">Title</UpLink>
+                  </NavBarItem>
+                  <NavBarDivider />
+                  <NavBarItem>
+                    <a href="https://github.com/brightleaf/elements/issues/new">
+                      Report an issue
+                    </a>
+                  </NavBarItem>
+                </NavBarDropDown>
+
+                <NavBarDropDown title="Components">
+                  <NavBarItem>
+                    <UpLink to="/autocomplete">AutoComplete</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/breadcrumb">Breadcrumb</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/card">Card</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/dropdown">DropDown</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/menu">Menu</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/messages">Messages</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/modals">Modal</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/navbars">NavBar</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/pagination">Pagination</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/panels">Panel</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/tabs">Tabs</UpLink>
+                  </NavBarItem>
+                  <NavBarDivider />
+                  <NavBarItem>
+                    <UpLink to="/nav-view">Nav View</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <a href="https://github.com/brightleaf/elements/issues/new">
+                      Report an issue
+                    </a>
+                  </NavBarItem>
+                </NavBarDropDown>
+              </NavBarStart>
+
+              <NavBarEnd>
+                <NavBarItem>
+                  <div>
+                    <Buttons>
+                      <Button isWarning isAnchor href="templates.html">
+                        <strong>
+                          <BaseIcon fas icon="eye" /> Examples
+                        </strong>
+                      </Button>
+                      <Button
+                        isLight
+                        isAnchor
+                        href="https://github.com/brightleaf/elements"
+                      >
+                        <strong>
+                          <BaseIcon fab icon="github" /> GitHub
+                        </strong>
+                      </Button>
+                      <Button
+                        isLight
+                        isAnchor
+                        href="https://github.com/brightleaf/elements/releases"
+                      >
+                        Download
+                      </Button>
+                    </Buttons>
+                  </div>
+                </NavBarItem>
+              </NavBarEnd>
+            </NavBarMenu>
+          </NavBar>
+          <Suspense fallback={<div className="loader-spinner"> </div>}>
             <Router>
               <NotFound default />
               <Home path="/" />
@@ -404,6 +404,7 @@ export default class App extends Component {
               <Layouts path="/layouts" />
               <Elements path="/elements" />
               <Components path="/components" />
+              <Loader path="/loader" />
             </Router>
           </Suspense>
         </Fragment>
