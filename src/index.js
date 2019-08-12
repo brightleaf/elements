@@ -1,5 +1,6 @@
 export { AutoComplete } from './autocomplete'
 export { Base } from './base'
+export { Base as Element } from './base'
 export { Box } from './box'
 export { Breadcrumb, BreadcrumbItem } from './breadcrumb'
 export { Button, Buttons } from './button'
@@ -12,6 +13,7 @@ export {
   CardImage,
   CardImageContainer,
 } from './card'
+export { Collapse } from './collapse'
 export { Column, Columns, FullColumn } from './columns'
 export { Container } from './container'
 export { Content } from './content'
