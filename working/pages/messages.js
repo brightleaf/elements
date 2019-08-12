@@ -1,10 +1,11 @@
 /* eslint-disable spellcheck/spell-checker */
 /* eslint-disable sonarjs/no-duplicate-string */
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Box,
   Breadcrumb,
   BreadcrumbItem,
+  Button,
   Content,
   Column,
   Columns,
@@ -17,11 +18,14 @@ import {
   Title,
   SubTitle,
 } from '../../src'
+
 import { ComponentsTabs } from '../components/tabs'
 import { Snippet } from '../components/snippet'
 import Highlight from '../components/highlighter'
 
 export default () => {
+  const [first, setFirst] = useState(true)
+  console.log('first', first)
   return (
     <Section>
       <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
@@ -53,23 +57,66 @@ export default () => {
       <Content>
         <Columns>
           <Column isOneThird>
+            Control the Message component yourself
             <Box>
-              <Message>
-                <MessageHeader>Messages</MessageHeader>
-                <MessageBody>Message body</MessageBody>
-              </Message>
+              {first && (
+                <Message
+                  isShown={first}
+                  onClose={() => {
+                    console.log('onClose called')
+                  }}
+                >
+                  <MessageHeader
+                    onDeleteClick={e => {
+                      e.preventDefault()
+                      setFirst(false)
+                    }}
+                  >
+                    Messages
+                  </MessageHeader>
+                  <MessageBody>Message body</MessageBody>
+                </Message>
+              )}
             </Box>
+            <Button
+              onClick={e => {
+                setFirst(!first)
+              }}
+            >
+              {first && 'Hide'}
+              {!first && 'Show'}
+            </Button>
           </Column>
           <Column isTwoThirds>
             <Highlight className="javascript" languages={['javascript']}>{`
-import React from 'react'
-import { Message, MessageHeader, MessageBody } from '@brightleaf/elements'
+import React, { useState } from 'react'
+import { Box, Button, Message, MessageHeader, MessageBody } from '@brightleaf/elements'
 export default () => {
+  const [show, setShow] = useState(true)
   return (
-    <Message>
-      <MessageHeader>Messages</MessageHeader>
-      <MessageBody>Message body</MessageBody>
-    </Message>
+    <Box>
+      {first && (
+        <Message isShown={first}>
+          <MessageHeader
+            onDeleteClick={e => {
+              e.preventDefault()
+              setShow(false)
+            }}
+          >
+            Messages
+          </MessageHeader>
+          <MessageBody>Message body</MessageBody>
+        </Message>
+      )}
+    </Box>
+    <Button
+      onClick={e => {
+        setShow(!show)
+      }}
+    >
+      {show && 'Hide'}
+      {!show && 'Show'}
+    </Button>
   )
 }
           `}</Highlight>
@@ -78,7 +125,12 @@ export default () => {
         <Columns>
           <Column isOneThird>
             <Box>
-              <Message isPrimary>
+              <Message
+                isPrimary
+                onClose={() => {
+                  console.log('onClose called')
+                }}
+              >
                 <MessageHeader>Messages</MessageHeader>
                 <MessageBody>Message body</MessageBody>
               </Message>
@@ -102,7 +154,12 @@ export default () => {
         <Columns>
           <Column isOneThird>
             <Box>
-              <Message isSuccess>
+              <Message
+                isSuccess
+                onClose={() => {
+                  console.log('onClose called')
+                }}
+              >
                 <MessageHeader>Messages</MessageHeader>
                 <MessageBody>Message body</MessageBody>
               </Message>
@@ -114,7 +171,12 @@ import React from 'react'
 import { Message, MessageHeader, MessageBody } from '@brightleaf/elements'
 export default () => {
   return (
-    <Message isSuccess>
+    <Message
+      isSuccess
+      onClose={() => {
+        console.log('onClose called')
+      }}
+    >
       <MessageHeader>Messages</MessageHeader>
       <MessageBody>Message body</MessageBody>
     </Message>
