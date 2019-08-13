@@ -1,6 +1,6 @@
 {
   "name": "@brightleaf/elements",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "description": "React UI elements styled with Bulma CSS",
   "main": "lib/index.js",
   "files": [
