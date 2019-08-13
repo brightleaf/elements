@@ -31,7 +31,6 @@ export const NavigationView = ({ children, className }) => {
 
 NavigationView.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.children,
 }
 
 export default NavigationView
