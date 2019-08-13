@@ -76,6 +76,7 @@ module.exports = {
       generateStatsFile: true,
     }),
   ],
+
   resolve: {
     extensions: ['*', '.mjs', '.js', '.jsx'],
     modules: ['node_modules', 'src'],

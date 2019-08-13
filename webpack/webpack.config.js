@@ -76,6 +76,7 @@ module.exports = {
       '@brightleaf/elements': path.resolve(__dirname, '../src'),
     },
   },
+  devtool: 'cheap-module-eval-source-map',
   output: {
     path: path.join(process.cwd(), '/dist'),
     publicPath: '/',
