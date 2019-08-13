@@ -1,8 +1,11 @@
+
 .notices {
   position: fixed;
   display: flex;
   top: 0;
-  left: 35%;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 2em;
   overflow: hidden;
   z-index: 1000;
@@ -73,14 +76,10 @@
 
 .notices .snackbar {
   display: inline-flex;
-
-  align-items: center;
-  justify-content: space-around;
   align-items: center;
   justify-content: space-around;
   animation-duration: 150ms;
-  margin: 1.5em;
-  padding: 0.5em;
+  margin: 0.5em 0;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
   pointer-events: auto;
