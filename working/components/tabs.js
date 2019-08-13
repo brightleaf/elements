@@ -46,6 +46,7 @@ export const ElementsTabs = () => {
       <TabList>
         <TabLink to="/box">Box</TabLink>
         <TabLink to="/buttons">Button</TabLink>
+        <TabLink to="/collapse">Collapse</TabLink>
         <TabLink to="/content">Content</TabLink>
         <TabLink to="/delete">Delete</TabLink>
         <TabLink to="/icons">Icon</TabLink>
@@ -72,6 +73,7 @@ export const ComponentsTabs = () => {
         <TabLink to="/messages">Messages</TabLink>
         <TabLink to="/modals">Modal</TabLink>
         <TabLink to="/navbars">NavBar</TabLink>
+        <TabLink to="/notice">Notice</TabLink>
         <TabLink to="/pagination">Pagination</TabLink>
         <TabLink to="/panels">Panel</TabLink>
         <TabLink to="/tabs">Tabs</TabLink>
