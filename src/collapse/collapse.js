@@ -19,7 +19,7 @@ export const Collapse = ({
     [animationIn]: isShown,
     [animationOut]: !isShown,
   }
-  console.log('animation', animation)
+
   useEffect(() => {
     const onEnd = ({ target, animationName }) => {
       if (animationName.indexOf('fadeOut') > -1) {
