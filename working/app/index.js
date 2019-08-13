@@ -26,6 +26,7 @@ import {
   MenuLabel,
   MenuList,
   MenuListItem,
+  Tag,
 } from '../../src'
 
 const Home = lazy(() => import('./home'))
@@ -62,6 +63,8 @@ const Layouts = lazy(() => import('../pages/layouts'))
 const Elements = lazy(() => import('../pages/elements'))
 const Components = lazy(() => import('../pages/components'))
 const Loader = lazy(() => import('../pages/loading'))
+const Collapsed = lazy(() => import('../pages/collapse'))
+const Notices = lazy(() => import('../pages/notice'))
 let source = createHashSource()
 let history = createHistory(source)
 
@@ -257,6 +260,14 @@ export default class App extends Component {
                     <UpLink to="/buttons">Button</UpLink>
                   </NavBarItem>
                   <NavBarItem>
+                    <UpLink to="/collapse">
+                      Collapse{' '}
+                      <Tag isWarning className="beta-tag">
+                        Beta
+                      </Tag>
+                    </UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
                     <UpLink to="/content">Content</UpLink>
                   </NavBarItem>
                   <NavBarItem>
@@ -315,6 +326,14 @@ export default class App extends Component {
                   </NavBarItem>
                   <NavBarItem>
                     <UpLink to="/navbars">NavBar</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
+                    <UpLink to="/notice">
+                      Notice{' '}
+                      <Tag isDanger className="beta-tag">
+                        Alpha
+                      </Tag>
+                    </UpLink>
                   </NavBarItem>
                   <NavBarItem>
                     <UpLink to="/pagination">Pagination</UpLink>
@@ -405,6 +424,8 @@ export default class App extends Component {
               <Elements path="/elements" />
               <Components path="/components" />
               <Loader path="/loader" />
+              <Collapsed path="/collapse" />
+              <Notices path="/notice" />
             </Router>
           </Suspense>
         </Fragment>
