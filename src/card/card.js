@@ -1,25 +1,25 @@
 import React from 'react'
 import classnames from 'classnames'
-import { Colors, Screens } from '../modifiers'
+import { Screens } from '../modifiers'
 
-export const CardHeader = ({ title, hasIcon, fa, fas, className }) => {
-  const classes = {
-    fa,
-    fas,
-  }
+export const CardHeaderIcon = ({ children, onClick, ...props }) => {
+  return (
+    <a
+      href="#"
+      className="card-header-icon"
+      aria-label="more options"
+      onClick={onClick}
+    >
+      {children}
+    </a>
+  )
+}
+export const CardHeader = ({ title, className, children }) => {
   return (
     <header className={classnames('card-header', className)}>
       <p className="card-header-title">{title}</p>
-      {hasIcon && (
-        <a href="#" className="card-header-icon" aria-label="more options">
-          <span className="icon">
-            <i
-              className={classnames(classes, 'fa-angle-down')}
-              aria-hidden="true"
-            ></i>
-          </span>
-        </a>
-      )}
+
+      {children}
     </header>
   )
 }
@@ -96,6 +96,10 @@ export const Card = ({
       types.indexOf(child.type) > -1 ||
       (child.props.className && child.props.className.indexOf('card') > -1)
     ) {
+      return
+    }
+
+    if (child.type.name === 'Collapse') {
       return
     }
     console.warn(`'${child.type}' not allowed`)
