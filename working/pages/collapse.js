@@ -1,27 +1,44 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable spellcheck/spell-checker */
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import {
   Breadcrumb,
   BreadcrumbItem,
+  Card,
+  CardBody,
+  CardHeader,
+  CardHeaderIcon,
+  CardFooter,
+  CardFooterItem,
   Columns,
   Column,
   Collapse,
-  Notification,
+  Content,
   Title,
   Section,
   Hero,
   HeroBody,
   SubTitle,
+  Control,
+  Icon,
+  Panel,
+  PanelBlock,
+  PanelTabs,
+  Button,
 } from '../../src'
-
+import { CodeCollapse } from '../components/collapse'
 import { Snippet } from '../components/snippet'
 import Highlight from '../components/highlighter'
 import { ElementsTabs } from '../components/tabs'
 
+const Block = ({ children }) => {
+  return <div className="block">{children}</div>
+}
+
 export default () => {
   const [showNotification, setShowNotification] = useState(false)
-  const notifRef = useRef()
+  const [showPanel, setShowPanel] = useState(true)
+  const [showCard, setShowCard] = useState(true)
 
   return (
     <Section>
@@ -83,7 +100,8 @@ export default () => {
             )}
           </Column>
           <Column isTwoThirds>
-            <Highlight className="javascript" languages={['javascript']}>{`
+            <CodeCollapse>
+              <Highlight className="javascript" languages={['javascript']}>{`
 import React from 'react'
 import { Container, Notification } from '@brightleaf/elements'
 export default () => {
@@ -127,277 +145,303 @@ export default () => {
   )
 }
           `}</Highlight>
+            </CodeCollapse>
           </Column>
         </Columns>
       </Snippet>
       <Snippet>
         <Columns>
           <Column isOneThird>
-            <Collapse isPrimary isShown>
-              Primar lorem ipsum dolor sit amet, consectetur adipiscing elit
-              lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus
-              quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit
-              amet fringilla. Nullam gravida purus diam, et dictum{' '}
-              <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-              elit
-            </Collapse>
+            <Block>
+              {!showPanel && (
+                <Button
+                  onClick={e => {
+                    setShowPanel(!showPanel)
+                  }}
+                >
+                  Show
+                </Button>
+              )}
+              {showPanel && (
+                <Button
+                  onClick={e => {
+                    setShowPanel(!showPanel)
+                  }}
+                >
+                  Hide
+                </Button>
+              )}
+            </Block>
+            <Panel heading="repositories">
+              <PanelBlock>
+                <Control hasIconsLeft>
+                  <input
+                    className="input is-small"
+                    type="text"
+                    placeholder="search"
+                  />
+                  <Icon isSmall isLeft fas icon="search"></Icon>
+                </Control>
+              </PanelBlock>
+
+              <Collapse isPrimary isShown={showPanel}>
+                <PanelTabs>
+                  <a className="is-active">all</a>
+                  <a>public</a>
+                  <a>private</a>
+                  <a>sources</a>
+                  <a>forks</a>
+                </PanelTabs>
+                <PanelBlock as="a" isActive>
+                  <Icon iconClassName="panel-icon" fas icon="book"></Icon>
+                  bulma
+                </PanelBlock>
+                <PanelBlock as="a">
+                  <Icon iconClassName="panel-icon" fas icon="book"></Icon>
+                  marksheet
+                </PanelBlock>
+                <PanelBlock as="a">
+                  <Icon iconClassName="panel-icon" fas icon="book"></Icon>
+                  minireset.css
+                </PanelBlock>
+                <PanelBlock as="a">
+                  <Icon iconClassName="panel-icon" fas icon="book"></Icon>
+                  jgthms.github.io
+                </PanelBlock>
+                <PanelBlock as="a">
+                  <Icon
+                    iconClassName="panel-icon"
+                    fas
+                    icon="code-branch"
+                  ></Icon>
+                  daniellowtw/infboard
+                </PanelBlock>
+                <PanelBlock as="a">
+                  <Icon
+                    iconClassName="panel-icon"
+                    fas
+                    icon="code-branch"
+                  ></Icon>
+                  mojs
+                </PanelBlock>
+                <PanelBlock as="label">
+                  <input type="checkbox"></input>
+                  remember me
+                </PanelBlock>
+                <PanelBlock>
+                  <Button isLink isOutlined isFullWidth>
+                    reset all filters
+                  </Button>
+                </PanelBlock>
+              </Collapse>
+            </Panel>
           </Column>
           <Column isTwoThirds>
-            <Highlight className="javascript" languages={['javascript']}>{`
-import React from 'react'
+            <CodeCollapse>
+              <Highlight className="javascript" languages={['javascript']}>{`
+import React, { useState } from 'react'
 import { Container, Notification } from '@brightleaf/elements'
 export default () => {
+  const [showPanel, setShowPanel] = useState(true)
   return (
     <Container>
-      <Notification isPrimary isShown>
-        Primar lorem ipsum dolor sit amet, consectetur adipiscing elit lorem
-        ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis
-        placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-        fringilla. Nullam gravida purus diam, et dictum{' '}
-        <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-        elit
-      </Notification>
+      {!showPanel && (
+        <Button
+          onClick={e => {
+            setShowPanel(!showPanel)
+          }}
+        >
+          Show
+        </Button>
+      )}
+      {showPanel && (
+        <Button
+          onClick={e => {
+            setShowPanel(!showPanel)
+          }}
+        >
+          Hide
+        </Button>
+      )}
+      <Panel heading="repositories">
+        <PanelBlock>
+          <Control hasIconsLeft>
+            <input
+              className="input is-small"
+              type="text"
+              placeholder="search"
+            />
+            <Icon isSmall isLeft fas icon="search"></Icon>
+          </Control>
+        </PanelBlock>
+
+        <Collapse isPrimary isShown={showPanel}>
+          <PanelTabs>
+            <a className="is-active">all</a>
+            <a>public</a>
+            <a>private</a>
+            <a>sources</a>
+            <a>forks</a>
+          </PanelTabs>
+          <PanelBlock as="a" isActive>
+            <Icon iconClassName="panel-icon" fas icon="book"></Icon>
+            bulma
+          </PanelBlock>
+          <PanelBlock as="a">
+            <Icon iconClassName="panel-icon" fas icon="book"></Icon>
+            marksheet
+          </PanelBlock>
+          <PanelBlock as="a">
+            <Icon iconClassName="panel-icon" fas icon="book"></Icon>
+            minireset.css
+          </PanelBlock>
+          <PanelBlock as="a">
+            <Icon iconClassName="panel-icon" fas icon="book"></Icon>
+            jgthms.github.io
+          </PanelBlock>
+          <PanelBlock as="a">
+            <Icon
+              iconClassName="panel-icon"
+              fas
+              icon="code-branch"
+            ></Icon>
+            daniellowtw/infboard
+          </PanelBlock>
+          <PanelBlock as="a">
+            <Icon
+              iconClassName="panel-icon"
+              fas
+              icon="code-branch"
+            ></Icon>
+            mojs
+          </PanelBlock>
+          <PanelBlock as="label">
+            <input type="checkbox"></input>
+            remember me
+          </PanelBlock>
+          <PanelBlock>
+            <Button isLink isOutlined isFullWidth>
+              reset all filters
+            </Button>
+          </PanelBlock>
+        </Collapse>
+      </Panel>
     </Container>
   )
 }
           `}</Highlight>
+            </CodeCollapse>
           </Column>
         </Columns>
       </Snippet>
       <Snippet>
         <Columns>
           <Column isOneThird>
-            <Notification isInfo isShown>
-              Primar lorem ipsum dolor sit amet, consectetur adipiscing elit
-              lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus
-              quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit
-              amet fringilla. Nullam gravida purus diam, et dictum{' '}
-              <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-              elit
-            </Notification>
+            <Card>
+              <CardHeader title="Component">
+                <CardHeaderIcon
+                  onClick={e => {
+                    e.preventDefault()
+                    console.info('show card thing', showCard)
+                    setShowCard(!showCard)
+                  }}
+                >
+                  <Icon icon={showCard ? 'angle-down' : 'angle-up'} fas />
+                </CardHeaderIcon>
+              </CardHeader>
+              <Collapse isShown={showCard}>
+                <CardBody>
+                  <Content>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Phasellus nec iaculis mauris.
+                    <a href="#">@bulmaio</a>. <a href="#">#css</a>{' '}
+                    <a href="#">#responsive</a>
+                    <br />
+                    <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                  </Content>
+                </CardBody>
+                <CardFooter>
+                  <CardFooterItem>
+                    <a
+                      href="#"
+                      onClick={e => {
+                        console.info('clicked')
+                        e.preventDefault()
+                      }}
+                    >
+                      Save
+                    </a>
+                  </CardFooterItem>
+                  <CardFooterItem>
+                    <a href="#">Edit</a>
+                  </CardFooterItem>
+                  <CardFooterItem>
+                    <a href="#">Delete</a>
+                  </CardFooterItem>
+                </CardFooter>
+              </Collapse>
+            </Card>
           </Column>
           <Column isTwoThirds>
-            <Highlight className="javascript" languages={['javascript']}>{`
-import React from 'react'
-import { Container, Notification } from '@brightleaf/elements'
+            <CodeCollapse>
+              <Highlight className="javascript" languages={['javascript']}>{`
+import React, { useState } from 'react'
+import { Collapse, Container, Card, CardBody, CardHeader,
+  CardHeaderIcon, CardFooter, CardFooterItem, Icon ,
+} from '@brightleaf/elements'
 export default () => {
+  const [showCard, setShowCard] = useState(true)
   return (
     <Container>
-      <Notification isInfo isShown>
-        Primar lorem ipsum dolor sit amet, consectetur adipiscing elit lorem
-        ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis
-        placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-        fringilla. Nullam gravida purus diam, et dictum{' '}
-        <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-        elit
-      </Notification>
+      <Card>
+        <CardHeader title="Component">
+          <CardHeaderIcon
+            onClick={e => {
+              e.preventDefault()
+              console.info('show card thing', showCard)
+              setShowCard(!showCard)
+            }}
+          >
+            <Icon icon={showCard ? 'angle-down' : 'angle-up'} fas />
+          </CardHeaderIcon>
+        </CardHeader>
+        <Collapse isShown={showCard}>
+          <CardBody>
+            <Content>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Phasellus nec iaculis mauris.
+              <a href="#">@bulmaio</a>. <a href="#">#css</a>{' '}
+              <a href="#">#responsive</a>
+              <br />
+              <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+            </Content>
+          </CardBody>
+          <CardFooter>
+            <CardFooterItem>
+              <a
+                href="#"
+                onClick={e => {
+                  console.info('clicked')
+                  e.preventDefault()
+                }}
+              >
+                Save
+              </a>
+            </CardFooterItem>
+            <CardFooterItem>
+              <a href="#">Edit</a>
+            </CardFooterItem>
+            <CardFooterItem>
+              <a href="#">Delete</a>
+            </CardFooterItem>
+          </CardFooter>
+        </Collapse>
+      </Card>
     </Container>
   )
 }
           `}</Highlight>
-          </Column>
-        </Columns>
-      </Snippet>
-      <Snippet>
-        <Columns>
-          <Column isOneThird>
-            <Notification isWarning isShown>
-              Primar lorem ipsum dolor sit amet, consectetur adipiscing elit
-              lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus
-              quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit
-              amet fringilla. Nullam gravida purus diam, et dictum{' '}
-              <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-              elit
-            </Notification>
-          </Column>
-          <Column isTwoThirds>
-            <Highlight className="javascript" languages={['javascript']}>{`
-import React from 'react'
-import { Container, Notification } from '@brightleaf/elements'
-export default () => {
-  return (
-    <Container>
-      <Notification isWarning isShown>
-        Primar lorem ipsum dolor sit amet, consectetur adipiscing elit lorem
-        ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis
-        placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-        fringilla. Nullam gravida purus diam, et dictum{' '}
-        <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-        elit
-      </Notification>
-    </Container>
-  )
-}
-          `}</Highlight>
-          </Column>
-        </Columns>
-      </Snippet>
-      <Snippet>
-        <Columns>
-          <Column isOneThird>
-            <Notification isSuccess isShown>
-              Primar lorem ipsum dolor sit amet, consectetur adipiscing elit
-              lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus
-              quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit
-              amet fringilla. Nullam gravida purus diam, et dictum{' '}
-              <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-              elit
-            </Notification>
-          </Column>
-          <Column isTwoThirds>
-            <Highlight className="javascript" languages={['javascript']}>{`
-import React from 'react'
-import { Container, Notification } from '@brightleaf/elements'
-export default () => {
-  return (
-    <Container>
-      <Notification isSuccess isShown>
-        Primar lorem ipsum dolor sit amet, consectetur adipiscing elit lorem
-        ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis
-        placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-        fringilla. Nullam gravida purus diam, et dictum{' '}
-        <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-        elit
-      </Notification>
-    </Container>
-  )
-}
-          `}</Highlight>
-          </Column>
-        </Columns>
-      </Snippet>
-      <Snippet>
-        <Columns>
-          <Column isOneThird>
-            <Notification isDanger isShown>
-              Primar lorem ipsum dolor sit amet, consectetur adipiscing elit
-              lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus
-              quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit
-              amet fringilla. Nullam gravida purus diam, et dictum{' '}
-              <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-              elit
-            </Notification>
-          </Column>
-          <Column isTwoThirds>
-            <Highlight className="javascript" languages={['javascript']}>{`
-import React from 'react'
-import { Container, Notification } from '@brightleaf/elements'
-export default () => {
-  return (
-    <Container>
-      <Notification isDanger isShown>
-        Primar lorem ipsum dolor sit amet, consectetur adipiscing elit lorem
-        ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis
-        placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-        fringilla. Nullam gravida purus diam, et dictum{' '}
-        <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-        elit
-      </Notification>
-    </Container>
-  )
-}
-          `}</Highlight>
-          </Column>
-        </Columns>
-      </Snippet>
-      <Snippet>
-        <Columns>
-          <Column isOneThird>
-            <Notification isLink isShown>
-              Primar lorem ipsum dolor sit amet, consectetur adipiscing elit
-              lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus
-              quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit
-              amet fringilla. Nullam gravida purus diam, et dictum{' '}
-              <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-              elit
-            </Notification>
-          </Column>
-          <Column isTwoThirds>
-            <Highlight className="javascript" languages={['javascript']}>{`
-import React from 'react'
-import { Container, Notification } from '@brightleaf/elements'
-export default () => {
-  return (
-    <Container>
-      <Notification isLink isShown>
-        Primar lorem ipsum dolor sit amet, consectetur adipiscing elit lorem
-        ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis
-        placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-        fringilla. Nullam gravida purus diam, et dictum{' '}
-        <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-        elit
-      </Notification>
-    </Container>
-  )
-}
-          `}</Highlight>
-          </Column>
-        </Columns>
-      </Snippet>
-      <Snippet>
-        <Columns>
-          <Column isOneThird>
-            <Notification isLight isShown>
-              Primar lorem ipsum dolor sit amet, consectetur adipiscing elit
-              lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus
-              quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit
-              amet fringilla. Nullam gravida purus diam, et dictum{' '}
-              <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-              elit
-            </Notification>
-          </Column>
-          <Column isTwoThirds>
-            <Highlight className="javascript" languages={['javascript']}>{`
-import React from 'react'
-import { Container, Notification } from '@brightleaf/elements'
-export default () => {
-  return (
-    <Container>
-      <Notification isLight isShown>
-        Primar lorem ipsum dolor sit amet, consectetur adipiscing elit lorem
-        ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis
-        placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-        fringilla. Nullam gravida purus diam, et dictum{' '}
-        <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-        elit
-      </Notification>
-    </Container>
-  )
-}
-          `}</Highlight>
-          </Column>
-        </Columns>
-      </Snippet>
-      <Snippet>
-        <Columns>
-          <Column isOneThird>
-            <Notification isLight isShown isDismissible={false}>
-              <Title as="p">{`isDismissible={false}`}</Title>
-              ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis
-              placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-              fringilla. Nullam gravida purus diam, et dictum{' '}
-              <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-              elit
-            </Notification>
-          </Column>
-          <Column isTwoThirds>
-            <Highlight className="javascript" languages={['javascript']}>{`
-import React from 'react'
-import { Container, Notification } from '@brightleaf/elements'
-export default () => {
-  return (
-    <Container>
-      <Notification isLight isShown isDismissible={false}>
-        <Title as="p">{'isDismissible={false}'}</Title>
-        ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis
-        placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-        fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a>{' '}
-        efficitur. Sit amet, consectetur adipiscing elit
-      </Notification>
-    </Container>
-  )
-}
-          `}</Highlight>
+            </CodeCollapse>
           </Column>
         </Columns>
       </Snippet>
