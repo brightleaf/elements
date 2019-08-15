@@ -18,11 +18,12 @@ export const Collapse = ({
     animation: true,
     [animationIn]: isShown,
     [animationOut]: !isShown,
+    'is-hidden': !isShown,
   }
 
   useEffect(() => {
     const onEnd = ({ target, animationName }) => {
-      if (animationName.indexOf('fadeOut') > -1) {
+      if (animationName.indexOf('Out') > -1) {
         target.classList.add('is-hidden')
       }
     }
