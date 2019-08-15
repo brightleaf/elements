@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import classnames from 'classnames'
-export const Collapse = ({ children }) => {
+export const CodeCollapse = ({ children }) => {
   const [collapsed, setCollapsed] = useState(true)
   return (
     <div

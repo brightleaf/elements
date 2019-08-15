@@ -22,7 +22,7 @@ import {
   SubTitle,
 } from '../../src'
 
-import { Collapse } from '../components/collapse'
+import { CodeCollapse } from '../components/collapse'
 import Highlight from '../components/highlighter'
 import { ComponentsTabs } from '../components/tabs'
 
@@ -112,7 +112,7 @@ export default () => {
             </NavBarEnd>
           </NavBarMenu>
         </NavBar>
-        <Collapse>
+        <CodeCollapse>
           <Highlight
             className="javascript"
             languages={['javascript']}
@@ -169,7 +169,7 @@ export default () => {
   )
 }
         `}</Highlight>
-        </Collapse>
+        </CodeCollapse>
       </Example>
       <Example>
         <NavBar isPrimary>
@@ -225,7 +225,7 @@ export default () => {
             </NavBarEnd>
           </NavBarMenu>
         </NavBar>
-        <Collapse>
+        <CodeCollapse>
           <Highlight
             className="javascript"
             languages={['javascript']}
@@ -281,7 +281,7 @@ export default () => {
     </NavBar>
   )
 }`}</Highlight>
-        </Collapse>
+        </CodeCollapse>
       </Example>
 
       <Example>
@@ -338,7 +338,7 @@ export default () => {
             </NavBarEnd>
           </NavBarMenu>
         </NavBar>
-        <Collapse>
+        <CodeCollapse>
           <Highlight
             className="javascript"
             languages={['javascript']}
@@ -394,7 +394,7 @@ export default () => {
     </NavBar>
   )
 }`}</Highlight>
-        </Collapse>
+        </CodeCollapse>
       </Example>
       <Example>
         <NavBar isInfo>
@@ -450,7 +450,7 @@ export default () => {
             </NavBarEnd>
           </NavBarMenu>
         </NavBar>
-        <Collapse>
+        <CodeCollapse>
           <Highlight
             className="javascript"
             languages={['javascript']}
@@ -506,7 +506,7 @@ export default () => {
     </NavBar>
   )
 }`}</Highlight>
-        </Collapse>
+        </CodeCollapse>
       </Example>
       <Example>
         <NavBar isTransparent>
@@ -598,7 +598,7 @@ export default () => {
             </NavBarEnd>
           </NavBarMenu>
         </NavBar>
-        <Collapse>
+        <CodeCollapse>
           <Highlight
             className="javascript"
             languages={['javascript']}
@@ -654,7 +654,7 @@ export default () => {
     </NavBar>
   )
 }`}</Highlight>
-        </Collapse>
+        </CodeCollapse>
       </Example>
     </Section>
   )
