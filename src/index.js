@@ -10,6 +10,7 @@ export {
   CardFooter,
   CardFooterItem,
   CardHeader,
+  CardHeaderIcon,
   CardImage,
   CardImageContainer,
 } from './card'
