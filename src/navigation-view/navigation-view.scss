@@ -39,7 +39,7 @@ $nav-box-shadow: 0 0 50px rgba(0,0,0,0.5);
         border-radius: 0;
       }
     }
-  // Static type
+    // Static type
     &.is-static {
       border-right: 1px solid rgba(0,0,0,0.15);
       min-width: $nav-view-min-width;
@@ -111,11 +111,11 @@ $nav-box-shadow: 0 0 50px rgba(0,0,0,0.5);
     }
   }
 
-body.has-static-navigation-view {
-  padding-left: $nav-view-min-width;
-  +desktop {
-    padding-left: $nav-view-max-width;
+  body.has-static-navigation-view {
+    padding-left: $nav-view-min-width;
+    +desktop {
+      padding-left: $nav-view-max-width;
+    }
+  }
   }
 }
-  }
-  }
