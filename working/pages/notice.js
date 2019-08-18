@@ -51,14 +51,20 @@ export default () => {
       <Snippet>
         <Columns>
           <Column isOneThird>
-            <Notice isShown={showNotification}>
-              <b>SECOND risus mi</b>, tempus quis placerat ut, porta nec nulla.
-              Nullam gravida purus diam
+            <Notice isShown={showNotification} isTopLeft>
+              <b>Top Left</b>, tempus quis placerat ut, porta nec nulla. Nullam
+              gravida purus diam
               <a>felis venenatis</a>.
             </Notice>
-            <Notice isShown={showNotification2}>
-              FIRST lorem ipsum dolor sit amet, consectetur adipiscing elit
-              lorem ipsum dolor. <b>Pellentesque risus mi</b>, tempus b elit
+            <Notice isShown={showNotification2} isBottomLeft>
+              <b>Bottom Left</b> lorem ipsum dolor sit amet, consectetur
+              adipiscing elit lorem ipsum dolor. <b>Pellentesque risus mi</b>,
+              tempus b elit
+            </Notice>
+            <Notice isShown={showNotification2} isTopRight isTop>
+              <b>Top Right</b> lorem ipsum dolor sit amet, consectetur
+              adipiscing elit lorem ipsum dolor. <b>Pellentesque risus mi</b>,
+              tempus b elit
             </Notice>
             {!showNotification && (
               <button
@@ -133,9 +139,9 @@ export default () => {
       <Snippet>
         <Columns>
           <Column isOneThird>
-            <Notice isPrimary isShown duration={6000}>
-              Third lorem ipsum dolor sit amet, consectetur adipiscing elit
-              lorem ipsum dolor. <b>Pellentesque risus mi</b>, elit
+            <Notice isPrimary isShown duration={600000}>
+              <b>Default</b> lorem ipsum dolor sit amet, consectetur adipiscing
+              elit lorem ipsum dolor. <b>Pellentesque risus mi</b>, elit
             </Notice>
           </Column>
           <Column isTwoThirds>
