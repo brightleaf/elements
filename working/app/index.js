@@ -65,6 +65,8 @@ const Components = lazy(() => import('../pages/components'))
 const Loader = lazy(() => import('../pages/loading'))
 const Collapsed = lazy(() => import('../pages/collapse'))
 const Notices = lazy(() => import('../pages/notice'))
+const ProgressPage = lazy(() => import('../pages/progress'))
+const Tables = lazy(() => import('../pages/tables'))
 let source = createHashSource()
 let history = createHistory(source)
 
@@ -426,6 +428,8 @@ export default class App extends Component {
               <Loader path="/loader" />
               <Collapsed path="/collapse" />
               <Notices path="/notice" />
+              <ProgressPage path="/progress" />
+              <Tables path="/tables" />
             </Router>
           </Suspense>
         </Fragment>
