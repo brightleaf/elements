@@ -51,6 +51,7 @@ export const ElementsTabs = () => {
         <TabLink to="/delete">Delete</TabLink>
         <TabLink to="/icons">Icon</TabLink>
         <TabLink to="/images">Image</TabLink>
+        <TabLink to="/media">MediaObject</TabLink>
         <TabLink to="/notifications">Notifications</TabLink>
         <TabLink to="/progress">Progress Bars</TabLink>
         <TabLink to="/tables">Tables</TabLink>
