@@ -48,8 +48,12 @@ export default Table
 export const TableHead = ({ className, children, ...props }) => {
   const classes = classnames(className)
 
+  const classNameObj = {}
+  if (classes.length > 0) {
+    classNameObj.className = classes
+  }
   return (
-    <thead className={classes} {...props}>
+    <thead {...classNameObj} {...props}>
       {children}
     </thead>
   )
@@ -57,8 +61,13 @@ export const TableHead = ({ className, children, ...props }) => {
 
 export const TableFoot = ({ className, children, ...props }) => {
   const classes = classnames(className)
+
+  const classNameObj = {}
+  if (classes.length > 0) {
+    classNameObj.className = classes
+  }
   return (
-    <tfoot className={classes} {...props}>
+    <tfoot {...classNameObj} {...props}>
       {children}
     </tfoot>
   )
@@ -66,8 +75,12 @@ export const TableFoot = ({ className, children, ...props }) => {
 
 export const TableRow = ({ className, children, ...props }) => {
   const classes = classnames(className)
+  const classNameObj = {}
+  if (classes.length > 0) {
+    classNameObj.className = classes
+  }
   return (
-    <tr className={classes} {...props}>
+    <tr {...classNameObj} {...props}>
       {children}
     </tr>
   )
@@ -75,9 +88,12 @@ export const TableRow = ({ className, children, ...props }) => {
 
 export const TableHeaderCell = ({ className, children, ...props }) => {
   const classes = classnames(className)
-
+  const classNameObj = {}
+  if (classes.length > 0) {
+    classNameObj.className = classes
+  }
   return (
-    <th className={classes} {...props}>
+    <th {...classNameObj} {...props}>
       {children}
     </th>
   )
@@ -85,9 +101,12 @@ export const TableHeaderCell = ({ className, children, ...props }) => {
 
 export const TableCell = ({ className, children, ...props }) => {
   const classes = classnames(className)
-
+  const classNameObj = {}
+  if (classes.length > 0) {
+    classNameObj.className = classes
+  }
   return (
-    <td className={classes} {...props}>
+    <td {...classNameObj} {...props}>
       {children}
     </td>
   )
@@ -95,10 +114,23 @@ export const TableCell = ({ className, children, ...props }) => {
 
 export const TableBody = ({ className, children, ...props }) => {
   const classes = classnames(className)
+  const classNameObj = {}
+  if (classes.length > 0) {
+    classNameObj.className = classes
+  }
 
   return (
-    <tbody className={classes} {...props}>
+    <tbody {...classNameObj} {...props}>
       {children}
     </tbody>
+  )
+}
+
+export const TableContainer = ({ className, children, ...props }) => {
+  const classes = classnames('table-container', className)
+  return (
+    <div className={classes} {...props}>
+      {children}
+    </div>
   )
 }
