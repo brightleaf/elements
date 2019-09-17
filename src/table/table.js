@@ -44,3 +44,61 @@ Table.propTypes = {
 }
 
 export default Table
+
+export const TableHead = ({ className, children, ...props }) => {
+  const classes = classnames(className)
+
+  return (
+    <thead className={classes} {...props}>
+      {children}
+    </thead>
+  )
+}
+
+export const TableFoot = ({ className, children, ...props }) => {
+  const classes = classnames(className)
+  return (
+    <tfoot className={classes} {...props}>
+      {children}
+    </tfoot>
+  )
+}
+
+export const TableRow = ({ className, children, ...props }) => {
+  const classes = classnames(className)
+  return (
+    <tr className={classes} {...props}>
+      {children}
+    </tr>
+  )
+}
+
+export const TableHeaderCell = ({ className, children, ...props }) => {
+  const classes = classnames(className)
+
+  return (
+    <th className={classes} {...props}>
+      {children}
+    </th>
+  )
+}
+
+export const TableCell = ({ className, children, ...props }) => {
+  const classes = classnames(className)
+
+  return (
+    <td className={classes} {...props}>
+      {children}
+    </td>
+  )
+}
+
+export const TableBody = ({ className, children, ...props }) => {
+  const classes = classnames(className)
+
+  return (
+    <tbody className={classes} {...props}>
+      {children}
+    </tbody>
+  )
+}
