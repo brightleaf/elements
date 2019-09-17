@@ -36,6 +36,9 @@ import {
   Title,
   SubTitle,
   Table,
+  TableCell,
+  TableBody,
+  TableRow,
   Tag,
   Tabs,
   TabItem,
@@ -195,8 +198,8 @@ export const AdminTemplate = () => {
                 </Tile>
               </Tile>
             </section>
-            <Columns className="columns">
-              <Column className="column is-6">
+            <Columns>
+              <Column is="6">
                 <Card className="events-card">
                   <CardHeader
                     className="card-header"
@@ -207,134 +210,107 @@ export const AdminTemplate = () => {
                   <div className="card-table">
                     <Content className="content">
                       <Table isFullWidth isStriped>
-                        <tbody>
-                          <tr>
-                            <td width="5%">
+                        <TableBody>
+                          <TableRow>
+                            <TableCell width="5%">
                               <BaseIcon icon="bell-o" fa></BaseIcon>
-                            </td>
-                            <td>Lorum ipsum dolem aire</td>
-                            <td>
-                              <a
-                                className="button is-small is-primary"
-                                href="#"
-                              >
+                            </TableCell>
+                            <TableCell>Lorum ipsum dolem aire</TableCell>
+                            <TableCell>
+                              <Button isAnchor isPrimary isSmall href="#">
                                 Action
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td width="5%">
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell width="5%">
                               <BaseIcon icon="bell-o" fa></BaseIcon>
-                            </td>
-                            <td>Lorum ipsum dolem aire</td>
-                            <td>
-                              <a
-                                className="button is-small is-primary"
-                                href="#"
-                              >
+                            </TableCell>
+                            <TableCell>Lorum ipsum dolem aire</TableCell>
+                            <TableCell>
+                              <Button isAnchor isPrimary isSmall href="#">
                                 Action
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td width="5%">
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell width="5%">
                               <BaseIcon icon="bell-o" fa></BaseIcon>
-                            </td>
-                            <td>Lorum ipsum dolem aire</td>
-                            <td>
-                              <a
-                                className="button is-small is-primary"
-                                href="#"
-                              >
+                            </TableCell>
+                            <TableCell>Lorum ipsum dolem aire</TableCell>
+                            <TableCell>
+                              <Button isAnchor isPrimary isSmall href="#">
                                 Action
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td width="5%">
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell width="5%">
                               <BaseIcon icon="bell-o" fa></BaseIcon>
-                            </td>
-                            <td>Lorum ipsum dolem aire</td>
-                            <td>
-                              <a
-                                className="button is-small is-primary"
-                                href="#"
-                              >
+                            </TableCell>
+                            <TableCell>Lorum ipsum dolem aire</TableCell>
+                            <TableCell>
+                              <Button isAnchor isPrimary isSmall href="#">
                                 Action
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td width="5%">
-                              <BaseIcon icon="bell-o" fa />
-                            </td>
-                            <td>Lorum ipsum dolem aire</td>
-                            <td>
-                              <a
-                                className="button is-small is-primary"
-                                href="#"
-                              >
-                                Action
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td width="5%">
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell width="5%">
                               <BaseIcon icon="bell-o" fa></BaseIcon>
-                            </td>
-                            <td>Lorum ipsum dolem aire</td>
-                            <td>
-                              <a
-                                className="button is-small is-primary"
-                                href="#"
-                              >
+                            </TableCell>
+                            <TableCell>Lorum ipsum dolem aire</TableCell>
+                            <TableCell>
+                              <Button isAnchor isPrimary isSmall href="#">
                                 Action
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td width="5%">
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell width="5%">
                               <BaseIcon icon="bell-o" fa></BaseIcon>
-                            </td>
-                            <td>Lorum ipsum dolem aire</td>
-                            <td>
-                              <a
-                                className="button is-small is-primary"
-                                href="#"
-                              >
+                            </TableCell>
+                            <TableCell>Lorum ipsum dolem aire</TableCell>
+                            <TableCell>
+                              <Button isAnchor isPrimary isSmall href="#">
                                 Action
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td width="5%">
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell width="5%">
                               <BaseIcon icon="bell-o" fa></BaseIcon>
-                            </td>
-                            <td>Lorum ipsum dolem aire</td>
-                            <td>
-                              <a
-                                className="button is-small is-primary"
-                                href="#"
-                              >
+                            </TableCell>
+                            <TableCell>Lorum ipsum dolem aire</TableCell>
+                            <TableCell>
+                              <Button isAnchor isPrimary isSmall href="#">
                                 Action
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td width="5%">
-                              <BaseIcon icon="bell-o" fa={true}></BaseIcon>
-                            </td>
-                            <td>Lorum ipsum dolem aire</td>
-                            <td>
-                              <a
-                                className="button is-small is-primary"
-                                href="#"
-                              >
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell width="5%">
+                              <BaseIcon icon="bell-o" fa></BaseIcon>
+                            </TableCell>
+                            <TableCell>Lorum ipsum dolem aire</TableCell>
+                            <TableCell>
+                              <Button isAnchor isPrimary isSmall href="#">
                                 Action
-                              </a>
-                            </td>
-                          </tr>
-                        </tbody>
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell width="5%">
+                              <BaseIcon icon="bell-o" fa></BaseIcon>
+                            </TableCell>
+                            <TableCell>Lorum ipsum dolem aire</TableCell>
+                            <TableCell>
+                              <Button isAnchor isPrimary isSmall href="#">
+                                Action
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+                        </TableBody>
                       </Table>
                     </Content>
                   </div>
@@ -362,7 +338,7 @@ export const AdminTemplate = () => {
                     </Content>
                   </CardBody>
                 </Card>
-                <Card className="card">
+                <Card>
                   <CardHeader
                     className="card-header"
                     title="User Search"
