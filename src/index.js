@@ -74,9 +74,19 @@ export {
   PaginationPrevious,
 } from './pagination'
 export { Panel, PanelBlock, PanelTabs } from './panel'
+export { ProgressBar } from './progress-bar'
 export { Section } from './section'
 export { SubTitle } from './subtitle'
-export { Table } from './table'
+export {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableFoot,
+  TableHead,
+  TableHeaderCell,
+  TableRow,
+} from './table'
 export { Tabs, TabItem, TabList } from './tabs'
 export { Tag, Tags } from './tag'
 export { TextInput } from './input'
