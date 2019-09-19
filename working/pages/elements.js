@@ -202,6 +202,27 @@ const Elements = () => {
           </Link>
         </Column>
         <Column isOneThird>
+          <Link to="/notice" className="comp-link">
+            <MediaObject className="notification has-background-white media">
+              <MediaLeft className="media-left">
+                <Icon fas icon="exclamation" className="fa-lg" hasTextSuccess />
+              </MediaLeft>
+              <MediaContent>
+                <Content className="content">
+                  <Title is="4" as="h1">
+                    Notice
+                  </Title>
+                  <SubTitle as="p" is="5">
+                    Simple <strong>notice</strong> blocks, to notify your users
+                    of something
+                  </SubTitle>
+                </Content>
+              </MediaContent>
+            </MediaObject>
+          </Link>
+        </Column>
+
+        <Column isOneThird>
           <Link to="/progress-bars" className="comp-link">
             <MediaObject className="notification has-background-white media">
               <MediaLeft className="media-left">

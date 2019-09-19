@@ -277,6 +277,14 @@ export default class App extends Component {
                     <UpLink to="/images">Image</UpLink>
                   </NavBarItem>
                   <NavBarItem>
+                    <UpLink to="/notice">
+                      Notice{' '}
+                      <Tag isWarning className="beta-tag">
+                        Beta
+                      </Tag>
+                    </UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
                     <UpLink to="/notifications">Notifications</UpLink>
                   </NavBarItem>
                   <NavBarItem>
@@ -324,14 +332,7 @@ export default class App extends Component {
                   <NavBarItem>
                     <UpLink to="/navbars">NavBar</UpLink>
                   </NavBarItem>
-                  <NavBarItem>
-                    <UpLink to="/notice">
-                      Notice{' '}
-                      <Tag isWarning className="beta-tag">
-                        Beta
-                      </Tag>
-                    </UpLink>
-                  </NavBarItem>
+
                   <NavBarItem>
                     <UpLink to="/pagination">Pagination</UpLink>
                   </NavBarItem>
