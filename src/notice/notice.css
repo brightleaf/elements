@@ -98,6 +98,7 @@
   margin-left: auto;
   padding: 0.5em;
   padding-left: 0;
+  white-space: nowrap;
 }
 
 .notices .snackbar .action .button {
@@ -174,7 +175,9 @@
 .notices .notification {
   max-width: 600px;
 }
-
+.notices.is-bottom {
+  flex-direction: column-reverse;
+}
 .notices .toast.is-top, .notices .toast.is-bottom,
 .notices .snackbar.is-top,
 .notices .snackbar.is-bottom,
