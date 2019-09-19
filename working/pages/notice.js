@@ -2,6 +2,7 @@
 /* eslint-disable spellcheck/spell-checker */
 import React, { useRef, useState } from 'react'
 import {
+  Button,
   Breadcrumb,
   BreadcrumbItem,
   Columns,
@@ -12,6 +13,7 @@ import {
   Hero,
   HeroBody,
   SubTitle,
+  Container,
 } from '../../src'
 import { Notice } from '../../src/notice/notice'
 import { Snippet } from '../components/snippet'
@@ -19,8 +21,10 @@ import Highlight from '../components/highlighter'
 import { ElementsTabs } from '../components/tabs'
 
 export default () => {
-  const [showNotification, setShowNotification] = useState(false)
+  const [showDefaultNotification, setShowDefaultNotification] = useState(false)
   const [showNotification2, setShowNotification2] = useState(false)
+  const [showTopNotification, setShowTopNotification] = useState(false)
+
   return (
     <Section>
       <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
@@ -32,15 +36,15 @@ export default () => {
             <a href="#/elements">Elements</a>
           </BreadcrumbItem>
           <BreadcrumbItem>
-            <a href="#/notifications">Notification</a>
+            <a href="#/notifications">Notice</a>
           </BreadcrumbItem>
         </Breadcrumb>
       </div>
       <Hero isPrimary isBold>
         <HeroBody>
-          <Title>Collapse</Title>
+          <Title>Notice</Title>
           <SubTitle as="p" is="4">
-            Show/Hide <strong>Collapse</strong> blocks
+            Show/Hide simple <strong>notice</strong> messages
           </SubTitle>
         </HeroBody>
       </Hero>
@@ -51,95 +55,17 @@ export default () => {
       <Snippet>
         <Columns>
           <Column isOneThird>
-            <Notice isShown={showNotification} isTopLeft>
-              <b>Top Left</b>, tempus quis placerat ut, porta nec nulla. Nullam
-              gravida purus diam
-              <a>felis venenatis</a>.
-            </Notice>
-            <Notice isShown={showNotification2} isBottomLeft>
-              <b>Bottom Left</b> lorem ipsum dolor sit amet, consectetur
-              adipiscing elit lorem ipsum dolor. <b>Pellentesque risus mi</b>,
-              tempus b elit
-            </Notice>
-            <Notice isShown={showNotification2} isTopRight isTop>
-              <b>Top Right</b> lorem ipsum dolor sit amet, consectetur
-              adipiscing elit lorem ipsum dolor. <b>Pellentesque risus mi</b>,
-              tempus b elit
-            </Notice>
-            {!showNotification && (
-              <button
-                className="button"
-                onClick={e => {
-                  setShowNotification(!showNotification)
-                  setShowNotification2(!showNotification2)
-                }}
-              >
-                Show
-              </button>
-            )}
-            {showNotification && (
-              <button
-                className="button"
-                onClick={e => {
-                  setShowNotification(!showNotification)
-                }}
-              >
-                Hide
-              </button>
-            )}
-          </Column>
-          <Column isTwoThirds>
-            <Highlight className="javascript" languages={['javascript']}>{`
-import React from 'react'
-import { Container, Notification } from '@brightleaf/elements'
-export default () => {
-  const [showNotification, setShowNotification] = useState(false)
-  const notifRef = useRef()
-
-  return (
-    <Container isOneThird>
-      <Notification
-        ref={notifRef}
-        isPrimary
-        isShown={showNotification}
-        onDismissed={e => {
-          console.log('onDismiss hit')
-          setShowNotification(!showNotification)
-        }}
-      > ... </Notification>
-      {!showNotification && (
-        <button
-          className="button"
-          onClick={e => {
-            setShowNotification(!showNotification)
-            notifRef.current.show()
-          }}
-        >
-          Show
-        </button>
-      )}
-      {showNotification && (
-        <button
-          className="button"
-          onClick={e => {
-            setShowNotification(!showNotification)
-            notifRef.current.hide()
-          }}
-        >
-          Hide
-        </button>
-      )}
-    </Container>
-  )
-}
-          `}</Highlight>
-          </Column>
-        </Columns>
-      </Snippet>
-      <Snippet>
-        <Columns>
-          <Column isOneThird>
-            <Notice isPrimary isShown duration={600000}>
+            <Container>
+              Show the notice and have it hide 3 seconds later.
+            </Container>
+            <Notice
+              isPrimary
+              isShown
+              duration={3000}
+              onHide={() => {
+                console.log('on hide')
+              }}
+            >
               <b>Default</b> lorem ipsum dolor sit amet, consectetur adipiscing
               elit lorem ipsum dolor. <b>Pellentesque risus mi</b>, elit
             </Notice>
@@ -147,18 +73,14 @@ export default () => {
           <Column isTwoThirds>
             <Highlight className="javascript" languages={['javascript']}>{`
 import React from 'react'
-import { Container, Notification } from '@brightleaf/elements'
+import { Container, Notice } from '@brightleaf/elements'
 export default () => {
   return (
     <Container>
-      <Notification isPrimary isShown>
-        Primar lorem ipsum dolor sit amet, consectetur adipiscing elit lorem
-        ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis
-        placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-        fringilla. Nullam gravida purus diam, et dictum{' '}
-        <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-        elit
-      </Notification>
+      <Notice isPrimary isShown duration={3000}>
+        <b>Default</b> lorem ipsum dolor sit amet, consectetur adipiscing
+        elit lorem ipsum dolor. <b>Pellentesque risus mi</b>, elit
+      </Notice>
     </Container>
   )
 }
@@ -169,30 +91,47 @@ export default () => {
       <Snippet>
         <Columns>
           <Column isOneThird>
-            <Notification isInfo isShown>
-              Primar lorem ipsum dolor sit amet, consectetur adipiscing elit
-              lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus
-              quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit
-              amet fringilla. Nullam gravida purus diam, et dictum{' '}
-              <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
+            <Container>
+              Trigger the notice to show and have it dismiss after 3 seconds
+              <Button
+                disabled={showDefaultNotification}
+                onClick={e => {
+                  e.preventDefault()
+                  console.info(
+                    'showDefaultNotification',
+                    showDefaultNotification
+                  )
+                  setShowDefaultNotification(!showDefaultNotification)
+                }}
+              >
+                SHOW
+              </Button>
+            </Container>
+            <Notice
+              isPrimary
+              isShown={showDefaultNotification}
+              duration={3000}
+              onHide={() => {
+                console.log('on hide 2')
+                setShowDefaultNotification(false)
+              }}
+            >
+              <b>Show Hide</b> lorem ipsum dolor sit amet, consectetur
+              adipiscing elit lorem ipsum dolor. <b>Pellentesque risus mi</b>,
               elit
-            </Notification>
+            </Notice>
           </Column>
           <Column isTwoThirds>
             <Highlight className="javascript" languages={['javascript']}>{`
 import React from 'react'
-import { Container, Notification } from '@brightleaf/elements'
+import { Container, Notice } from '@brightleaf/elements'
 export default () => {
   return (
     <Container>
-      <Notification isInfo isShown>
-        Primar lorem ipsum dolor sit amet, consectetur adipiscing elit lorem
-        ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis
-        placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-        fringilla. Nullam gravida purus diam, et dictum{' '}
-        <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-        elit
-      </Notification>
+      <Notice isPrimary isShown duration={3000}>
+        <b>Default</b> lorem ipsum dolor sit amet, consectetur adipiscing
+        elit lorem ipsum dolor. <b>Pellentesque risus mi</b>, elit
+      </Notice>
     </Container>
   )
 }
@@ -203,30 +142,73 @@ export default () => {
       <Snippet>
         <Columns>
           <Column isOneThird>
-            <Notification isWarning isShown>
-              Primar lorem ipsum dolor sit amet, consectetur adipiscing elit
-              lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus
-              quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit
-              amet fringilla. Nullam gravida purus diam, et dictum{' '}
-              <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-              elit
-            </Notification>
+            <Container>
+              <Button
+                disabled={showNotification2}
+                onClick={e => {
+                  e.preventDefault()
+                  console.info('showDefaultNotification', showNotification2)
+                  setShowNotification2(!showNotification2)
+                }}
+              >
+                SHOW
+              </Button>
+            </Container>
+            <Notice
+              isInfo
+              isShown={showNotification2}
+              duration={30000}
+              onHide={() => {
+                console.log('on hide 3')
+                setShowNotification2(false)
+              }}
+              actionText="DO IT"
+              onAction={e => {
+                console.log('action', e)
+                e.close()
+              }}
+            >
+              <b>ACTION</b> lorem ipsum dolor sit amet, consectetur adipiscing
+              elit lorem ipsum dolor. <b>Pellentesque risus mi</b>, elit
+            </Notice>
           </Column>
           <Column isTwoThirds>
             <Highlight className="javascript" languages={['javascript']}>{`
-import React from 'react'
-import { Container, Notification } from '@brightleaf/elements'
+import React, { useState } from 'react'
+import { Container, Notice } from '@brightleaf/elements'
 export default () => {
+  const [showNotice, setShowNotice] = useState(false)
   return (
     <Container>
-      <Notification isWarning isShown>
-        Primar lorem ipsum dolor sit amet, consectetur adipiscing elit lorem
-        ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis
-        placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-        fringilla. Nullam gravida purus diam, et dictum{' '}
-        <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-        elit
-      </Notification>
+      <Container>
+        <Button
+          disabled={showNotice}
+          onClick={e => {
+            e.preventDefault()
+            console.info('showNotifice', showNotice)
+            setShowNotice(!showNotifice)
+          }}
+        >
+          SHOW
+        </Button>
+      </Container>
+      <Notice
+        isInfo
+        isShown={showNotice}
+        duration={30000}
+        onHide={() => {
+          console.log('on hide 3')
+          setShowNotice(false)
+        }}
+        actionText="DO IT"
+        onAction={e => {
+          console.log('The action event payload', e)
+          e.close()
+        }}
+      >
+        <b>ACTION</b> lorem ipsum dolor sit amet, consectetur adipiscing
+        elit lorem ipsum dolor. <b>Pellentesque risus mi</b>, elit
+      </Notice>
     </Container>
   )
 }
@@ -237,165 +219,53 @@ export default () => {
       <Snippet>
         <Columns>
           <Column isOneThird>
-            <Notification isSuccess isShown>
-              Primar lorem ipsum dolor sit amet, consectetur adipiscing elit
-              lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus
-              quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit
-              amet fringilla. Nullam gravida purus diam, et dictum{' '}
-              <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-              elit
-            </Notification>
+            <Container>
+              <Button
+                disabled={showTopNotification}
+                onClick={e => {
+                  e.preventDefault()
+
+                  setShowTopNotification(!showTopNotification)
+                }}
+              >
+                SHOW
+              </Button>
+            </Container>
+            <Notice
+              isPrimary
+              isTop
+              isShown={showTopNotification}
+              duration={3000}
+              onHide={() => {
+                console.log('on hide top')
+                setShowTopNotification(false)
+              }}
+            >
+              <b>Show Top</b> lorem ipsum dolor sit amet, consectetur adipiscing
+              elit lorem ipsum dolor. <b>Pellentesque risus mi</b>, elit
+            </Notice>
           </Column>
           <Column isTwoThirds>
             <Highlight className="javascript" languages={['javascript']}>{`
 import React from 'react'
-import { Container, Notification } from '@brightleaf/elements'
+import { Container, Notice } from '@brightleaf/elements'
 export default () => {
+  const [showTopNotification, setShowTopNotification] = useState(false)
   return (
     <Container>
-      <Notification isSuccess isShown>
-        Primar lorem ipsum dolor sit amet, consectetur adipiscing elit lorem
-        ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis
-        placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-        fringilla. Nullam gravida purus diam, et dictum{' '}
-        <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-        elit
-      </Notification>
-    </Container>
-  )
-}
-          `}</Highlight>
-          </Column>
-        </Columns>
-      </Snippet>
-      <Snippet>
-        <Columns>
-          <Column isOneThird>
-            <Notification isDanger isShown>
-              Primar lorem ipsum dolor sit amet, consectetur adipiscing elit
-              lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus
-              quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit
-              amet fringilla. Nullam gravida purus diam, et dictum{' '}
-              <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-              elit
-            </Notification>
-          </Column>
-          <Column isTwoThirds>
-            <Highlight className="javascript" languages={['javascript']}>{`
-import React from 'react'
-import { Container, Notification } from '@brightleaf/elements'
-export default () => {
-  return (
-    <Container>
-      <Notification isDanger isShown>
-        Primar lorem ipsum dolor sit amet, consectetur adipiscing elit lorem
-        ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis
-        placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-        fringilla. Nullam gravida purus diam, et dictum{' '}
-        <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-        elit
-      </Notification>
-    </Container>
-  )
-}
-          `}</Highlight>
-          </Column>
-        </Columns>
-      </Snippet>
-      <Snippet>
-        <Columns>
-          <Column isOneThird>
-            <Notification isLink isShown>
-              Primar lorem ipsum dolor sit amet, consectetur adipiscing elit
-              lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus
-              quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit
-              amet fringilla. Nullam gravida purus diam, et dictum{' '}
-              <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-              elit
-            </Notification>
-          </Column>
-          <Column isTwoThirds>
-            <Highlight className="javascript" languages={['javascript']}>{`
-import React from 'react'
-import { Container, Notification } from '@brightleaf/elements'
-export default () => {
-  return (
-    <Container>
-      <Notification isLink isShown>
-        Primar lorem ipsum dolor sit amet, consectetur adipiscing elit lorem
-        ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis
-        placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-        fringilla. Nullam gravida purus diam, et dictum{' '}
-        <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-        elit
-      </Notification>
-    </Container>
-  )
-}
-          `}</Highlight>
-          </Column>
-        </Columns>
-      </Snippet>
-      <Snippet>
-        <Columns>
-          <Column isOneThird>
-            <Notification isLight isShown>
-              Primar lorem ipsum dolor sit amet, consectetur adipiscing elit
-              lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus
-              quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit
-              amet fringilla. Nullam gravida purus diam, et dictum{' '}
-              <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-              elit
-            </Notification>
-          </Column>
-          <Column isTwoThirds>
-            <Highlight className="javascript" languages={['javascript']}>{`
-import React from 'react'
-import { Container, Notification } from '@brightleaf/elements'
-export default () => {
-  return (
-    <Container>
-      <Notification isLight isShown>
-        Primar lorem ipsum dolor sit amet, consectetur adipiscing elit lorem
-        ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis
-        placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-        fringilla. Nullam gravida purus diam, et dictum{' '}
-        <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-        elit
-      </Notification>
-    </Container>
-  )
-}
-          `}</Highlight>
-          </Column>
-        </Columns>
-      </Snippet>
-      <Snippet>
-        <Columns>
-          <Column isOneThird>
-            <Notification isLight isShown isDismissible={false}>
-              <Title as="p">{`isDismissible={false}`}</Title>
-              ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis
-              placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-              fringilla. Nullam gravida purus diam, et dictum{' '}
-              <a>felis venenatis</a> efficitur. Sit amet, consectetur adipiscing
-              elit
-            </Notification>
-          </Column>
-          <Column isTwoThirds>
-            <Highlight className="javascript" languages={['javascript']}>{`
-import React from 'react'
-import { Container, Notification } from '@brightleaf/elements'
-export default () => {
-  return (
-    <Container>
-      <Notification isLight isShown isDismissible={false}>
-        <Title as="p">{'isDismissible={false}'}</Title>
-        ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis
-        placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-        fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a>{' '}
-        efficitur. Sit amet, consectetur adipiscing elit
-      </Notification>
+      <Notice
+        isPrimary
+        isTop
+        isShown={showTopNotification}
+        duration={3000}
+        onHide={() => {
+          console.log('on hide top')
+          setShowTopNotification(false)
+        }}
+      >
+        <b>Show Top</b> lorem ipsum dolor sit amet, consectetur adipiscing
+        elit lorem ipsum dolor. <b>Pellentesque risus mi</b>, elit
+      </Notice>
     </Container>
   )
 }
