@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { createPortal } from 'react-dom'
+import { createPortal, unmountComponentAtNode } from 'react-dom'
 import classnames from 'classnames'
-import { Collapse } from '../collapse'
 import { allTheClasses } from '../modifiers'
 import { useToggle } from '../modal'
 import './notice.css'
@@ -24,16 +23,15 @@ const usePortal = (id, className, topLevelClassName) => {
     const existingParent = document.querySelector(`#${id}`)
     const parentElem = existingParent || createRootElement(id)
 
-    topLevelClassName.split(' ').forEach(cname => {
-      if (parentElem.current) {
-        parentElem.current.classList.add(cname)
-      }
-    })
     if (!existingParent) {
       addRootElement(parentElem)
     }
-
     parentElem.appendChild(rootElemRef.current)
+    topLevelClassName.split(' ').forEach(cname => {
+      if (parentElem) {
+        parentElem.classList.add(cname)
+      }
+    })
 
     return function removeElement() {
       rootElemRef.current.remove()
@@ -46,14 +44,14 @@ const usePortal = (id, className, topLevelClassName) => {
   const getRootElem = () => {
     if (!rootElemRef.current) {
       rootElemRef.current = document.createElement('div')
-
-      if (className) {
-        className.split(' ').forEach(cname => {
-          rootElemRef.current.classList.add(cname)
-        })
-      }
     }
 
+    if (className) {
+      rootElemRef.current.className = ''
+      className.split(' ').forEach(cname => {
+        rootElemRef.current.classList.add(cname)
+      })
+    }
     return rootElemRef.current
   }
 
@@ -62,13 +60,37 @@ const usePortal = (id, className, topLevelClassName) => {
 const Portal = ({ id, children, className, topLevelClassName }) => {
   const target = usePortal(id, className, topLevelClassName)
 
-  return createPortal(children, target)
+  const p = createPortal(children, target)
+
+  const onEnd = ({ target, animationName }) => {
+    if (animationName.indexOf('Out') > -1) {
+      // target.classList.add('is-hidden')
+      target.remove()
+      // unmountComponentAtNode(target)
+    }
+  }
+  const onStart = ({ target, animationName }) => {
+    console.log('on start')
+    target.classList.remove('is-hidden')
+  }
+
+  useEffect(() => {
+    if (p.containerInfo) {
+      p.containerInfo.addEventListener('animationend', onEnd)
+      p.containerInfo.addEventListener('animationstart', onStart)
+      return () => {
+        p.containerInfo.removeEventListener('animationend', onEnd)
+        p.containerInfo.removeEventListener('animationstart', onStart)
+      }
+    }
+  })
+  return p
 }
 export const Notice = ({
   children,
   isShown,
   className,
-  onClose,
+  onAction,
   duration,
   isTop,
   isBottom,
@@ -78,6 +100,8 @@ export const Notice = ({
   isBottomRight,
   isTopLeft,
   isTopRight,
+  onHide,
+  actionText,
   ...props
 }) => {
   let topLevelClassName = classnames({
@@ -97,10 +121,9 @@ export const Notice = ({
     ...props,
   })
 
-  const [show, setShow] = useToggle(isShown)
+  const buttonClasses = allTheClasses(props)
+  const [show, setShow] = useState(isShown)
 
-  const animIn = isTop ? 'slideInDown' : 'slideInUp'
-  // classes['is-bottom-right'] = isBottomRight
   classes['is-top-right'] = isTopRight
   classes['is-bottom-left'] = isBottomLeft
   classes['is-top-left'] = isTopLeft
@@ -119,6 +142,7 @@ export const Notice = ({
   let bottomContainer = isBottom || isBottomLeft || isBottomRight
   if (!valueSet) {
     classes['is-bottom-right'] = true
+    classes['is-bottom'] = true
     bottomContainer = true
 
     topLevelClassName = classnames({
@@ -126,10 +150,15 @@ export const Notice = ({
       'is-bottom': true,
     })
   }
-
+  classes['animated'] = true
+  classes['fadeOut'] = !show
+  classes['fadeIn'] = show
   useEffect(() => {
+    setShow(isShown)
+    if (!isShown) return
     const timer = setTimeout(() => {
       setShow(false)
+      onHide()
     }, duration)
     return () => {
       clearTimeout(timer)
@@ -137,7 +166,9 @@ export const Notice = ({
   }, [isShown])
 
   const id = bottomContainer ? 'notice-bottom' : 'notice-top'
-
+  if (!isShown) {
+    return <></>
+  }
   return (
     <Portal
       id={id}
@@ -145,18 +176,38 @@ export const Notice = ({
       topLevelClassName={topLevelClassName}
     >
       <div className="text">{children}</div>
-      <div className="action">?</div>
+      <div className={classnames('action', buttonClasses)}>
+        {onAction && (
+          <a
+            href="#"
+            className={classnames('button')}
+            onClick={e => {
+              e.preventDefault()
+              onAction({
+                close: () => {
+                  setShow(false)
+                  onHide()
+                },
+              })
+            }}
+          >
+            {actionText}
+          </a>
+        )}
+      </div>
     </Portal>
   )
 }
 
 Notice.defaultProps = {
+  actionText: 'OK',
   isShown: true,
-  onClose: () => {},
+
   duration: 2000,
   isLeft: false,
   isTop: false,
   isBottom: false,
   isRight: false,
+  onHide: () => {},
 }
 export default Notice
