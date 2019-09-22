@@ -1,6 +1,6 @@
 /* eslint-disable spellcheck/spell-checker */
 /* eslint-disable sonarjs/no-duplicate-string */
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -26,6 +26,32 @@ const Example = ({ children, isPrimary }) => {
   return <div className="example">{children}</div>
 }
 export default () => {
+  const [tags, setTags] = useState([
+    'Technology',
+    'CSS',
+    'Flexbox',
+    'Web Design',
+    'Open Source',
+    'Community',
+    'Documentation',
+  ])
+
+  const tagList = tags.map(t => {
+    return (
+      <Control key={`tag-${t.toLowerCase()}`}>
+        <Tags hasAddons>
+          <Tag isLink>{t}</Tag>
+          <Tag
+            isDelete
+            onClick={e => {
+              const newTags = tags.filter(tag => tag !== t)
+              setTags(newTags)
+            }}
+          ></Tag>
+        </Tags>
+      </Control>
+    )
+  })
   return (
     <Section>
       <div style={{ paddingTop: '3em', paddingBottom: '3em' }}>
@@ -351,49 +377,7 @@ export default () => {
           <Columns>
             <Column isHalf>
               <Field isGrouped isGroupedMultiline>
-                <Control>
-                  <Tags hasAddons>
-                    <Tag isLink>Technology</Tag>
-                    <Tag isDelete></Tag>
-                  </Tags>
-                </Control>
-
-                <Control>
-                  <Tags hasAddons>
-                    <Tag isLink>CSS</Tag>
-                    <Tag isDelete></Tag>
-                  </Tags>
-                </Control>
-                <Control>
-                  <Tags hasAddons>
-                    <Tag isLink>Flexbox</Tag>
-                    <Tag isDelete></Tag>
-                  </Tags>
-                </Control>
-                <Control>
-                  <Tags hasAddons>
-                    <Tag isLink>Web Design</Tag>
-                    <Tag isDelete></Tag>
-                  </Tags>
-                </Control>
-                <Control>
-                  <Tags hasAddons>
-                    <Tag isLink>Open Source</Tag>
-                    <Tag isDelete></Tag>
-                  </Tags>
-                </Control>
-                <Control>
-                  <Tags hasAddons>
-                    <Tag isLink>Community</Tag>
-                    <Tag isDelete></Tag>
-                  </Tags>
-                </Control>
-                <Control>
-                  <Tags hasAddons>
-                    <Tag isLink>Documentation</Tag>
-                    <Tag isDelete></Tag>
-                  </Tags>
-                </Control>
+                {tagList}
               </Field>
             </Column>
             <Column isHalf>
@@ -403,51 +387,35 @@ import React from 'react'
 import { Control, Field, Tag, Tags } from '@brightleaf/elements'
 
 export default () => {
+  const [tags, setTags] = useState([
+    'Technology',
+    'CSS',
+    'Flexbox',
+    'Web Design',
+    'Open Source',
+    'Community',
+    'Documentation',
+  ])
+
+  const tagList = tags.map(t => {
+    return (
+      <Control key={t}>
+        <Tags hasAddons>
+          <Tag isLink>{t}</Tag>
+          <Tag
+            isDelete
+            onClick={e => {
+              const newTags = tags.filter(tag => tag !== t)
+              setTags(newTags)
+            }}
+          ></Tag>
+        </Tags>
+      </Control>
+    )
+  })
   return (
     <Field isGrouped isGroupedMultiline>
-      <Control>
-        <Tags hasAddons>
-          <Tag isLink>Technology</Tag>
-          <Tag isDelete></Tag>
-        </Tags>
-      </Control>
-
-      <Control>
-        <Tags hasAddons>
-          <Tag isLink>CSS</Tag>
-          <Tag isDelete></Tag>
-        </Tags>
-      </Control>
-      <Control>
-        <Tags hasAddons>
-          <Tag isLink>Flexbox</Tag>
-          <Tag isDelete></Tag>
-        </Tags>
-      </Control>
-      <Control>
-        <Tags hasAddons>
-          <Tag isLink>Web Design</Tag>
-          <Tag isDelete></Tag>
-        </Tags>
-      </Control>
-      <Control>
-        <Tags hasAddons>
-          <Tag isLink>Open Source</Tag>
-          <Tag isDelete></Tag>
-        </Tags>
-      </Control>
-      <Control>
-        <Tags hasAddons>
-          <Tag isLink>Community</Tag>
-          <Tag isDelete></Tag>
-        </Tags>
-      </Control>
-      <Control>
-        <Tags hasAddons>
-          <Tag isLink>Documentation</Tag>
-          <Tag isDelete></Tag>
-        </Tags>
-      </Control>
+      {tagList}
     </Field>
   )
 }
