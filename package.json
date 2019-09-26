@@ -42,7 +42,7 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@brightleaf/react-hooks": "^4.1.0",
+    "@brightleaf/react-hooks": "^4.1.1",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "react-form-elements": "^4.12.0"
@@ -57,7 +57,7 @@
     "@kev_nz/eslint-config": "^5.0.0",
     "@reach/router": "^1.2.1",
     "@testing-library/jest-dom": "^4.1.0",
-    "@testing-library/react": "^9.1.4",
+    "@testing-library/react": "^9.2.0",
     "acorn": "^7.1.0",
     "babel-loader": "^8.0.6",
     "copy-webpack-plugin": "^5.0.4",
