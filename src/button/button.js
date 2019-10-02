@@ -18,6 +18,7 @@ export const Button = ({
   isWhite,
   isDark,
   isBlack,
+  isLoading,
   isText,
   isSmall,
   isMedium,
@@ -54,6 +55,7 @@ export const Button = ({
     }),
     ...Sizes({ isSmall, isMedium, isNormal, isLarge, isFullWidth }),
     ...StyleOrState({
+      isLoading,
       isInverted,
       isOutlined,
       isRounded,
