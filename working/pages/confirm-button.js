@@ -54,10 +54,9 @@ export default () => {
 
       <Hero isPrimary isBold>
         <HeroBody>
-          <Title>Button</Title>
+          <Title>ConfirmButton</Title>
           <SubTitle as="p" is="4">
-            The classic <strong>button</strong>, in different colors, sizes, and
-            states
+            The <strong>confirm button</strong>, to open a confirmation modal
           </SubTitle>
         </HeroBody>
       </Hero>
@@ -67,9 +66,8 @@ export default () => {
       <FullColumn>
         <Content>
           <p>
-            The <strong>button</strong> is an essential element of any design.
-            It&apos;s meant to look and behave as an{' '}
-            <strong>interactive</strong> element of your page.
+            The <strong>confirm button</strong> allows an interactive experience
+            to confirm a user initiated action.
           </p>
         </Content>
       </FullColumn>
