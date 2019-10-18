@@ -16,6 +16,7 @@ export {
 } from './card'
 export { Collapse } from './collapse'
 export { Column, Columns, FullColumn } from './columns'
+export { ConfirmButton } from './confirm-button'
 export { Container } from './container'
 export { Content } from './content'
 export { Control } from './control'
