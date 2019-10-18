@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
-
+import { allTheClasses } from '../modifiers'
 export const PanelBlock = ({
   className,
   children,
@@ -12,6 +12,7 @@ export const PanelBlock = ({
   const classes = classnames('panel-block', className, {
     'is-active': isActive,
   })
+
   return (
     <El className={classes} {...props}>
       {children}
@@ -47,9 +48,9 @@ PanelTabs.defaultProps = {
   as: 'p',
 }
 
-export const Panel = ({ heading, children, className }) => {
+export const Panel = ({ heading, children, className, ...props }) => {
   return (
-    <nav className={classnames('panel', className)}>
+    <nav className={classnames('panel', className, allTheClasses(props))}>
       <p className="panel-heading">{heading}</p>
       {children}
     </nav>
