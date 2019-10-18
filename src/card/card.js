@@ -36,6 +36,7 @@ export const CardFooter = ({ children, className }) => {
     <footer className={classnames('card-footer', className)}>{children}</footer>
   )
 }
+
 CardFooter.sortOrder = 5
 
 export const CardImage = ({ src, alt, className }) => {
