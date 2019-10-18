@@ -65,6 +65,7 @@ export {
   NavBarMenu,
 } from './navbar'
 export { NavigationView } from './navigation-view'
+export { Notice } from './notice'
 export { Notification } from './notification'
 export {
   Pagination,
