@@ -67,8 +67,10 @@ const Collapsed = lazy(() => import('../pages/collapse'))
 const Notices = lazy(() => import('../pages/notice'))
 const ProgressPage = lazy(() => import('../pages/progress'))
 const Tables = lazy(() => import('../pages/tables'))
-let source = createHashSource()
-let history = createHistory(source)
+const ConfirmButtons = lazy(() => import('../pages/confirm-button'))
+
+const source = createHashSource()
+const history = createHistory(source)
 
 const NotFound = () => (
   <Section>
@@ -187,24 +189,6 @@ export default class App extends Component {
                 </a>
               </MenuListItem>
             </MenuList>
-            <MenuLabel>Transactions</MenuLabel>
-            <MenuList>
-              <MenuListItem>
-                <a>
-                  <Icon fas icon="credit-card" /> Payments
-                </a>
-              </MenuListItem>
-              <MenuListItem>
-                <a>
-                  <Icon fas icon="align-center" /> Transfers
-                </a>
-              </MenuListItem>
-              <MenuListItem>
-                <a>
-                  <Icon fas icon="briefcase" /> Balance
-                </a>
-              </MenuListItem>
-            </MenuList>
           </Menu>
         </NavigationView>
 
@@ -318,6 +302,9 @@ export default class App extends Component {
                     <UpLink to="/card">Card</UpLink>
                   </NavBarItem>
                   <NavBarItem>
+                    <UpLink to="/confirm">ConfirmButton</UpLink>
+                  </NavBarItem>
+                  <NavBarItem>
                     <UpLink to="/dropdown">DropDown</UpLink>
                   </NavBarItem>
                   <NavBarItem>
@@ -426,6 +413,7 @@ export default class App extends Component {
               <Notices path="/notice" />
               <ProgressPage path="/progress" />
               <Tables path="/tables" />
+              <ConfirmButtons path="/confirm" />
             </Router>
           </Suspense>
         </Fragment>

@@ -69,6 +69,7 @@ export const ComponentsTabs = () => {
         <TabLink to="/autocomplete">AutoComplete</TabLink>
         <TabLink to="/breadcrumb">Breadcrumb</TabLink>
         <TabLink to="/card">Card</TabLink>
+        <TabLink to="/confirm">ConfirmButton</TabLink>
         <TabLink to="/dropdown">DropDown</TabLink>
         <TabLink to="/menu">Menu</TabLink>
         <TabLink to="/messages">Messages</TabLink>
