@@ -43,7 +43,7 @@ const ConfirmButton = ({
         ModalType={ModalCard}
         onCloseClick={onCancel}
       >
-        <ModalCardHead title="Success"></ModalCardHead>
+        <ModalCardHead title={title}></ModalCardHead>
         <ModalCardBody>{question}</ModalCardBody>
         <ModalCardFoot>
           <Field isGrouped>
@@ -81,6 +81,7 @@ ConfirmButton.defaultProps = {
   onConfirm: () => {},
   declineText: 'Cancel',
   question: 'Are you sure?',
+  title: 'Please confirm'
 }
 export { ConfirmButton }
 export default ConfirmButton
