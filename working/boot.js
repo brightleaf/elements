@@ -1,7 +1,7 @@
 /* eslint-disable spellcheck/spell-checker */
-import React, { useState } from 'react'
+import React, { useState, useEffect, } from 'react'
 import ReactDOM from 'react-dom'
-import { useStyleSheet } from '@brightleaf/react-hooks/lib/use-stylesheet'
+
 import { useScript } from '@brightleaf/react-hooks/lib/use-script'
 import { useStyles } from '@brightleaf/react-hooks/lib/use-styles'
 import { AutoComplete } from '../src/autocomplete'
@@ -79,378 +79,507 @@ import { Tabs, TabItem, TabList } from '../src/tabs'
 import { Tag, Tags } from '../src/tag'
 import { Tile } from '../src/tile'
 import { Title } from '../src/title'
+
+const id = Date.now().toString()
+const useStyleSheet = href => {
+
+  console.log('id',id)
+  const [sheet, setSheet] = useState(href)
+
+  useEffect(() => {
+    console.log('set css link', cssLink)
+    let cssLink = document.getElementById(id)
+    if (cssLink) {
+      document.getElementsByTagName('head')[0].removeChild(cssLink)
+    }
+    cssLink = document.createElement('link')
+    cssLink.id = id
+    cssLink.type = 'text/css'
+    cssLink.rel = 'stylesheet'
+    cssLink.href = sheet
+
+    document.getElementsByTagName('head')[0].appendChild(cssLink)
+    return () => {
+      console.log('remove')
+      document.getElementsByTagName('head')[0].removeChild(cssLink)
+    }
+  }, [sheet])
+  return [sheet, setSheet]
+}
+
+
+
+
+const swatches = {
+  default: {
+    title: 'Default',
+    description: 'Bulma as is',
+  },
+  cerulean: {
+    title: 'Cerulean',
+    description: 'A calm blue sky',
+  },
+  cosmo: {
+    title: 'Cosmo',
+    description: 'An ode to metro',
+  },
+  cyborg: {
+    title: 'Cyborg',
+    description: 'Jet black and electric blue ',
+  },
+  darkly: {
+    title: 'Darkly',
+    description: 'Flatly in night mode',
+  },
+  flatly: {
+    title: 'Flatly',
+    description: 'Flat and think',
+  },
+  journal: {
+    title: 'Journal',
+    description: 'Crisp like a new sheet of paper ',
+  },
+  litera: {
+    title: 'Litera',
+    description: 'The medium is the message '
+  },
+  lumen: {
+    title: 'Lumen',
+    description: 'Light and shadow ',
+  },
+  lux: {
+    title: 'Lux',
+    description: 'A touch of class',
+  },
+  materia: {
+    title: 'Materia',
+    description: 'Material is the metaphor',
+  },
+  minty: {
+    title: 'Minty',
+    description: 'A fresh feel',
+  },
+  nuclear: {
+    title: 'Nuclear',
+    description: 'A dark theme with irradiated highlights',
+  },
+  pulse: {
+    title: 'Pulse',
+    description: 'A trace of purple',
+  },
+  sandstone: {
+    title: 'Sandstone',
+    description: 'A touch of warmth',
+  },
+  simplex: {
+    title: 'Simplex',
+    description: 'Mini and minimalist',
+  },
+  slate: {
+    title: 'Slate',
+    description: 'Shades of gunmetal gray ',
+  },
+  solar: {
+    title: 'Solar',
+    description: 'A spin on Solarized ',
+  },
+  spacelab: {
+    title: 'Spacelab',
+    description: 'Silvery and sleek ',
+  },
+  superhero: {
+    title: 'Superhero',
+    description: 'The brave and the blue',
+  },
+  united: {
+    title: 'United',
+    description: 'Ubuntu orange and unique font',
+  },
+  yeti: {
+    title: 'Yeti',
+    description: 'A friendly foundation',
+  },
+}
+
+
+
 export const BootSwatchApp = () => {
-  const [sheet, setSheet] = useState('slate')
-  const [ val, setVal] = useState('')
-  useStyleSheet(
+  const [sheet, setTheSheet] = useState('default')
+  const [val, setVal] = useState('')
+  const [css, setCss] = useStyleSheet(
     `https://jenil.github.io/bulmaswatch/${sheet}/bulmaswatch.min.css`
   )
+
+  const setSheet= cssSheet => {
+    setTheSheet(cssSheet)
+    setCss(`https://jenil.github.io/bulmaswatch/${cssSheet}/bulmaswatch.min.css`)
+  }
   useScript('https://kit.fontawesome.com/d8b67ee174.js')
 
-  const defaultColor ='#00b89c'
-  const colors = {
-    cerulean :'#1a99e2',
-    cosmo: '#2780E3',
-    slate: '#000'
 
-  }
 
   useStyles(`
-  .navbar-dropdown a.navbar-item {
-    color: ${colors[sheet] || defaultColor }!important;
-  }
-  .navbar-dropdown a.navbar-item.is-active {
-    color: ${colors[sheet] || defaultColor }!important;
-  }
+    .main-nav .is-primary .title {
+      color: #fff!important;
+    }
+    .main-nav-title {
+      color: #fff!important;
+    }
   `)
+
   return (
     <>
+    <NavBar className="main-nav" isPrimary>
+    <Container>
+      <NavBarStart className="navbar-start">
+        <NavBarItem>
+          <a href="https://jenil.github.io/bulmaswatch/">
+            <img
+              src="https://jenil.github.io/bulmaswatch/assets/icons/apple-touch-icon-144x144.png"
+              alt=""
+              className="logo"
+            />
+            <Title className="main-nav-title" is="5">Bulmaswatch</Title>
+          </a>
+        </NavBarItem>
+        <NavBarItem>
+          <a href="https://jenil.github.io/bulmaswatch/">Home</a>
+        </NavBarItem>
+        <NavBarDropDown title="Themes" isHoverable isBoxed>
+          <Columns>
+            <Column>
+              <NavBarItem isActive={sheet==='default'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/default"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('default')
+                  }}
+                >
+                  {' '}
+                  Default{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem isActive={sheet==='cerulean'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/cerulean"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('cerulean')
+                    console.log('cerulean')
+                  }}
+                >
+                  {' '}
+                  Cerulean{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem isActive={sheet==='cosmo'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/cosmo"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('cosmo')
+                  }}
+                >
+                  {' '}
+                  Cosmo{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem isActive={sheet==='cyborg'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/cyborg"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('cyborg')
+                  }}
+                >
+                  {' '}
+                  Cyborg{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem isActive={sheet==='darkly'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/darkly"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('darkly')
+                  }}
+                >
+                  {' '}
+                  Darkly{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem isActive={sheet==='flatly'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/flatly"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('flatly')
+                  }}
+                >
+                  {' '}
+                  Flatly{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem isActive={sheet==='journal'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/journal"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('journal')
+                  }}
+                >
+                  {' '}
+                  Journal{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem isActive={sheet==='litera'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/litera"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('litera')
+                  }}
+                >
+                  {' '}
+                  Litera{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem isActive={sheet==='lumen'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/lumen"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('lumen')
+                  }}
+                >
+                  {' '}
+                  Lumen{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem isActive={sheet==='lux'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/lux"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('lux')
+                  }}
+                >
+                  {' '}
+                  Lux{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem isActive={sheet==='materia'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/materia"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('materia')
+                  }}
+                >
+                  {' '}
+                  Materia{' '}
+                </a>
+              </NavBarItem>
+            </Column>
+            <Column className="column">
+              <NavBarItem isActive={sheet==='minty'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/minty"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('minty')
+                  }}
+                >
+                  {' '}
+                  Minty{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem isActive={sheet==='nuclear'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/nuclear"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('nuclear')
+                  }}
+                >
+                  {' '}
+                  Nuclear{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem isActive={sheet==='pulse'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/pulse"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('pulse')
+                  }}
+                >
+                  {' '}
+                  Pulse{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem isActive={sheet==='sandstone'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/sandstone"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('sandstone')
+                  }}
+                >
+                  {' '}
+                  Sandstone{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem>
+                <a
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('simplex')
+                  }}
+                  href="https://jenil.github.io/bulmaswatch/simplex"
+                >
+                  {' '}
+                  Simplex{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem isActive={sheet==='slate'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/slate"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('slate')
+                  }}
+                >
+                  {' '}
+                  Slate{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem isActive={sheet==='solar'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/solar"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('solar')
+                  }}
+                >
+                  {' '}
+                  Solar{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem isActive={sheet==='spacelab'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/spacelab"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('spacelab')
+                  }}
+                >
+                  {' '}
+                  Spacelab{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem  isActive={sheet==='superhero'}>
+                <a
+                  className="navbar-item "
+                  href="https://jenil.github.io/bulmaswatch/superhero"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('superhero')
+                  }}
+                >
+                  {' '}
+                  Superhero{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem isActive={sheet==='united'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/united"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('united')
+                  }}
+                >
+                  {' '}
+                  United{' '}
+                </a>
+              </NavBarItem>
+              <NavBarItem isActive={sheet==='yeti'}>
+                <a
+                  href="https://jenil.github.io/bulmaswatch/yeti"
+                  onClick={e => {
+                    e.preventDefault()
+                    setSheet('yeti')
+                  }}
+                >
+                  {' '}
+                  Yeti{' '}
+                </a>
+              </NavBarItem>
+            </Column>
+          </Columns>
+        </NavBarDropDown>
+        <NavBarItem>
+          <a href="https://jenil.github.io/bulmaswatch/help/">Help</a>
+        </NavBarItem>
+      </NavBarStart>
+      <span className="navbar-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <div className="navbar-end navbar-menu">
+        <a
+          href="https://github.com/jenil/bulmaswatch/stargazers"
+          className="navbar-item"
+        >
+          <img
+            src="https://img.shields.io/github/stars/jenil/bulmaswatch.svg"
+            alt="GitHub stars"
+          />
+        </a>
+        <a
+          className="navbar-item"
+          href="//github.com/jenil/bulmaswatch/issues"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="fas fa-bug"></i>&nbsp;Report an issue
+        </a>
+        <a
+          className="navbar-item"
+          href="//github.com/jenil/bulmaswatch"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="icon">
+            {' '}
+            <i className="fab fa-github"></i>{' '}
+          </span>
+        </a>
+        <a
+          className="navbar-item"
+          href="//twitter.com/geekGogari"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="icon">
+            {' '}
+            <i className="fab fa-twitter"></i>{' '}
+          </span>
+        </a>
+      </div>
+    </Container>
+  </NavBar>
+
+
       <Hero isPrimary>
-        <HeroHead>
-          <NavBar className="main-nav">
-            <Container>
-              <NavBarStart className="navbar-start">
-                <NavBarItem>
-                  <a href="https://jenil.github.io/bulmaswatch/">
-                    <img
-                      src="https://jenil.github.io/bulmaswatch/assets/icons/apple-touch-icon-144x144.png"
-                      alt=""
-                      className="logo"
-                    />
-                    <Title is="5">Bulmaswatch</Title>
-                  </a>
-                </NavBarItem>
-                <NavBarItem>
-                  <a href="https://jenil.github.io/bulmaswatch/">Home</a>
-                </NavBarItem>
-                <NavBarDropDown title="Themes" isHoverable isBoxed>
-                  <Columns>
-                    <Column>
-                      <NavBarItem>
-                        <a href="https://jenil.github.io/bulmaswatch/default"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('cerulean')
-                          }}>
-                          {' '}
-                          Default{' '}
-                        </a>
-                      </NavBarItem>
-                      <NavBarItem>
-                        <a
-                          href="https://jenil.github.io/bulmaswatch/cerulean"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('cerulean')
-                            console.log('cerulean')
-                          }}
-                        >
-                          {' '}
-                          Cerulean{' '}
-                        </a>
-                      </NavBarItem>
-                      <NavBarItem>
-                        <a
-                          href="https://jenil.github.io/bulmaswatch/cosmo"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('cosmo')
-                          }}
-                        >
-                          {' '}
-                          Cosmo{' '}
-                        </a>
-                      </NavBarItem>
-                      <NavBarItem>
-                        <a
-                          href="https://jenil.github.io/bulmaswatch/cyborg"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('cyborg')
-                          }}
-                        >
-                          {' '}
-                          Cyborg{' '}
-                        </a>
-                      </NavBarItem>
-                      <NavBarItem>
-                        <a
-                          href="https://jenil.github.io/bulmaswatch/darkly"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('darkly')
-                          }}
-                        >
-                          {' '}
-                          Darkly{' '}
-                        </a>
-                      </NavBarItem>
-                      <NavBarItem>
-                        <a
-                          href="https://jenil.github.io/bulmaswatch/flatly"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('flatly')
-                          }}
-                        >
-                          {' '}
-                          Flatly{' '}
-                        </a>
-                      </NavBarItem>
-                      <NavBarItem>
-                        <a
-                          href="https://jenil.github.io/bulmaswatch/journal"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('journal')
-                          }}
-                        >
-                          {' '}
-                          Journal{' '}
-                        </a>
-                      </NavBarItem>
-                      <NavBarItem>
-                        <a
-                          href="https://jenil.github.io/bulmaswatch/litera"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('litera')
-                          }}
-                        >
-                          {' '}
-                          Litera{' '}
-                        </a>
-                      </NavBarItem>
-                      <NavBarItem>
-                        <a
-                          href="https://jenil.github.io/bulmaswatch/lumen"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('lumen')
-                          }}
-                        >
-                          {' '}
-                          Lumen{' '}
-                        </a>
-                      </NavBarItem>
-                      <NavBarItem>
-                        <a
-                          href="https://jenil.github.io/bulmaswatch/lux"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('lux')
-                          }}
-                        >
-                          {' '}
-                          Lux{' '}
-                        </a>
-                      </NavBarItem>
-                      <NavBarItem>
-                        <a
-                          href="https://jenil.github.io/bulmaswatch/materia"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('materia')
-                          }}
-                        >
-                          {' '}
-                          Materia{' '}
-                        </a>
-                      </NavBarItem>
-                    </Column>
-                    <Column className="column">
-                      <NavBarItem>
-                        <a
-                          href="https://jenil.github.io/bulmaswatch/minty"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('minty')
-                          }}
-                        >
-                          {' '}
-                          Minty{' '}
-                        </a>
-                      </NavBarItem>
-                      <NavBarItem>
-                        <a
-                          href="https://jenil.github.io/bulmaswatch/nuclear"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('nuclear')
-                          }}
-                        >
-                          {' '}
-                          Nuclear{' '}
-                        </a>
-                      </NavBarItem>
-                      <NavBarItem>
-                        <a
-                          href="https://jenil.github.io/bulmaswatch/pulse"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('pulse')
-                          }}
-                        >
-                          {' '}
-                          Pulse{' '}
-                        </a>
-                      </NavBarItem>
-                      <NavBarItem>
-                        <a
-                          href="https://jenil.github.io/bulmaswatch/sandstone"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('sandstone')
-                          }}
-                        >
-                          {' '}
-                          Sandstone{' '}
-                        </a>
-                      </NavBarItem>
-                      <NavBarItem>
-                        <a
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('simplex')
-                          }}
-                          href="https://jenil.github.io/bulmaswatch/simplex"
-                        >
-                          {' '}
-                          Simplex{' '}
-                        </a>
-                      </NavBarItem>
-                      <NavBarItem isActive>
-                        <a
-                          href="https://jenil.github.io/bulmaswatch/slate"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('slate')
-                          }}
-                        >
-                          {' '}
-                          Slate{' '}
-                        </a>
-                      </NavBarItem>
-                      <NavBarItem>
-                        <a
-                          href="https://jenil.github.io/bulmaswatch/solar"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('solar')
-                          }}
-                        >
-                          {' '}
-                          Solar{' '}
-                        </a>
-                      </NavBarItem>
-                      <NavBarItem>
-                        <a
-                          href="https://jenil.github.io/bulmaswatch/spacelab"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('spacelab')
-                          }}
-                        >
-                          {' '}
-                          Spacelab{' '}
-                        </a>
-                      </NavBarItem>
-                      <a
-                        className="navbar-item "
-                        href="https://jenil.github.io/bulmaswatch/superhero"
-                        onClick={e => {
-                          e.preventDefault()
-                          setSheet('superhero')
-                        }}
-                      >
-                        {' '}
-                        Superhero{' '}
-                      </a>
-                      <NavBarItem>
-                        <a
-                          href="https://jenil.github.io/bulmaswatch/united"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('united')
-                          }}
-                        >
-                          {' '}
-                          United{' '}
-                        </a>
-                      </NavBarItem>
-                      <NavBarItem>
-                        <a
-                          href="https://jenil.github.io/bulmaswatch/yeti"
-                          onClick={e => {
-                            e.preventDefault()
-                            setSheet('yeti')
-                          }}
-                        >
-                          {' '}
-                          Yeti{' '}
-                        </a>
-                      </NavBarItem>
-                    </Column>
-                  </Columns>
-                </NavBarDropDown>
-                <NavBarItem>
-                  <a href="https://jenil.github.io/bulmaswatch/help/">Help</a>
-                </NavBarItem>
-              </NavBarStart>
-              <span className="navbar-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-              </span>
-              <div className="navbar-end navbar-menu">
-                <a
-                  href="https://github.com/jenil/bulmaswatch/stargazers"
-                  className="navbar-item"
-                >
-                  <img
-                    src="https://img.shields.io/github/stars/jenil/bulmaswatch.svg"
-                    alt="GitHub stars"
-                  />
-                </a>
-                <a
-                  className="navbar-item"
-                  href="//github.com/jenil/bulmaswatch/issues"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fas fa-bug"></i>&nbsp;Report an issue
-                </a>
-                <a
-                  className="navbar-item"
-                  href="//github.com/jenil/bulmaswatch"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="icon">
-                    {' '}
-                    <i className="fab fa-github"></i>{' '}
-                  </span>
-                </a>
-                <a
-                  className="navbar-item"
-                  href="//twitter.com/geekGogari"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="icon">
-                    {' '}
-                    <i className="fab fa-twitter"></i>{' '}
-                  </span>
-                </a>
-              </div>
-            </Container>
-          </NavBar>
-        </HeroHead>
+
 
         <HeroBody>
           <Container className="container">
-            <Title className="title">Slate</Title>
-            <SubTitle className="subtitle">Shades of gunmetal gray</SubTitle>
+            <Title className="title">{swatches[sheet].title}</Title>
+            <SubTitle className="subtitle">{swatches[sheet].description}</SubTitle>
             <p>
               <Button
                 isInverted
@@ -461,7 +590,7 @@ export const BootSwatchApp = () => {
                 rel="noopener noreferrer"
               >
                 Download
-              </Button>
+              </Button>{' '}
               <Button
                 isDark
                 isAnchor
@@ -477,125 +606,126 @@ export const BootSwatchApp = () => {
           </Container>
         </HeroBody>
       </Hero>
-      <div className="columns">
-        <div className="column is-2">
-          <aside className="menu section">
-            <p className="menu-label"> Elements </p>
-            <ul className="menu-list">
-              <li>
+      <Columns>
+        <Column is="2"  >
+          <Menu className="section">
+            <MenuLabel> Elements </MenuLabel>
+            <MenuList>
+              <MenuListItem>
                 <a href="#typography"> Typography </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#box"> Box </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#button"> Button </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#content"> Content </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#delete"> Delete </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#form"> Form </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#icon"> Icon </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#images"> Images </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#notifications"> Notifications </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#progress"> Progress bars </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#table"> Table </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#tag"> Tag </a>
-              </li>
-            </ul>
-            <p className="menu-label"> Components </p>
-            <ul className="menu-list">
-              <li>
+              </MenuListItem>
+            </MenuList>
+            <MenuLabel> Components </MenuLabel>
+            <MenuList>
+              <MenuListItem>
                 <a href="#breadcrumb"> Breadcrumb </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#dropdown"> Dropdown </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#card"> Card </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#hero"> Hero </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#level"> Level </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#media"> Media object </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#menu"> Menu </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#message"> Message </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#modal"> Modal </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#navbar"> Navbar </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#pagination"> Pagination </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#panel"> Panel </a>
-              </li>
-              <li>
+              </MenuListItem>
+              <MenuListItem>
                 <a href="#tabs"> Tabs </a>
-              </li>
-            </ul>
-          </aside>
-        </div>
-        <div className="column">
-          <section className="section" id="typography">
-            <h1 className="title"> Typography </h1>
+              </MenuListItem>
+            </MenuList>
+          </Menu>
+        </Column>
+        <Column>
+          <Section id="typography">
+            <Title as="h1"> Typography </Title>
             <hr />
-            <div className="columns">
-              <div className="column">
-                <h1 className="title is-1"> Title 1 </h1>
-                <h2 className="title is-2"> Title 2 </h2>
-                <h3 className="title is-3"> Title 3 </h3>
-                <h4 className="title is-4"> Title 4 </h4>
-                <h5 className="title is-5"> Title 5 </h5>
-                <h6 className="title is-6"> Title 6 </h6>{' '}
-              </div>
-              <div className="column">
-                <h1 className="subtitle is-1"> Subtitle 1 </h1>
-                <h2 className="subtitle is-2"> Subtitle 2 </h2>
-                <h3 className="subtitle is-3"> Subtitle 3 </h3>
-                <h4 className="subtitle is-4"> Subtitle 4 </h4>
-                <h5 className="subtitle is-5"> Subtitle 5 </h5>
-                <h6 className="subtitle is-6"> Subtitle 6 </h6>{' '}
-              </div>
-              <div className="column">
-                <h1 className="title"> Title </h1>
-                <h2 className="subtitle"> Subtitle </h2>
-                <p className="title is-1"> Title 1 </p>
-                <p className="subtitle is-3"> Subtitle 3 </p>
-                <p className="title is-2"> Title 2 </p>
-                <p className="subtitle is-4"> Subtitle 4 </p>
-                <p className="title is-3"> Title 3 </p>
-                <p className="subtitle is-5"> Subtitle 5 </p>
-              </div>
-            </div>
-          </section>
+            <Columns>
+              <Column>
+                <Title is="1"> Title 1 </Title>
+                <Title is="2" as="h2"> Title 2 </Title>
+                <Title is="3" as="h3"> Title 3 </Title>
+                <Title is="4" as="h4"> Title 4 </Title>
+                <Title is="5" as="h5"> Title 5 </Title>
+                <Title is="6" as="h6"> Title 6 </Title>
+              </Column>
+              <Column>
+                <SubTitle is="1" as="h1"> SubTitle 1 </SubTitle>
+                <SubTitle is="2" as="h2"> SubTitle 2 </SubTitle>
+                <SubTitle is="3" as="h3"> SubTitle 3 </SubTitle>
+                <SubTitle is="4" as="h4"> SubTitle 4 </SubTitle>
+                <SubTitle is="5" as="h5"> SubTitle 5 </SubTitle>
+                <SubTitle is="6" as="h6"> SubTitle 6 </SubTitle>
+
+              </Column>
+              <Column>
+                <Title> Title </Title>
+                <SubTitle as="h2"> Subtitle </SubTitle>
+                <Title is="1" as="p"> Title 1 </Title>
+                <SubTitle is="3" as="p"> Subtitle 3 </SubTitle>
+                <Title is="2" as="p"> Title 2 </Title>
+                <SubTitle is="4" as="p"> Subtitle 4 </SubTitle>
+                <Title is="3" as="p"> Title 3 </Title>
+                <SubTitle is="5" as="p"> Subtitle 5 </SubTitle>
+              </Column>
+            </Columns>
+          </Section>
 
           <section className="section" id="box">
             <h1 className="title"> Box </h1>
@@ -6559,8 +6689,8 @@ export const BootSwatchApp = () => {
 
 
 
-        </div>
-      </div>
+        </Column>
+      </Columns>
     </>
   )
 }
