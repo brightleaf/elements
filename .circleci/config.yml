@@ -4,8 +4,8 @@ commands:
     description: "Build Elements"
     steps:
       - run: npm install
-      - run: npm run build
-      - run: npm test
+      - run: npx isom build
+      - run: npx isom test
 
 jobs:
   build:
