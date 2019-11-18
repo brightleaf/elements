@@ -3,11 +3,13 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import { useToggle } from '../modal'
 import './navigation-view.css'
-export const NavigationView = ({ children, className }) => {
+
+export const NavigationView = ({ children, className, isStatic }) => {
   const [isActive, setIsActive] = useToggle(false)
   return (
     <div
-      className={classnames('navigation-view', 'is-static', className, {
+      className={classnames('navigation-view', className, {
+        'is-static': isStatic,
         'is-active': isActive,
       })}
     >
@@ -31,6 +33,11 @@ export const NavigationView = ({ children, className }) => {
 
 NavigationView.propTypes = {
   className: PropTypes.string,
+  isStatic: PropTypes.bool,
+}
+
+NavigationView.defaultProps = {
+  isStatic: true,
 }
 
 export default NavigationView
