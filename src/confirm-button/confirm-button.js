@@ -19,6 +19,7 @@ const ConfirmButton = ({
   declineText,
   isDisabled,
   children,
+  title,
 }) => {
   const [modalShown, setModalShown] = useToggle(false)
 
@@ -81,7 +82,7 @@ ConfirmButton.defaultProps = {
   onConfirm: () => {},
   declineText: 'Cancel',
   question: 'Are you sure?',
-  title: 'Please confirm'
+  title: 'Please confirm',
 }
 export { ConfirmButton }
 export default ConfirmButton
