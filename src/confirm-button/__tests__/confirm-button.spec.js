@@ -5,7 +5,7 @@ import { ConfirmButton } from '../'
 
 expect.extend({ toHaveClass, toHaveAttribute })
 
-describe('ConfirmButton components', () => {
+describe('ConfirmButton componentu', () => {
   afterEach(cleanup)
   it('should render', () => {
     const { container } = render(<ConfirmButton>Button</ConfirmButton>)
