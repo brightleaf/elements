@@ -1,5 +1,6 @@
 {
   "test": "jest",
+  "watch": "jest ./src --watch",
   "dev": "webpack-dev-server --config ./webpack/webpack.config.js --mode development",
   "prod": "webpack-dev-server --config ./webpack/webpack.config.js --mode production",
   "build:working": "webpack --config ./webpack/webpack.config.js --mode production",
