@@ -4,7 +4,7 @@ commands:
     description: "Build Elements"
     steps:
       - run: npm install
-      - run: npx isom build
+      - run: npx isom transpile
       - run: npx isom test
 
 jobs:
