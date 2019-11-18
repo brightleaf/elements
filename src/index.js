@@ -36,6 +36,7 @@ export { Hero, HeroBody, HeroFooter, HeroHead } from './hero'
 export { Icon, BaseIcon, StackedIcons, MaterialIcon } from './icon'
 export { Image } from './image'
 export { Level, LevelItem, LevelLeft, LevelRight } from './level'
+export { Loader } from './loader'
 export {
   MediaContent,
   MediaLeft,
