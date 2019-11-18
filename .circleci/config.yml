@@ -1,10 +1,11 @@
 version: 2.1
 commands:
   client_build:
-    description: 'Build Elements'
+    description: "Build Elements"
     steps:
       - run: npm install
-      - run: npm run ci
+      - run: npm run build
+      - run: npm test
 
 jobs:
   build:
