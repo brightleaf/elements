@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, cleanup, fireEvent } from '@testing-library/react'
 import { toHaveClass, toHaveAttribute } from '@testing-library/jest-dom'
-import { ConfirmButton } from '../confirm-button'
+import { ConfirmButton } from '../'
 
 expect.extend({ toHaveClass, toHaveAttribute })
 
