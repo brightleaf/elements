@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Heading Component should render a div with the class heading 1`] = `
+<p
+  class="heading"
+>
+   
+</p>
+`;
+
+exports[`The Heading Component should render a div with the class heading and the className passed in 1`] = `
+<p
+  class="heading heading-test"
+/>
+`;
+
+exports[`The Heading Component should render a p with the class heading when as property is set to \`div\` 1`] = `
+<div>
+  <div
+    class="heading"
+  />
+</div>
+`;
