@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropDownMenu components should render 1`] = `
+<div>
+  <div
+    class="dropdown"
+  >
+    <div
+      class="dropdown-trigger"
+    >
+      <button
+        aria-controls="dropdown-menu"
+        aria-haspopup="true"
+        class="button"
+      >
+        <span>
+          Please Select
+        </span>
+        <span
+          class="icon is-small"
+        >
+          <i
+            aria-hidden="true"
+            class="fas fa-angle-down"
+          />
+        </span>
+      </button>
+    </div>
+    <div
+      class="dropdown-menu animated is-hidden"
+    >
+      <div
+        class="dropdown-content"
+      >
+        <a
+          class="dropdown-item"
+        >
+          <span>
+            First
+          </span>
+        </a>
+        <hr
+          class="dropdown-divider"
+        />
+        <a
+          class="dropdown-item"
+        >
+          <span>
+            Second
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DropDownMenu components should render up 1`] = `
+<div>
+  <div
+    class="dropdown is-up"
+  >
+    <div
+      class="dropdown-trigger"
+    >
+      <button
+        aria-controls="dropdown-menu"
+        aria-haspopup="true"
+        class="button"
+      >
+        <span>
+          Please Select
+        </span>
+        <span
+          class="icon is-small"
+        >
+          <i
+            aria-hidden="true"
+            class="fas fa-angle-up"
+          />
+        </span>
+      </button>
+    </div>
+    <div
+      class="dropdown-menu animated is-hidden"
+    >
+      <div
+        class="dropdown-content"
+      >
+        <a
+          class="dropdown-item"
+        >
+          <span>
+            First
+          </span>
+        </a>
+        <hr
+          class="dropdown-divider"
+        />
+        <a
+          class="dropdown-item"
+        >
+          <span>
+            Second
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DropDownMenu components should when the focused \`is-active\` class added 1`] = `
+<div
+  class="dropdown-trigger"
+>
+  <button
+    aria-controls="dropdown-menu"
+    aria-haspopup="true"
+    class="button"
+  >
+    <span>
+      Please Select
+    </span>
+    <span
+      class="icon is-small"
+    >
+      <i
+        aria-hidden="true"
+        class="fas fa-angle-down"
+      />
+    </span>
+  </button>
+</div>
+`;
+
+exports[`DropDownMenu components should when the focused \`is-active\` class added 2`] = `
+<div>
+  <div
+    class="dropdown is-active"
+  >
+    <div
+      class="dropdown-trigger"
+    >
+      <button
+        aria-controls="dropdown-menu"
+        aria-haspopup="true"
+        class="button"
+      >
+        <span>
+          Please Select
+        </span>
+        <span
+          class="icon is-small"
+        >
+          <i
+            aria-hidden="true"
+            class="fas fa-angle-down"
+          />
+        </span>
+      </button>
+    </div>
+    <div
+      class="dropdown-menu animated fadeIn"
+    >
+      <div
+        class="dropdown-content"
+      >
+        <a
+          class="dropdown-item"
+        >
+          <span>
+            First
+          </span>
+        </a>
+        <hr
+          class="dropdown-divider"
+        />
+        <a
+          class="dropdown-item"
+        >
+          <span>
+            Second
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
