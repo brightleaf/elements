@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Base component should render 1`] = `
+<div
+  class=""
+>
+  All your base belong to us
+</div>
+`;
+
+exports[`The Base component should render with extra classnames 1`] = `
+<div
+  class="base"
+>
+  <div>
+    Trapped in a Box
+  </div>
+</div>
+`;
