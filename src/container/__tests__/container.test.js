@@ -51,4 +51,5 @@ describe('Column and Columns', () => {
     )
     expect(container.firstChild).toMatchSnapshot()
   })
+
 })

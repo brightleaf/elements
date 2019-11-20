@@ -1,30 +1,22 @@
 import React from 'react'
 import classnames from 'classnames'
+import { Base } from '../base'
 
-export const Container = ({
-  children,
-  isMobile,
-  className,
-  isFluid,
-  isWideScreen,
-  isFullHD,
-}) => {
-  const classes = {
-    'is-mobile': isMobile,
-    'is-fluid': isFluid,
-    'is-widescreen': isWideScreen,
-    'is-fullhd': isFullHD,
-  }
+export const Container = ({ className, children, ...props }) => {
   return (
-    <div className={classnames('container', className, classes)}>
+    <Base className={classnames('container', className)} {...props}>
       {children}
-    </div>
+    </Base>
   )
 }
+
+export default Container
+
 Container.defaultProps = {
   className: '',
   isMobile: false,
   isFluid: false,
   isWideScreen: false,
   isFullHD: false,
+  as: 'div',
 }
