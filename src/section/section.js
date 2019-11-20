@@ -1,14 +1,18 @@
 import React from 'react'
 import classnames from 'classnames'
-import { allTheClasses } from '../modifiers'
+import { Base } from '../base'
 
-export const Section = ({ children, className, ...props }) => {
-  const classes = allTheClasses(props)
+export const Section = ({ className, children, ...props }) => {
   return (
-    <section className={classnames('section', className, classes)}>
+    <Base className={classnames('section', className)} {...props}>
       {children}
-    </section>
+    </Base>
   )
+}
+
+Section.defaultProps = {
+  className: '',
+  as: 'div',
 }
 
 export default Section
