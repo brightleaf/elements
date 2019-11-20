@@ -186,6 +186,22 @@ export const Size = ({ size }) => {
   classes[`is-size-${size}`] = !!size
   return classes
 }
+
+export const FontWeight = ({
+  hasTextWeightLight,
+  hasTextWeightNormal,
+  hasTextWeightMedium,
+  hasTextWeightSemiBold,
+  hasTextWeightBold,
+}) => {
+  return {
+    'has-text-weight-light': hasTextWeightLight,
+    'has-text-weight-normal': hasTextWeightNormal,
+    'has-text-weight-medium': hasTextWeightMedium,
+    'has-text-weight-semibold': hasTextWeightSemiBold,
+    'has-text-weight-bold': hasTextWeightBold,
+  }
+}
 export const allTheClasses = props => {
   return {
     ...Sized(props),
@@ -197,5 +213,6 @@ export const allTheClasses = props => {
     ...Sizes(props),
     ...Colors(props),
     ...Size(props),
+    ...FontWeight(props),
   }
 }
