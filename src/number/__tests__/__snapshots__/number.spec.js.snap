@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Number Component should render a div with the class number 1`] = `
+<div
+  class="number"
+>
+  2
+</div>
+`;
+
+exports[`The Number Component should render a div with the class number and the className passed in 1`] = `
+<div
+  class="number test"
+/>
+`;
+
+exports[`The Number Component should render with color and size modifiers 1`] = `
+<div>
+  <div
+    class="number has-background-primary has-text-white has-text-weight-bold"
+  >
+    23
+  </div>
+</div>
+`;
