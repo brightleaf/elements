@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Highlight Component should render a div with the class highlight 1`] = `
+<div
+  class="highlight"
+>
+   
+</div>
+`;
+
+exports[`The Highlight Component should render a div with the class highlight and the className passed in 1`] = `
+<div
+  class="highlight highlight-test"
+/>
+`;
+
+exports[`The Highlight Component should render a p with the class highlight when as property is set to \`p\` 1`] = `
+<div>
+  <p
+    class="highlight"
+  />
+</div>
+`;
