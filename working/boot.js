@@ -1,5 +1,5 @@
 /* eslint-disable spellcheck/spell-checker */
-import React, { useState, useEffect, } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 
 import { useScript } from '@brightleaf/react-hooks/lib/use-script'
@@ -83,12 +83,11 @@ import { Title } from '../src/title'
 const id = Date.now().toString()
 const useStyleSheet = href => {
 
-  console.log('id',id)
   const [sheet, setSheet] = useState(href)
 
   useEffect(() => {
-    console.log('set css link', cssLink)
     let cssLink = document.getElementById(id)
+
     if (cssLink) {
       document.getElementsByTagName('head')[0].removeChild(cssLink)
     }
@@ -100,15 +99,11 @@ const useStyleSheet = href => {
 
     document.getElementsByTagName('head')[0].appendChild(cssLink)
     return () => {
-      console.log('remove')
       document.getElementsByTagName('head')[0].removeChild(cssLink)
     }
   }, [sheet])
   return [sheet, setSheet]
 }
-
-
-
 
 const swatches = {
   default: {
@@ -141,7 +136,7 @@ const swatches = {
   },
   litera: {
     title: 'Litera',
-    description: 'The medium is the message '
+    description: 'The medium is the message ',
   },
   lumen: {
     title: 'Lumen',
@@ -201,8 +196,6 @@ const swatches = {
   },
 }
 
-
-
 export const BootSwatchApp = () => {
   const [sheet, setTheSheet] = useState('default')
   const [val, setVal] = useState('')
@@ -210,13 +203,13 @@ export const BootSwatchApp = () => {
     `https://jenil.github.io/bulmaswatch/${sheet}/bulmaswatch.min.css`
   )
 
-  const setSheet= cssSheet => {
+  const setSheet = cssSheet => {
     setTheSheet(cssSheet)
-    setCss(`https://jenil.github.io/bulmaswatch/${cssSheet}/bulmaswatch.min.css`)
+    setCss(
+      `https://jenil.github.io/bulmaswatch/${cssSheet}/bulmaswatch.min.css`
+    )
   }
   useScript('https://kit.fontawesome.com/d8b67ee174.js')
-
-
 
   useStyles(`
     .main-nav .is-primary .title {
@@ -226,360 +219,118 @@ export const BootSwatchApp = () => {
       color: #fff!important;
     }
   `)
+  const themes = Object.keys(swatches)
+  const themeMap = key => {
+    return (
+      <NavBarItem key={key} isActive={sheet === key}>
+        <a
+          href={`https://jenil.github.io/bulmaswatch/${key}`}
+          onClick={e => {
+            e.preventDefault()
+            setSheet(key)
+          }}
+        >
+          {' '}
+          {swatches[key].title}{' '}
+        </a>
+      </NavBarItem>
+    )
+  }
+  const colOne = []
+    .concat(themes)
+    .splice(0, themes.length / 2)
+    .map(themeMap)
+  const colTwo = []
+    .concat(themes)
+    .splice(themes.length / 2)
+    .map(themeMap)
 
   return (
     <>
-    <NavBar className="main-nav" isPrimary>
-    <Container>
-      <NavBarStart className="navbar-start">
-        <NavBarItem>
-          <a href="https://jenil.github.io/bulmaswatch/">
-            <img
-              src="https://jenil.github.io/bulmaswatch/assets/icons/apple-touch-icon-144x144.png"
-              alt=""
-              className="logo"
-            />
-            <Title className="main-nav-title" is="5">Bulmaswatch</Title>
-          </a>
-        </NavBarItem>
-        <NavBarItem>
-          <a href="https://jenil.github.io/bulmaswatch/">Home</a>
-        </NavBarItem>
-        <NavBarDropDown title="Themes" isHoverable isBoxed>
-          <Columns>
-            <Column>
-              <NavBarItem isActive={sheet==='default'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/default"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('default')
-                  }}
-                >
-                  {' '}
-                  Default{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem isActive={sheet==='cerulean'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/cerulean"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('cerulean')
-                    console.log('cerulean')
-                  }}
-                >
-                  {' '}
-                  Cerulean{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem isActive={sheet==='cosmo'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/cosmo"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('cosmo')
-                  }}
-                >
-                  {' '}
-                  Cosmo{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem isActive={sheet==='cyborg'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/cyborg"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('cyborg')
-                  }}
-                >
-                  {' '}
-                  Cyborg{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem isActive={sheet==='darkly'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/darkly"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('darkly')
-                  }}
-                >
-                  {' '}
-                  Darkly{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem isActive={sheet==='flatly'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/flatly"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('flatly')
-                  }}
-                >
-                  {' '}
-                  Flatly{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem isActive={sheet==='journal'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/journal"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('journal')
-                  }}
-                >
-                  {' '}
-                  Journal{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem isActive={sheet==='litera'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/litera"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('litera')
-                  }}
-                >
-                  {' '}
-                  Litera{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem isActive={sheet==='lumen'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/lumen"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('lumen')
-                  }}
-                >
-                  {' '}
-                  Lumen{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem isActive={sheet==='lux'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/lux"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('lux')
-                  }}
-                >
-                  {' '}
-                  Lux{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem isActive={sheet==='materia'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/materia"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('materia')
-                  }}
-                >
-                  {' '}
-                  Materia{' '}
-                </a>
-              </NavBarItem>
-            </Column>
-            <Column className="column">
-              <NavBarItem isActive={sheet==='minty'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/minty"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('minty')
-                  }}
-                >
-                  {' '}
-                  Minty{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem isActive={sheet==='nuclear'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/nuclear"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('nuclear')
-                  }}
-                >
-                  {' '}
-                  Nuclear{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem isActive={sheet==='pulse'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/pulse"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('pulse')
-                  }}
-                >
-                  {' '}
-                  Pulse{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem isActive={sheet==='sandstone'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/sandstone"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('sandstone')
-                  }}
-                >
-                  {' '}
-                  Sandstone{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem>
-                <a
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('simplex')
-                  }}
-                  href="https://jenil.github.io/bulmaswatch/simplex"
-                >
-                  {' '}
-                  Simplex{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem isActive={sheet==='slate'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/slate"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('slate')
-                  }}
-                >
-                  {' '}
-                  Slate{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem isActive={sheet==='solar'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/solar"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('solar')
-                  }}
-                >
-                  {' '}
-                  Solar{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem isActive={sheet==='spacelab'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/spacelab"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('spacelab')
-                  }}
-                >
-                  {' '}
-                  Spacelab{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem  isActive={sheet==='superhero'}>
-                <a
-                  className="navbar-item "
-                  href="https://jenil.github.io/bulmaswatch/superhero"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('superhero')
-                  }}
-                >
-                  {' '}
-                  Superhero{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem isActive={sheet==='united'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/united"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('united')
-                  }}
-                >
-                  {' '}
-                  United{' '}
-                </a>
-              </NavBarItem>
-              <NavBarItem isActive={sheet==='yeti'}>
-                <a
-                  href="https://jenil.github.io/bulmaswatch/yeti"
-                  onClick={e => {
-                    e.preventDefault()
-                    setSheet('yeti')
-                  }}
-                >
-                  {' '}
-                  Yeti{' '}
-                </a>
-              </NavBarItem>
-            </Column>
-          </Columns>
-        </NavBarDropDown>
-        <NavBarItem>
-          <a href="https://jenil.github.io/bulmaswatch/help/">Help</a>
-        </NavBarItem>
-      </NavBarStart>
-      <span className="navbar-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </span>
-      <div className="navbar-end navbar-menu">
-        <a
-          href="https://github.com/jenil/bulmaswatch/stargazers"
-          className="navbar-item"
-        >
-          <img
-            src="https://img.shields.io/github/stars/jenil/bulmaswatch.svg"
-            alt="GitHub stars"
-          />
-        </a>
-        <a
-          className="navbar-item"
-          href="//github.com/jenil/bulmaswatch/issues"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i className="fas fa-bug"></i>&nbsp;Report an issue
-        </a>
-        <a
-          className="navbar-item"
-          href="//github.com/jenil/bulmaswatch"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="icon">
-            {' '}
-            <i className="fab fa-github"></i>{' '}
+      <NavBar className="main-nav" isPrimary>
+        <Container>
+          <NavBarStart className="navbar-start">
+            <NavBarItem>
+              <a href="https://jenil.github.io/bulmaswatch/">
+                <img
+                  src="https://jenil.github.io/bulmaswatch/assets/icons/apple-touch-icon-144x144.png"
+                  alt=""
+                  className="logo"
+                />
+                <Title className="main-nav-title" is="5">
+                  Bulmaswatch
+                </Title>
+              </a>
+            </NavBarItem>
+            <NavBarItem>
+              <a href="https://jenil.github.io/bulmaswatch/">Home</a>
+            </NavBarItem>
+            <NavBarDropDown title="Themes" isHoverable isBoxed>
+              <Columns>
+                <Column>{colOne}</Column>
+                <Column className="column">{colTwo}</Column>
+              </Columns>
+            </NavBarDropDown>
+            <NavBarItem>
+              <a href="https://jenil.github.io/bulmaswatch/help/">Help</a>
+            </NavBarItem>
+          </NavBarStart>
+          <span className="navbar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
           </span>
-        </a>
-        <a
-          className="navbar-item"
-          href="//twitter.com/geekGogari"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="icon">
-            {' '}
-            <i className="fab fa-twitter"></i>{' '}
-          </span>
-        </a>
-      </div>
-    </Container>
-  </NavBar>
-
+          <div className="navbar-end navbar-menu">
+            <a
+              href="https://github.com/jenil/bulmaswatch/stargazers"
+              className="navbar-item"
+            >
+              <img
+                src="https://img.shields.io/github/stars/jenil/bulmaswatch.svg"
+                alt="GitHub stars"
+              />
+            </a>
+            <a
+              className="navbar-item"
+              href="//github.com/jenil/bulmaswatch/issues"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fas fa-bug"></i>&nbsp;Report an issue
+            </a>
+            <a
+              className="navbar-item"
+              href="//github.com/jenil/bulmaswatch"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="icon">
+                {' '}
+                <i className="fab fa-github"></i>{' '}
+              </span>
+            </a>
+            <a
+              className="navbar-item"
+              href="//twitter.com/geekGogari"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="icon">
+                {' '}
+                <i className="fab fa-twitter"></i>{' '}
+              </span>
+            </a>
+          </div>
+        </Container>
+      </NavBar>
 
       <Hero isPrimary>
-
-
         <HeroBody>
           <Container className="container">
             <Title className="title">{swatches[sheet].title}</Title>
-            <SubTitle className="subtitle">{swatches[sheet].description}</SubTitle>
+            <SubTitle className="subtitle">
+              {swatches[sheet].description}
+            </SubTitle>
             <p>
               <Button
                 isInverted
@@ -607,7 +358,7 @@ export const BootSwatchApp = () => {
         </HeroBody>
       </Hero>
       <Columns>
-        <Column is="2"  >
+        <Column is="2">
           <Menu className="section">
             <MenuLabel> Elements </MenuLabel>
             <MenuList>
@@ -699,38 +450,88 @@ export const BootSwatchApp = () => {
             <Columns>
               <Column>
                 <Title is="1"> Title 1 </Title>
-                <Title is="2" as="h2"> Title 2 </Title>
-                <Title is="3" as="h3"> Title 3 </Title>
-                <Title is="4" as="h4"> Title 4 </Title>
-                <Title is="5" as="h5"> Title 5 </Title>
-                <Title is="6" as="h6"> Title 6 </Title>
+                <Title is="2" as="h2">
+                  {' '}
+                  Title 2{' '}
+                </Title>
+                <Title is="3" as="h3">
+                  {' '}
+                  Title 3{' '}
+                </Title>
+                <Title is="4" as="h4">
+                  {' '}
+                  Title 4{' '}
+                </Title>
+                <Title is="5" as="h5">
+                  {' '}
+                  Title 5{' '}
+                </Title>
+                <Title is="6" as="h6">
+                  {' '}
+                  Title 6{' '}
+                </Title>
               </Column>
               <Column>
-                <SubTitle is="1" as="h1"> SubTitle 1 </SubTitle>
-                <SubTitle is="2" as="h2"> SubTitle 2 </SubTitle>
-                <SubTitle is="3" as="h3"> SubTitle 3 </SubTitle>
-                <SubTitle is="4" as="h4"> SubTitle 4 </SubTitle>
-                <SubTitle is="5" as="h5"> SubTitle 5 </SubTitle>
-                <SubTitle is="6" as="h6"> SubTitle 6 </SubTitle>
-
+                <SubTitle is="1" as="h1">
+                  {' '}
+                  SubTitle 1{' '}
+                </SubTitle>
+                <SubTitle is="2" as="h2">
+                  {' '}
+                  SubTitle 2{' '}
+                </SubTitle>
+                <SubTitle is="3" as="h3">
+                  {' '}
+                  SubTitle 3{' '}
+                </SubTitle>
+                <SubTitle is="4" as="h4">
+                  {' '}
+                  SubTitle 4{' '}
+                </SubTitle>
+                <SubTitle is="5" as="h5">
+                  {' '}
+                  SubTitle 5{' '}
+                </SubTitle>
+                <SubTitle is="6" as="h6">
+                  {' '}
+                  SubTitle 6{' '}
+                </SubTitle>
               </Column>
               <Column>
                 <Title> Title </Title>
                 <SubTitle as="h2"> Subtitle </SubTitle>
-                <Title is="1" as="p"> Title 1 </Title>
-                <SubTitle is="3" as="p"> Subtitle 3 </SubTitle>
-                <Title is="2" as="p"> Title 2 </Title>
-                <SubTitle is="4" as="p"> Subtitle 4 </SubTitle>
-                <Title is="3" as="p"> Title 3 </Title>
-                <SubTitle is="5" as="p"> Subtitle 5 </SubTitle>
+                <Title is="1" as="p">
+                  {' '}
+                  Title 1{' '}
+                </Title>
+                <SubTitle is="3" as="p">
+                  {' '}
+                  Subtitle 3{' '}
+                </SubTitle>
+                <Title is="2" as="p">
+                  {' '}
+                  Title 2{' '}
+                </Title>
+                <SubTitle is="4" as="p">
+                  {' '}
+                  Subtitle 4{' '}
+                </SubTitle>
+                <Title is="3" as="p">
+                  {' '}
+                  Title 3{' '}
+                </Title>
+                <SubTitle is="5" as="p">
+                  {' '}
+                  Subtitle 5{' '}
+                </SubTitle>
               </Column>
             </Columns>
           </Section>
 
-          <section className="section" id="box">
-            <h1 className="title"> Box </h1>
+          <Section id="box" as="section">
+            <Title as="h1"> Box </Title>
             <hr />
-            <div className="box">
+            <Box>
               <article className="media">
                 <div className="media-left">
                   <figure className="image is-64x64">
@@ -776,8 +577,8 @@ export const BootSwatchApp = () => {
                   </nav>
                 </div>
               </article>
-            </div>
-          </section>
+            </Box>
+          </Section>
 
           <section className="section" id="button">
             <h1 className="title"> Button </h1>
@@ -1256,7 +1057,6 @@ export const BootSwatchApp = () => {
             </article>
           </section>
 
-
           <section className="section" id="form">
             <h1 className="title"> Form </h1>
             <hr />
@@ -1265,13 +1065,25 @@ export const BootSwatchApp = () => {
                 <div className="field">
                   <label className="label">Name</label>
                   <p className="control">
-                    <input className="input" type="text" placeholder="Text input" onChange={setVal}  value={val} />
+                    <input
+                      className="input"
+                      type="text"
+                      placeholder="Text input"
+                      onChange={setVal}
+                      value={val}
+                    />
                   </p>
                 </div>
                 <div className="field">
                   <label className="label">Username</label>
                   <p className="control has-icons-left has-icons-right">
-                    <input className="input is-success" type="text" placeholder="Text input" value="bulma" onChange={setVal} />
+                    <input
+                      className="input is-success"
+                      type="text"
+                      placeholder="Text input"
+                      value="bulma"
+                      onChange={setVal}
+                    />
                     <span className="icon is-small is-left">
                       <i className="fas fa-user"></i>
                     </span>
@@ -1284,7 +1096,13 @@ export const BootSwatchApp = () => {
                 <div className="field">
                   <label className="label">Email</label>
                   <p className="control has-icons-left has-icons-right">
-                    <input className="input is-danger" type="text" placeholder="Email input" value="hello@ " onChange={setVal} />
+                    <input
+                      className="input is-danger"
+                      type="text"
+                      placeholder="Email input"
+                      value="hello@ "
+                      onChange={setVal}
+                    />
                     <span className="icon is-small is-left">
                       <i className="fas fa-envelope"></i>
                     </span>
@@ -1308,13 +1126,18 @@ export const BootSwatchApp = () => {
                 <div className="field">
                   <label className="label">Message</label>
                   <p className="control">
-                    <textarea className="textarea" placeholder="Textarea" defaultValue="" />
+                    <textarea
+                      className="textarea"
+                      placeholder="Textarea"
+                      defaultValue=""
+                    />
                   </p>
                 </div>
                 <div className="field">
                   <p className="control">
                     <label className="checkbox">
-                      <input type="checkbox" /> I agree to the
+                      <input type="checkbox" onChange={() => {}} /> I agree to
+                      the
                       <a href="#">terms and conditions</a>
                     </label>
                   </p>
@@ -1322,10 +1145,12 @@ export const BootSwatchApp = () => {
                 <div className="field">
                   <p className="control">
                     <label className="radio">
-                      <input type="radio" name="question" /> Yes
+                      <input type="radio" name="question" onChange={() => {}} />{' '}
+                      Yes
                     </label>
                     <label className="radio">
-                      <input type="radio" name="question" /> No
+                      <input type="radio" name="question" onChange={() => {}} />{' '}
+                      No
                     </label>
                   </p>
                 </div>
@@ -1342,37 +1167,72 @@ export const BootSwatchApp = () => {
                 <hr />
                 <div className="field">
                   <p className="control">
-                    <input className="input" disabled="" placeholder="Disabled input" type="text" />
+                    <input
+                      className="input"
+                      disabled=""
+                      placeholder="Disabled input"
+                      type="text"
+                      onChange={() => null}
+                    />
                   </p>
                 </div>
                 <div className="field">
                   <p className="control">
-                    <textarea className="textarea" disabled="" placeholder="Disabled textarea" defaultValue="" />
+                    <textarea
+                      className="textarea"
+                      disabled=""
+                      placeholder="Disabled textarea"
+                      defaultValue=""
+                      onChange={() => null}
+                    />
                   </p>
                 </div>
                 <div className="field">
                   <p className="control">
                     <label className="checkbox is-disabled">
-                      <input disabled="" type="checkbox" /> Remember me
+                      <input
+                        disabled=""
+                        type="checkbox"
+                        onChange={() => null}
+                      />{' '}
+                      Remember me
                     </label>
                   </p>
                 </div>
                 <div className="field">
                   <p className="control">
                     <label className="radio is-disabled">
-                      <input disabled="" name="question" type="radio" /> Yes
+                      <input
+                        disabled=""
+                        name="question"
+                        type="radio"
+                        onChange={() => null}
+                      />{' '}
+                      Yes
                     </label>
                     <label className="radio is-disabled">
-                      <input disabled="" name="question" type="radio" /> No
+                      <input
+                        disabled=""
+                        name="question"
+                        type="radio"
+                        onChange={() => null}
+                      />{' '}
+                      No
                     </label>
                   </p>
                 </div>
                 <div className="field is-grouped">
                   <p className="control">
-                    <button className="button is-primary" disabled=""> Submit </button>
+                    <button className="button is-primary" disabled="">
+                      {' '}
+                      Submit{' '}
+                    </button>
                   </p>
                   <p className="control">
-                    <button className="button" disabled=""> Cancel </button>
+                    <button className="button" disabled="">
+                      {' '}
+                      Cancel{' '}
+                    </button>
                   </p>
                 </div>
                 <br />
@@ -1385,7 +1245,12 @@ export const BootSwatchApp = () => {
                   <div className="field-body">
                     <div className="field is-grouped">
                       <p className="control is-expanded has-icons-left">
-                        <input className="input" type="text" placeholder="Name" />
+                        <input
+                          className="input"
+                          type="text"
+                          placeholder="Name"
+                          onChange={() => null}
+                        />
                         <span className="icon is-small is-left">
                           <i className="fas fa-user"></i>
                         </span>
@@ -1393,7 +1258,13 @@ export const BootSwatchApp = () => {
                     </div>
                     <div className="field">
                       <p className="control is-expanded has-icons-left has-icons-right">
-                        <input className="input is-success" type="email" placeholder="Email" value="alex@smith.com" />
+                        <input
+                          className="input is-success"
+                          type="email"
+                          placeholder="Email"
+                          value="alex@smith.com"
+                          onChange={() => null}
+                        />
                         <span className="icon is-small is-left">
                           <i className="fas fa-envelope"></i>
                         </span>
@@ -1431,10 +1302,20 @@ export const BootSwatchApp = () => {
                     <div className="field is-narrow">
                       <div className="control">
                         <label className="radio">
-                          <input type="radio" name="member" /> Yes
+                          <input
+                            type="radio"
+                            name="member"
+                            onChange={() => null}
+                          />{' '}
+                          Yes
                         </label>
                         <label className="radio">
-                          <input type="radio" name="member" /> No
+                          <input
+                            type="radio"
+                            name="member"
+                            onChange={() => null}
+                          />{' '}
+                          No
                         </label>
                       </div>
                     </div>
@@ -1447,18 +1328,23 @@ export const BootSwatchApp = () => {
                   <div className="field-body">
                     <div className="field">
                       <div className="control">
-                        <input className="input is-danger" type="text" placeholder="e.g. Partnership opportunity"
+                        <input
+                          className="input is-danger"
+                          type="text"
+                          placeholder="e.g. Partnership opportunity"
                           style={{
-                            backgroundImage: 'url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;)',
+                            backgroundImage:
+                              'url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;)',
                             backgroundRepeat: 'no-repeat',
                             backgroundAttachment: 'scroll',
                             backgroundSize: '16px 18px',
-                            backgroundPosition: '98% 50%'
-                            }} autoComplete="off" />
+                            backgroundPosition: '98% 50%',
+                          }}
+                          autoComplete="off"
+                          onChange={() => null}
+                        />
                       </div>
-                      <p className="help is-danger">
-                        This field is required
-                      </p>
+                      <p className="help is-danger">This field is required</p>
                     </div>
                   </div>
                 </div>
@@ -1469,15 +1355,18 @@ export const BootSwatchApp = () => {
                   <div className="field-body">
                     <div className="field">
                       <div className="control">
-                        <textarea className="textarea" placeholder="Explain how we can help you" defaultValue="" />
+                        <textarea
+                          className="textarea"
+                          placeholder="Explain how we can help you"
+                          defaultValue=""
+                          onChange={() => null}
+                        />
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="field is-horizontal">
-                  <div className="field-label">
-                    {' '}
-                  </div>
+                  <div className="field-label"> </div>
                   <div className="field-body">
                     <div className="field">
                       <div className="control">
@@ -1494,14 +1383,17 @@ export const BootSwatchApp = () => {
                 <div className="field">
                   <div className="file">
                     <label className="file-label">
-                      <input className="file-input" type="file" name="resume" />
+                      <input
+                        className="file-input"
+                        type="file"
+                        name="resume"
+                        onChange={() => null}
+                      />
                       <span className="file-cta">
                         <span className="file-icon">
                           <i className="fas fa-upload"></i>
                         </span>
-                        <span className="file-label">
-                          Choose a file…
-                        </span>
+                        <span className="file-label">Choose a file…</span>
                       </span>
                     </label>
                   </div>
@@ -1509,14 +1401,17 @@ export const BootSwatchApp = () => {
                 <div className="field">
                   <div className="file has-name">
                     <label className="file-label">
-                      <input className="file-input" type="file" name="resume" />
+                      <input
+                        className="file-input"
+                        type="file"
+                        name="resume"
+                        onChange={() => null}
+                      />
                       <span className="file-cta">
                         <span className="file-icon">
                           <i className="fas fa-upload"></i>
                         </span>
-                        <span className="file-label">
-                          Choose a file…
-                        </span>
+                        <span className="file-label">Choose a file…</span>
                       </span>
                       <span className="file-name">
                         Screen Shot 2017-07-29 at 15.54.25.png
@@ -1527,14 +1422,17 @@ export const BootSwatchApp = () => {
                 <div className="field">
                   <div className="file is-primary">
                     <label className="file-label">
-                      <input className="file-input" type="file" name="resume" />
+                      <input
+                        className="file-input"
+                        type="file"
+                        name="resume"
+                        onChange={() => null}
+                      />
                       <span className="file-cta">
                         <span className="file-icon">
                           <i className="fas fa-upload"></i>
                         </span>
-                        <span className="file-label">
-                          Primary file…
-                        </span>
+                        <span className="file-label">Primary file…</span>
                       </span>
                     </label>
                   </div>
@@ -1543,14 +1441,17 @@ export const BootSwatchApp = () => {
                 <div className="field">
                   <div className="file is-info has-name">
                     <label className="file-label">
-                      <input className="file-input" type="file" name="resume" />
+                      <input
+                        className="file-input"
+                        type="file"
+                        name="resume"
+                        onChange={() => null}
+                      />
                       <span className="file-cta">
                         <span className="file-icon">
                           <i className="fas fa-upload"></i>
                         </span>
-                        <span className="file-label">
-                          Info file…
-                        </span>
+                        <span className="file-label">Info file…</span>
                       </span>
                       <span className="file-name">
                         Screen Shot 2017-07-29 at 15.54.25.png
@@ -1567,9 +1468,7 @@ export const BootSwatchApp = () => {
                         <span className="file-icon">
                           <i className="fas fa-cloud-upload-alt"></i>
                         </span>
-                        <span className="file-label">
-                          Warning file…
-                        </span>
+                        <span className="file-label">Warning file…</span>
                       </span>
                     </label>
                   </div>
@@ -1583,9 +1482,7 @@ export const BootSwatchApp = () => {
                         <span className="file-icon">
                           <i className="fas fa-cloud-upload-alt"></i>
                         </span>
-                        <span className="file-label">
-                          Danger file…
-                        </span>
+                        <span className="file-label">Danger file…</span>
                       </span>
                       <span className="file-name">
                         Screen Shot 2017-07-29 at 15.54.25.png
@@ -1600,7 +1497,11 @@ export const BootSwatchApp = () => {
                 <hr />
                 <div className="field">
                   <p className="control">
-                    <input className="input is-rounded" type="text" placeholder="Rounded input" />
+                    <input
+                      className="input is-rounded"
+                      type="text"
+                      placeholder="Rounded input"
+                    />
                   </p>
                 </div>
                 <br />
@@ -1608,27 +1509,47 @@ export const BootSwatchApp = () => {
                 <hr />
                 <div className="field">
                   <p className="control">
-                    <input className="input is-primary" type="text" placeholder="Primary input" />
+                    <input
+                      className="input is-primary"
+                      type="text"
+                      placeholder="Primary input"
+                    />
                   </p>
                 </div>
                 <div className="field">
                   <p className="control">
-                    <input className="input is-info" type="text" placeholder="Info input" />
+                    <input
+                      className="input is-info"
+                      type="text"
+                      placeholder="Info input"
+                    />
                   </p>
                 </div>
                 <div className="field">
                   <p className="control">
-                    <input className="input is-success" type="text" placeholder="Success input" />
+                    <input
+                      className="input is-success"
+                      type="text"
+                      placeholder="Success input"
+                    />
                   </p>
                 </div>
                 <div className="field">
                   <p className="control">
-                    <input className="input is-warning" type="text" placeholder="Warning input" />
+                    <input
+                      className="input is-warning"
+                      type="text"
+                      placeholder="Warning input"
+                    />
                   </p>
                 </div>
                 <div className="field">
                   <p className="control">
-                    <input className="input is-danger" type="text" placeholder="Danger input" />
+                    <input
+                      className="input is-danger"
+                      type="text"
+                      placeholder="Danger input"
+                    />
                   </p>
                 </div>
                 <br />
@@ -1636,22 +1557,38 @@ export const BootSwatchApp = () => {
                 <hr />
                 <div className="field">
                   <p className="control">
-                    <input className="input is-small" type="text" placeholder="Small input" />
+                    <input
+                      className="input is-small"
+                      type="text"
+                      placeholder="Small input"
+                    />
                   </p>
                 </div>
                 <div className="field">
                   <p className="control">
-                    <input className="input" type="text" placeholder="Normal input" />
+                    <input
+                      className="input"
+                      type="text"
+                      placeholder="Normal input"
+                    />
                   </p>
                 </div>
                 <div className="field">
                   <p className="control">
-                    <input className="input is-medium" type="text" placeholder="Medium input" />
+                    <input
+                      className="input is-medium"
+                      type="text"
+                      placeholder="Medium input"
+                    />
                   </p>
                 </div>
                 <div className="field">
                   <p className="control">
-                    <input className="input is-large" type="text" placeholder="Large input" />
+                    <input
+                      className="input is-large"
+                      type="text"
+                      placeholder="Large input"
+                    />
                   </p>
                 </div>
                 <div className="field">
@@ -1697,7 +1634,11 @@ export const BootSwatchApp = () => {
                 <div className="field">
                   <label className="label is-small">Small input</label>
                   <p className="control has-icons-left has-icons-right">
-                    <input className="input is-small" type="email" placeholder="Email" />
+                    <input
+                      className="input is-small"
+                      type="email"
+                      placeholder="Email"
+                    />
                     <span className="icon is-small is-left">
                       <i className="fas fa-envelope"></i>
                     </span>
@@ -1732,7 +1673,11 @@ export const BootSwatchApp = () => {
                 <div className="field">
                   <label className="label is-medium">Medium input</label>
                   <p className="control has-icons-left has-icons-right">
-                    <input className="input is-medium" type="email" placeholder="Email" />
+                    <input
+                      className="input is-medium"
+                      type="email"
+                      placeholder="Email"
+                    />
                     <span className="icon is-small is-left">
                       <i className="fas fa-envelope"></i>
                     </span>
@@ -1743,7 +1688,11 @@ export const BootSwatchApp = () => {
                 </div>
                 <div className="field">
                   <p className="control has-icons-left has-icons-right">
-                    <input className="input is-medium" type="email" placeholder="Email" />
+                    <input
+                      className="input is-medium"
+                      type="email"
+                      placeholder="Email"
+                    />
                     <span className="icon is-left">
                       <i className="fas fa-envelope"></i>
                     </span>
@@ -1754,7 +1703,11 @@ export const BootSwatchApp = () => {
                 </div>
                 <div className="field">
                   <p className="control has-icons-left has-icons-right">
-                    <input className="input is-medium" type="email" placeholder="Email" />
+                    <input
+                      className="input is-medium"
+                      type="email"
+                      placeholder="Email"
+                    />
                     <span className="icon is-medium is-left">
                       <i className="fas fa-envelope"></i>
                     </span>
@@ -1766,7 +1719,11 @@ export const BootSwatchApp = () => {
                 <div className="field">
                   <label className="label is-large">Large input</label>
                   <p className="control has-icons-left has-icons-right">
-                    <input className="input is-large" type="email" placeholder="Email" />
+                    <input
+                      className="input is-large"
+                      type="email"
+                      placeholder="Email"
+                    />
                     <span className="icon is-small is-left">
                       <i className="fas fa-envelope"></i>
                     </span>
@@ -1777,7 +1734,11 @@ export const BootSwatchApp = () => {
                 </div>
                 <div className="field">
                   <p className="control has-icons-left has-icons-right">
-                    <input className="input is-large" type="email" placeholder="Email" />
+                    <input
+                      className="input is-large"
+                      type="email"
+                      placeholder="Email"
+                    />
                     <span className="icon is-left">
                       <i className="fas fa-envelope"></i>
                     </span>
@@ -1788,7 +1749,11 @@ export const BootSwatchApp = () => {
                 </div>
                 <div className="field">
                   <p className="control has-icons-left has-icons-right">
-                    <input className="input is-large" type="email" placeholder="Email" />
+                    <input
+                      className="input is-large"
+                      type="email"
+                      placeholder="Email"
+                    />
                     <span className="icon is-medium is-left">
                       <i className="fas fa-envelope"></i>
                     </span>
@@ -1799,7 +1764,11 @@ export const BootSwatchApp = () => {
                 </div>
                 <div className="field">
                   <p className="control has-icons-left has-icons-right">
-                    <input className="input is-large" type="email" placeholder="Email" />
+                    <input
+                      className="input is-large"
+                      type="email"
+                      placeholder="Email"
+                    />
                     <span className="icon is-large is-left">
                       <i className="fas fa-envelope"></i>
                     </span>
@@ -1821,14 +1790,20 @@ export const BootSwatchApp = () => {
                 </div>
                 <div className="field">
                   <p className="control has-icons-left">
-                    <input className="input" type="password" placeholder="Password"
+                    <input
+                      className="input"
+                      type="password"
+                      placeholder="Password"
                       style={{
-                        backgroundImage: 'url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;)',
+                        backgroundImage:
+                          'url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;)',
                         backgroundRepeat: 'no-repeat',
                         backgroundAttachment: 'scroll',
                         backgroundSize: '16px 18px',
-                        backgroundPosition: '98% 50%'}}
-                        autoComplete="off" />
+                        backgroundPosition: '98% 50%',
+                      }}
+                      autoComplete="off"
+                    />
                     <span className="icon is-small is-left">
                       <i className="fas fa-lock"></i>
                     </span>
@@ -1836,9 +1811,7 @@ export const BootSwatchApp = () => {
                 </div>
                 <div className="field">
                   <p className="control">
-                    <button className="button is-success">
-                      Login
-                    </button>
+                    <button className="button is-success">Login</button>
                   </p>
                 </div>
                 <br />
@@ -1846,22 +1819,26 @@ export const BootSwatchApp = () => {
                 <hr />
                 <div className="field has-addons">
                   <p className="control">
-                    <input className="input" type="text" placeholder="Find a repository" />
+                    <input
+                      className="input"
+                      type="text"
+                      placeholder="Find a repository"
+                    />
                   </p>
                   <p className="control">
-                    <a className="button is-info">
-                      Search
-                    </a>
+                    <a className="button is-info">Search</a>
                   </p>
                 </div>
                 <div className="field has-addons">
                   <p className="control">
-                    <input className="input is-large" type="text" placeholder="Find a repository" />
+                    <input
+                      className="input is-large"
+                      type="text"
+                      placeholder="Find a repository"
+                    />
                   </p>
                   <p className="control">
-                    <a className="button is-info is-large">
-                      Search
-                    </a>
+                    <a className="button is-info is-large">Search</a>
                   </p>
                 </div>
                 <div className="field has-addons">
@@ -1875,12 +1852,14 @@ export const BootSwatchApp = () => {
                     </span>
                   </p>
                   <p className="control">
-                    <input className="input" type="text" placeholder="Amount of money" />
+                    <input
+                      className="input"
+                      type="text"
+                      placeholder="Amount of money"
+                    />
                   </p>
                   <p className="control">
-                    <a className="button">
-                      Transfer
-                    </a>
+                    <a className="button">Transfer</a>
                   </p>
                 </div>
                 <div className="field has-addons">
@@ -1894,12 +1873,14 @@ export const BootSwatchApp = () => {
                     </span>
                   </p>
                   <p className="control is-expanded">
-                    <input className="input" type="text" placeholder="Amount of money" />
+                    <input
+                      className="input"
+                      type="text"
+                      placeholder="Amount of money"
+                    />
                   </p>
                   <p className="control">
-                    <a className="button">
-                      Transfer
-                    </a>
+                    <a className="button">Transfer</a>
                   </p>
                 </div>
                 <div className="field has-addons">
@@ -1922,17 +1903,21 @@ export const BootSwatchApp = () => {
                     </span>
                   </p>
                   <p className="control">
-                    <button type="submit" className="button is-primary">Choose</button>
+                    <button type="submit" className="button is-primary">
+                      Choose
+                    </button>
                   </p>
                 </div>
                 <div className="field is-grouped">
                   <p className="control is-expanded">
-                    <input className="input" type="text" placeholder="Find a repository" />
+                    <input
+                      className="input"
+                      type="text"
+                      placeholder="Find a repository"
+                    />
                   </p>
                   <p className="control">
-                    <a className="button is-info">
-                      Search
-                    </a>
+                    <a className="button is-info">Search</a>
                   </p>
                 </div>
               </div>
@@ -1941,69 +1926,99 @@ export const BootSwatchApp = () => {
           <section className="section" id="icon">
             <h1 className="title"> Icons </h1>
             <hr />
-            <span className="icon is-small"> <i className="fas fa-home"> </i> </span>
-            <span className="icon"> <i className="fas fa-home"> </i> </span>
-            <span className="icon is-medium"> <i className="fas fa-home"> </i> </span>
-            <span className="icon is-large"> <i className="fas fa-home"> </i> </span>
+            <span className="icon is-small">
+              {' '}
+              <i className="fas fa-home"> </i>{' '}
+            </span>
+            <span className="icon">
+              {' '}
+              <i className="fas fa-home"> </i>{' '}
+            </span>
+            <span className="icon is-medium">
+              {' '}
+              <i className="fas fa-home"> </i>{' '}
+            </span>
+            <span className="icon is-large">
+              {' '}
+              <i className="fas fa-home"> </i>{' '}
+            </span>
           </section>
-
-
 
           <section className="section" id="images">
             <h1 className="title"> Images </h1>
             <hr />
-            <figure className="image is-128x128"> <img src="https://s3.amazonaws.com/uifaces/faces/twitter/zeldman/128.jpg" />
+            <figure className="image is-128x128">
+              {' '}
+              <img src="https://s3.amazonaws.com/uifaces/faces/twitter/zeldman/128.jpg" />
             </figure>
           </section>
-
 
           <section className="section" id="notifications">
             <h1 className="title"> Notifications </h1>
             <hr />
             <div className="columns is-multiline">
-
               <div className="column is-half">
                 <div className="notification ">
-                  <button className="delete"> </button> Lorem ipsum dolor sit amet,
-                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit </div>
+                  <button className="delete"> </button> Lorem ipsum dolor sit
+                  amet,
+                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor
+                  sit amet, consectetur adipiscing elit{' '}
+                </div>
               </div>
 
               <div className="column is-half">
                 <div className="notification is-primary">
-                  <button className="delete"> </button> Lorem ipsum dolor sit amet,
-                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit </div>
+                  <button className="delete"> </button> Lorem ipsum dolor sit
+                  amet,
+                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor
+                  sit amet, consectetur adipiscing elit{' '}
+                </div>
               </div>
 
               <div className="column is-half">
                 <div className="notification is-link">
-                  <button className="delete"> </button> Lorem ipsum dolor sit amet,
-                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit </div>
+                  <button className="delete"> </button> Lorem ipsum dolor sit
+                  amet,
+                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor
+                  sit amet, consectetur adipiscing elit{' '}
+                </div>
               </div>
 
               <div className="column is-half">
                 <div className="notification is-info">
-                  <button className="delete"> </button> Lorem ipsum dolor sit amet,
-                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit </div>
+                  <button className="delete"> </button> Lorem ipsum dolor sit
+                  amet,
+                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor
+                  sit amet, consectetur adipiscing elit{' '}
+                </div>
               </div>
 
               <div className="column is-half">
                 <div className="notification is-success">
-                  <button className="delete"> </button> Lorem ipsum dolor sit amet,
-                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit </div>
+                  <button className="delete"> </button> Lorem ipsum dolor sit
+                  amet,
+                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor
+                  sit amet, consectetur adipiscing elit{' '}
+                </div>
               </div>
 
               <div className="column is-half">
                 <div className="notification is-warning">
-                  <button className="delete"> </button> Lorem ipsum dolor sit amet,
-                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit </div>
+                  <button className="delete"> </button> Lorem ipsum dolor sit
+                  amet,
+                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor
+                  sit amet, consectetur adipiscing elit{' '}
+                </div>
               </div>
 
               <div className="column is-half">
                 <div className="notification is-danger">
-                  <button className="delete"> </button> Lorem ipsum dolor sit amet,
-                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit </div>
+                  <button className="delete"> </button> Lorem ipsum dolor sit
+                  amet,
+                  <a href="#">consectetur</a> adipiscing elit lorem ipsum dolor
+                  sit amet, consectetur adipiscing elit{' '}
+                </div>
               </div>
-
             </div>
           </section>
 
@@ -2011,24 +2026,57 @@ export const BootSwatchApp = () => {
             <h1 className="title"> Progress bars </h1>
             <hr />
 
-            <progress className="progress " max="100" value="15"> 15% </progress>
+            <progress className="progress " max="100" value="15">
+              {' '}
+              15%{' '}
+            </progress>
 
-            <progress className="progress is-primary" max="100" value="15"> 15% </progress>
+            <progress className="progress is-primary" max="100" value="15">
+              {' '}
+              15%{' '}
+            </progress>
 
-            <progress className="progress is-link" max="100" value="15"> 15% </progress>
+            <progress className="progress is-link" max="100" value="15">
+              {' '}
+              15%{' '}
+            </progress>
 
-            <progress className="progress is-info" max="100" value="15"> 15% </progress>
+            <progress className="progress is-info" max="100" value="15">
+              {' '}
+              15%{' '}
+            </progress>
 
-            <progress className="progress is-success" max="100" value="15"> 15% </progress>
+            <progress className="progress is-success" max="100" value="15">
+              {' '}
+              15%{' '}
+            </progress>
 
-            <progress className="progress is-warning" max="100" value="15"> 15% </progress>
+            <progress className="progress is-warning" max="100" value="15">
+              {' '}
+              15%{' '}
+            </progress>
 
-            <progress className="progress is-danger" max="100" value="15"> 15% </progress>
+            <progress className="progress is-danger" max="100" value="15">
+              {' '}
+              15%{' '}
+            </progress>
 
-            <progress className="progress is-small" max="100" value="15"> 15% </progress>
-            <progress className="progress" max="100" value="30"> 30% </progress>
-            <progress className="progress is-medium" max="100" value="45"> 45% </progress>
-            <progress className="progress is-large" max="100" value="60"> 60% </progress>
+            <progress className="progress is-small" max="100" value="15">
+              {' '}
+              15%{' '}
+            </progress>
+            <progress className="progress" max="100" value="30">
+              {' '}
+              30%{' '}
+            </progress>
+            <progress className="progress is-medium" max="100" value="45">
+              {' '}
+              45%{' '}
+            </progress>
+            <progress className="progress is-large" max="100" value="60">
+              {' '}
+              60%{' '}
+            </progress>
           </section>
 
           <section className="section" id="table">
@@ -2105,7 +2153,15 @@ export const BootSwatchApp = () => {
                 <tr>
                   <th> 1 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C."> Leicester City </a> <strong> (C) </strong> </td>
+                    <a
+                      href="https://en.wikipedia.org/wiki/Leicester_City_F.C."
+                      title="Leicester City F.C."
+                    >
+                      {' '}
+                      Leicester City{' '}
+                    </a>{' '}
+                    <strong> (C) </strong>{' '}
+                  </td>
                   <td> 38 </td>
                   <td> 23 </td>
                   <td> 12 </td>
@@ -2114,14 +2170,28 @@ export const BootSwatchApp = () => {
                   <td> 36 </td>
                   <td> +32 </td>
                   <td> 81 </td>
-                  <td> Qualification for the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage" title="2016–17 UEFA Champions League"> Champions League group stage </a>
+                  <td>
+                    {' '}
+                    Qualification for the
+                    <a
+                      href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage"
+                      title="2016–17 UEFA Champions League"
+                    >
+                      {' '}
+                      Champions League group stage{' '}
+                    </a>
                   </td>
                 </tr>
                 <tr>
                   <th> 2 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/Arsenal_F.C." title="Arsenal F.C."> Arsenal </a>
+                    <a
+                      href="https://en.wikipedia.org/wiki/Arsenal_F.C."
+                      title="Arsenal F.C."
+                    >
+                      {' '}
+                      Arsenal{' '}
+                    </a>
                   </td>
                   <td> 38 </td>
                   <td> 20 </td>
@@ -2131,14 +2201,28 @@ export const BootSwatchApp = () => {
                   <td> 36 </td>
                   <td> +29 </td>
                   <td> 71 </td>
-                  <td> Qualification for the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage" title="2016–17 UEFA Champions League"> Champions League group stage </a>
+                  <td>
+                    {' '}
+                    Qualification for the
+                    <a
+                      href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage"
+                      title="2016–17 UEFA Champions League"
+                    >
+                      {' '}
+                      Champions League group stage{' '}
+                    </a>
                   </td>
                 </tr>
                 <tr>
                   <th> 3 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/Tottenham_Hotspur_F.C." title="Tottenham Hotspur F.C."> Tottenham Hotspur </a>
+                    <a
+                      href="https://en.wikipedia.org/wiki/Tottenham_Hotspur_F.C."
+                      title="Tottenham Hotspur F.C."
+                    >
+                      {' '}
+                      Tottenham Hotspur{' '}
+                    </a>
                   </td>
                   <td> 38 </td>
                   <td> 19 </td>
@@ -2148,14 +2232,28 @@ export const BootSwatchApp = () => {
                   <td> 35 </td>
                   <td> +34 </td>
                   <td> 70 </td>
-                  <td> Qualification for the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage" title="2016–17 UEFA Champions League"> Champions League group stage </a>
+                  <td>
+                    {' '}
+                    Qualification for the
+                    <a
+                      href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage"
+                      title="2016–17 UEFA Champions League"
+                    >
+                      {' '}
+                      Champions League group stage{' '}
+                    </a>
                   </td>
                 </tr>
                 <tr>
                   <th> 4 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/Manchester_City_F.C." title="Manchester City F.C."> Manchester City </a>
+                    <a
+                      href="https://en.wikipedia.org/wiki/Manchester_City_F.C."
+                      title="Manchester City F.C."
+                    >
+                      {' '}
+                      Manchester City{' '}
+                    </a>
                   </td>
                   <td> 38 </td>
                   <td> 19 </td>
@@ -2165,14 +2263,28 @@ export const BootSwatchApp = () => {
                   <td> 41 </td>
                   <td> +30 </td>
                   <td> 66 </td>
-                  <td> Qualification for the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Play-off_round" title="2016–17 UEFA Champions League"> Champions League play-off round </a>
+                  <td>
+                    {' '}
+                    Qualification for the
+                    <a
+                      href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Play-off_round"
+                      title="2016–17 UEFA Champions League"
+                    >
+                      {' '}
+                      Champions League play-off round{' '}
+                    </a>
                   </td>
                 </tr>
                 <tr className="is-selected">
                   <th> 5 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/Manchester_United_F.C." title="Manchester United F.C."> Manchester United </a>
+                    <a
+                      href="https://en.wikipedia.org/wiki/Manchester_United_F.C."
+                      title="Manchester United F.C."
+                    >
+                      {' '}
+                      Manchester United{' '}
+                    </a>
                   </td>
                   <td> 38 </td>
                   <td> 19 </td>
@@ -2182,14 +2294,28 @@ export const BootSwatchApp = () => {
                   <td> 35 </td>
                   <td> +14 </td>
                   <td> 66 </td>
-                  <td> Qualification for the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Group_stage" title="2016–17 UEFA Europa League"> Europa League group stage </a>
+                  <td>
+                    {' '}
+                    Qualification for the
+                    <a
+                      href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Group_stage"
+                      title="2016–17 UEFA Europa League"
+                    >
+                      {' '}
+                      Europa League group stage{' '}
+                    </a>
                   </td>
                 </tr>
                 <tr>
                   <th> 6 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/Southampton_F.C." title="Southampton F.C."> Southampton </a>
+                    <a
+                      href="https://en.wikipedia.org/wiki/Southampton_F.C."
+                      title="Southampton F.C."
+                    >
+                      {' '}
+                      Southampton{' '}
+                    </a>
                   </td>
                   <td> 38 </td>
                   <td> 18 </td>
@@ -2199,14 +2325,28 @@ export const BootSwatchApp = () => {
                   <td> 41 </td>
                   <td> +18 </td>
                   <td> 63 </td>
-                  <td> Qualification for the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Group_stage" title="2016–17 UEFA Europa League"> Europa League group stage </a>
+                  <td>
+                    {' '}
+                    Qualification for the
+                    <a
+                      href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Group_stage"
+                      title="2016–17 UEFA Europa League"
+                    >
+                      {' '}
+                      Europa League group stage{' '}
+                    </a>
                   </td>
                 </tr>
                 <tr>
                   <th> 7 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/West_Ham_United_F.C." title="West Ham United F.C."> West Ham United </a>
+                    <a
+                      href="https://en.wikipedia.org/wiki/West_Ham_United_F.C."
+                      title="West Ham United F.C."
+                    >
+                      {' '}
+                      West Ham United{' '}
+                    </a>
                   </td>
                   <td> 38 </td>
                   <td> 16 </td>
@@ -2216,14 +2356,28 @@ export const BootSwatchApp = () => {
                   <td> 51 </td>
                   <td> +14 </td>
                   <td> 62 </td>
-                  <td> Qualification for the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Third_qualifying_round" title="2016–17 UEFA Europa League"> Europa League third qualifying round </a>
+                  <td>
+                    {' '}
+                    Qualification for the
+                    <a
+                      href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Third_qualifying_round"
+                      title="2016–17 UEFA Europa League"
+                    >
+                      {' '}
+                      Europa League third qualifying round{' '}
+                    </a>
                   </td>
                 </tr>
                 <tr>
                   <th> 8 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/Liverpool_F.C." title="Liverpool F.C."> Liverpool </a>
+                    <a
+                      href="https://en.wikipedia.org/wiki/Liverpool_F.C."
+                      title="Liverpool F.C."
+                    >
+                      {' '}
+                      Liverpool{' '}
+                    </a>
                   </td>
                   <td> 38 </td>
                   <td> 16 </td>
@@ -2238,7 +2392,13 @@ export const BootSwatchApp = () => {
                 <tr>
                   <th> 9 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/Stoke_City_F.C." title="Stoke City F.C."> Stoke City </a>
+                    <a
+                      href="https://en.wikipedia.org/wiki/Stoke_City_F.C."
+                      title="Stoke City F.C."
+                    >
+                      {' '}
+                      Stoke City{' '}
+                    </a>
                   </td>
                   <td> 38 </td>
                   <td> 14 </td>
@@ -2253,7 +2413,13 @@ export const BootSwatchApp = () => {
                 <tr>
                   <th> 10 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/Chelsea_F.C." title="Chelsea F.C."> Chelsea </a>
+                    <a
+                      href="https://en.wikipedia.org/wiki/Chelsea_F.C."
+                      title="Chelsea F.C."
+                    >
+                      {' '}
+                      Chelsea{' '}
+                    </a>
                   </td>
                   <td> 38 </td>
                   <td> 12 </td>
@@ -2268,7 +2434,13 @@ export const BootSwatchApp = () => {
                 <tr>
                   <th> 11 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/Everton_F.C." title="Everton F.C."> Everton </a>
+                    <a
+                      href="https://en.wikipedia.org/wiki/Everton_F.C."
+                      title="Everton F.C."
+                    >
+                      {' '}
+                      Everton{' '}
+                    </a>
                   </td>
                   <td> 38 </td>
                   <td> 11 </td>
@@ -2283,7 +2455,13 @@ export const BootSwatchApp = () => {
                 <tr>
                   <th> 12 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/Swansea_City_A.F.C." title="Swansea City A.F.C."> Swansea City </a>
+                    <a
+                      href="https://en.wikipedia.org/wiki/Swansea_City_A.F.C."
+                      title="Swansea City A.F.C."
+                    >
+                      {' '}
+                      Swansea City{' '}
+                    </a>
                   </td>
                   <td> 38 </td>
                   <td> 12 </td>
@@ -2298,7 +2476,13 @@ export const BootSwatchApp = () => {
                 <tr>
                   <th> 13 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/Watford_F.C." title="Watford F.C."> Watford </a>
+                    <a
+                      href="https://en.wikipedia.org/wiki/Watford_F.C."
+                      title="Watford F.C."
+                    >
+                      {' '}
+                      Watford{' '}
+                    </a>
                   </td>
                   <td> 38 </td>
                   <td> 12 </td>
@@ -2313,7 +2497,13 @@ export const BootSwatchApp = () => {
                 <tr>
                   <th> 14 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/West_Bromwich_Albion_F.C." title="West Bromwich Albion F.C."> West Bromwich Albion </a>
+                    <a
+                      href="https://en.wikipedia.org/wiki/West_Bromwich_Albion_F.C."
+                      title="West Bromwich Albion F.C."
+                    >
+                      {' '}
+                      West Bromwich Albion{' '}
+                    </a>
                   </td>
                   <td> 38 </td>
                   <td> 10 </td>
@@ -2328,7 +2518,13 @@ export const BootSwatchApp = () => {
                 <tr>
                   <th> 15 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/Crystal_Palace_F.C." title="Crystal Palace F.C."> Crystal Palace </a>
+                    <a
+                      href="https://en.wikipedia.org/wiki/Crystal_Palace_F.C."
+                      title="Crystal Palace F.C."
+                    >
+                      {' '}
+                      Crystal Palace{' '}
+                    </a>
                   </td>
                   <td> 38 </td>
                   <td> 11 </td>
@@ -2343,7 +2539,13 @@ export const BootSwatchApp = () => {
                 <tr>
                   <th> 16 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/A.F.C._Bournemouth" title="A.F.C. Bournemouth"> AFC Bournemouth </a>
+                    <a
+                      href="https://en.wikipedia.org/wiki/A.F.C._Bournemouth"
+                      title="A.F.C. Bournemouth"
+                    >
+                      {' '}
+                      AFC Bournemouth{' '}
+                    </a>
                   </td>
                   <td> 38 </td>
                   <td> 11 </td>
@@ -2358,7 +2560,13 @@ export const BootSwatchApp = () => {
                 <tr>
                   <th> 17 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/Sunderland_A.F.C." title="Sunderland A.F.C."> Sunderland </a>
+                    <a
+                      href="https://en.wikipedia.org/wiki/Sunderland_A.F.C."
+                      title="Sunderland A.F.C."
+                    >
+                      {' '}
+                      Sunderland{' '}
+                    </a>
                   </td>
                   <td> 38 </td>
                   <td> 9 </td>
@@ -2373,7 +2581,15 @@ export const BootSwatchApp = () => {
                 <tr>
                   <th> 18 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/Newcastle_United_F.C." title="Newcastle United F.C."> Newcastle United </a> <strong> (R) </strong> </td>
+                    <a
+                      href="https://en.wikipedia.org/wiki/Newcastle_United_F.C."
+                      title="Newcastle United F.C."
+                    >
+                      {' '}
+                      Newcastle United{' '}
+                    </a>{' '}
+                    <strong> (R) </strong>{' '}
+                  </td>
                   <td> 38 </td>
                   <td> 9 </td>
                   <td> 10 </td>
@@ -2382,14 +2598,30 @@ export const BootSwatchApp = () => {
                   <td> 65 </td>
                   <td> −21 </td>
                   <td> 37 </td>
-                  <td> Relegation to the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship" title="2016–17 Football League Championship"> Football League Championship </a>
+                  <td>
+                    {' '}
+                    Relegation to the
+                    <a
+                      href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship"
+                      title="2016–17 Football League Championship"
+                    >
+                      {' '}
+                      Football League Championship{' '}
+                    </a>
                   </td>
                 </tr>
                 <tr>
                   <th> 19 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/Norwich_City_F.C." title="Norwich City F.C."> Norwich City </a> <strong> (R) </strong> </td>
+                    <a
+                      href="https://en.wikipedia.org/wiki/Norwich_City_F.C."
+                      title="Norwich City F.C."
+                    >
+                      {' '}
+                      Norwich City{' '}
+                    </a>{' '}
+                    <strong> (R) </strong>{' '}
+                  </td>
                   <td> 38 </td>
                   <td> 9 </td>
                   <td> 7 </td>
@@ -2398,14 +2630,30 @@ export const BootSwatchApp = () => {
                   <td> 67 </td>
                   <td> −28 </td>
                   <td> 34 </td>
-                  <td> Relegation to the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship" title="2016–17 Football League Championship"> Football League Championship </a>
+                  <td>
+                    {' '}
+                    Relegation to the
+                    <a
+                      href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship"
+                      title="2016–17 Football League Championship"
+                    >
+                      {' '}
+                      Football League Championship{' '}
+                    </a>
                   </td>
                 </tr>
                 <tr>
                   <th> 20 </th>
                   <td>
-                    <a href="https://en.wikipedia.org/wiki/Aston_Villa_F.C." title="Aston Villa F.C."> Aston Villa </a> <strong> (R) </strong> </td>
+                    <a
+                      href="https://en.wikipedia.org/wiki/Aston_Villa_F.C."
+                      title="Aston Villa F.C."
+                    >
+                      {' '}
+                      Aston Villa{' '}
+                    </a>{' '}
+                    <strong> (R) </strong>{' '}
+                  </td>
                   <td> 38 </td>
                   <td> 3 </td>
                   <td> 8 </td>
@@ -2414,8 +2662,16 @@ export const BootSwatchApp = () => {
                   <td> 76 </td>
                   <td> −49 </td>
                   <td> 17 </td>
-                  <td> Relegation to the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship" title="2016–17 Football League Championship"> Football League Championship </a>
+                  <td>
+                    {' '}
+                    Relegation to the
+                    <a
+                      href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship"
+                      title="2016–17 Football League Championship"
+                    >
+                      {' '}
+                      Football League Championship{' '}
+                    </a>
                   </td>
                 </tr>
               </tbody>
@@ -2534,7 +2790,6 @@ export const BootSwatchApp = () => {
             <h1 className="title"> Tag </h1>
             <hr />
             <div className="tags">
-
               <span className="tag is-primary"> Primary </span>
 
               <span className="tag is-link"> Link </span>
@@ -2557,13 +2812,19 @@ export const BootSwatchApp = () => {
 
               <span className="tag is-primary is-medium"> Medium </span>
               <span className="tag is-info is-large"> Large </span>
-              <span className="tag is-success"> Bar
+              <span className="tag is-success">
+                {' '}
+                Bar
                 <button className="delete is-small"> </button>
               </span>
-              <span className="tag is-warning is-medium"> Hello
+              <span className="tag is-warning is-medium">
+                {' '}
+                Hello
                 <button className="delete is-small"> </button>
               </span>
-              <span className="tag is-danger is-large"> World
+              <span className="tag is-danger is-large">
+                {' '}
+                World
                 <button className="delete"> </button>
               </span>
             </div>
@@ -2672,9 +2933,15 @@ export const BootSwatchApp = () => {
                   <div className="container">
                     <div className="navbar-brand">
                       <a className="navbar-item">
-                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                        <img
+                          src="https://bulma.io/images/bulma-type-white.png"
+                          alt="Logo"
+                        />
                       </a>
-                      <span className="navbar-burger burger" data-target="navbarMenuHero1">
+                      <span
+                        className="navbar-burger burger"
+                        data-target="navbarMenuHero1"
+                      >
                         <span></span>
                         <span></span>
                         <span></span>
@@ -2682,35 +2949,29 @@ export const BootSwatchApp = () => {
                     </div>
                     <div id="navbarMenuHero1" className="navbar-menu">
                       <div className="navbar-end">
-                        <a className="navbar-item is-active">
-                          Home
-                        </a>
-                        <a className="navbar-item">
-                          Examples
-                        </a>
-                        <a className="navbar-item">
-                          Documentation
-                        </a>
+                        <a className="navbar-item is-active">Home</a>
+                        <a className="navbar-item">Examples</a>
+                        <a className="navbar-item">Documentation</a>
                         <div className="navbar-item has-dropdown is-hoverable">
-                            <div className="navbar-link">
-                              More
-                            </div>
-                            <div id="moreDropdown" className="navbar-dropdown ">
-                              <a className="navbar-item " href="#">
-                                <div className="level is-mobile">
-                                  <div className="level-left">
-                                    <div className="level-item">
-                                      <p>
-                                        <strong>Extensions</strong>
-                                        <br />
-                                        <small>Side projects to enhance Bulma</small>
-                                      </p>
-                                    </div>
+                          <div className="navbar-link">More</div>
+                          <div id="moreDropdown" className="navbar-dropdown ">
+                            <a className="navbar-item " href="#">
+                              <div className="level is-mobile">
+                                <div className="level-left">
+                                  <div className="level-item">
+                                    <p>
+                                      <strong>Extensions</strong>
+                                      <br />
+                                      <small>
+                                        Side projects to enhance Bulma
+                                      </small>
+                                    </p>
                                   </div>
                                 </div>
-                              </a>
-                            </div>
+                              </div>
+                            </a>
                           </div>
+                        </div>
                         <span className="navbar-item">
                           <a className="button is-primary is-inverted">
                             <span className="icon">
@@ -2726,12 +2987,8 @@ export const BootSwatchApp = () => {
               </div>
               <div className="hero-body">
                 <div className="container has-text-centered">
-                  <h1 className="title">
-                  Title
-                </h1>
-                  <h2 className="subtitle">
-                  Subtitle
-                </h2>
+                  <h1 className="title">Title</h1>
+                  <h2 className="subtitle">Subtitle</h2>
                 </div>
               </div>
               <div className="hero-foot">
@@ -2769,9 +3026,15 @@ export const BootSwatchApp = () => {
                   <div className="container">
                     <div className="navbar-brand">
                       <a className="navbar-item">
-                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                        <img
+                          src="https://bulma.io/images/bulma-type-white.png"
+                          alt="Logo"
+                        />
                       </a>
-                      <span className="navbar-burger burger" data-target="navbarMenuHero2">
+                      <span
+                        className="navbar-burger burger"
+                        data-target="navbarMenuHero2"
+                      >
                         <span></span>
                         <span></span>
                         <span></span>
@@ -2779,35 +3042,29 @@ export const BootSwatchApp = () => {
                     </div>
                     <div id="navbarMenuHero2" className="navbar-menu">
                       <div className="navbar-end">
-                        <a className="navbar-item is-active">
-                          Home
-                        </a>
-                        <a className="navbar-item">
-                          Examples
-                        </a>
-                        <a className="navbar-item">
-                          Documentation
-                        </a>
+                        <a className="navbar-item is-active">Home</a>
+                        <a className="navbar-item">Examples</a>
+                        <a className="navbar-item">Documentation</a>
                         <div className="navbar-item has-dropdown is-hoverable">
-                            <div className="navbar-link">
-                              More
-                            </div>
-                            <div id="moreDropdown" className="navbar-dropdown ">
-                              <a className="navbar-item " href="#">
-                                <div className="level is-mobile">
-                                  <div className="level-left">
-                                    <div className="level-item">
-                                      <p>
-                                        <strong>Extensions</strong>
-                                        <br />
-                                        <small>Side projects to enhance Bulma</small>
-                                      </p>
-                                    </div>
+                          <div className="navbar-link">More</div>
+                          <div id="moreDropdown" className="navbar-dropdown ">
+                            <a className="navbar-item " href="#">
+                              <div className="level is-mobile">
+                                <div className="level-left">
+                                  <div className="level-item">
+                                    <p>
+                                      <strong>Extensions</strong>
+                                      <br />
+                                      <small>
+                                        Side projects to enhance Bulma
+                                      </small>
+                                    </p>
                                   </div>
                                 </div>
-                              </a>
-                            </div>
+                              </div>
+                            </a>
                           </div>
+                        </div>
                         <span className="navbar-item">
                           <a className="button is-primary is-inverted">
                             <span className="icon">
@@ -2823,12 +3080,8 @@ export const BootSwatchApp = () => {
               </div>
               <div className="hero-body">
                 <div className="container has-text-centered">
-                  <h1 className="title">
-                  Title
-                </h1>
-                  <h2 className="subtitle">
-                  Subtitle
-                </h2>
+                  <h1 className="title">Title</h1>
+                  <h2 className="subtitle">Subtitle</h2>
                 </div>
               </div>
               <div className="hero-foot">
@@ -2866,9 +3119,15 @@ export const BootSwatchApp = () => {
                   <div className="container">
                     <div className="navbar-brand">
                       <a className="navbar-item">
-                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                        <img
+                          src="https://bulma.io/images/bulma-type-white.png"
+                          alt="Logo"
+                        />
                       </a>
-                      <span className="navbar-burger burger" data-target="navbarMenuHero3">
+                      <span
+                        className="navbar-burger burger"
+                        data-target="navbarMenuHero3"
+                      >
                         <span></span>
                         <span></span>
                         <span></span>
@@ -2876,35 +3135,29 @@ export const BootSwatchApp = () => {
                     </div>
                     <div id="navbarMenuHero3" className="navbar-menu">
                       <div className="navbar-end">
-                        <a className="navbar-item is-active">
-                          Home
-                        </a>
-                        <a className="navbar-item">
-                          Examples
-                        </a>
-                        <a className="navbar-item">
-                          Documentation
-                        </a>
+                        <a className="navbar-item is-active">Home</a>
+                        <a className="navbar-item">Examples</a>
+                        <a className="navbar-item">Documentation</a>
                         <div className="navbar-item has-dropdown is-hoverable">
-                            <div className="navbar-link">
-                              More
-                            </div>
-                            <div id="moreDropdown" className="navbar-dropdown ">
-                              <a className="navbar-item " href="#">
-                                <div className="level is-mobile">
-                                  <div className="level-left">
-                                    <div className="level-item">
-                                      <p>
-                                        <strong>Extensions</strong>
-                                        <br />
-                                        <small>Side projects to enhance Bulma</small>
-                                      </p>
-                                    </div>
+                          <div className="navbar-link">More</div>
+                          <div id="moreDropdown" className="navbar-dropdown ">
+                            <a className="navbar-item " href="#">
+                              <div className="level is-mobile">
+                                <div className="level-left">
+                                  <div className="level-item">
+                                    <p>
+                                      <strong>Extensions</strong>
+                                      <br />
+                                      <small>
+                                        Side projects to enhance Bulma
+                                      </small>
+                                    </p>
                                   </div>
                                 </div>
-                              </a>
-                            </div>
+                              </div>
+                            </a>
                           </div>
+                        </div>
                         <span className="navbar-item">
                           <a className="button is-primary is-inverted">
                             <span className="icon">
@@ -2920,12 +3173,8 @@ export const BootSwatchApp = () => {
               </div>
               <div className="hero-body">
                 <div className="container has-text-centered">
-                  <h1 className="title">
-                  Title
-                </h1>
-                  <h2 className="subtitle">
-                  Subtitle
-                </h2>
+                  <h1 className="title">Title</h1>
+                  <h2 className="subtitle">Subtitle</h2>
                 </div>
               </div>
               <div className="hero-foot">
@@ -2963,9 +3212,15 @@ export const BootSwatchApp = () => {
                   <div className="container">
                     <div className="navbar-brand">
                       <a className="navbar-item">
-                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                        <img
+                          src="https://bulma.io/images/bulma-type-white.png"
+                          alt="Logo"
+                        />
                       </a>
-                      <span className="navbar-burger burger" data-target="navbarMenuHero4">
+                      <span
+                        className="navbar-burger burger"
+                        data-target="navbarMenuHero4"
+                      >
                         <span></span>
                         <span></span>
                         <span></span>
@@ -2973,35 +3228,29 @@ export const BootSwatchApp = () => {
                     </div>
                     <div id="navbarMenuHero4" className="navbar-menu">
                       <div className="navbar-end">
-                        <a className="navbar-item is-active">
-                          Home
-                        </a>
-                        <a className="navbar-item">
-                          Examples
-                        </a>
-                        <a className="navbar-item">
-                          Documentation
-                        </a>
+                        <a className="navbar-item is-active">Home</a>
+                        <a className="navbar-item">Examples</a>
+                        <a className="navbar-item">Documentation</a>
                         <div className="navbar-item has-dropdown is-hoverable">
-                            <div className="navbar-link">
-                              More
-                            </div>
-                            <div id="moreDropdown" className="navbar-dropdown ">
-                              <a className="navbar-item " href="#">
-                                <div className="level is-mobile">
-                                  <div className="level-left">
-                                    <div className="level-item">
-                                      <p>
-                                        <strong>Extensions</strong>
-                                        <br />
-                                        <small>Side projects to enhance Bulma</small>
-                                      </p>
-                                    </div>
+                          <div className="navbar-link">More</div>
+                          <div id="moreDropdown" className="navbar-dropdown ">
+                            <a className="navbar-item " href="#">
+                              <div className="level is-mobile">
+                                <div className="level-left">
+                                  <div className="level-item">
+                                    <p>
+                                      <strong>Extensions</strong>
+                                      <br />
+                                      <small>
+                                        Side projects to enhance Bulma
+                                      </small>
+                                    </p>
                                   </div>
                                 </div>
-                              </a>
-                            </div>
+                              </div>
+                            </a>
                           </div>
+                        </div>
                         <span className="navbar-item">
                           <a className="button is-primary is-inverted">
                             <span className="icon">
@@ -3017,12 +3266,8 @@ export const BootSwatchApp = () => {
               </div>
               <div className="hero-body">
                 <div className="container has-text-centered">
-                  <h1 className="title">
-                  Title
-                </h1>
-                  <h2 className="subtitle">
-                  Subtitle
-                </h2>
+                  <h1 className="title">Title</h1>
+                  <h2 className="subtitle">Subtitle</h2>
                 </div>
               </div>
               <div className="hero-foot">
@@ -3060,9 +3305,15 @@ export const BootSwatchApp = () => {
                   <div className="container">
                     <div className="navbar-brand">
                       <a className="navbar-item">
-                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                        <img
+                          src="https://bulma.io/images/bulma-type-white.png"
+                          alt="Logo"
+                        />
                       </a>
-                      <span className="navbar-burger burger" data-target="navbarMenuHero5">
+                      <span
+                        className="navbar-burger burger"
+                        data-target="navbarMenuHero5"
+                      >
                         <span></span>
                         <span></span>
                         <span></span>
@@ -3070,35 +3321,29 @@ export const BootSwatchApp = () => {
                     </div>
                     <div id="navbarMenuHero5" className="navbar-menu">
                       <div className="navbar-end">
-                        <a className="navbar-item is-active">
-                          Home
-                        </a>
-                        <a className="navbar-item">
-                          Examples
-                        </a>
-                        <a className="navbar-item">
-                          Documentation
-                        </a>
+                        <a className="navbar-item is-active">Home</a>
+                        <a className="navbar-item">Examples</a>
+                        <a className="navbar-item">Documentation</a>
                         <div className="navbar-item has-dropdown is-hoverable">
-                            <div className="navbar-link">
-                              More
-                            </div>
-                            <div id="moreDropdown" className="navbar-dropdown ">
-                              <a className="navbar-item " href="#">
-                                <div className="level is-mobile">
-                                  <div className="level-left">
-                                    <div className="level-item">
-                                      <p>
-                                        <strong>Extensions</strong>
-                                        <br />
-                                        <small>Side projects to enhance Bulma</small>
-                                      </p>
-                                    </div>
+                          <div className="navbar-link">More</div>
+                          <div id="moreDropdown" className="navbar-dropdown ">
+                            <a className="navbar-item " href="#">
+                              <div className="level is-mobile">
+                                <div className="level-left">
+                                  <div className="level-item">
+                                    <p>
+                                      <strong>Extensions</strong>
+                                      <br />
+                                      <small>
+                                        Side projects to enhance Bulma
+                                      </small>
+                                    </p>
                                   </div>
                                 </div>
-                              </a>
-                            </div>
+                              </div>
+                            </a>
                           </div>
+                        </div>
                         <span className="navbar-item">
                           <a className="button is-primary is-inverted">
                             <span className="icon">
@@ -3114,12 +3359,8 @@ export const BootSwatchApp = () => {
               </div>
               <div className="hero-body">
                 <div className="container has-text-centered">
-                  <h1 className="title">
-                  Title
-                </h1>
-                  <h2 className="subtitle">
-                  Subtitle
-                </h2>
+                  <h1 className="title">Title</h1>
+                  <h2 className="subtitle">Subtitle</h2>
                 </div>
               </div>
               <div className="hero-foot">
@@ -3157,9 +3398,15 @@ export const BootSwatchApp = () => {
                   <div className="container">
                     <div className="navbar-brand">
                       <a className="navbar-item">
-                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                        <img
+                          src="https://bulma.io/images/bulma-type-white.png"
+                          alt="Logo"
+                        />
                       </a>
-                      <span className="navbar-burger burger" data-target="navbarMenuHero6">
+                      <span
+                        className="navbar-burger burger"
+                        data-target="navbarMenuHero6"
+                      >
                         <span></span>
                         <span></span>
                         <span></span>
@@ -3167,35 +3414,29 @@ export const BootSwatchApp = () => {
                     </div>
                     <div id="navbarMenuHero6" className="navbar-menu">
                       <div className="navbar-end">
-                        <a className="navbar-item is-active">
-                          Home
-                        </a>
-                        <a className="navbar-item">
-                          Examples
-                        </a>
-                        <a className="navbar-item">
-                          Documentation
-                        </a>
+                        <a className="navbar-item is-active">Home</a>
+                        <a className="navbar-item">Examples</a>
+                        <a className="navbar-item">Documentation</a>
                         <div className="navbar-item has-dropdown is-hoverable">
-                            <div className="navbar-link">
-                              More
-                            </div>
-                            <div id="moreDropdown" className="navbar-dropdown ">
-                              <a className="navbar-item " href="#">
-                                <div className="level is-mobile">
-                                  <div className="level-left">
-                                    <div className="level-item">
-                                      <p>
-                                        <strong>Extensions</strong>
-                                        <br />
-                                        <small>Side projects to enhance Bulma</small>
-                                      </p>
-                                    </div>
+                          <div className="navbar-link">More</div>
+                          <div id="moreDropdown" className="navbar-dropdown ">
+                            <a className="navbar-item " href="#">
+                              <div className="level is-mobile">
+                                <div className="level-left">
+                                  <div className="level-item">
+                                    <p>
+                                      <strong>Extensions</strong>
+                                      <br />
+                                      <small>
+                                        Side projects to enhance Bulma
+                                      </small>
+                                    </p>
                                   </div>
                                 </div>
-                              </a>
-                            </div>
+                              </div>
+                            </a>
                           </div>
+                        </div>
                         <span className="navbar-item">
                           <a className="button is-primary is-inverted">
                             <span className="icon">
@@ -3212,12 +3453,8 @@ export const BootSwatchApp = () => {
 
               <div className="hero-body">
                 <div className="container has-text-centered">
-                  <h1 className="title">
-                  Title
-                </h1>
-                  <h2 className="subtitle">
-                  Subtitle
-                </h2>
+                  <h1 className="title">Title</h1>
+                  <h2 className="subtitle">Subtitle</h2>
                 </div>
               </div>
 
@@ -3251,15 +3488,20 @@ export const BootSwatchApp = () => {
             <br />
 
             <section className="hero is-danger">
-
               <div className="hero-head">
                 <nav className="navbar">
                   <div className="container">
                     <div className="navbar-brand">
                       <a className="navbar-item">
-                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                        <img
+                          src="https://bulma.io/images/bulma-type-white.png"
+                          alt="Logo"
+                        />
                       </a>
-                      <span className="navbar-burger burger" data-target="navbarMenuHero7">
+                      <span
+                        className="navbar-burger burger"
+                        data-target="navbarMenuHero7"
+                      >
                         <span></span>
                         <span></span>
                         <span></span>
@@ -3267,35 +3509,29 @@ export const BootSwatchApp = () => {
                     </div>
                     <div id="navbarMenuHero7" className="navbar-menu">
                       <div className="navbar-end">
-                        <a className="navbar-item is-active">
-                          Home
-                        </a>
-                        <a className="navbar-item">
-                          Examples
-                        </a>
-                        <a className="navbar-item">
-                          Documentation
-                        </a>
+                        <a className="navbar-item is-active">Home</a>
+                        <a className="navbar-item">Examples</a>
+                        <a className="navbar-item">Documentation</a>
                         <div className="navbar-item has-dropdown is-hoverable">
-                            <div className="navbar-link">
-                              More
-                            </div>
-                            <div id="moreDropdown" className="navbar-dropdown ">
-                              <a className="navbar-item " href="#">
-                                <div className="level is-mobile">
-                                  <div className="level-left">
-                                    <div className="level-item">
-                                      <p>
-                                        <strong>Extensions</strong>
-                                        <br />
-                                        <small>Side projects to enhance Bulma</small>
-                                      </p>
-                                    </div>
+                          <div className="navbar-link">More</div>
+                          <div id="moreDropdown" className="navbar-dropdown ">
+                            <a className="navbar-item " href="#">
+                              <div className="level is-mobile">
+                                <div className="level-left">
+                                  <div className="level-item">
+                                    <p>
+                                      <strong>Extensions</strong>
+                                      <br />
+                                      <small>
+                                        Side projects to enhance Bulma
+                                      </small>
+                                    </p>
                                   </div>
                                 </div>
-                              </a>
-                            </div>
+                              </div>
+                            </a>
                           </div>
+                        </div>
                         <span className="navbar-item">
                           <a className="button is-primary is-inverted">
                             <span className="icon">
@@ -3312,12 +3548,8 @@ export const BootSwatchApp = () => {
 
               <div className="hero-body">
                 <div className="container has-text-centered">
-                  <h1 className="title">
-                  Title
-                </h1>
-                  <h2 className="subtitle">
-                  Subtitle
-                </h2>
+                  <h1 className="title">Title</h1>
+                  <h2 className="subtitle">Subtitle</h2>
                 </div>
               </div>
 
@@ -3351,15 +3583,20 @@ export const BootSwatchApp = () => {
             <br />
 
             <section className="hero is-white">
-
               <div className="hero-head">
                 <nav className="navbar">
                   <div className="container">
                     <div className="navbar-brand">
                       <a className="navbar-item">
-                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                        <img
+                          src="https://bulma.io/images/bulma-type-white.png"
+                          alt="Logo"
+                        />
                       </a>
-                      <span className="navbar-burger burger" data-target="navbarMenuHero8">
+                      <span
+                        className="navbar-burger burger"
+                        data-target="navbarMenuHero8"
+                      >
                         <span></span>
                         <span></span>
                         <span></span>
@@ -3367,35 +3604,29 @@ export const BootSwatchApp = () => {
                     </div>
                     <div id="navbarMenuHero8" className="navbar-menu">
                       <div className="navbar-end">
-                        <a className="navbar-item is-active">
-                          Home
-                        </a>
-                        <a className="navbar-item">
-                          Examples
-                        </a>
-                        <a className="navbar-item">
-                          Documentation
-                        </a>
+                        <a className="navbar-item is-active">Home</a>
+                        <a className="navbar-item">Examples</a>
+                        <a className="navbar-item">Documentation</a>
                         <div className="navbar-item has-dropdown is-hoverable">
-                            <div className="navbar-link">
-                              More
-                            </div>
-                            <div id="moreDropdown" className="navbar-dropdown ">
-                              <a className="navbar-item " href="#">
-                                <div className="level is-mobile">
-                                  <div className="level-left">
-                                    <div className="level-item">
-                                      <p>
-                                        <strong>Extensions</strong>
-                                        <br />
-                                        <small>Side projects to enhance Bulma</small>
-                                      </p>
-                                    </div>
+                          <div className="navbar-link">More</div>
+                          <div id="moreDropdown" className="navbar-dropdown ">
+                            <a className="navbar-item " href="#">
+                              <div className="level is-mobile">
+                                <div className="level-left">
+                                  <div className="level-item">
+                                    <p>
+                                      <strong>Extensions</strong>
+                                      <br />
+                                      <small>
+                                        Side projects to enhance Bulma
+                                      </small>
+                                    </p>
                                   </div>
                                 </div>
-                              </a>
-                            </div>
+                              </div>
+                            </a>
                           </div>
+                        </div>
                         <span className="navbar-item">
                           <a className="button is-primary is-inverted">
                             <span className="icon">
@@ -3412,12 +3643,8 @@ export const BootSwatchApp = () => {
 
               <div className="hero-body">
                 <div className="container has-text-centered">
-                  <h1 className="title">
-                  Title
-                </h1>
-                  <h2 className="subtitle">
-                  Subtitle
-                </h2>
+                  <h1 className="title">Title</h1>
+                  <h2 className="subtitle">Subtitle</h2>
                 </div>
               </div>
 
@@ -3451,15 +3678,20 @@ export const BootSwatchApp = () => {
             <br />
 
             <section className="hero is-black">
-
               <div className="hero-head">
                 <nav className="navbar">
                   <div className="container">
                     <div className="navbar-brand">
                       <a className="navbar-item">
-                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                        <img
+                          src="https://bulma.io/images/bulma-type-white.png"
+                          alt="Logo"
+                        />
                       </a>
-                      <span className="navbar-burger burger" data-target="navbarMenuHero9">
+                      <span
+                        className="navbar-burger burger"
+                        data-target="navbarMenuHero9"
+                      >
                         <span></span>
                         <span></span>
                         <span></span>
@@ -3467,35 +3699,29 @@ export const BootSwatchApp = () => {
                     </div>
                     <div id="navbarMenuHero9" className="navbar-menu">
                       <div className="navbar-end">
-                        <a className="navbar-item is-active">
-                          Home
-                        </a>
-                        <a className="navbar-item">
-                          Examples
-                        </a>
-                        <a className="navbar-item">
-                          Documentation
-                        </a>
+                        <a className="navbar-item is-active">Home</a>
+                        <a className="navbar-item">Examples</a>
+                        <a className="navbar-item">Documentation</a>
                         <div className="navbar-item has-dropdown is-hoverable">
-                            <div className="navbar-link">
-                              More
-                            </div>
-                            <div id="moreDropdown" className="navbar-dropdown ">
-                              <a className="navbar-item " href="#">
-                                <div className="level is-mobile">
-                                  <div className="level-left">
-                                    <div className="level-item">
-                                      <p>
-                                        <strong>Extensions</strong>
-                                        <br />
-                                        <small>Side projects to enhance Bulma</small>
-                                      </p>
-                                    </div>
+                          <div className="navbar-link">More</div>
+                          <div id="moreDropdown" className="navbar-dropdown ">
+                            <a className="navbar-item " href="#">
+                              <div className="level is-mobile">
+                                <div className="level-left">
+                                  <div className="level-item">
+                                    <p>
+                                      <strong>Extensions</strong>
+                                      <br />
+                                      <small>
+                                        Side projects to enhance Bulma
+                                      </small>
+                                    </p>
                                   </div>
                                 </div>
-                              </a>
-                            </div>
+                              </div>
+                            </a>
                           </div>
+                        </div>
                         <span className="navbar-item">
                           <a className="button is-primary is-inverted">
                             <span className="icon">
@@ -3512,12 +3738,8 @@ export const BootSwatchApp = () => {
 
               <div className="hero-body">
                 <div className="container has-text-centered">
-                  <h1 className="title">
-                  Title
-                </h1>
-                  <h2 className="subtitle">
-                  Subtitle
-                </h2>
+                  <h1 className="title">Title</h1>
+                  <h2 className="subtitle">Subtitle</h2>
                 </div>
               </div>
 
@@ -3551,15 +3773,20 @@ export const BootSwatchApp = () => {
             <br />
 
             <section className="hero is-light">
-
               <div className="hero-head">
                 <nav className="navbar">
                   <div className="container">
                     <div className="navbar-brand">
                       <a className="navbar-item">
-                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                        <img
+                          src="https://bulma.io/images/bulma-type-white.png"
+                          alt="Logo"
+                        />
                       </a>
-                      <span className="navbar-burger burger" data-target="navbarMenuHero10">
+                      <span
+                        className="navbar-burger burger"
+                        data-target="navbarMenuHero10"
+                      >
                         <span></span>
                         <span></span>
                         <span></span>
@@ -3567,35 +3794,29 @@ export const BootSwatchApp = () => {
                     </div>
                     <div id="navbarMenuHero10" className="navbar-menu">
                       <div className="navbar-end">
-                        <a className="navbar-item is-active">
-                          Home
-                        </a>
-                        <a className="navbar-item">
-                          Examples
-                        </a>
-                        <a className="navbar-item">
-                          Documentation
-                        </a>
+                        <a className="navbar-item is-active">Home</a>
+                        <a className="navbar-item">Examples</a>
+                        <a className="navbar-item">Documentation</a>
                         <div className="navbar-item has-dropdown is-hoverable">
-                            <div className="navbar-link">
-                              More
-                            </div>
-                            <div id="moreDropdown" className="navbar-dropdown ">
-                              <a className="navbar-item " href="#">
-                                <div className="level is-mobile">
-                                  <div className="level-left">
-                                    <div className="level-item">
-                                      <p>
-                                        <strong>Extensions</strong>
-                                        <br />
-                                        <small>Side projects to enhance Bulma</small>
-                                      </p>
-                                    </div>
+                          <div className="navbar-link">More</div>
+                          <div id="moreDropdown" className="navbar-dropdown ">
+                            <a className="navbar-item " href="#">
+                              <div className="level is-mobile">
+                                <div className="level-left">
+                                  <div className="level-item">
+                                    <p>
+                                      <strong>Extensions</strong>
+                                      <br />
+                                      <small>
+                                        Side projects to enhance Bulma
+                                      </small>
+                                    </p>
                                   </div>
                                 </div>
-                              </a>
-                            </div>
+                              </div>
+                            </a>
                           </div>
+                        </div>
                         <span className="navbar-item">
                           <a className="button is-primary is-inverted">
                             <span className="icon">
@@ -3612,12 +3833,8 @@ export const BootSwatchApp = () => {
 
               <div className="hero-body">
                 <div className="container has-text-centered">
-                  <h1 className="title">
-                  Title
-                </h1>
-                  <h2 className="subtitle">
-                  Subtitle
-                </h2>
+                  <h1 className="title">Title</h1>
+                  <h2 className="subtitle">Subtitle</h2>
                 </div>
               </div>
 
@@ -3651,15 +3868,20 @@ export const BootSwatchApp = () => {
             <br />
 
             <section className="hero is-dark">
-
               <div className="hero-head">
                 <nav className="navbar">
                   <div className="container">
                     <div className="navbar-brand">
                       <a className="navbar-item">
-                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                        <img
+                          src="https://bulma.io/images/bulma-type-white.png"
+                          alt="Logo"
+                        />
                       </a>
-                      <span className="navbar-burger burger" data-target="navbarMenuHero11">
+                      <span
+                        className="navbar-burger burger"
+                        data-target="navbarMenuHero11"
+                      >
                         <span></span>
                         <span></span>
                         <span></span>
@@ -3667,35 +3889,29 @@ export const BootSwatchApp = () => {
                     </div>
                     <div id="navbarMenuHero11" className="navbar-menu">
                       <div className="navbar-end">
-                        <a className="navbar-item is-active">
-                          Home
-                        </a>
-                        <a className="navbar-item">
-                          Examples
-                        </a>
-                        <a className="navbar-item">
-                          Documentation
-                        </a>
+                        <a className="navbar-item is-active">Home</a>
+                        <a className="navbar-item">Examples</a>
+                        <a className="navbar-item">Documentation</a>
                         <div className="navbar-item has-dropdown is-hoverable">
-                            <div className="navbar-link">
-                              More
-                            </div>
-                            <div id="moreDropdown" className="navbar-dropdown ">
-                              <a className="navbar-item " href="#">
-                                <div className="level is-mobile">
-                                  <div className="level-left">
-                                    <div className="level-item">
-                                      <p>
-                                        <strong>Extensions</strong>
-                                        <br />
-                                        <small>Side projects to enhance Bulma</small>
-                                      </p>
-                                    </div>
+                          <div className="navbar-link">More</div>
+                          <div id="moreDropdown" className="navbar-dropdown ">
+                            <a className="navbar-item " href="#">
+                              <div className="level is-mobile">
+                                <div className="level-left">
+                                  <div className="level-item">
+                                    <p>
+                                      <strong>Extensions</strong>
+                                      <br />
+                                      <small>
+                                        Side projects to enhance Bulma
+                                      </small>
+                                    </p>
                                   </div>
                                 </div>
-                              </a>
-                            </div>
+                              </div>
+                            </a>
                           </div>
+                        </div>
                         <span className="navbar-item">
                           <a className="button is-primary is-inverted">
                             <span className="icon">
@@ -3712,12 +3928,8 @@ export const BootSwatchApp = () => {
 
               <div className="hero-body">
                 <div className="container has-text-centered">
-                  <h1 className="title">
-                  Title
-                </h1>
-                  <h2 className="subtitle">
-                  Subtitle
-                </h2>
+                  <h1 className="title">Title</h1>
+                  <h2 className="subtitle">Subtitle</h2>
                 </div>
               </div>
 
@@ -3749,10 +3961,7 @@ export const BootSwatchApp = () => {
               </div>
             </section>
             <br />
-
           </section>
-
-
 
           <section className="section" id="card">
             <h1 className="title">Cards</h1>
@@ -3761,23 +3970,41 @@ export const BootSwatchApp = () => {
               <div className="column">
                 <div className="card">
                   <div className="card-image">
-                    <figure className="image is-4by3"> <img src="https://source.unsplash.com/random/800x600" alt="Image" /> </figure>
+                    <figure className="image is-4by3">
+                      {' '}
+                      <img
+                        src="https://source.unsplash.com/random/800x600"
+                        alt="Image"
+                      />{' '}
+                    </figure>
                   </div>
                   <div className="card-content">
                     <div className="media">
                       <div className="media-left">
-                        <figure className="image" style={{height: '40px', width: '40px'}}> <img src="https://source.unsplash.com/random/96x96" alt="Image" /> </figure>
+                        <figure
+                          className="image"
+                          style={{ height: '40px', width: '40px' }}
+                        >
+                          {' '}
+                          <img
+                            src="https://source.unsplash.com/random/96x96"
+                            alt="Image"
+                          />{' '}
+                        </figure>
                       </div>
                       <div className="media-content">
                         <p className="title is-4">John Smith</p>
                         <p className="subtitle is-6">@johnsmith</p>
                       </div>
                     </div>
-                    <div className="content"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                      <a>@bulmaio</a>.
-                      <a>#css</a>
+                    <div className="content">
+                      {' '}
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Phasellus nec iaculis mauris.
+                      <a>@bulmaio</a>.<a>#css</a>
                       <a>#responsive</a>
-                      <br /> <small>11:09 PM - 1 Jan 2016</small> </div>
+                      <br /> <small>11:09 PM - 1 Jan 2016</small>{' '}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -3786,15 +4013,21 @@ export const BootSwatchApp = () => {
                   <header className="card-header">
                     <p className="card-header-title"> Component </p>
                     <a className="card-header-icon">
-                      <span className="icon"> <i className="fa fa-angle-down"></i> </span>
+                      <span className="icon">
+                        {' '}
+                        <i className="fa fa-angle-down"></i>{' '}
+                      </span>
                     </a>
                   </header>
                   <div className="card-content">
-                    <div className="content"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                      <a>@bulmaio</a>.
-                      <a>#css</a>
+                    <div className="content">
+                      {' '}
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Phasellus nec iaculis mauris.
+                      <a>@bulmaio</a>.<a>#css</a>
                       <a>#responsive</a>
-                      <br /> <small>11:09 PM - 1 Jan 2016</small> </div>
+                      <br /> <small>11:09 PM - 1 Jan 2016</small>{' '}
+                    </div>
                   </div>
                   <footer className="card-footer">
                     <a className="card-footer-item">Save</a>
@@ -3806,9 +4039,6 @@ export const BootSwatchApp = () => {
             </div>
           </section>
 
-
-
-
           <section className="section" id="dropdown">
             <h1 className="title">Dropdown</h1>
             <hr />
@@ -3816,7 +4046,11 @@ export const BootSwatchApp = () => {
               <div className="column">
                 <div className="dropdown is-active">
                   <div className="dropdown-trigger">
-                    <button className="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                    <button
+                      className="button"
+                      aria-haspopup="true"
+                      aria-controls="dropdown-menu"
+                    >
                       <span>Dropdown button</span>
                       <span className="icon is-small">
                         <i className="fa fa-angle-down" aria-hidden="true"></i>
@@ -3828,9 +4062,7 @@ export const BootSwatchApp = () => {
                       <a href="#" className="dropdown-item">
                         Dropdown item
                       </a>
-                      <a className="dropdown-item">
-                        Other dropdown item
-                      </a>
+                      <a className="dropdown-item">Other dropdown item</a>
                       <a href="#" className="dropdown-item is-active">
                         Active dropdown item
                       </a>
@@ -3848,21 +4080,35 @@ export const BootSwatchApp = () => {
               <div className="column">
                 <div className="dropdown is-active">
                   <div className="dropdown-trigger">
-                    <button className="button is-info" aria-haspopup="true" aria-controls="dropdown-menu2">
+                    <button
+                      className="button is-info"
+                      aria-haspopup="true"
+                      aria-controls="dropdown-menu2"
+                    >
                       <span>Content</span>
                       <span className="icon is-small">
                         <i className="fa fa-angle-down" aria-hidden="true"></i>
                       </span>
                     </button>
                   </div>
-                  <div className="dropdown-menu" id="dropdown-menu2" role="menu">
+                  <div
+                    className="dropdown-menu"
+                    id="dropdown-menu2"
+                    role="menu"
+                  >
                     <div className="dropdown-content">
                       <div className="dropdown-item">
-                        <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
+                        <p>
+                          You can insert <strong>any type of content</strong>{' '}
+                          within the dropdown menu.
+                        </p>
                       </div>
                       <hr className="dropdown-divider" />
                       <div className="dropdown-item">
-                        <p>You simply need to use a <code>&lt;div&gt;</code> instead.</p>
+                        <p>
+                          You simply need to use a <code>&lt;div&gt;</code>{' '}
+                          instead.
+                        </p>
                       </div>
                       <hr className="dropdown-divider" />
                       <a href="#" className="dropdown-item">
@@ -3878,29 +4124,36 @@ export const BootSwatchApp = () => {
           <section className="section" id="level">
             <h1 className="title">Level</h1>
             <hr />
-            {/* Main container */ }
+            {/* Main container */}
             <nav className="level">
-              {/* Left side */ }
+              {/* Left side */}
               <div className="level-left">
                 <div className="level-item">
-                  <p className="subtitle is-5"> <strong>123</strong> posts </p>
+                  <p className="subtitle is-5">
+                    {' '}
+                    <strong>123</strong> posts{' '}
+                  </p>
                 </div>
                 <div className="level-item">
                   <div className="field has-addons">
                     <p className="control">
-                      <input className="input" type="text" placeholder="Find a post" />
+                      <input
+                        className="input"
+                        type="text"
+                        placeholder="Find a post"
+                      />
                     </p>
                     <p className="control">
-                      <button className="button">
-                        Search
-                      </button>
+                      <button className="button">Search</button>
                     </p>
                   </div>
                 </div>
               </div>
-              {/* Right side */ }
+              {/* Right side */}
               <div className="level-right">
-                <p className="level-item"><strong>All</strong></p>
+                <p className="level-item">
+                  <strong>All</strong>
+                </p>
                 <p className="level-item">
                   <a>Published</a>
                 </p>
@@ -3950,7 +4203,14 @@ export const BootSwatchApp = () => {
               <p className="level-item has-text-centered">
                 <a className="link is-info">Menu</a>
               </p>
-              <p className="level-item has-text-centered"> <img src="http://bulma.io/images/bulma-type.png" alt="" style={{height: '30px'}} /> </p>
+              <p className="level-item has-text-centered">
+                {' '}
+                <img
+                  src="http://bulma.io/images/bulma-type.png"
+                  alt=""
+                  style={{ height: '30px' }}
+                />{' '}
+              </p>
               <p className="level-item has-text-centered">
                 <a className="link is-info">Reservations</a>
               </p>
@@ -4000,20 +4260,30 @@ export const BootSwatchApp = () => {
               <div className="media-content">
                 <div className="content">
                   <p>
-                    <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-                    <br /> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+                    <strong>John Smith</strong> <small>@johnsmith</small>{' '}
+                    <small>31m</small>
+                    <br /> Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. Proin ornare magna eros, eu pellentesque tortor
+                    vestibulum ut. Maecenas non massa sem. Etiam finibus odio
+                    quis feugiat facilisis.
                   </p>
                 </div>
                 <nav className="level">
                   <div className="level-left">
                     <a className="level-item">
-                      <span className="icon is-small"><i className="fas fa-reply"></i></span>
+                      <span className="icon is-small">
+                        <i className="fas fa-reply"></i>
+                      </span>
                     </a>
                     <a className="level-item">
-                      <span className="icon is-small"><i className="fas fa-retweet"></i></span>
+                      <span className="icon is-small">
+                        <i className="fas fa-retweet"></i>
+                      </span>
                     </a>
                     <a className="level-item">
-                      <span className="icon is-small"><i className="fas fa-heart"></i></span>
+                      <span className="icon is-small">
+                        <i className="fas fa-heart"></i>
+                      </span>
                     </a>
                   </div>
                 </nav>
@@ -4032,7 +4302,11 @@ export const BootSwatchApp = () => {
               <div className="media-content">
                 <div className="field">
                   <p className="control">
-                    <textarea className="textarea" placeholder="Add a comment..." defaultValue=""></textarea>
+                    <textarea
+                      className="textarea"
+                      placeholder="Add a comment..."
+                      defaultValue=""
+                    ></textarea>
                   </p>
                 </div>
                 <nav className="level">
@@ -4063,9 +4337,14 @@ export const BootSwatchApp = () => {
                 <div className="content">
                   <p>
                     <strong>Barbara Middleton</strong>
-                    <br /> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
+                    <br /> Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. Duis porta eros lacus, nec ultricies elit blandit non.
+                    Suspendisse pellentesque mauris sit amet dolor blandit
+                    rutrum. Nunc in tempus turpis.
                     <br />
-                    <small><a>Like</a> · <a>Reply</a> · 3 hrs</small>
+                    <small>
+                      <a>Like</a> · <a>Reply</a> · 3 hrs
+                    </small>
                   </p>
                 </div>
                 <article className="media">
@@ -4078,16 +4357,25 @@ export const BootSwatchApp = () => {
                     <div className="content">
                       <p>
                         <strong>Sean Brown</strong>
-                        <br /> Donec sollicitudin urna eget eros malesuada sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam blandit nisl a nulla sagittis, a lobortis leo feugiat.
+                        <br /> Donec sollicitudin urna eget eros malesuada
+                        sagittis. Pellentesque habitant morbi tristique senectus
+                        et netus et malesuada fames ac turpis egestas. Aliquam
+                        blandit nisl a nulla sagittis, a lobortis leo feugiat.
                         <br />
-                        <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
+                        <small>
+                          <a>Like</a> · <a>Reply</a> · 2 hrs
+                        </small>
                       </p>
                     </div>
                     <article className="media">
-                      Vivamus quis semper metus, non tincidunt dolor. Vivamus in mi eu lorem cursus ullamcorper sit amet nec massa.
+                      Vivamus quis semper metus, non tincidunt dolor. Vivamus in
+                      mi eu lorem cursus ullamcorper sit amet nec massa.
                     </article>
                     <article className="media">
-                      Morbi vitae diam et purus tincidunt porttitor vel vitae augue. Praesent malesuada metus sed pharetra euismod. Cras tellus odio, tincidunt iaculis diam non, porta aliquet tortor.
+                      Morbi vitae diam et purus tincidunt porttitor vel vitae
+                      augue. Praesent malesuada metus sed pharetra euismod. Cras
+                      tellus odio, tincidunt iaculis diam non, porta aliquet
+                      tortor.
                     </article>
                   </div>
                 </article>
@@ -4101,9 +4389,16 @@ export const BootSwatchApp = () => {
                     <div className="content">
                       <p>
                         <strong>Kayli Eunice </strong>
-                        <br /> Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas varius felis sit amet magna vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat.
+                        <br /> Sed convallis scelerisque mauris, non pulvinar
+                        nunc mattis vel. Maecenas varius felis sit amet magna
+                        vestibulum euismod malesuada cursus libero. Vestibulum
+                        ante ipsum primis in faucibus orci luctus et ultrices
+                        posuere cubilia Curae; Phasellus lacinia non nisl id
+                        feugiat.
                         <br />
-                        <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
+                        <small>
+                          <a>Like</a> · <a>Reply</a> · 2 hrs
+                        </small>
                       </p>
                     </div>
                   </div>
@@ -4119,7 +4414,11 @@ export const BootSwatchApp = () => {
               <div className="media-content">
                 <div className="field">
                   <p className="control">
-                    <textarea className="textarea" placeholder="Add a comment..." defaultValue=""></textarea>
+                    <textarea
+                      className="textarea"
+                      placeholder="Add a comment..."
+                      defaultValue=""
+                    ></textarea>
                   </p>
                 </div>
                 <div className="field">
@@ -4131,15 +4430,12 @@ export const BootSwatchApp = () => {
             </article>
           </section>
 
-
           <section className="section" id="menu">
             <h1 className="title">Menu</h1>
             <hr />
             <div className="column is-3">
               <aside className="menu">
-                <p className="menu-label">
-                  General
-                </p>
+                <p className="menu-label">General</p>
                 <ul className="menu-list">
                   <li>
                     <a>Dashboard</a>
@@ -4148,9 +4444,7 @@ export const BootSwatchApp = () => {
                     <a>Customers</a>
                   </li>
                 </ul>
-                <p className="menu-label">
-                  Administration
-                </p>
+                <p className="menu-label">Administration</p>
                 <ul className="menu-list">
                   <li>
                     <a>Team Settings</a>
@@ -4179,9 +4473,7 @@ export const BootSwatchApp = () => {
                     <a>Authentication</a>
                   </li>
                 </ul>
-                <p className="menu-label">
-                  Transactions
-                </p>
+                <p className="menu-label">Transactions</p>
                 <ul className="menu-list">
                   <li>
                     <a>Payments</a>
@@ -4197,25 +4489,23 @@ export const BootSwatchApp = () => {
             </div>
           </section>
 
-
           <section className="section" id="message">
             <h1 className="title">Message</h1>
             <hr />
             <div className="columns is-multiline">
-
               <div className="column is-half">
                 <article className="message ">
                   <div className="message-header">
-                    <p>
-
-                      Message
-
-                    </p>
+                    <p>Message</p>
                     <button className="delete"></button>
                   </div>
                   <div className="message-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
-                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
+                    <strong>Pellentesque risus mi</strong>, tempus quis placerat
+                    ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
+                    fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac{' '}
+                    <em>eleifend lacus</em>.
                   </div>
                 </article>
               </div>
@@ -4223,16 +4513,16 @@ export const BootSwatchApp = () => {
               <div className="column is-half">
                 <article className="message is-primary">
                   <div className="message-header">
-                    <p>
-
-                      Primary
-
-                    </p>
+                    <p>Primary</p>
                     <button className="delete"></button>
                   </div>
                   <div className="message-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
-                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
+                    <strong>Pellentesque risus mi</strong>, tempus quis placerat
+                    ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
+                    fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac{' '}
+                    <em>eleifend lacus</em>.
                   </div>
                 </article>
               </div>
@@ -4240,16 +4530,16 @@ export const BootSwatchApp = () => {
               <div className="column is-half">
                 <article className="message is-link">
                   <div className="message-header">
-                    <p>
-
-                      Link
-
-                    </p>
+                    <p>Link</p>
                     <button className="delete"></button>
                   </div>
                   <div className="message-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
-                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
+                    <strong>Pellentesque risus mi</strong>, tempus quis placerat
+                    ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
+                    fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac{' '}
+                    <em>eleifend lacus</em>.
                   </div>
                 </article>
               </div>
@@ -4257,16 +4547,16 @@ export const BootSwatchApp = () => {
               <div className="column is-half">
                 <article className="message is-info">
                   <div className="message-header">
-                    <p>
-
-                      Info
-
-                    </p>
+                    <p>Info</p>
                     <button className="delete"></button>
                   </div>
                   <div className="message-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
-                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
+                    <strong>Pellentesque risus mi</strong>, tempus quis placerat
+                    ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
+                    fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac{' '}
+                    <em>eleifend lacus</em>.
                   </div>
                 </article>
               </div>
@@ -4274,16 +4564,16 @@ export const BootSwatchApp = () => {
               <div className="column is-half">
                 <article className="message is-success">
                   <div className="message-header">
-                    <p>
-
-                      Success
-
-                    </p>
+                    <p>Success</p>
                     <button className="delete"></button>
                   </div>
                   <div className="message-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
-                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
+                    <strong>Pellentesque risus mi</strong>, tempus quis placerat
+                    ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
+                    fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac{' '}
+                    <em>eleifend lacus</em>.
                   </div>
                 </article>
               </div>
@@ -4291,16 +4581,16 @@ export const BootSwatchApp = () => {
               <div className="column is-half">
                 <article className="message is-warning">
                   <div className="message-header">
-                    <p>
-
-                      Warning
-
-                    </p>
+                    <p>Warning</p>
                     <button className="delete"></button>
                   </div>
                   <div className="message-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
-                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
+                    <strong>Pellentesque risus mi</strong>, tempus quis placerat
+                    ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
+                    fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac{' '}
+                    <em>eleifend lacus</em>.
                   </div>
                 </article>
               </div>
@@ -4308,16 +4598,16 @@ export const BootSwatchApp = () => {
               <div className="column is-half">
                 <article className="message is-danger">
                   <div className="message-header">
-                    <p>
-
-                      Danger
-
-                    </p>
+                    <p>Danger</p>
                     <button className="delete"></button>
                   </div>
                   <div className="message-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
-                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
+                    <strong>Pellentesque risus mi</strong>, tempus quis placerat
+                    ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
+                    fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac{' '}
+                    <em>eleifend lacus</em>.
                   </div>
                 </article>
               </div>
@@ -4325,16 +4615,16 @@ export const BootSwatchApp = () => {
               <div className="column is-half">
                 <article className="message is-white">
                   <div className="message-header">
-                    <p>
-
-                      White
-
-                    </p>
+                    <p>White</p>
                     <button className="delete"></button>
                   </div>
                   <div className="message-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
-                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
+                    <strong>Pellentesque risus mi</strong>, tempus quis placerat
+                    ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
+                    fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac{' '}
+                    <em>eleifend lacus</em>.
                   </div>
                 </article>
               </div>
@@ -4342,16 +4632,16 @@ export const BootSwatchApp = () => {
               <div className="column is-half">
                 <article className="message is-black">
                   <div className="message-header">
-                    <p>
-
-                      Black
-
-                    </p>
+                    <p>Black</p>
                     <button className="delete"></button>
                   </div>
                   <div className="message-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
-                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
+                    <strong>Pellentesque risus mi</strong>, tempus quis placerat
+                    ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
+                    fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac{' '}
+                    <em>eleifend lacus</em>.
                   </div>
                 </article>
               </div>
@@ -4359,16 +4649,16 @@ export const BootSwatchApp = () => {
               <div className="column is-half">
                 <article className="message is-light">
                   <div className="message-header">
-                    <p>
-
-                      Light
-
-                    </p>
+                    <p>Light</p>
                     <button className="delete"></button>
                   </div>
                   <div className="message-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
-                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
+                    <strong>Pellentesque risus mi</strong>, tempus quis placerat
+                    ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
+                    fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac{' '}
+                    <em>eleifend lacus</em>.
                   </div>
                 </article>
               </div>
@@ -4376,27 +4666,28 @@ export const BootSwatchApp = () => {
               <div className="column is-half">
                 <article className="message is-dark">
                   <div className="message-header">
-                    <p>
-
-                      Dark
-
-                    </p>
+                    <p>Dark</p>
                     <button className="delete"></button>
                   </div>
                   <div className="message-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
-                    <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
+                    <strong>Pellentesque risus mi</strong>, tempus quis placerat
+                    ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
+                    fringilla. Nullam gravida purus diam, et dictum
+                    <a>felis venenatis</a> efficitur. Aenean ac{' '}
+                    <em>eleifend lacus</em>.
                   </div>
                 </article>
               </div>
-
             </div>
           </section>
 
           <section className="section" id="modal">
             <h1 className="title">Modal</h1>
             <hr />
-            <a className="button is-primary is-large" data-target="#myModal">Launch example modal</a>
+            <a className="button is-primary is-large" data-target="#myModal">
+              Launch example modal
+            </a>
             <div className="modal" id="myModal">
               <div className="modal-background"></div>
               <div className="modal-card">
@@ -4405,7 +4696,14 @@ export const BootSwatchApp = () => {
                   <button className="delete"></button>
                 </header>
                 <section className="modal-card-body">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                  cupidatat non proident, sunt in culpa qui officia deserunt
+                  mollit anim id est laborum.
                 </section>
                 <footer className="modal-card-foot">
                   <a className="button is-primary">Save changes</a>
@@ -4415,8 +4713,6 @@ export const BootSwatchApp = () => {
             </div>
           </section>
 
-
-
           <section className="section" id="navbar">
             <h1 className="title">Navbar</h1>
             <hr />
@@ -4424,19 +4720,35 @@ export const BootSwatchApp = () => {
             <nav className="navbar ">
               <div className="navbar-brand">
                 <a className="navbar-item" href="http://bulma.io">
-                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                  <img
+                    src="http://bulma.io/images/bulma-logo.png"
+                    alt="Bulma: a modern CSS framework based on Flexbox"
+                    width="112"
+                    height="28"
+                  />
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
-                  <span className="icon"style={{color:'#333'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://github.com/jgthms/bulma"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#333' }}>
                     <i className="fa fa-github"></i>
                   </span>
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
-                  <span className="icon"style={{color:'#55acee'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://twitter.com/jgthms"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#55acee' }}>
                     <i className="fa fa-twitter"></i>
                   </span>
                 </a>
-                <div className="navbar-burger burger" data-target="navMenuExample1">
+                <div
+                  className="navbar-burger burger"
+                  data-target="navMenuExample1"
+                >
                   <span></span>
                   <span></span>
                   <span></span>
@@ -4475,8 +4787,11 @@ export const BootSwatchApp = () => {
                       </a>
                       <hr className="navbar-divider" />
                       <div className="navbar-item">
-                        <div>version
-                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        <div>
+                          version
+                          <p className="has-text-info is-size-6-desktop">
+                            0.4.3
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -4485,8 +4800,15 @@ export const BootSwatchApp = () => {
                     <a className="navbar-link " href="#blog/">
                       Blog
                     </a>
-                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
-                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                    <div
+                      id="blogDropdown"
+                      className="navbar-dropdown "
+                      data-style="width: 18rem;"
+                    >
+                      <a
+                        className="navbar-item"
+                        href="/2017/03/10/new-field-element/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">10 Mar 2017</small>
@@ -4494,7 +4816,10 @@ export const BootSwatchApp = () => {
                           <p>New field element (for better controls)</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">11 Apr 2016</small>
@@ -4502,12 +4827,17 @@ export const BootSwatchApp = () => {
                           <p>Metro UI CSS grid with Bulma tiles</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">09 Feb 2016</small>
                           </p>
-                          <p>Blog launched, new responsive columns, new helpers</p>
+                          <p>
+                            Blog launched, new responsive columns, new helpers
+                          </p>
                         </div>
                       </a>
                       <a className="navbar-item" href="#blog/">
@@ -4524,7 +4854,10 @@ export const BootSwatchApp = () => {
                             </div>
                             <div className="level-right">
                               <div className="level-item">
-                                <a className="button is-rss is-small" href="#atom.xml">
+                                <a
+                                  className="button is-rss is-small"
+                                  href="#atom.xml"
+                                >
                                   <span className="icon is-small">
                                     <i className="fa fa-rss"></i>
                                   </span>
@@ -4538,9 +4871,7 @@ export const BootSwatchApp = () => {
                     </div>
                   </div>
                   <div className="navbar-item has-dropdown is-hoverable">
-                    <div className="navbar-link">
-                      More
-                    </div>
+                    <div className="navbar-link">More</div>
                     <div id="moreDropdown" className="navbar-dropdown ">
                       <a className="navbar-item " href="#extensions/">
                         <div className="level is-mobile">
@@ -4559,10 +4890,18 @@ export const BootSwatchApp = () => {
                   </div>
                 </div>
                 <div className="navbar-end">
-                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://github.com/jgthms/bulma"
+                    target="_blank"
+                  >
                     Github
                   </a>
-                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://twitter.com/jgthms"
+                    target="_blank"
+                  >
                     Twitter
                   </a>
                   <div className="navbar-item">
@@ -4573,7 +4912,10 @@ export const BootSwatchApp = () => {
                         </a>
                       </p>
                       <p className="control">
-                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                        <a
+                          className="button is-primary"
+                          href="https://github.com/jgthms/bulma/archive/0.4.3.zip"
+                        >
                           <span className="icon">
                             <i className="fa fa-download"></i>
                           </span>
@@ -4590,19 +4932,35 @@ export const BootSwatchApp = () => {
             <nav className="navbar is-primary">
               <div className="navbar-brand">
                 <a className="navbar-item" href="http://bulma.io">
-                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                  <img
+                    src="http://bulma.io/images/bulma-logo.png"
+                    alt="Bulma: a modern CSS framework based on Flexbox"
+                    width="112"
+                    height="28"
+                  />
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
-                  <span className="icon" style={{color:'#333'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://github.com/jgthms/bulma"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#333' }}>
                     <i className="fa fa-github"></i>
                   </span>
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
-                  <span className="icon" style={{color: '#55acee'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://twitter.com/jgthms"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#55acee' }}>
                     <i className="fa fa-twitter"></i>
                   </span>
                 </a>
-                <div className="navbar-burger burger" data-target="navMenuExample2">
+                <div
+                  className="navbar-burger burger"
+                  data-target="navMenuExample2"
+                >
                   <span></span>
                   <span></span>
                   <span></span>
@@ -4641,8 +4999,11 @@ export const BootSwatchApp = () => {
                       </a>
                       <hr className="navbar-divider" />
                       <div className="navbar-item">
-                        <div>version
-                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        <div>
+                          version
+                          <p className="has-text-info is-size-6-desktop">
+                            0.4.3
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -4651,8 +5012,15 @@ export const BootSwatchApp = () => {
                     <a className="navbar-link " href="#blog/">
                       Blog
                     </a>
-                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
-                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                    <div
+                      id="blogDropdown"
+                      className="navbar-dropdown "
+                      data-style="width: 18rem;"
+                    >
+                      <a
+                        className="navbar-item"
+                        href="/2017/03/10/new-field-element/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">10 Mar 2017</small>
@@ -4660,7 +5028,10 @@ export const BootSwatchApp = () => {
                           <p>New field element (for better controls)</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">11 Apr 2016</small>
@@ -4668,12 +5039,17 @@ export const BootSwatchApp = () => {
                           <p>Metro UI CSS grid with Bulma tiles</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">09 Feb 2016</small>
                           </p>
-                          <p>Blog launched, new responsive columns, new helpers</p>
+                          <p>
+                            Blog launched, new responsive columns, new helpers
+                          </p>
                         </div>
                       </a>
                       <a className="navbar-item" href="#blog/">
@@ -4690,7 +5066,10 @@ export const BootSwatchApp = () => {
                             </div>
                             <div className="level-right">
                               <div className="level-item">
-                                <a className="button is-rss is-small" href="#atom.xml">
+                                <a
+                                  className="button is-rss is-small"
+                                  href="#atom.xml"
+                                >
                                   <span className="icon is-small">
                                     <i className="fa fa-rss"></i>
                                   </span>
@@ -4704,9 +5083,7 @@ export const BootSwatchApp = () => {
                     </div>
                   </div>
                   <div className="navbar-item has-dropdown is-hoverable">
-                    <div className="navbar-link">
-                      More
-                    </div>
+                    <div className="navbar-link">More</div>
                     <div id="moreDropdown" className="navbar-dropdown ">
                       <a className="navbar-item " href="#extensions/">
                         <div className="level is-mobile">
@@ -4725,10 +5102,18 @@ export const BootSwatchApp = () => {
                   </div>
                 </div>
                 <div className="navbar-end">
-                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://github.com/jgthms/bulma"
+                    target="_blank"
+                  >
                     Github
                   </a>
-                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://twitter.com/jgthms"
+                    target="_blank"
+                  >
                     Twitter
                   </a>
                   <div className="navbar-item">
@@ -4739,7 +5124,10 @@ export const BootSwatchApp = () => {
                         </a>
                       </p>
                       <p className="control">
-                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                        <a
+                          className="button is-primary"
+                          href="https://github.com/jgthms/bulma/archive/0.4.3.zip"
+                        >
                           <span className="icon">
                             <i className="fa fa-download"></i>
                           </span>
@@ -4756,19 +5144,35 @@ export const BootSwatchApp = () => {
             <nav className="navbar is-link">
               <div className="navbar-brand">
                 <a className="navbar-item" href="http://bulma.io">
-                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                  <img
+                    src="http://bulma.io/images/bulma-logo.png"
+                    alt="Bulma: a modern CSS framework based on Flexbox"
+                    width="112"
+                    height="28"
+                  />
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
-                  <span className="icon" style={{color: '#333'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://github.com/jgthms/bulma"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#333' }}>
                     <i className="fa fa-github"></i>
                   </span>
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
-                  <span className="icon" style={{color: '#55acee'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://twitter.com/jgthms"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#55acee' }}>
                     <i className="fa fa-twitter"></i>
                   </span>
                 </a>
-                <div className="navbar-burger burger" data-target="navMenuExample3">
+                <div
+                  className="navbar-burger burger"
+                  data-target="navMenuExample3"
+                >
                   <span></span>
                   <span></span>
                   <span></span>
@@ -4807,8 +5211,11 @@ export const BootSwatchApp = () => {
                       </a>
                       <hr className="navbar-divider" />
                       <div className="navbar-item">
-                        <div>version
-                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        <div>
+                          version
+                          <p className="has-text-info is-size-6-desktop">
+                            0.4.3
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -4817,8 +5224,15 @@ export const BootSwatchApp = () => {
                     <a className="navbar-link " href="#blog/">
                       Blog
                     </a>
-                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
-                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                    <div
+                      id="blogDropdown"
+                      className="navbar-dropdown "
+                      data-style="width: 18rem;"
+                    >
+                      <a
+                        className="navbar-item"
+                        href="/2017/03/10/new-field-element/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">10 Mar 2017</small>
@@ -4826,7 +5240,10 @@ export const BootSwatchApp = () => {
                           <p>New field element (for better controls)</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">11 Apr 2016</small>
@@ -4834,12 +5251,17 @@ export const BootSwatchApp = () => {
                           <p>Metro UI CSS grid with Bulma tiles</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">09 Feb 2016</small>
                           </p>
-                          <p>Blog launched, new responsive columns, new helpers</p>
+                          <p>
+                            Blog launched, new responsive columns, new helpers
+                          </p>
                         </div>
                       </a>
                       <a className="navbar-item" href="#blog/">
@@ -4856,7 +5278,10 @@ export const BootSwatchApp = () => {
                             </div>
                             <div className="level-right">
                               <div className="level-item">
-                                <a className="button is-rss is-small" href="#atom.xml">
+                                <a
+                                  className="button is-rss is-small"
+                                  href="#atom.xml"
+                                >
                                   <span className="icon is-small">
                                     <i className="fa fa-rss"></i>
                                   </span>
@@ -4870,9 +5295,7 @@ export const BootSwatchApp = () => {
                     </div>
                   </div>
                   <div className="navbar-item has-dropdown is-hoverable">
-                    <div className="navbar-link">
-                      More
-                    </div>
+                    <div className="navbar-link">More</div>
                     <div id="moreDropdown" className="navbar-dropdown ">
                       <a className="navbar-item " href="#extensions/">
                         <div className="level is-mobile">
@@ -4891,10 +5314,18 @@ export const BootSwatchApp = () => {
                   </div>
                 </div>
                 <div className="navbar-end">
-                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://github.com/jgthms/bulma"
+                    target="_blank"
+                  >
                     Github
                   </a>
-                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://twitter.com/jgthms"
+                    target="_blank"
+                  >
                     Twitter
                   </a>
                   <div className="navbar-item">
@@ -4905,7 +5336,10 @@ export const BootSwatchApp = () => {
                         </a>
                       </p>
                       <p className="control">
-                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                        <a
+                          className="button is-primary"
+                          href="https://github.com/jgthms/bulma/archive/0.4.3.zip"
+                        >
                           <span className="icon">
                             <i className="fa fa-download"></i>
                           </span>
@@ -4922,19 +5356,35 @@ export const BootSwatchApp = () => {
             <nav className="navbar is-info">
               <div className="navbar-brand">
                 <a className="navbar-item" href="http://bulma.io">
-                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                  <img
+                    src="http://bulma.io/images/bulma-logo.png"
+                    alt="Bulma: a modern CSS framework based on Flexbox"
+                    width="112"
+                    height="28"
+                  />
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
-                  <span className="icon" style={{color: '#333'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://github.com/jgthms/bulma"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#333' }}>
                     <i className="fa fa-github"></i>
                   </span>
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
-                  <span className="icon" style={{color: '#55acee'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://twitter.com/jgthms"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#55acee' }}>
                     <i className="fa fa-twitter"></i>
                   </span>
                 </a>
-                <div className="navbar-burger burger" data-target="navMenuExample4">
+                <div
+                  className="navbar-burger burger"
+                  data-target="navMenuExample4"
+                >
                   <span></span>
                   <span></span>
                   <span></span>
@@ -4973,8 +5423,11 @@ export const BootSwatchApp = () => {
                       </a>
                       <hr className="navbar-divider" />
                       <div className="navbar-item">
-                        <div>version
-                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        <div>
+                          version
+                          <p className="has-text-info is-size-6-desktop">
+                            0.4.3
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -4983,8 +5436,15 @@ export const BootSwatchApp = () => {
                     <a className="navbar-link " href="#blog/">
                       Blog
                     </a>
-                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
-                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                    <div
+                      id="blogDropdown"
+                      className="navbar-dropdown "
+                      data-style="width: 18rem;"
+                    >
+                      <a
+                        className="navbar-item"
+                        href="/2017/03/10/new-field-element/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">10 Mar 2017</small>
@@ -4992,7 +5452,10 @@ export const BootSwatchApp = () => {
                           <p>New field element (for better controls)</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">11 Apr 2016</small>
@@ -5000,12 +5463,17 @@ export const BootSwatchApp = () => {
                           <p>Metro UI CSS grid with Bulma tiles</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">09 Feb 2016</small>
                           </p>
-                          <p>Blog launched, new responsive columns, new helpers</p>
+                          <p>
+                            Blog launched, new responsive columns, new helpers
+                          </p>
                         </div>
                       </a>
                       <a className="navbar-item" href="#blog/">
@@ -5022,7 +5490,10 @@ export const BootSwatchApp = () => {
                             </div>
                             <div className="level-right">
                               <div className="level-item">
-                                <a className="button is-rss is-small" href="#atom.xml">
+                                <a
+                                  className="button is-rss is-small"
+                                  href="#atom.xml"
+                                >
                                   <span className="icon is-small">
                                     <i className="fa fa-rss"></i>
                                   </span>
@@ -5036,9 +5507,7 @@ export const BootSwatchApp = () => {
                     </div>
                   </div>
                   <div className="navbar-item has-dropdown is-hoverable">
-                    <div className="navbar-link">
-                      More
-                    </div>
+                    <div className="navbar-link">More</div>
                     <div id="moreDropdown" className="navbar-dropdown ">
                       <a className="navbar-item " href="#extensions/">
                         <div className="level is-mobile">
@@ -5057,10 +5526,18 @@ export const BootSwatchApp = () => {
                   </div>
                 </div>
                 <div className="navbar-end">
-                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://github.com/jgthms/bulma"
+                    target="_blank"
+                  >
                     Github
                   </a>
-                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://twitter.com/jgthms"
+                    target="_blank"
+                  >
                     Twitter
                   </a>
                   <div className="navbar-item">
@@ -5071,7 +5548,10 @@ export const BootSwatchApp = () => {
                         </a>
                       </p>
                       <p className="control">
-                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                        <a
+                          className="button is-primary"
+                          href="https://github.com/jgthms/bulma/archive/0.4.3.zip"
+                        >
                           <span className="icon">
                             <i className="fa fa-download"></i>
                           </span>
@@ -5088,19 +5568,35 @@ export const BootSwatchApp = () => {
             <nav className="navbar is-success">
               <div className="navbar-brand">
                 <a className="navbar-item" href="http://bulma.io">
-                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                  <img
+                    src="http://bulma.io/images/bulma-logo.png"
+                    alt="Bulma: a modern CSS framework based on Flexbox"
+                    width="112"
+                    height="28"
+                  />
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
-                  <span className="icon"style={{color:'#333'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://github.com/jgthms/bulma"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#333' }}>
                     <i className="fa fa-github"></i>
                   </span>
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
-                  <span className="icon"style={{color:'#55acee'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://twitter.com/jgthms"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#55acee' }}>
                     <i className="fa fa-twitter"></i>
                   </span>
                 </a>
-                <div className="navbar-burger burger" data-target="navMenuExample5">
+                <div
+                  className="navbar-burger burger"
+                  data-target="navMenuExample5"
+                >
                   <span></span>
                   <span></span>
                   <span></span>
@@ -5139,8 +5635,11 @@ export const BootSwatchApp = () => {
                       </a>
                       <hr className="navbar-divider" />
                       <div className="navbar-item">
-                        <div>version
-                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        <div>
+                          version
+                          <p className="has-text-info is-size-6-desktop">
+                            0.4.3
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -5149,8 +5648,15 @@ export const BootSwatchApp = () => {
                     <a className="navbar-link " href="#blog/">
                       Blog
                     </a>
-                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
-                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                    <div
+                      id="blogDropdown"
+                      className="navbar-dropdown "
+                      data-style="width: 18rem;"
+                    >
+                      <a
+                        className="navbar-item"
+                        href="/2017/03/10/new-field-element/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">10 Mar 2017</small>
@@ -5158,7 +5664,10 @@ export const BootSwatchApp = () => {
                           <p>New field element (for better controls)</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">11 Apr 2016</small>
@@ -5166,12 +5675,17 @@ export const BootSwatchApp = () => {
                           <p>Metro UI CSS grid with Bulma tiles</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">09 Feb 2016</small>
                           </p>
-                          <p>Blog launched, new responsive columns, new helpers</p>
+                          <p>
+                            Blog launched, new responsive columns, new helpers
+                          </p>
                         </div>
                       </a>
                       <a className="navbar-item" href="#blog/">
@@ -5188,7 +5702,10 @@ export const BootSwatchApp = () => {
                             </div>
                             <div className="level-right">
                               <div className="level-item">
-                                <a className="button is-rss is-small" href="#atom.xml">
+                                <a
+                                  className="button is-rss is-small"
+                                  href="#atom.xml"
+                                >
                                   <span className="icon is-small">
                                     <i className="fa fa-rss"></i>
                                   </span>
@@ -5202,9 +5719,7 @@ export const BootSwatchApp = () => {
                     </div>
                   </div>
                   <div className="navbar-item has-dropdown is-hoverable">
-                    <div className="navbar-link">
-                      More
-                    </div>
+                    <div className="navbar-link">More</div>
                     <div id="moreDropdown" className="navbar-dropdown ">
                       <a className="navbar-item " href="#extensions/">
                         <div className="level is-mobile">
@@ -5223,10 +5738,18 @@ export const BootSwatchApp = () => {
                   </div>
                 </div>
                 <div className="navbar-end">
-                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://github.com/jgthms/bulma"
+                    target="_blank"
+                  >
                     Github
                   </a>
-                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://twitter.com/jgthms"
+                    target="_blank"
+                  >
                     Twitter
                   </a>
                   <div className="navbar-item">
@@ -5237,7 +5760,10 @@ export const BootSwatchApp = () => {
                         </a>
                       </p>
                       <p className="control">
-                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                        <a
+                          className="button is-primary"
+                          href="https://github.com/jgthms/bulma/archive/0.4.3.zip"
+                        >
                           <span className="icon">
                             <i className="fa fa-download"></i>
                           </span>
@@ -5254,19 +5780,35 @@ export const BootSwatchApp = () => {
             <nav className="navbar is-warning">
               <div className="navbar-brand">
                 <a className="navbar-item" href="http://bulma.io">
-                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                  <img
+                    src="http://bulma.io/images/bulma-logo.png"
+                    alt="Bulma: a modern CSS framework based on Flexbox"
+                    width="112"
+                    height="28"
+                  />
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
-                  <span className="icon"style={{color:'#333'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://github.com/jgthms/bulma"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#333' }}>
                     <i className="fa fa-github"></i>
                   </span>
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
-                  <span className="icon"style={{color:'#55acee'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://twitter.com/jgthms"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#55acee' }}>
                     <i className="fa fa-twitter"></i>
                   </span>
                 </a>
-                <div className="navbar-burger burger" data-target="navMenuExample6">
+                <div
+                  className="navbar-burger burger"
+                  data-target="navMenuExample6"
+                >
                   <span></span>
                   <span></span>
                   <span></span>
@@ -5305,8 +5847,11 @@ export const BootSwatchApp = () => {
                       </a>
                       <hr className="navbar-divider" />
                       <div className="navbar-item">
-                        <div>version
-                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        <div>
+                          version
+                          <p className="has-text-info is-size-6-desktop">
+                            0.4.3
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -5315,8 +5860,15 @@ export const BootSwatchApp = () => {
                     <a className="navbar-link " href="#blog/">
                       Blog
                     </a>
-                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
-                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                    <div
+                      id="blogDropdown"
+                      className="navbar-dropdown "
+                      data-style="width: 18rem;"
+                    >
+                      <a
+                        className="navbar-item"
+                        href="/2017/03/10/new-field-element/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">10 Mar 2017</small>
@@ -5324,7 +5876,10 @@ export const BootSwatchApp = () => {
                           <p>New field element (for better controls)</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">11 Apr 2016</small>
@@ -5332,12 +5887,17 @@ export const BootSwatchApp = () => {
                           <p>Metro UI CSS grid with Bulma tiles</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">09 Feb 2016</small>
                           </p>
-                          <p>Blog launched, new responsive columns, new helpers</p>
+                          <p>
+                            Blog launched, new responsive columns, new helpers
+                          </p>
                         </div>
                       </a>
                       <a className="navbar-item" href="#blog/">
@@ -5354,7 +5914,10 @@ export const BootSwatchApp = () => {
                             </div>
                             <div className="level-right">
                               <div className="level-item">
-                                <a className="button is-rss is-small" href="#atom.xml">
+                                <a
+                                  className="button is-rss is-small"
+                                  href="#atom.xml"
+                                >
                                   <span className="icon is-small">
                                     <i className="fa fa-rss"></i>
                                   </span>
@@ -5368,9 +5931,7 @@ export const BootSwatchApp = () => {
                     </div>
                   </div>
                   <div className="navbar-item has-dropdown is-hoverable">
-                    <div className="navbar-link">
-                      More
-                    </div>
+                    <div className="navbar-link">More</div>
                     <div id="moreDropdown" className="navbar-dropdown ">
                       <a className="navbar-item " href="#extensions/">
                         <div className="level is-mobile">
@@ -5389,10 +5950,18 @@ export const BootSwatchApp = () => {
                   </div>
                 </div>
                 <div className="navbar-end">
-                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://github.com/jgthms/bulma"
+                    target="_blank"
+                  >
                     Github
                   </a>
-                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://twitter.com/jgthms"
+                    target="_blank"
+                  >
                     Twitter
                   </a>
                   <div className="navbar-item">
@@ -5403,7 +5972,10 @@ export const BootSwatchApp = () => {
                         </a>
                       </p>
                       <p className="control">
-                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                        <a
+                          className="button is-primary"
+                          href="https://github.com/jgthms/bulma/archive/0.4.3.zip"
+                        >
                           <span className="icon">
                             <i className="fa fa-download"></i>
                           </span>
@@ -5420,19 +5992,35 @@ export const BootSwatchApp = () => {
             <nav className="navbar is-danger">
               <div className="navbar-brand">
                 <a className="navbar-item" href="http://bulma.io">
-                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                  <img
+                    src="http://bulma.io/images/bulma-logo.png"
+                    alt="Bulma: a modern CSS framework based on Flexbox"
+                    width="112"
+                    height="28"
+                  />
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
-                  <span className="icon"style={{color:'#333'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://github.com/jgthms/bulma"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#333' }}>
                     <i className="fa fa-github"></i>
                   </span>
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
-                  <span className="icon"style={{color:'#55acee'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://twitter.com/jgthms"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#55acee' }}>
                     <i className="fa fa-twitter"></i>
                   </span>
                 </a>
-                <div className="navbar-burger burger" data-target="navMenuExample7">
+                <div
+                  className="navbar-burger burger"
+                  data-target="navMenuExample7"
+                >
                   <span></span>
                   <span></span>
                   <span></span>
@@ -5471,8 +6059,11 @@ export const BootSwatchApp = () => {
                       </a>
                       <hr className="navbar-divider" />
                       <div className="navbar-item">
-                        <div>version
-                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        <div>
+                          version
+                          <p className="has-text-info is-size-6-desktop">
+                            0.4.3
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -5481,8 +6072,15 @@ export const BootSwatchApp = () => {
                     <a className="navbar-link " href="#blog/">
                       Blog
                     </a>
-                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
-                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                    <div
+                      id="blogDropdown"
+                      className="navbar-dropdown "
+                      data-style="width: 18rem;"
+                    >
+                      <a
+                        className="navbar-item"
+                        href="/2017/03/10/new-field-element/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">10 Mar 2017</small>
@@ -5490,7 +6088,10 @@ export const BootSwatchApp = () => {
                           <p>New field element (for better controls)</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">11 Apr 2016</small>
@@ -5498,12 +6099,17 @@ export const BootSwatchApp = () => {
                           <p>Metro UI CSS grid with Bulma tiles</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">09 Feb 2016</small>
                           </p>
-                          <p>Blog launched, new responsive columns, new helpers</p>
+                          <p>
+                            Blog launched, new responsive columns, new helpers
+                          </p>
                         </div>
                       </a>
                       <a className="navbar-item" href="#blog/">
@@ -5520,7 +6126,10 @@ export const BootSwatchApp = () => {
                             </div>
                             <div className="level-right">
                               <div className="level-item">
-                                <a className="button is-rss is-small" href="#atom.xml">
+                                <a
+                                  className="button is-rss is-small"
+                                  href="#atom.xml"
+                                >
                                   <span className="icon is-small">
                                     <i className="fa fa-rss"></i>
                                   </span>
@@ -5534,9 +6143,7 @@ export const BootSwatchApp = () => {
                     </div>
                   </div>
                   <div className="navbar-item has-dropdown is-hoverable">
-                    <div className="navbar-link">
-                      More
-                    </div>
+                    <div className="navbar-link">More</div>
                     <div id="moreDropdown" className="navbar-dropdown ">
                       <a className="navbar-item " href="#extensions/">
                         <div className="level is-mobile">
@@ -5555,10 +6162,18 @@ export const BootSwatchApp = () => {
                   </div>
                 </div>
                 <div className="navbar-end">
-                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://github.com/jgthms/bulma"
+                    target="_blank"
+                  >
                     Github
                   </a>
-                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://twitter.com/jgthms"
+                    target="_blank"
+                  >
                     Twitter
                   </a>
                   <div className="navbar-item">
@@ -5569,7 +6184,10 @@ export const BootSwatchApp = () => {
                         </a>
                       </p>
                       <p className="control">
-                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                        <a
+                          className="button is-primary"
+                          href="https://github.com/jgthms/bulma/archive/0.4.3.zip"
+                        >
                           <span className="icon">
                             <i className="fa fa-download"></i>
                           </span>
@@ -5586,19 +6204,35 @@ export const BootSwatchApp = () => {
             <nav className="navbar is-white">
               <div className="navbar-brand">
                 <a className="navbar-item" href="http://bulma.io">
-                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                  <img
+                    src="http://bulma.io/images/bulma-logo.png"
+                    alt="Bulma: a modern CSS framework based on Flexbox"
+                    width="112"
+                    height="28"
+                  />
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
-                  <span className="icon"style={{color:'#333'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://github.com/jgthms/bulma"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#333' }}>
                     <i className="fa fa-github"></i>
                   </span>
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
-                  <span className="icon"style={{color:'#55acee'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://twitter.com/jgthms"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#55acee' }}>
                     <i className="fa fa-twitter"></i>
                   </span>
                 </a>
-                <div className="navbar-burger burger" data-target="navMenuExample8">
+                <div
+                  className="navbar-burger burger"
+                  data-target="navMenuExample8"
+                >
                   <span></span>
                   <span></span>
                   <span></span>
@@ -5637,8 +6271,11 @@ export const BootSwatchApp = () => {
                       </a>
                       <hr className="navbar-divider" />
                       <div className="navbar-item">
-                        <div>version
-                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        <div>
+                          version
+                          <p className="has-text-info is-size-6-desktop">
+                            0.4.3
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -5647,8 +6284,15 @@ export const BootSwatchApp = () => {
                     <a className="navbar-link " href="#blog/">
                       Blog
                     </a>
-                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
-                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                    <div
+                      id="blogDropdown"
+                      className="navbar-dropdown "
+                      data-style="width: 18rem;"
+                    >
+                      <a
+                        className="navbar-item"
+                        href="/2017/03/10/new-field-element/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">10 Mar 2017</small>
@@ -5656,7 +6300,10 @@ export const BootSwatchApp = () => {
                           <p>New field element (for better controls)</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">11 Apr 2016</small>
@@ -5664,12 +6311,17 @@ export const BootSwatchApp = () => {
                           <p>Metro UI CSS grid with Bulma tiles</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">09 Feb 2016</small>
                           </p>
-                          <p>Blog launched, new responsive columns, new helpers</p>
+                          <p>
+                            Blog launched, new responsive columns, new helpers
+                          </p>
                         </div>
                       </a>
                       <a className="navbar-item" href="#blog/">
@@ -5686,7 +6338,10 @@ export const BootSwatchApp = () => {
                             </div>
                             <div className="level-right">
                               <div className="level-item">
-                                <a className="button is-rss is-small" href="#atom.xml">
+                                <a
+                                  className="button is-rss is-small"
+                                  href="#atom.xml"
+                                >
                                   <span className="icon is-small">
                                     <i className="fa fa-rss"></i>
                                   </span>
@@ -5700,9 +6355,7 @@ export const BootSwatchApp = () => {
                     </div>
                   </div>
                   <div className="navbar-item has-dropdown is-hoverable">
-                    <div className="navbar-link">
-                      More
-                    </div>
+                    <div className="navbar-link">More</div>
                     <div id="moreDropdown" className="navbar-dropdown ">
                       <a className="navbar-item " href="#extensions/">
                         <div className="level is-mobile">
@@ -5721,10 +6374,18 @@ export const BootSwatchApp = () => {
                   </div>
                 </div>
                 <div className="navbar-end">
-                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://github.com/jgthms/bulma"
+                    target="_blank"
+                  >
                     Github
                   </a>
-                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://twitter.com/jgthms"
+                    target="_blank"
+                  >
                     Twitter
                   </a>
                   <div className="navbar-item">
@@ -5735,7 +6396,10 @@ export const BootSwatchApp = () => {
                         </a>
                       </p>
                       <p className="control">
-                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                        <a
+                          className="button is-primary"
+                          href="https://github.com/jgthms/bulma/archive/0.4.3.zip"
+                        >
                           <span className="icon">
                             <i className="fa fa-download"></i>
                           </span>
@@ -5752,19 +6416,35 @@ export const BootSwatchApp = () => {
             <nav className="navbar is-black">
               <div className="navbar-brand">
                 <a className="navbar-item" href="http://bulma.io">
-                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                  <img
+                    src="http://bulma.io/images/bulma-logo.png"
+                    alt="Bulma: a modern CSS framework based on Flexbox"
+                    width="112"
+                    height="28"
+                  />
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
-                  <span className="icon"style={{color:'#333'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://github.com/jgthms/bulma"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#333' }}>
                     <i className="fa fa-github"></i>
                   </span>
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
-                  <span className="icon"style={{color:'#55acee'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://twitter.com/jgthms"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#55acee' }}>
                     <i className="fa fa-twitter"></i>
                   </span>
                 </a>
-                <div className="navbar-burger burger" data-target="navMenuExample9">
+                <div
+                  className="navbar-burger burger"
+                  data-target="navMenuExample9"
+                >
                   <span></span>
                   <span></span>
                   <span></span>
@@ -5803,8 +6483,11 @@ export const BootSwatchApp = () => {
                       </a>
                       <hr className="navbar-divider" />
                       <div className="navbar-item">
-                        <div>version
-                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        <div>
+                          version
+                          <p className="has-text-info is-size-6-desktop">
+                            0.4.3
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -5813,8 +6496,15 @@ export const BootSwatchApp = () => {
                     <a className="navbar-link " href="#blog/">
                       Blog
                     </a>
-                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
-                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                    <div
+                      id="blogDropdown"
+                      className="navbar-dropdown "
+                      data-style="width: 18rem;"
+                    >
+                      <a
+                        className="navbar-item"
+                        href="/2017/03/10/new-field-element/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">10 Mar 2017</small>
@@ -5822,7 +6512,10 @@ export const BootSwatchApp = () => {
                           <p>New field element (for better controls)</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">11 Apr 2016</small>
@@ -5830,12 +6523,17 @@ export const BootSwatchApp = () => {
                           <p>Metro UI CSS grid with Bulma tiles</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">09 Feb 2016</small>
                           </p>
-                          <p>Blog launched, new responsive columns, new helpers</p>
+                          <p>
+                            Blog launched, new responsive columns, new helpers
+                          </p>
                         </div>
                       </a>
                       <a className="navbar-item" href="#blog/">
@@ -5852,7 +6550,10 @@ export const BootSwatchApp = () => {
                             </div>
                             <div className="level-right">
                               <div className="level-item">
-                                <a className="button is-rss is-small" href="#atom.xml">
+                                <a
+                                  className="button is-rss is-small"
+                                  href="#atom.xml"
+                                >
                                   <span className="icon is-small">
                                     <i className="fa fa-rss"></i>
                                   </span>
@@ -5866,9 +6567,7 @@ export const BootSwatchApp = () => {
                     </div>
                   </div>
                   <div className="navbar-item has-dropdown is-hoverable">
-                    <div className="navbar-link">
-                      More
-                    </div>
+                    <div className="navbar-link">More</div>
                     <div id="moreDropdown" className="navbar-dropdown ">
                       <a className="navbar-item " href="#extensions/">
                         <div className="level is-mobile">
@@ -5887,10 +6586,18 @@ export const BootSwatchApp = () => {
                   </div>
                 </div>
                 <div className="navbar-end">
-                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://github.com/jgthms/bulma"
+                    target="_blank"
+                  >
                     Github
                   </a>
-                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://twitter.com/jgthms"
+                    target="_blank"
+                  >
                     Twitter
                   </a>
                   <div className="navbar-item">
@@ -5901,7 +6608,10 @@ export const BootSwatchApp = () => {
                         </a>
                       </p>
                       <p className="control">
-                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                        <a
+                          className="button is-primary"
+                          href="https://github.com/jgthms/bulma/archive/0.4.3.zip"
+                        >
                           <span className="icon">
                             <i className="fa fa-download"></i>
                           </span>
@@ -5918,19 +6628,35 @@ export const BootSwatchApp = () => {
             <nav className="navbar is-light">
               <div className="navbar-brand">
                 <a className="navbar-item" href="http://bulma.io">
-                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                  <img
+                    src="http://bulma.io/images/bulma-logo.png"
+                    alt="Bulma: a modern CSS framework based on Flexbox"
+                    width="112"
+                    height="28"
+                  />
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
-                  <span className="icon"style={{color:'#333'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://github.com/jgthms/bulma"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#333' }}>
                     <i className="fa fa-github"></i>
                   </span>
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
-                  <span className="icon"style={{color:'#55acee'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://twitter.com/jgthms"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#55acee' }}>
                     <i className="fa fa-twitter"></i>
                   </span>
                 </a>
-                <div className="navbar-burger burger" data-target="navMenuExample10">
+                <div
+                  className="navbar-burger burger"
+                  data-target="navMenuExample10"
+                >
                   <span></span>
                   <span></span>
                   <span></span>
@@ -5969,8 +6695,11 @@ export const BootSwatchApp = () => {
                       </a>
                       <hr className="navbar-divider" />
                       <div className="navbar-item">
-                        <div>version
-                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        <div>
+                          version
+                          <p className="has-text-info is-size-6-desktop">
+                            0.4.3
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -5979,8 +6708,15 @@ export const BootSwatchApp = () => {
                     <a className="navbar-link " href="#blog/">
                       Blog
                     </a>
-                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
-                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                    <div
+                      id="blogDropdown"
+                      className="navbar-dropdown "
+                      data-style="width: 18rem;"
+                    >
+                      <a
+                        className="navbar-item"
+                        href="/2017/03/10/new-field-element/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">10 Mar 2017</small>
@@ -5988,7 +6724,10 @@ export const BootSwatchApp = () => {
                           <p>New field element (for better controls)</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">11 Apr 2016</small>
@@ -5996,12 +6735,17 @@ export const BootSwatchApp = () => {
                           <p>Metro UI CSS grid with Bulma tiles</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">09 Feb 2016</small>
                           </p>
-                          <p>Blog launched, new responsive columns, new helpers</p>
+                          <p>
+                            Blog launched, new responsive columns, new helpers
+                          </p>
                         </div>
                       </a>
                       <a className="navbar-item" href="#blog/">
@@ -6018,7 +6762,10 @@ export const BootSwatchApp = () => {
                             </div>
                             <div className="level-right">
                               <div className="level-item">
-                                <a className="button is-rss is-small" href="#atom.xml">
+                                <a
+                                  className="button is-rss is-small"
+                                  href="#atom.xml"
+                                >
                                   <span className="icon is-small">
                                     <i className="fa fa-rss"></i>
                                   </span>
@@ -6032,9 +6779,7 @@ export const BootSwatchApp = () => {
                     </div>
                   </div>
                   <div className="navbar-item has-dropdown is-hoverable">
-                    <div className="navbar-link">
-                      More
-                    </div>
+                    <div className="navbar-link">More</div>
                     <div id="moreDropdown" className="navbar-dropdown ">
                       <a className="navbar-item " href="#extensions/">
                         <div className="level is-mobile">
@@ -6053,10 +6798,18 @@ export const BootSwatchApp = () => {
                   </div>
                 </div>
                 <div className="navbar-end">
-                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://github.com/jgthms/bulma"
+                    target="_blank"
+                  >
                     Github
                   </a>
-                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://twitter.com/jgthms"
+                    target="_blank"
+                  >
                     Twitter
                   </a>
                   <div className="navbar-item">
@@ -6067,7 +6820,10 @@ export const BootSwatchApp = () => {
                         </a>
                       </p>
                       <p className="control">
-                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                        <a
+                          className="button is-primary"
+                          href="https://github.com/jgthms/bulma/archive/0.4.3.zip"
+                        >
                           <span className="icon">
                             <i className="fa fa-download"></i>
                           </span>
@@ -6084,19 +6840,35 @@ export const BootSwatchApp = () => {
             <nav className="navbar is-dark">
               <div className="navbar-brand">
                 <a className="navbar-item" href="http://bulma.io">
-                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                  <img
+                    src="http://bulma.io/images/bulma-logo.png"
+                    alt="Bulma: a modern CSS framework based on Flexbox"
+                    width="112"
+                    height="28"
+                  />
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
-                  <span className="icon"style={{color:'#333'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://github.com/jgthms/bulma"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#333' }}>
                     <i className="fa fa-github"></i>
                   </span>
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
-                  <span className="icon"style={{color:'#55acee'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://twitter.com/jgthms"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#55acee' }}>
                     <i className="fa fa-twitter"></i>
                   </span>
                 </a>
-                <div className="navbar-burger burger" data-target="navMenuExample11">
+                <div
+                  className="navbar-burger burger"
+                  data-target="navMenuExample11"
+                >
                   <span></span>
                   <span></span>
                   <span></span>
@@ -6135,8 +6907,11 @@ export const BootSwatchApp = () => {
                       </a>
                       <hr className="navbar-divider" />
                       <div className="navbar-item">
-                        <div>version
-                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        <div>
+                          version
+                          <p className="has-text-info is-size-6-desktop">
+                            0.4.3
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -6145,8 +6920,15 @@ export const BootSwatchApp = () => {
                     <a className="navbar-link " href="#blog/">
                       Blog
                     </a>
-                    <div id="blogDropdown" className="navbar-dropdown " data-style="width: 18rem;">
-                      <a className="navbar-item" href="/2017/03/10/new-field-element/">
+                    <div
+                      id="blogDropdown"
+                      className="navbar-dropdown "
+                      data-style="width: 18rem;"
+                    >
+                      <a
+                        className="navbar-item"
+                        href="/2017/03/10/new-field-element/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">10 Mar 2017</small>
@@ -6154,7 +6936,10 @@ export const BootSwatchApp = () => {
                           <p>New field element (for better controls)</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/04/11/metro-ui-css-grid-with-bulma-tiles/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">11 Apr 2016</small>
@@ -6162,12 +6947,17 @@ export const BootSwatchApp = () => {
                           <p>Metro UI CSS grid with Bulma tiles</p>
                         </div>
                       </a>
-                      <a className="navbar-item" href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/">
+                      <a
+                        className="navbar-item"
+                        href="/2016/02/09/blog-launched-new-responsive-columns-new-helpers/"
+                      >
                         <div className="navbar-content">
                           <p>
                             <small className="has-text-info">09 Feb 2016</small>
                           </p>
-                          <p>Blog launched, new responsive columns, new helpers</p>
+                          <p>
+                            Blog launched, new responsive columns, new helpers
+                          </p>
                         </div>
                       </a>
                       <a className="navbar-item" href="#blog/">
@@ -6184,7 +6974,10 @@ export const BootSwatchApp = () => {
                             </div>
                             <div className="level-right">
                               <div className="level-item">
-                                <a className="button is-rss is-small" href="#atom.xml">
+                                <a
+                                  className="button is-rss is-small"
+                                  href="#atom.xml"
+                                >
                                   <span className="icon is-small">
                                     <i className="fa fa-rss"></i>
                                   </span>
@@ -6198,9 +6991,7 @@ export const BootSwatchApp = () => {
                     </div>
                   </div>
                   <div className="navbar-item has-dropdown is-hoverable">
-                    <div className="navbar-link">
-                      More
-                    </div>
+                    <div className="navbar-link">More</div>
                     <div id="moreDropdown" className="navbar-dropdown ">
                       <a className="navbar-item " href="#extensions/">
                         <div className="level is-mobile">
@@ -6219,10 +7010,18 @@ export const BootSwatchApp = () => {
                   </div>
                 </div>
                 <div className="navbar-end">
-                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://github.com/jgthms/bulma"
+                    target="_blank"
+                  >
                     Github
                   </a>
-                  <a className="navbar-item" href="https://twitter.com/jgthms" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://twitter.com/jgthms"
+                    target="_blank"
+                  >
                     Twitter
                   </a>
                   <div className="navbar-item">
@@ -6233,7 +7032,10 @@ export const BootSwatchApp = () => {
                         </a>
                       </p>
                       <p className="control">
-                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                        <a
+                          className="button is-primary"
+                          href="https://github.com/jgthms/bulma/archive/0.4.3.zip"
+                        >
                           <span className="icon">
                             <i className="fa fa-download"></i>
                           </span>
@@ -6251,19 +7053,35 @@ export const BootSwatchApp = () => {
             <nav className="navbar is-transparent">
               <div className="navbar-brand">
                 <a className="navbar-item" href="http://bulma.io">
-                  <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                  <img
+                    src="http://bulma.io/images/bulma-logo.png"
+                    alt="Bulma: a modern CSS framework based on Flexbox"
+                    width="112"
+                    height="28"
+                  />
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
-                  <span className="icon"style={{color:'#333'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://github.com/jgthms/bulma"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#333' }}>
                     <i className="fa fa-github"></i>
                   </span>
                 </a>
-                <a className="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
-                  <span className="icon"style={{color:'#55acee'}}>
+                <a
+                  className="navbar-item is-hidden-desktop"
+                  href="https://twitter.com/jgthms"
+                  target="_blank"
+                >
+                  <span className="icon" style={{ color: '#55acee' }}>
                     <i className="fa fa-twitter"></i>
                   </span>
                 </a>
-                <div className="navbar-burger burger" data-target="navMenuExamplet">
+                <div
+                  className="navbar-burger burger"
+                  data-target="navMenuExamplet"
+                >
                   <span></span>
                   <span></span>
                   <span></span>
@@ -6287,15 +7105,22 @@ export const BootSwatchApp = () => {
                       </a>
                       <hr className="navbar-divider" />
                       <div className="navbar-item">
-                        <div>version
-                          <p className="has-text-info is-size-6-desktop">0.4.3</p>
+                        <div>
+                          version
+                          <p className="has-text-info is-size-6-desktop">
+                            0.4.3
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="navbar-end">
-                  <a className="navbar-item" href="https://github.com/jgthms/bulma" target="_blank">
+                  <a
+                    className="navbar-item"
+                    href="https://github.com/jgthms/bulma"
+                    target="_blank"
+                  >
                     Github
                   </a>
                   <div className="navbar-item">
@@ -6306,7 +7131,10 @@ export const BootSwatchApp = () => {
                         </a>
                       </p>
                       <p className="control">
-                        <a className="button is-primary" href="https://github.com/jgthms/bulma/archive/0.4.3.zip">
+                        <a
+                          className="button is-primary"
+                          href="https://github.com/jgthms/bulma/archive/0.4.3.zip"
+                        >
                           <span className="icon">
                             <i className="fa fa-download"></i>
                           </span>
@@ -6319,11 +7147,6 @@ export const BootSwatchApp = () => {
               </div>
             </nav>
           </section>
-
-
-
-
-
 
           <section className="section" id="pagination">
             <h1 className="title">Pagination</h1>
@@ -6356,23 +7179,52 @@ export const BootSwatchApp = () => {
               </ul>
             </nav>
             <br />
-            <nav className="pagination is-rounded" role="navigation" aria-label="pagination">
+            <nav
+              className="pagination is-rounded"
+              role="navigation"
+              aria-label="pagination"
+            >
               <a className="pagination-previous">Previous</a>
               <a className="pagination-next">Next page</a>
               <ul className="pagination-list">
-                <li><a className="pagination-link" aria-label="Goto page 1">1</a></li>
-                <li><span className="pagination-ellipsis">…</span></li>
-                <li><a className="pagination-link" aria-label="Goto page 45">45</a></li>
-                <li><a className="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
-                <li><a className="pagination-link" aria-label="Goto page 47">47</a></li>
-                <li><span className="pagination-ellipsis">…</span></li>
-                <li><a className="pagination-link" aria-label="Goto page 86">86</a></li>
+                <li>
+                  <a className="pagination-link" aria-label="Goto page 1">
+                    1
+                  </a>
+                </li>
+                <li>
+                  <span className="pagination-ellipsis">…</span>
+                </li>
+                <li>
+                  <a className="pagination-link" aria-label="Goto page 45">
+                    45
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="pagination-link is-current"
+                    aria-label="Page 46"
+                    aria-current="page"
+                  >
+                    46
+                  </a>
+                </li>
+                <li>
+                  <a className="pagination-link" aria-label="Goto page 47">
+                    47
+                  </a>
+                </li>
+                <li>
+                  <span className="pagination-ellipsis">…</span>
+                </li>
+                <li>
+                  <a className="pagination-link" aria-label="Goto page 86">
+                    86
+                  </a>
+                </li>
               </ul>
             </nav>
           </section>
-
-
-
 
           <section className="section" id="panel">
             <h1 className="title">Panel</h1>
@@ -6382,7 +7234,11 @@ export const BootSwatchApp = () => {
                 <p className="panel-heading"> Repositories </p>
                 <div className="panel-block">
                   <p className="control has-icons-left">
-                    <input className="input is-small" type="text" placeholder="Search" />
+                    <input
+                      className="input is-small"
+                      type="text"
+                      placeholder="Search"
+                    />
                     <span className="icon is-small is-left">
                       <i className="fa fa-search"></i>
                     </span>
@@ -6396,26 +7252,59 @@ export const BootSwatchApp = () => {
                   <a>Forks</a>
                 </p>
                 <a className="panel-block is-active">
-                  <span className="panel-icon"> <i className="fa fa-book"></i> </span> bulma </a>
+                  <span className="panel-icon">
+                    {' '}
+                    <i className="fa fa-book"></i>{' '}
+                  </span>{' '}
+                  bulma{' '}
+                </a>
                 <a className="panel-block">
-                  <span className="panel-icon"> <i className="fa fa-book"></i> </span> marksheet </a>
+                  <span className="panel-icon">
+                    {' '}
+                    <i className="fa fa-book"></i>{' '}
+                  </span>{' '}
+                  marksheet{' '}
+                </a>
                 <a className="panel-block">
-                  <span className="panel-icon"> <i className="fa fa-book"></i> </span> minireset.css </a>
+                  <span className="panel-icon">
+                    {' '}
+                    <i className="fa fa-book"></i>{' '}
+                  </span>{' '}
+                  minireset.css{' '}
+                </a>
                 <a className="panel-block">
-                  <span className="panel-icon"> <i className="fa fa-book"></i> </span> jgthms.github.io </a>
+                  <span className="panel-icon">
+                    {' '}
+                    <i className="fa fa-book"></i>{' '}
+                  </span>{' '}
+                  jgthms.github.io{' '}
+                </a>
                 <a className="panel-block">
-                  <span className="panel-icon"> <i className="fa fa-code-fork"></i> </span> daniellowtw/infBoard </a>
+                  <span className="panel-icon">
+                    {' '}
+                    <i className="fa fa-code-fork"></i>{' '}
+                  </span>{' '}
+                  daniellowtw/infBoard{' '}
+                </a>
                 <a className="panel-block">
-                  <span className="panel-icon"> <i className="fa fa-code-fork"></i> </span> mojs </a>
+                  <span className="panel-icon">
+                    {' '}
+                    <i className="fa fa-code-fork"></i>{' '}
+                  </span>{' '}
+                  mojs{' '}
+                </a>
                 <label className="panel-block">
-                  <input type="checkbox" /> Remember me </label>
+                  <input type="checkbox" /> Remember me{' '}
+                </label>
                 <div className="panel-block">
-                  <button className="button is-primary is-outlined is-fullwidth"> Reset all filters </button>
+                  <button className="button is-primary is-outlined is-fullwidth">
+                    {' '}
+                    Reset all filters{' '}
+                  </button>
                 </div>
               </nav>
             </div>
           </section>
-
 
           <section className="section" id="tabs">
             <h1 className="title">Tabs</h1>
@@ -6441,25 +7330,33 @@ export const BootSwatchApp = () => {
               <ul>
                 <li className="is-active">
                   <a>
-                    <span className="icon is-small"><i className="fa fa-image"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-image"></i>
+                    </span>
                     <span>Pictures</span>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <span className="icon is-small"><i className="fa fa-music"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-music"></i>
+                    </span>
                     <span>Music</span>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <span className="icon is-small"><i className="fa fa-film"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-film"></i>
+                    </span>
                     <span>Videos</span>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <span className="icon is-small"><i className="fa fa-file-text-o"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-file-text-o"></i>
+                    </span>
                     <span>Documents</span>
                   </a>
                 </li>
@@ -6521,25 +7418,33 @@ export const BootSwatchApp = () => {
               <ul>
                 <li className="is-active">
                   <a>
-                    <span className="icon is-small"><i className="fa fa-image"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-image"></i>
+                    </span>
                     <span>Pictures</span>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <span className="icon is-small"><i className="fa fa-music"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-music"></i>
+                    </span>
                     <span>Music</span>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <span className="icon is-small"><i className="fa fa-film"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-film"></i>
+                    </span>
                     <span>Videos</span>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <span className="icon is-small"><i className="fa fa-file-text-o"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-file-text-o"></i>
+                    </span>
                     <span>Documents</span>
                   </a>
                 </li>
@@ -6550,25 +7455,33 @@ export const BootSwatchApp = () => {
               <ul>
                 <li className="is-active">
                   <a>
-                    <span className="icon is-small"><i className="fa fa-image"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-image"></i>
+                    </span>
                     <span>Pictures</span>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <span className="icon is-small"><i className="fa fa-music"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-music"></i>
+                    </span>
                     <span>Music</span>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <span className="icon is-small"><i className="fa fa-film"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-film"></i>
+                    </span>
                     <span>Videos</span>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <span className="icon is-small"><i className="fa fa-file-text-o"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-file-text-o"></i>
+                    </span>
                     <span>Documents</span>
                   </a>
                 </li>
@@ -6579,25 +7492,33 @@ export const BootSwatchApp = () => {
               <ul>
                 <li className="is-active">
                   <a>
-                    <span className="icon is-small"><i className="fa fa-image"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-image"></i>
+                    </span>
                     <span>Pictures</span>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <span className="icon is-small"><i className="fa fa-music"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-music"></i>
+                    </span>
                     <span>Music</span>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <span className="icon is-small"><i className="fa fa-film"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-film"></i>
+                    </span>
                     <span>Videos</span>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <span className="icon is-small"><i className="fa fa-file-text-o"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-file-text-o"></i>
+                    </span>
                     <span>Documents</span>
                   </a>
                 </li>
@@ -6608,20 +7529,26 @@ export const BootSwatchApp = () => {
               <ul>
                 <li>
                   <a>
-                    <span className="icon"><i className="fa fa-angle-left"></i></span>
+                    <span className="icon">
+                      <i className="fa fa-angle-left"></i>
+                    </span>
                     <span>Left</span>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <span className="icon"><i className="fa fa-angle-up"></i></span>
+                    <span className="icon">
+                      <i className="fa fa-angle-up"></i>
+                    </span>
                     <span>Up</span>
                   </a>
                 </li>
                 <li>
                   <a>
                     <span>Right</span>
-                    <span className="icon"><i className="fa fa-angle-right"></i></span>
+                    <span className="icon">
+                      <i className="fa fa-angle-right"></i>
+                    </span>
                   </a>
                 </li>
               </ul>
@@ -6631,25 +7558,33 @@ export const BootSwatchApp = () => {
               <ul>
                 <li className="is-active">
                   <a>
-                    <span className="icon is-small"><i className="fa fa-image"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-image"></i>
+                    </span>
                     <span>Pictures</span>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <span className="icon is-small"><i className="fa fa-music"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-music"></i>
+                    </span>
                     <span>Music</span>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <span className="icon is-small"><i className="fa fa-film"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-film"></i>
+                    </span>
                     <span>Videos</span>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <span className="icon is-small"><i className="fa fa-file-text-o"></i></span>
+                    <span className="icon is-small">
+                      <i className="fa fa-file-text-o"></i>
+                    </span>
                     <span>Documents</span>
                   </a>
                 </li>
@@ -6660,35 +7595,39 @@ export const BootSwatchApp = () => {
               <ul>
                 <li className="is-active">
                   <a>
-                    <span className="icon"><i className="fa fa-image"></i></span>
+                    <span className="icon">
+                      <i className="fa fa-image"></i>
+                    </span>
                     <span>Pictures</span>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <span className="icon"><i className="fa fa-music"></i></span>
+                    <span className="icon">
+                      <i className="fa fa-music"></i>
+                    </span>
                     <span>Music</span>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <span className="icon"><i className="fa fa-film"></i></span>
+                    <span className="icon">
+                      <i className="fa fa-film"></i>
+                    </span>
                     <span>Videos</span>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <span className="icon"><i className="fa fa-file-text-o"></i></span>
+                    <span className="icon">
+                      <i className="fa fa-file-text-o"></i>
+                    </span>
                     <span>Documents</span>
                   </a>
                 </li>
               </ul>
             </div>
           </section>
-
-
-
-
         </Column>
       </Columns>
     </>
