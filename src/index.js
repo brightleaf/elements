@@ -33,6 +33,7 @@ export { Form } from './form'
 export { Heading } from './heading'
 export { Header } from './header'
 export { Hero, HeroBody, HeroFooter, HeroHead } from './hero'
+export { Highlight } from './highlight'
 export { Icon, BaseIcon, StackedIcons, MaterialIcon } from './icon'
 export { Image } from './image'
 export { Level, LevelItem, LevelLeft, LevelRight } from './level'
@@ -68,6 +69,7 @@ export {
 export { NavigationView } from './navigation-view'
 export { Notice } from './notice'
 export { Notification } from './notification'
+export { Number } from './number'
 export {
   Pagination,
   PaginationEllipsis,
