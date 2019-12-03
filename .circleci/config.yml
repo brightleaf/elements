@@ -6,6 +6,9 @@ commands:
       - run: npm install
       - run: npx isom transpile
       - run: npx isom test
+      - run: npx isom test:report
+      - store_test_results:
+          path: ~/elements/reports
 
 jobs:
   build:

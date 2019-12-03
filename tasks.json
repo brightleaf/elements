@@ -1,5 +1,6 @@
 {
   "test": "jest",
+  "test:report": "jest --reporters=jest-junit",
   "watch": "jest ./src --watch",
   "dev": "webpack-dev-server --config ./webpack/webpack.config.js --mode development",
   "prod": "webpack-dev-server --config ./webpack/webpack.config.js --mode production",
