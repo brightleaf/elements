@@ -2,6 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import { allTheClasses } from '../modifiers'
+import { propTypes } from '../utils/prop-types'
 export const PanelBlock = ({
   className,
   children,
@@ -56,3 +57,5 @@ export const Panel = ({ heading, children, className, ...props }) => {
     </nav>
   )
 }
+
+Panel.propTypes = propTypes

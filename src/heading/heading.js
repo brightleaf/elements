@@ -1,6 +1,8 @@
 import React from 'react'
 import classnames from 'classnames'
 import { Base } from '../base'
+import { propTypes } from '../utils/prop-types'
+
 
 export const Heading = ({ className, children, ...props }) => {
   return (
@@ -9,6 +11,8 @@ export const Heading = ({ className, children, ...props }) => {
     </Base>
   )
 }
+
+Heading.propTypes = propTypes
 
 Heading.defaultProps = {
   as: 'p',

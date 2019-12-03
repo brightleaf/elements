@@ -1,7 +1,6 @@
 import React, { useRef, useState, createContext, useContext } from 'react'
 import { useClickOutside } from '@brightleaf/react-hooks/lib/use-click-outside'
 import classnames from 'classnames'
-import '../css/animations.css'
 
 export const DropDown = ({ list, onSelect, label, className, isUp }) => {
   const [dropDownIsShown, setDropDownIsShown] = useState(false)

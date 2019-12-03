@@ -3,6 +3,7 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import { allTheClasses } from '../modifiers'
 import htmlAttributes from '../element-attributes'
+import { propTypes } from '../utils/prop-types'
 
 export const Base = forwardRef(
   ({ as: Element, className, children, ...props }, ref) => {
@@ -31,10 +32,7 @@ export const Base = forwardRef(
   }
 )
 
-Base.propTypes = {
-  as: PropTypes.node,
-  className: PropTypes.string,
-}
+Base.propTypes = propTypes
 
 Base.defaultProps = {
   as: 'div',

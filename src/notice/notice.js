@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { createPortal, unmountComponentAtNode } from 'react-dom'
 import classnames from 'classnames'
 import { allTheClasses } from '../modifiers'
+import { propTypes } from '../utils/prop-types'
 import { useToggle } from '../modal'
 import './notice.css'
 
@@ -199,6 +200,8 @@ export const Notice = ({
   )
 }
 
+Notice.propTypes = propTypes
+
 Notice.defaultProps = {
   actionText: 'OK',
   isShown: true,
@@ -210,4 +213,5 @@ Notice.defaultProps = {
   isRight: false,
   onHide: () => {},
 }
+
 export default Notice

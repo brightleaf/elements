@@ -202,6 +202,104 @@ export const FontWeight = ({
     'has-text-weight-bold': hasTextWeightBold,
   }
 }
+
+export const Helpers = ({
+  isClearfix,
+  isPulledLeft,
+  isPulledRight,
+  isMarginless,
+  isPaddingless,
+  isOverlay,
+  isClipped,
+  isRadiusless,
+  isShadowless,
+  isUnselectable,
+  isInvisible,
+  isHidden,
+  isScreenReaderOnly,
+  isRelative,
+}) => {
+  return {
+    'is-clearfix': isClearfix,
+    'is-pulled-left': isPulledLeft,
+    'is-pulled-right': isPulledRight,
+    'is-marginless': isMarginless,
+    'is-paddingless': isPaddingless,
+    'is-overlay': isOverlay,
+    'is-clipped': isClipped,
+    'is-radiusless': isRadiusless,
+    'is-shadowless': isShadowless,
+    'is-unselectable': isUnselectable,
+    'is-invisible': isInvisible,
+    'is-hidden': isHidden,
+    'is-sr-only': isScreenReaderOnly,
+    'is-relative': isRelative,
+  }
+}
+
+export const Responsive = ({
+  isBlock,
+  isBlockMobile,
+  isBlockDesktopOnly,
+  isBlockTabletOnly,
+  isBlockWideScreenOnly,
+  isFlex,
+  isFlexMobile,
+  isFlexDesktopOnly,
+  isFlexTabletOnly,
+  isFlexWideScreenOnly,
+
+  isInline,
+  isInlineMobile,
+  isInlineDesktopOnly,
+  isInlineTabletOnly,
+  isInlineWideScreenOnly,
+
+  isInlineBlock,
+  isInlineBlockMobile,
+  isInlineBlockDesktopOnly,
+  isInlineBlockTabletOnly,
+  isInlineBlockWideScreenOnly,
+
+  isInlineFlex,
+  isInlineFlexMobile,
+  isInlineFlexTabletOnly,
+  isInlineFlexDesktopOnly,
+  isInlineFlexWideScreenOnly,
+}) => {
+  return {
+    'is-block': isBlock,
+    'is-block-mobile': isBlockMobile,
+    'is-block-tablet-only': isBlockTabletOnly,
+    'is-block-desktop-only': isBlockDesktopOnly,
+    'is-blockis-widescreen-only': isBlockWideScreenOnly,
+
+    'is-flex': isFlex,
+    'is-flex-mobile': isFlexMobile,
+    'is-flex-tablet-only': isFlexTabletOnly,
+    'is-flex-desktop-only': isFlexDesktopOnly,
+    'is-flex-widescreen-only': isFlexWideScreenOnly,
+
+    'is-inline': isInline,
+    'is-inline-mobile': isInlineMobile,
+    'is-inline-tablet-only': isInlineTabletOnly ,
+    'is-inline-desktop-only': isInlineDesktopOnly,
+    'is-inline-widescreen-only': isInlineWideScreenOnly,
+
+    'is-inline-block': isInlineBlock,
+    'is-inline-block-mobile': isInlineBlockMobile,
+    'is-inline-block-tablet-only': isInlineBlockTabletOnly,
+    'is-inline-block-desktop-only': isInlineBlockDesktopOnly,
+    'is-inline-block-widescreen-only': isInlineBlockWideScreenOnly,
+
+    'is-inline-flex': isInlineFlex,
+    'is-inline-flex-mobile': isInlineFlexMobile,
+    'is-inline-flex-tablet-only': isInlineFlexTabletOnly,
+    'is-inline-flex-desktop-only': isInlineFlexDesktopOnly,
+    'is-inline-flex-widescreen-only': isInlineFlexWideScreenOnly,
+  }
+}
+
 export const allTheClasses = props => {
   return {
     ...Sized(props),
@@ -214,5 +312,7 @@ export const allTheClasses = props => {
     ...Colors(props),
     ...Size(props),
     ...FontWeight(props),
+    ...Helpers(props),
+    ...Responsive(props),
   }
 }

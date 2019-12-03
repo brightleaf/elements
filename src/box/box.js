@@ -1,6 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import { Base } from '../base'
+import { propTypes } from '../utils/prop-types'
 
 const Box = ({ children, className, ...props }) => {
   return (
@@ -10,7 +11,7 @@ const Box = ({ children, className, ...props }) => {
   )
 }
 
-Box.propTypes = {}
+Box.propTypes = propTypes
 
 Box.defaultProps = {
   as: 'div',
