@@ -130,10 +130,17 @@ import { Icon } from '@brightleaf/elements'
 export default () => {
   return (
     <>
-      <Icon icon="info-circle" hasTextInfo fas />{' '}
-      <Icon hasTextSuccess icon="check-square" fas />{' '}
-      <Icon hasTextWarning icon="exclamation-triangle" fas />{' '}
-      <Icon hasTextDanger icon="ban" fas />
+    <Icon icon="spinner" fas className="fa-pulse " />{' '}
+    <Icon
+      hasTextInfo
+      icon="react"
+      fab
+      className="fa-spin"
+      isLarge
+      isLargeFA
+    />{' '}
+    <Icon hasTextWarning icon="exclamation-triangle" fas />{' '}
+    <Icon hasTextDanger icon="ban" fas />
     </>
   )
 }
@@ -175,15 +182,8 @@ export default () => {
           <Column isHalf>
             <Highlight className="javascript" languages={['javascript']}>
               {`
-<span class="icon is-medium">
-<span class="fa-stack">
-  <i class="fas fa-circle fa-stack-2x"></i>
-  <i class="fas fa-flag fa-stack-1x fa-inverse"></i>
-</span>
-</span>
-
 import React from 'react'
-import { Icon } from '@brightleaf/elements'
+import { Icon, StackedIcons, BaseIcon } from '@brightleaf/elements'
 
 export default () => {
   return (
@@ -260,14 +260,6 @@ export default () => {
   )
 }
 
-// for font awesome 4
-import React from 'react'
-import { Icon } from '@brightleaf/elements'
-
-export default () => {
-  // make sure font-awesome stylesheet is included
-  return <Icon icon="home" fa />
-}
 `}
             </Highlight>
           </Column>
