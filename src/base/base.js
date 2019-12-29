@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import { allTheClasses } from '../modifiers'
-import htmlAttributes from '../element-attributes'
+import htmlAttributes, { ariaAttributes } from '../element-attributes'
 import { propTypes } from '../utils/prop-types'
 
 export const Base = forwardRef(
@@ -12,6 +12,7 @@ export const Base = forwardRef(
 
     const clean = htmlAttributes['*']
       .concat(htmlAttributes[Element] || [])
+      .concat(ariaAttributes)
       .reduce((objs, current) => {
         if (props[current]) {
           objs[current] = props[current]
