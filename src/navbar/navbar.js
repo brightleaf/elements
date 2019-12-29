@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import classnames from 'classnames'
 import { Colors } from '../modifiers'
-
+import { Base } from '../base'
 export const NavBarItem = ({ children, className, isActive, ...props }) => {
   const kid = React.cloneElement(children, {
     // eslint-disable-next-line sonarjs/no-duplicate-string
@@ -113,54 +113,39 @@ export const NavBarMenu = ({ children, id, isActive, className }) => {
 }
 export const NavBar = ({
   children,
-  isTransparent,
   isFixedTop,
   isFixedBottom,
-  isSpaced,
-  isPrimary,
-  isSuccess,
-  isInfo,
-  isWarning,
-  isDanger,
-  isLink,
-  isLight,
-  isWhite,
-  isDark,
-  isBlack,
-  isText,
   className,
+  ...props
 }) => {
   // is-transparent is-fixed-top  is-fixed-bottom
   const [isActive, setActive] = useState(false)
   useEffect(() => {
-    if (isFixedTop || isFixedBottom) {
-      const body = document.body.querySelector('body')
-      if (!body) return
+    if (isFixedTop) {
+      const body = document.body
+      if (!body) {
+        return
+      }
       body.classList.add('has-navbar-fixed-top')
       return () => {
         body.classList.remove('has-navbar-fixed-top')
       }
     }
+    if (isFixedBottom) {
+      const body = document.body
+      if (!body) {
+        return
+      }
+      body.classList.add('has-navbar-fixed-bottom')
+      return () => {
+        body.classList.remove('has-navbar-fixed-bottom')
+      }
+    }
   }, [isFixedTop, isFixedBottom])
 
   const classes = classnames('navbar', className, {
-    'is-transparent': isTransparent,
     'is-fixed-top': isFixedTop,
     'is-fixed-bottom': isFixedBottom,
-    'is-spaced': isSpaced,
-    ...Colors({
-      isPrimary,
-      isSuccess,
-      isInfo,
-      isWarning,
-      isDanger,
-      isLink,
-      isLight,
-      isWhite,
-      isDark,
-      isBlack,
-      isText,
-    }),
   })
 
   const kids = React.Children.map(children, (child, i) => {
@@ -179,10 +164,18 @@ export const NavBar = ({
     }
     return child
   })
+  const propsToPass = { isActive, isFixedBottom, isFixedTop }
 
   return (
-    <nav className={classes} role="navigation" aria-label="main navigation">
+    <Base
+      as="nav"
+      className={classes}
+      role="navigation"
+      aria-label="main navigation"
+      {...props}
+      {...propsToPass}
+    >
       {kids}
-    </nav>
+    </Base>
   )
 }
