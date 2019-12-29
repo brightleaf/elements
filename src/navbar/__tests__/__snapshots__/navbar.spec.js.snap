@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The NavBar Component should render a nav 1`] = `
+<nav
+  aria-label="main navigation"
+  class="navbar"
+  role="navigation"
+>
+  Test
+</nav>
+`;
+
+exports[`The NavBar Component should render a nav with classname is-fixed-bottom when passed isFixedBottom 1`] = `
+<nav
+  aria-label="main navigation"
+  class="navbar is-fixed-bottom"
+  role="navigation"
+>
+  Test
+</nav>
+`;
+
+exports[`The NavBar Component should render a nav with classname is-fixed-bottom when passed isFixedBottom 2`] = `
+<body
+  class="has-navbar-fixed-bottom"
+>
+  <div>
+    <nav
+      aria-label="main navigation"
+      class="navbar is-fixed-bottom"
+      role="navigation"
+    >
+      Test
+    </nav>
+  </div>
+</body>
+`;
+
+exports[`The NavBar Component should render a nav with classname is-fixed-top when passed isFixedTop 1`] = `
+<nav
+  aria-label="main navigation"
+  class="navbar is-fixed-top"
+  role="navigation"
+>
+  Test
+</nav>
+`;
+
+exports[`The NavBar Component should render a nav with classname is-fixed-top when passed isFixedTop 2`] = `
+<body
+  class="has-navbar-fixed-top"
+>
+  <div>
+    <nav
+      aria-label="main navigation"
+      class="navbar is-fixed-top"
+      role="navigation"
+    >
+      Test
+    </nav>
+  </div>
+</body>
+`;
+
+exports[`The NavBar Component should render a nav with classname is-primary when passed isPrimary 1`] = `
+<nav
+  aria-label="main navigation"
+  class="navbar is-primary"
+  role="navigation"
+>
+  Test
+</nav>
+`;
