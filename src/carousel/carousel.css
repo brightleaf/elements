@@ -1,0 +1,40 @@
+.is-multi-carousel {
+  overflow: hidden;
+}
+.is-multi-carousel .is-multi-carousel-inner {
+  transition: 1s ease all;
+}
+
+.is-multi-carousel .left-next,
+.is-multi-carousel .right-next {
+  position: absolute;
+  border-radius: 50%;
+  top: calc(50% - 20px);
+}
+.is-multi-carousel .left-next {
+  left: 0;
+}
+.is-multi-carousel .right-next {
+  right: 0;
+}
+
+.is-multi-carousel .leftLst.over,
+.is-multi-carousel .rightLst.over {
+  pointer-events: none;
+  background: #ccc;
+}
+.has-border {
+  margin: 5rem;
+  border: 1px solid black;
+  min-height: 300px;
+}
+
+.column div {
+  background-color: #00d1b2;
+  color: #fff;
+  text-align: center;
+  min-height: 300px;
+}
+
+.is-multi-carousel .is-multi-carousel-inner {
+}
