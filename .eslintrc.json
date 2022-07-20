@@ -1,5 +1,8 @@
 {
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
   "extends": [
-    "@kev_nz"
+    "@kev_nz",
+    "plugin:@typescript-eslint/recommended"
   ]
 }

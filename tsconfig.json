@@ -1,0 +1,31 @@
+{
+    "include": ["src/**/*.ts", "src/**/*.tsx"],
+    "exclude": ["node_modules/**/*", "src/**/*.test.tsx"],
+    "compilerOptions": {
+
+      "target": "es5",
+      "outDir": "dist",
+
+      "declaration": true,
+      "plugins": [],
+      "types": ["@types/node", "@types/testing-library__jest-dom"],
+      "baseUrl": "./src",
+  
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      // "resolveJsonModule": true,
+      // Strict flags
+      // Added
+      "jsx": "react",
+      "module": "ESNext",
+
+      "declarationDir": "types",
+      "sourceMap": true,
+      "forceConsistentCasingInFileNames": true,
+      "strict": true,
+      "moduleResolution": "node",
+      "allowSyntheticDefaultImports": true,
+      "emitDeclarationOnly": true
+    }
+  }
+  
